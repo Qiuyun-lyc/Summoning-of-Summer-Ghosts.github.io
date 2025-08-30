@@ -1,0 +1,109 @@
+{
+    "nodes": {
+        "100": {
+            "type": "logic",
+            "onNext": {
+                "setNode": 101
+            }
+        },
+        "101": {
+            "type": "text",
+            "name": "narrator",
+            "bgr": "test",
+            "bgm": "test",
+            "onNext": { "nextNode": true }
+        },
+        "102": {
+            "type": "text",
+            "name": "aoi",
+            "onNext": { "nextNode": true }
+        },
+        "103": {
+            "type": "text",
+            "name": "ryo",
+            "onNext": { "nextNode": true }
+        },
+        "104": {
+            "type": "text",
+            "name": "tomoya",
+            "onNext": { "nextNode": true }
+        },
+        "105": {
+            "type": "text",
+            "name": "narrator",
+            "onNext": { "setNode": 200 }
+        },
+        "200": {
+            "type": "animation",
+            "animation": "fadeInBlack",
+            "bgm": null,
+            "onNext": { "setNode": 201 }
+        },
+        "201": {
+            "type": "text",
+            "name": "narrator",
+            "bgr": "test",
+            "bgm": "test",
+            "lCharactor": "tomoya",
+            "rCharactor": "aoi",
+            "onNext": { "nextNode": true }
+        },
+        "202": {
+            "type": "text",
+            "name": "ryo",
+            "lCharactor": "tomoya",
+            "rCharactor": "ryo",
+            "onNext": { "nextNode": true }
+        },
+        "203": {
+            "type": "text",
+            "name": "narrator",
+            "bgr": "test",
+            "onNext": { "nextNode": true }
+        },
+        "204": {
+            "type": "text",
+            "name": "narrator",
+            "bgr": "test",
+            "bgm": "test",
+            "onNext": { "nextNode": true }
+        },
+        "205": {
+            "type": "text",
+            "name": "ayane",
+            "rCharactor": "ayane",
+            "onNext": { "setNode": 300 }
+        },
+        "300": {
+            "type": "choices",
+            "name": "ayane",
+            "onNext": {
+                "choice": [
+                    { "targetNode": 301 },
+                    { "targetNode": 302 },
+                    { "targetNode": 303 }
+                ]
+            }
+        },
+        "301": {
+            "type": "text",
+            "name": "tomoya",
+            "onNext": { "setNode": 400 }
+        },
+        "302": {
+            "type": "text",
+            "name": "aoi",
+            "onNext": { "setNode": 400 }
+        },
+        "303": {
+            "type": "text",
+            "name": "ryo",
+            "onNext": { "setNode": 400 }
+        },
+        "400": {
+            "type": "text",
+            "name": "narrator",
+            "onNext": { "ending": true }
+        }
+    }
+}

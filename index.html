@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>夏日幽灵</title>
+    <link rel="stylesheet" href="./assets/css/style.css">
+</head>
+<body>
+    <!-- 这是所有游戏视图将被渲染的主容器 -->
+    <div id="app-container"></div>
+
+    <!-- 音频元素放在这里，以便AudioManager可以全局访问 -->
+    <audio id="bgm-player" loop></audio>
+    <audio id="sfx-hover-player"></audio>
+    <audio id="sfx-click-player"></audio>
+    <audio id="sfx-title-hover-player"></audio>
+    <audio id="sfx-title-click-player"></audio>
+    <audio id="sfx-sys-yes-player"></audio>
+
+
+    <!-- 我们应用程序脚本的唯一入口点 -->
+    <script type="module" src="./js/main.js"></script>
+</body>
+</html>
