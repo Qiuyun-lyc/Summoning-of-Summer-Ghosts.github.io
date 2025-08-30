@@ -71,8 +71,7 @@ const GameView = {
             if (e.key === ' ' && document.querySelector('.game-view')) {
               engine.handlePlayerInput();
             }
-            // 当视图改变时，需移除这个监听器，避免在其他页面触发
-            // 简单起见，这里未做移除
+            // 当视图改变时，需移除这个监听器，避免在其他页面触发（下次一定）
         });
     }
 };

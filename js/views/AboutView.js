@@ -19,14 +19,14 @@ const AboutView = {
                         <div class="gallery row1">
                             <div class="icon_img">
                                 <div class="flip-box">
-                                    <img class="zhengImg" src="./photo/1.jpg" alt="正面图" />
-                                    <img class="fanImg" src="./photo/1.jpg" alt="反面图" />
+                                    <img class="zhengImg" src="./assets/img/teammate/1.jpg" alt="正面图" />
+                                    <img class="fanImg" src="./assets/img/teammate/1.jpg" alt="反面图" />
                                 </div>
                             </div>
                             <div class="icon_img">
                                 <div class="flip-box">
-                                    <img class="zhengImg" src="./photo/2.png" alt="正面图" />
-                                    <img class="fanImg" src="./photo/2.png" alt="反面图" />
+                                    <img class="zhengImg" src="./assets/img/teammate/2.png" alt="正面图" />
+                                    <img class="fanImg" src="./assets/img/teammate/2.png" alt="反面图" />
                                 </div>
                             </div>
                         </div>
@@ -35,20 +35,20 @@ const AboutView = {
                         <div class="gallery row2">
                             <div class="icon_img">
                                 <div class="flip-box">
-                                    <img class="zhengImg" src="./photo/3.jpg" alt="正面图" />
-                                    <img class="fanImg" src="./photo/3.jpg" alt="反面图" />
+                                    <img class="zhengImg" src="./assets/img/teammate/3.jpg" alt="正面图" />
+                                    <img class="fanImg" src="./assets/img/teammate/3.jpg" alt="反面图" />
                                 </div>
                             </div>
                             <div class="icon_img">
                                 <div class="flip-box">
-                                    <img class="zhengImg" src="./photo/4.jpg" alt="正面图" />
-                                    <img class="fanImg" src="./photo/4.jpg" alt="反面图" />
+                                    <img class="zhengImg" src="./assets/img/teammate/4.jpg" alt="正面图" />
+                                    <img class="fanImg" src="./assets/img/teammate/4.jpg" alt="反面图" />
                                 </div>
                             </div>
                             <div class="icon_img">
                                 <div class="flip-box">
-                                    <img class="zhengImg" src="./photo/5.jpg" alt="正面图" />
-                                    <img class="fanImg" src="./photo/5.jpg" alt="反面图" />
+                                    <img class="zhengImg" src="./assets/img/teammate/5.jpg" alt="正面图" />
+                                    <img class="fanImg" src="./assets/img/teammate/5.jpg" alt="反面图" />
                                 </div>
                             </div>
                         </div>

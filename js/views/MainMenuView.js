@@ -32,7 +32,7 @@ const MainMenuView = {
                 </div>
             </div>
         `;
-        // 播放合适的背景音乐
+        // 播放合适的背景音乐(后期添加多音乐)
         const bgmMap = {
             './assets/img/bgr/mainmenu.png': './assets/bgm/test.mp3',
         };

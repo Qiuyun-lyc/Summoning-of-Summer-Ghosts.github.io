@@ -268,33 +268,6 @@ a {
     position: absolute; 
 }
 
-
-/* 设置页面 */
-.config-view .settingBox {
-    position: relative;
-    width: 500px;
-    margin: 20vh auto;
-    padding: 40px;
-    box-sizing: border-box;
-}
-
-.config-view .setting {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-bottom: 20px;
-    color: #333;
-}
-
-.config-view .setting label {
-    font-weight: bold;
-}
-
-.config-view .setting input[type="range"] {
-    width: 260px;
-}
-
-
 /* 关于页面  */
 .about-view .about-content {
     position: absolute;
@@ -512,5 +485,3 @@ a {
     justify-content: center;
     align-items: center;
 }
-
-

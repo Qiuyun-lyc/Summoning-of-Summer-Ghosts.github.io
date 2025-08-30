@@ -4,7 +4,6 @@ const LoginView = {
         container.innerHTML = `
             <div class="view auth-view" id="login-view">
                 <div class="bg" style="background-image: url('./assets/img/bgr/mainmenu.png');"></div>
-
                 <div class="auth-form">
                     <img src="./assets/img/login/paper.png" class="auth-form-img">
                     <div class="auth-form-line">
