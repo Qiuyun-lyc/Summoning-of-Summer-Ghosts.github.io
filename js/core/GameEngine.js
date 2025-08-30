@@ -10,19 +10,18 @@ import RegisterView from '../views/RegisterView.js';
 import MainMenuView from '../views/MainMenuView.js';
 import GameView from '../views/GameView.js';
 import LoadView from '../views/LoadView.js';
-import ConfigView from '../views/ConfigView.js';
+import AchievementView from '../views/AchievementView.js';
 import AboutView from '../views/AboutView.js';
 
-// 代表游戏的核心协调器
 export default class GameEngine {
     constructor(container) {
         this.container = container;
         this.dataManager = new DataManager();
-        this.saveManager = new SaveManager();
+        this.saveManager = new SaveManager(this);
         this.audioManager = new AudioManager();
         this.animation = new Animation();
         this.localization = new Localization(this.dataManager);
-        this.uiManager = new UIManager(this); // UIManager需要通过引擎访问其他服务
+        this.uiManager = new UIManager(this);
 
         this.gameState = {
             currentSave: null,
@@ -36,7 +35,7 @@ export default class GameEngine {
             MainMenu: MainMenuView,
             Game: GameView,
             Load: LoadView,
-            Config: ConfigView,
+            Achievement: AchievementView, 
             About: AboutView
         };
     }
@@ -52,7 +51,7 @@ export default class GameEngine {
         }
     }
 
-    showView(viewName, params = {}) {
+    showView(viewName) {
         this.uiManager.clearContainer();
         const view = this.views[viewName];
         if (view) {
@@ -76,52 +75,43 @@ export default class GameEngine {
 
     processNode(nodeId) {
         const node = this.dataManager.getNode(nodeId);
-        if (!node) {
-            console.error(`故事节点 ${nodeId} 未找到。`);
-            return;
-        }
+        if (!node) return;
 
         this.gameState.currentSave.nodeId = nodeId;
         this.uiManager.renderNode(node);
 
         if (node.bgm) {
             this.audioManager.playBgm(`./assets/bgm/${node.bgm}.mp3`);
-        } else if (node.bgm === null) { //
+        } else if (node.bgm === null) {
             this.audioManager.stopBgm();
         }
         
-        if (node.onEnter) {
-            // 扩展以处理更复杂的onEnter逻辑(下阶段)
+        if (node.unlockAchievement) {
+            this.saveManager.unlockAchievement(node.unlockAchievement);
         }
         
-        if (node.type === 'animation') {
-            this.handleAnimation(node);
-        }
+        if (node.onEnter) { /* ... */ }
+        if (node.type === 'animation') { /* ... */ }
     }
     
     async handleAnimation(node) {
         this.setInputDisabled(true);
         await this.animation.play(node.animation);
         this.setInputDisabled(false);
-        this.handlePlayerInput(); // 动画结束后自动前进
+        this.handlePlayerInput();
     }
 
     handlePlayerInput(choiceIndex = null) {
         if (this.gameState.isInputDisabled || this.gameState.isPaused) return;
-
         if (this.uiManager.isPrinting()) {
             this.uiManager.skipPrinting();
             return;
         }
-
         const currentNodeId = this.gameState.currentSave.nodeId;
         const node = this.dataManager.getNode(currentNodeId);
         const onNext = node.onNext;
-
         if (!onNext) return;
-
         let nextNodeId = null;
-
         if (onNext.nextNode) {
             nextNodeId = parseInt(currentNodeId) + 1;
         } else if (onNext.setNode) {
@@ -135,11 +125,9 @@ export default class GameEngine {
                 nextNodeId = choice.targetNode;
             }
         } else if (onNext.ending) {
-            // 根据存档状态处理结局逻辑
-            this.showView('MainMenu'); // 暂时简单返回主菜单
+            this.showView('MainMenu');
             return;
         }
-
         if (nextNodeId !== null) {
             this.processNode(nextNodeId);
         }

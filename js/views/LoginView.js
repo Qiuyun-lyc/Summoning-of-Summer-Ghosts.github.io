@@ -6,7 +6,7 @@ const LoginView = {
                 <div class="bg" style="background-image: url('./assets/img/bgr/mainmenu.png');"></div>
 
                 <div class="auth-form">
-                    <img src="./assets/img/menuBox/paper.png" class="auth-form-img">
+                    <img src="./assets/img/login/paper.png" class="auth-form-img">
                     <div class="auth-form-line">
                         <label class="auth-form-label">${L.get('ui.username')}</label>
                         <input type="text" id="username" name="username">
@@ -18,11 +18,11 @@ const LoginView = {
                 </div>
                 <div class="auth-button-group">
                     <div class="auth-button" id="login-btn">
-                        <img src="./assets/img/login_button.png">
+                        <img src="./assets/img/login/button.png">
                         <h5>${L.get('ui.login')}</h5>
                     </div>
                     <div class="auth-button" id="register-nav-btn">
-                        <img src="./assets/img/login_button.png">
+                        <img src="./assets/img/login/button.png">
                         <h5>${L.get('ui.register')}</h5>
                     </div>
                 </div>

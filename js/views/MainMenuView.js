@@ -21,9 +21,9 @@ const MainMenuView = {
                         <img class="button-img" src="./assets/img/button.png">
                         <a>${L.get('ui.load')}</a>
                     </div>
-                    <div class="main-menu-button" data-action="config">
+                    <div class="main-menu-button" data-action="achievement">
                         <img class="button-img" src="./assets/img/button.png">
-                        <a>${L.get('ui.config')}</a>
+                        <a>${L.get('ui.achievement')}</a>
                     </div>
                     <div class="main-menu-button" data-action="about">
                         <img class="button-img" src="./assets/img/button.png">
@@ -55,8 +55,8 @@ const MainMenuView = {
                     case 'load':
                         engine.showView('Load');
                         break;
-                    case 'config':
-                        engine.showView('Config');
+                    case 'achievement':
+                        engine.showView('Achievement');
                         break;
                     case 'about':
                         engine.showView('About'); 

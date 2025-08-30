@@ -3,7 +3,7 @@ const LoadView = {
         const L = engine.localization;
         container.innerHTML = `
             <div class="view load-view">
-                <div class="bg" style="background-image: url('./assets/img/bgr/test.png');"></div>
+                <div class="bg" style="background-image: url('./assets/img/bgr/mainmenu.png');"></div>
                 <nav class="navbar">
                     <span>SAVEDATA</span>
                     <div>
@@ -25,7 +25,7 @@ const LoadView = {
             slot.className = 'save-slot';
             
             const nodeData = save ? engine.dataManager.getNode(save.nodeId) : null;
-            const thumbnail = nodeData && nodeData.bgr ? `./assets/img/bgr/${nodeData.bgr}.png` : './assets/img/bgr/test.jpg';
+            const thumbnail = nodeData && nodeData.bgr ? `./assets/img/bgr/${nodeData.bgr}.png` : './assets/img/bgr/test.png';
             const chapter = nodeData ? `章节 ${Math.floor(save.nodeId / 100)}` : '---';
             const saveDate = save ? save.saveDate : '空';
 

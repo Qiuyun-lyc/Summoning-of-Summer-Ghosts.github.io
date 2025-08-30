@@ -16,7 +16,6 @@ class Save {
     }
 }
 
-
 export default class SaveManager {
     constructor() {
         this.currentUser = null;
@@ -49,7 +48,7 @@ export default class SaveManager {
 
     register(username, password) {
         if (localStorage.getItem(username)) {
-            return false; // 用户已存在
+            return false;
         }
         const newUser = new User(username, password);
         localStorage.setItem(username, JSON.stringify(newUser));
@@ -85,6 +84,16 @@ export default class SaveManager {
     persistCurrentUser() {
         if (this.currentUser) {
             localStorage.setItem(this.currentUser.username, JSON.stringify(this.currentUser));
+        }
+    }
+
+    unlockAchievement(achievementId) {
+        if (!this.currentUser) return;
+        
+        if (!this.currentUser.achievementArray.includes(achievementId)) {
+            this.currentUser.achievementArray.push(achievementId);
+            this.persistCurrentUser();
+            console.log(`成就已解锁: ${achievementId}`);
         }
     }
 }

@@ -4,9 +4,6 @@ const RegisterView = {
         container.innerHTML = `
             <div class="view auth-view" id="register-view">
                 <div class="bg" style="background-image: url('./assets/img/bgr/mainmenu.png');"></div>
-                <div class="header">
-                    <img src="./assets/img/Twilight Forest0.png" alt="header">
-                </div>
                 <div class="auth-form">
                     <img src="./assets/img/menuBox/paper.png" class="auth-form-img">
                     <div class="auth-form-line">
@@ -24,11 +21,11 @@ const RegisterView = {
                 </div>
                 <div class="auth-button-group">
                     <div class="auth-button" id="register-btn">
-                        <img src="./assets/img/login_button.png">
+                        <img src="./assets/img/login/button.png">
                         <h5>${L.get('ui.register')}</h5>
                     </div>
                     <div class="auth-button" id="back-to-login-btn">
-                        <img src="./assets/img/login_button.png">
+                        <img src="./assets/img/login/button.png">
                         <h5>${L.get('ui.back')}</h5>
                     </div>
                 </div>

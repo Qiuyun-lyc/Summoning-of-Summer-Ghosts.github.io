@@ -1,13 +1,20 @@
-/* --- 全局样式与字体 --- */
+
+/* 全局局样式、字体与基础元素  */
 body {
     margin: 0;
     padding: 0;
-    overflow: hidden;
+    overflow: hidden; /* 防止滚动条出现 */
     font-family: 'lilyshow', 'FangSong', '仿宋', 'SimSun', sans-serif;
     color: white;
     background-color: #000;
 }
 
+a {
+    text-decoration: none;
+    color: inherit; /* 链接继承父元素的颜色 */
+}
+
+/* 通用背景容器 */
 .bg {
     position: absolute;
     top: 0;
@@ -17,14 +24,12 @@ body {
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
-    background-attachment: fixed;
-    z-index: -1;
+    background-attachment: fixed; /* 背景图不随滚动条滚动 */
+    z-index: -1; /* 置于最底层 */
 }
 
-a {
-    text-decoration: none;
-    color: inherit;
-}
+
+/* --- 2. 通用动画与效果 --- */
 @keyframes fadeIn {
   from { opacity: 0; }
   to { opacity: 1; }
@@ -41,18 +46,33 @@ a {
   }
 }
 
+/* 淡入效果的通用类 */
 .fade-in {
     opacity: 0;
     animation: fadeIn 1s ease forwards;
 }
 
+
+/* 登陆页面 */
 .auth-view {
     display: flex;
     flex-direction: column; 
-    align-items: flex-end;
+    align-items: flex-end; /* 内容靠右对齐 */
     padding-right: 15vw;
     padding-top: 30vh;
     box-sizing: border-box;
+}
+
+/* 标题 "夏日幻魂" */
+.auth-view::before {
+    content: "夏日幻魂";
+    position: absolute;
+    top: 10vh; 
+    right: 20vw; 
+    font-size: clamp(32px, 5vw, 80px); /* 响应式字体大小 */
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+    z-index: 10;
 }
 
 .auth-view .header {
@@ -67,6 +87,33 @@ a {
     box-sizing: border-box;
 }
 
+.auth-form-img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0; /* 作为表单背景 */
+}
+
+.auth-form-line {
+    position: relative; /* 子元素可以使用绝对定位 */
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+}
+
+.auth-form-label {
+    flex: 0 0 120px; /* 不伸缩，不压缩，基础宽度120px */
+    font-family: 'STKaiti', serif;
+    font-weight: bold;
+    color: #333;
+}
+
+.auth-form input {
+    flex-grow: 1; /* 占据剩余空间 */
+    padding: 5px;
+}
 
 .auth-button-group {
     display: flex;
@@ -75,70 +122,46 @@ a {
     margin-top: 20px;
 }
 
-.auth-form-img {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 0;
-}
-.auth-form-line {
-    margin-bottom: 20px;
-    display: flex;
-    align-items: center;
-    position: relative;
-}
-.auth-form-label {
-    flex: 0 0 120px;
-    font-family: 'STKaiti', serif;
-    font-weight: bold;
-    color: #333;
-}
-
-
-.auth-view::before {
-    content: "夏日幻魂";
-    position: absolute;
-    top: 10vh; 
-    right: 20vw; 
-    
-    font-size: clamp(32px, 5vw, 80px);
-    color: white;
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
-    font-family: 'lilyshow', 'FangSong', '仿宋', 'SimSun', sans-serif;
-
-    z-index: 10;
-}
-
-.auth-form input {
-    flex-grow: 1;
-    padding: 5px;
-}
-.auth-button-group {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-}
 .auth-button {
     position: relative;
     cursor: pointer;
     text-align: center;
 }
-.auth-button h5 {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    margin: 0;
-    color: white;
-    text-shadow: 1px 1px 2px black;
-}
+
 .auth-button img {
     width: 150px;
 }
 
-/* --- 主菜单视图 --- */
+.auth-button h5 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* 文字绝对居中 */
+    margin: 0;
+    color: white;
+    text-shadow: 1px 1px 2px black;
+}
+
+
+/* 主菜单页面 */
+.main-menu-view .header {
+    text-align: right;
+    padding-top: 5vh;
+    padding-right: 15vw;
+    animation-delay: 0s;
+}
+
+.main-menu-view .header-title {
+    font-size: clamp(10px, 5vw, 300px);
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+}
+
+.main-menu-view .header-img {
+    max-width: 40%;
+    margin-top: 20px;
+}
+
 .main-menu-view .sidebar-image {
     position: absolute;
     bottom: 0;
@@ -146,40 +169,29 @@ a {
     height: 90vh;
     animation-delay: 0.2s;
 }
-.main-menu-view .header {
-    text-align: right;
-    padding-top: 5vh;
-    padding-right: 15vw;
-    animation-delay: 0s;
-}
-.main-menu-view .header-title {
-    font-size: clamp(10px, 5vw, 300px);
-    color: white;
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
-}
-.main-menu-view .header-img {
-    max-width: 40%;
-    margin-top: 20px;
-}
+
 .main-menu-button-group {
     position: absolute;
     right: 15vw;
-    top: 20%;
+    top: 20%; /* 调整为更合适的位置 */
     transform: translateY(-50%);
     opacity: 0;
     animation: slideInFromRight 0.6s ease forwards;
     animation-delay: 0.1s;
 }
+
 .main-menu-button {
     position: relative;
     margin: clamp(8px, 2vh, 20px) 0;
     cursor: pointer;
     width: clamp(10px, 25vw, 300px);
 }
+
 .main-menu-button .button-img {
     width: 100%;
     height: auto;
 }
+
 .main-menu-button a {
     position: absolute;
     top: 50%;
@@ -189,21 +201,190 @@ a {
     color: white;
 }
 
-/* --- 游戏视图 --- */
+/* 存档页面 */
+.load-view {
+    padding-top: 80px; /* 为导航栏留出空间 */
+    height: 100vh;
+    box-sizing: border-box;
+}
+
+.navbar {
+    position: fixed; /* 固定在顶部 */
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-sizing: border-box;
+    z-index: 100;
+}
+
+.save-slots-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* 两列布局 */
+    gap: 20px;
+    padding: 20px;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.save-slot {
+    position: relative;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    color: black;
+}
+
+.save-slot-bg {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    z-index: -1;
+    opacity: 0.5; /* 添加这一行 */
+}
+
+.save-info { flex: 2; }
+.save-chapter { flex: 1; text-align: center; }
+.save-thumbnail { flex: 1; text-align: right; }
+.save-thumbnail img { max-width: 100px; border: 1px solid #ccc; }
+
+.save-buttons { 
+    margin-top: 10px; 
+    display: flex; 
+    gap: 10px; 
+}
+
+.save-buttons .action-button {
+    cursor: pointer;
+    position: relative;
+    width: 80px; height: 30px;
+}
+
+.save-buttons .action-button img { 
+    width: 100%; 
+    height: 100%; 
+    position: absolute; 
+}
+
+
+/* 设置页面 */
+.config-view .settingBox {
+    position: relative;
+    width: 500px;
+    margin: 20vh auto;
+    padding: 40px;
+    box-sizing: border-box;
+}
+
+.config-view .setting {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.config-view .setting label {
+    font-weight: bold;
+}
+
+.config-view .setting input[type="range"] {
+    width: 260px;
+}
+
+
+/* 关于页面  */
+.about-view .about-content {
+    position: absolute;
+    top: 60px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: 20px;
+}
+
+.about-view iframe {
+    width: 100%;
+    height: 100%;
+    background-color: transparent;
+    border-radius: 10px;
+}
+
+.about-view .about-content-wrapper a {
+    text-decoration: none;
+    color: black;
+}
+
+.about-view .about-content-wrapper .icon_img {
+    width: 300px;
+    height: 300px;
+    margin: 0 auto;
+    perspective: 1000px; /* 3D翻转效果的视距 */
+}
+
+.about-view .about-content-wrapper .flip-box {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 1s;
+    transform-style: preserve-3d;
+}
+
+.about-view .about-content-wrapper .icon_img:hover .flip-box {
+    transform: rotateY(180deg); /* 悬停时Y轴翻转 */
+}
+
+.about-view .about-content-wrapper .zhengImg, 
+.about-view .about-content-wrapper .fanImg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden; /* 隐藏元素的背面 */
+    border-radius: 20px;
+}
+
+.about-view .about-content-wrapper .fanImg {
+    transform: rotateY(180deg); /* 背面图片预先翻转 */
+}
+
+.about-view .about-content-wrapper .gallery {
+    display: grid;
+    gap: 20px;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.about-view .about-content-wrapper .gallery.row1 {
+    grid-template-columns: repeat(2, 300px);
+} 
+
+.about-view .about-content-wrapper .gallery.row2 {
+    grid-template-columns: repeat(3, 300px);
+}
+
+/* 游戏视图 */
+
+/* 游戏场景与角色 */
 .game-view {
     width: 100vw;
     height: 100vh;
     position: relative;
     overflow: hidden;
 }
+
 .game-bgr {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: cover; /* 背景图铺满容器 */
     position: absolute;
     top: 0;
     left: 0;
 }
+
 .char-box {
     position: absolute;
     bottom: 0;
@@ -213,13 +394,16 @@ a {
     justify-content: center;
     align-items: flex-end;
 }
+
 .char-box img {
     max-height: 100%;
     max-width: 100%;
 }
+
 .l-char-box { left: 0; }
 .r-char-box { right: 0; }
 
+/* 对话系统 */
 .dialogue-group {
     position: absolute;
     bottom: 2vh;
@@ -228,61 +412,67 @@ a {
     width: 90vw;
     height: 25vh;
     z-index: 10;
-    display: none; /* Initially hidden */
+    display: none; /* 默认隐藏 */
 }
+
 .dialogue-group img {
     width: 100%;
     height: 100%;
     position: absolute;
 }
+
 .textbox-content {
     position: relative;
     padding: 30px 40px;
     box-sizing: border-box;
     height: 100%;
 }
+
 .textbox-name {
     font-size: 1.8rem;
     margin-bottom: 10px;
     font-weight: bold;
 }
+
 .textbox-text {
     font-size: 1.5rem;
     height: 60%;
 }
 
+/* 选项系统 */
 .choice-group {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     z-index: 20;
-    display: none; /* Initially hidden */
+    display: none; /* 默认隐藏 */
     flex-direction: column;
     gap: 15px;
 }
+
 .choice-line {
     position: relative;
     width: 300px;
     height: 60px;
     cursor: pointer;
 }
-.choice-line .button-icon {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    opacity: 1;
-    transition: opacity 0.2s;
-}
+
+.choice-line .button-icon,
 .choice-line .button-icon-hover {
     position: absolute;
     width: 100%;
     height: 100%;
-    opacity: 0;
     transition: opacity 0.2s;
 }
+
+.choice-line .button-icon-hover {
+    opacity: 0;
+}
+
 .choice-line:hover .button-icon { opacity: 0; }
 .choice-line:hover .button-icon-hover { opacity: 1; }
+
 .choice-text {
     position: absolute;
     top: 50%;
@@ -291,7 +481,7 @@ a {
     font-size: 1.5rem;
 }
 
-/* --- 暂停菜单 --- */
+/* 暂停菜单 */
 .pause-menu {
     position: absolute;
     top: 0;
@@ -300,15 +490,17 @@ a {
     height: 100%;
     background-color: rgba(0, 0, 0, 0.7);
     z-index: 100;
-    display: none; /* Initially hidden */
+    display: none; /* 默认隐藏 */
     justify-content: center;
     align-items: center;
 }
+
 .pause-button-group {
     display: flex;
     flex-direction: column;
     gap: 20px;
 }
+
 .pause-menu-button {
     position: relative;
     width: 300px;
@@ -322,138 +514,3 @@ a {
 }
 
 
-/* --- 读档/存档 视图 --- */
-.load-view {
-    padding-top: 80px; /* 为导航栏留出空间 */
-    height: 100vh;
-    box-sizing: border-box;
-}
-.navbar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    padding: 10px 20px;
-    background-color: transparent;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    box-sizing: border-box;
-    z-index: 100;
-}
-.save-slots-container {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 20px;
-    padding: 20px;
-    max-width: 1200px;
-    margin: auto;
-}
-.save-slot {
-    position: relative;
-    padding: 20px;
-    display: flex;
-    align-items: center;
-    color: black;
-}
-.save-slot-bg {
-    position: absolute;
-    top: 0; left: 0; width: 100%; height: 100%;
-    z-index: -1;
-}
-.save-info { flex: 2; }
-.save-chapter { flex: 1; text-align: center; }
-.save-thumbnail { flex: 1; text-align: right; }
-.save-thumbnail img { max-width: 100px; border: 1px solid #ccc; }
-.save-buttons { margin-top: 10px; display: flex; gap: 10px; }
-.save-buttons .action-button {
-    cursor: pointer;
-    position: relative;
-    width: 80px; height: 30px;
-}
-.save-buttons .action-button img { width: 100%; height: 100%; position: absolute; }
-
-/* ... 添加其他如设置等视图的样式 ... */
-.config-view .settingBox {
-    position: relative;
-    width: 500px;
-    margin: 20vh auto;
-    padding: 40px;
-    box-sizing: border-box;
-}
-.config-view .setting {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-bottom: 20px;
-    color: #333;
-}
-.config-view .setting label {
-    font-weight: bold;
-}
-.config-view .setting input[type="range"] {
-    width: 260px;
-}
-.about-view .about-content {
-    position: absolute;
-    top: 60px;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    padding: 20px;
-}
-.about-view iframe {
-    width: 100%;
-    height: 100%;
-    background-color: transparent;
-    border-radius: 10px;
-}
-
-body {
-    background-color: transparent; 
-    font-family: sans-serif;
-}
-.about-view .about-content-wrapper a {
-    text-decoration: none;
-    color: black;
-}
-.about-view .about-content-wrapper .icon_img {
-    width: 300px;
-    height: 300px;
-    margin: 0 auto;
-    perspective: 1000px;
-}
-.about-view .about-content-wrapper .flip-box {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    transition: transform 1s;
-    transform-style: preserve-3d;
-}
-.about-view .about-content-wrapper .icon_img:hover .flip-box {
-    transform: rotateY(180deg);
-}
-.about-view .about-content-wrapper .zhengImg, .fanImg {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    backface-visibility: hidden;
-    border-radius: 20px;
-}
-.about-view .about-content-wrapper .fanImg {
-    transform: rotateY(180deg);
-}
-.about-view .about-content-wrapper .gallery {
-    display: grid;
-    gap: 20px;
-    justify-content: center;
-    margin-top: 20px;
-}
-.about-view .about-content-wrapper .gallery.row1 {
-    grid-template-columns: repeat(2, 300px);
-} 
-.about-view .about-content-wrapper .gallery.row2 {
-    grid-template-columns: repeat(3, 300px);
-} 

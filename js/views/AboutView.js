@@ -1,5 +1,3 @@
-// 文件路径: js/views/AboutView.js
-
 const AboutView = {
     render: (container, engine) => {
         const L = engine.localization;
