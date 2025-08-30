@@ -59,8 +59,7 @@ const MainMenuView = {
                         engine.showView('Config');
                         break;
                     case 'about':
-                        alert('test');
-                        engine.showView('MainMenu'); 
+                        engine.showView('About'); 
                         break;
                 }
             });

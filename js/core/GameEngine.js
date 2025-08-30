@@ -11,6 +11,7 @@ import MainMenuView from '../views/MainMenuView.js';
 import GameView from '../views/GameView.js';
 import LoadView from '../views/LoadView.js';
 import ConfigView from '../views/ConfigView.js';
+import AboutView from '../views/AboutView.js';
 
 // 代表游戏的核心协调器
 export default class GameEngine {
@@ -35,7 +36,8 @@ export default class GameEngine {
             MainMenu: MainMenuView,
             Game: GameView,
             Load: LoadView,
-            Config: ConfigView
+            Config: ConfigView,
+            About: AboutView
         };
     }
 
