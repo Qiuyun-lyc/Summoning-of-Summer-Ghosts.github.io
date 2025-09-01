@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>个人简介 - 葛洪康</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background: url('../assets/img/bgr/profile.png') no-repeat center center fixed;
+            background-size: cover;
+        }
+
+        /* 卡片容器 */
+        .profile-container {
+        display: flex;
+        flex-wrap: wrap; 
+        justify-content: center;
+        align-items: flex-start;
+        gap: 40px;
+        padding: 40px 60px;
+
+    /* 改动部分 ↓ */
+    background: rgba(255, 255, 255, 0.5);  /* 半透明白色背景 */
+    border-radius: 25px;
+    box-shadow: 0 10px 35px rgba(0,0,0,0.2); /* 柔和阴影，不像边框 */
+    max-width: 90%;
+}
+
+
+        /* 人名放在卡片内部 */
+        #profile-name {
+            flex-basis: 100%;   /* 占一整行 */
+            font-size: 42px;
+            text-align: center;
+            margin: 0 0 20px 0;
+            color: #333;  /* 深色文字更适合纸背景 */
+            text-shadow: none;
+        }
+
+        .profile-container img {
+            border-radius: 20px;
+            width: 100%;
+            max-width: 350px; /* 限制最大宽度 */
+            height: auto;     /* 按比例缩放 */
+            object-fit: cover;
+        }
+
+        .profile-text {
+            flex: 1; /* 占据剩余空间 */
+            min-width: 260px;
+            font-size: 20px;
+            line-height: 1.8;
+            color: #333;
+        }
+
+        .profile-text h2 {
+            margin-top: 0;
+            font-size: 28px;
+            border-bottom: 2px solid #ddd;
+            padding-bottom: 8px;
+        }
+
+        .profile-text p {
+            margin: 12px 0;
+        }
+
+        .profile-text a {
+            color: #0077cc;
+            text-decoration: none;
+        }
+
+        .profile-text a:hover {
+            text-decoration: underline;
+        }
+
+        /* ====== 返回按钮样式 ====== */
+        .back-link {
+            margin-top: 35px;
+            width: 180px;
+            height: 55px;
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 12px;
+            color: white;
+            font-size: 20px;
+            font-weight: bold;
+            text-decoration: none;
+            background: url('../assets/img/button.png') no-repeat center center;
+            background-size: cover;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 6px 18px rgba(0,0,0,0.25);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .back-link::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: rgba(0,0,0,0.3);
+            border-radius: 12px;
+        }
+
+        .back-link span {
+            position: relative;
+            z-index: 1;
+        }
+
+        .back-link:hover {
+            transform: translateY(-4px) scale(1.05);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.35);
+        }
+    </style>
+</head>
+<body>
+    <div class="profile-container">
+        <!-- 人名放入卡片 -->
+        <h1 id="profile-name">葛洪康</h1>
+
+        <img src="../assets/img/teammate/21.jpg" alt="个人照片">
+
+        <div class="profile-text">
+            <h2>个人简介</h2>
+            <p><strong>任职：</strong>剧情设计总监</p>
+            <p><strong>自我介绍：</strong>葛洪康，剧情界的“猛攻大师”，二次元鼠鼠爱好者，他的生活哲学就是：剧情必须炸裂，角色必须生动，玩家必须沉迷。每次团队开会，他的脑洞总能让大家怀疑人生——一个看似简单的游戏关卡，在他笔下可能变成一部跌宕起伏的史诗。他擅长用文字和情节把玩家的心“掏空”，让大家在笑与泪中体验游戏的乐趣。葛洪康的桌上常常摆满了各种动漫周边，他说这是灵感来源，但我们怀疑那是他的小型收藏博物馆。他对细节的执着让剧情既精妙又有趣，而他的“猛攻风格”也常常让团队成员在会议中笑到腹肌抽筋。总之，他是剧情的炼金术士，用二次元的魔法铸造出游戏世界。</p>
+            <p><strong>联系方式：</strong>307193467(qq)</p>
+        </div>
+    </div>
+
+    <!-- 返回按钮 -->
+    <a href="index.html" class="back-link"><span>返回</span></a>
+</body>
+</html>
