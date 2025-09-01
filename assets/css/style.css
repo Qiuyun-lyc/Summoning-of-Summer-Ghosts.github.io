@@ -243,7 +243,7 @@ a {
     /* 关键修改 */
     height: 87vh;           /* 限制高度 */
     overflow-y: auto;       /* 启用竖向滚动 */
-    scrollbar-width: thin;  /* 火狐细滚动条 */
+    scrollbar-width: none;  /* 火狐细滚动条 */
 }
 
 
