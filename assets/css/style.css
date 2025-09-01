@@ -394,6 +394,46 @@ a {
 .about-view .about-content-wrapper .gallery.row2 {
     grid-template-columns: repeat(3, 300px);
 }
+/* 外层容器，提供 3D 视角 */
+.about-content .icon_img {
+    perspective: 1000px; /* 控制3D深度，数值越小效果越明显 */
+}
+
+/* flip-box 用来承载正反两面 */
+.about-content .flip-box {
+    position: relative;
+    width: 300px;   /* 可以根据需要修改大小 */
+    height: 300px;
+    transform-style: preserve-3d;
+    transition: transform 0.6s ease-in-out;
+    cursor: pointer;
+}
+
+/* 悬停时触发翻转 */
+.about-content .flip-box:hover {
+    transform: rotateY(180deg);
+}
+
+/* 正反两面图片公共样式 */
+.about-content .flip-box img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden; /* 隐藏背面 */
+    border-radius: 30px; /* 可选：圆角 */
+}
+
+/* 正面 */
+.about-content .flip-box .zhengImg {
+    transform: rotateY(0deg);
+    z-index: 2;
+}
+
+/* 反面 */
+.about-content .flip-box .fanImg {
+    transform: rotateY(180deg);
+}
+
 
 /* 游戏视图 */
 

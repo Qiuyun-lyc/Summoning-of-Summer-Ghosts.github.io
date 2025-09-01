@@ -3,14 +3,72 @@ const AboutView = {
         const L = engine.localization;
         
         container.innerHTML = `
+        <style>
+                .achievement-view {
+                    display: flex;
+                    flex-direction: column;
+                }
+
+                /* 顶部导航栏 */
+                .navbar {
+                    height: 100px;
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    padding: 0 40px;
+                    position: relative;
+                    z-index: 10;
+                }
+
+                /* 通用按钮样式 */
+                .menu-button {
+                    position: relative;
+                    background: none;
+                    border: none;
+                    cursor: pointer;
+                    font-family: 'lilyshow','FangSong','仿宋','SimSun',sans-serif;
+                    padding: 0;
+                }
+
+                .menu-button img {
+                    display: block;
+                }
+
+                .menu-button span {
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                    font-size: clamp(20px, 2vw, 40px);
+                    color: #fff;
+                    white-space: nowrap;
+                    pointer-events: none;
+                }
+
+                /* 成就网格 */
+                .achievement-grid-container {
+                    display: grid;
+                    grid-template-columns: repeat(4, 1fr);
+                    gap: 20px;
+                    padding: 20px 40px;   /* 左右留边距 */
+                    margin-top: 20px;     /* 导航栏下方留出空间 */
+                }
+            </style>
             <div class="view about-view">
                 <div class="bg" style="background-image: url('./assets/img/bgr/mainmenu.png');"></div>
 
-                <nav class="navbar">
-                    <span>${L.get('ui.about')}</span>
-                    <div>
-                        <button id="back-to-menu">${L.get('ui.title')}</button>
-                    </div>
+                 <nav class="navbar" id="achievement-navbar">
+                    <!-- 我的成就 -->
+                    <button class="menu-button">
+                        <img class="button-img" src="./assets/img/button.png">
+                        <span>${L.get('关于')}</span>
+                    </button>
+
+                    <!-- 返回主菜单 -->
+                    <button id="back-to-menu" class="menu-button">
+                        <img class="button-img" src="./assets/img/button.png">
+                        <span>${L.get('ui.title')}</span>
+                    </button>
                 </nav>
 
                 <div class="about-content">
