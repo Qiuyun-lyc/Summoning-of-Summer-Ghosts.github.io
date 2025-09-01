@@ -220,7 +220,18 @@ a {
     box-sizing: border-box;
     z-index: 100;
 }
-
+.loading-indicator {
+    text-align: center;
+    padding: 15px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #444;
+    animation: fadeBlink 1.2s infinite;
+}
+@keyframes fadeBlink {
+    0%, 100% { opacity: 0.3; }
+    50% { opacity: 1; }
+}
 .save-slots-container {
     display: grid;
     grid-template-columns: 1fr 1fr; /* 两列布局 */
@@ -228,7 +239,13 @@ a {
     padding: 20px;
     max-width: 1200px;
     margin: auto;
+
+    /* 关键修改 */
+    height: 87vh;           /* 限制高度 */
+    overflow-y: auto;       /* 启用竖向滚动 */
+    scrollbar-width: none;  /* 火狐细滚动条 */
 }
+
 
 .save-slot {
     position: relative;
@@ -237,14 +254,19 @@ a {
     align-items: center;
     color: black;
 }
-
 .save-slot-bg {
     position: absolute;
     top: 0; left: 0; width: 100%; height: 100%;
     z-index: -1;
+    border-radius:50px;
     opacity: 0.5; /* 添加这一行 */
 }
-
+.save-date{
+    font-size: 27px;
+}
+.save-slot:hover .save-slot-bg {
+    filter: brightness(1.3);
+}
 .save-info { flex: 2; }
 .save-chapter { flex: 1; text-align: center; }
 .save-thumbnail { flex: 1; text-align: right; }
@@ -266,6 +288,34 @@ a {
     width: 100%; 
     height: 100%; 
     position: absolute; 
+}
+.action-button {
+    position: relative; /* 作为定位父元素 */
+    display: inline-block;
+    width: 64px;  /* 按钮宽度，根据需要调整 */
+    height: 64px; /* 按钮高度，根据需要调整 */
+}
+
+.action-button .button-icon,
+.action-button .button-icon-hover {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transition: opacity 0.2s;
+}
+
+.action-button .button-icon-hover {
+    opacity: 0;
+}
+
+.action-button:hover .button-icon {
+    opacity: 0;
+}
+
+.action-button:hover .button-icon-hover {
+    opacity: 1;
 }
 
 /* 关于页面  */
@@ -290,41 +340,47 @@ a {
     color: black;
 }
 
-.about-view .about-content-wrapper .icon_img {
-    width: 300px;
-    height: 300px;
-    margin: 0 auto;
-    perspective: 1000px; /* 3D翻转效果的视距 */
+.achievement-grid-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 每行4个 */
+    gap: 20px;
 }
 
-.about-view .about-content-wrapper .flip-box {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    transition: transform 1s;
-    transform-style: preserve-3d;
+.achievement-item .icon_img {
+  width: 260px;
+  height: 280px;
+  margin: 0 auto;
+  perspective: 1000px; /* 3D翻转的视距 */
 }
 
-.about-view .about-content-wrapper .icon_img:hover .flip-box {
-    transform: rotateY(180deg); /* 悬停时Y轴翻转 */
+.achievement-item .flip-box {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 1s;
+  transform-style: preserve-3d;
 }
 
-.about-view .about-content-wrapper .zhengImg, 
-.about-view .about-content-wrapper .fanImg {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    backface-visibility: hidden; /* 隐藏元素的背面 */
-    border-radius: 20px;
+.achievement-item .icon_img:hover .flip-box {
+  transform: rotateY(180deg); /* 鼠标悬停时翻转 */
 }
 
-.about-view .about-content-wrapper .fanImg {
-    transform: rotateY(180deg); /* 背面图片预先翻转 */
+.achievement-item .zhengImg,
+.achievement-item .fanImg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 20px;
 }
 
-.about-view .about-content-wrapper .gallery {
+.achievement-item .fanImg {
+  transform: rotateY(180deg); /* 背面预先旋转 */
+}
+
+.about-content-wrapper .gallery {
     display: grid;
     gap: 20px;
     justify-content: center;
