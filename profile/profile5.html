@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>个人简介 - 刘澜轩</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background: url('../assets/img/bgr/profile.png') no-repeat center center fixed;
+            background-size: cover;
+        }
+
+        /* 卡片容器 */
+        .profile-container {
+        display: flex;
+        flex-wrap: wrap; 
+        justify-content: center;
+        align-items: flex-start;
+        gap: 40px;
+        padding: 40px 60px;
+
+    /* 改动部分 ↓ */
+    background: rgba(255, 255, 255, 0.5);  /* 半透明白色背景 */
+    border-radius: 25px;
+    box-shadow: 0 10px 35px rgba(0,0,0,0.2); /* 柔和阴影，不像边框 */
+    max-width: 90%;
+}
+
+
+        /* 人名放在卡片内部 */
+        #profile-name {
+            flex-basis: 100%;   /* 占一整行 */
+            font-size: 42px;
+            text-align: center;
+            margin: 0 0 20px 0;
+            color: #333;  /* 深色文字更适合纸背景 */
+            text-shadow: none;
+        }
+
+        .profile-container img {
+            border-radius: 20px;
+            width: 100%;
+            max-width: 350px; /* 限制最大宽度 */
+            height: auto;     /* 按比例缩放 */
+            object-fit: cover;
+        }
+
+        .profile-text {
+            flex: 1; /* 占据剩余空间 */
+            min-width: 260px;
+            font-size: 20px;
+            line-height: 1.8;
+            color: #333;
+        }
+
+        .profile-text h2 {
+            margin-top: 0;
+            font-size: 28px;
+            border-bottom: 2px solid #ddd;
+            padding-bottom: 8px;
+        }
+
+        .profile-text p {
+            margin: 12px 0;
+        }
+
+        .profile-text a {
+            color: #0077cc;
+            text-decoration: none;
+        }
+
+        .profile-text a:hover {
+            text-decoration: underline;
+        }
+
+        /* ====== 返回按钮样式 ====== */
+        .back-link {
+            margin-top: 35px;
+            width: 180px;
+            height: 55px;
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 12px;
+            color: white;
+            font-size: 20px;
+            font-weight: bold;
+            text-decoration: none;
+            background: url('../assets/img/button.png') no-repeat center center;
+            background-size: cover;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 6px 18px rgba(0,0,0,0.25);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .back-link::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: rgba(0,0,0,0.3);
+            border-radius: 12px;
+        }
+
+        .back-link span {
+            position: relative;
+            z-index: 1;
+        }
+
+        .back-link:hover {
+            transform: translateY(-4px) scale(1.05);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.35);
+        }
+    </style>
+</head>
+<body>
+    <div class="profile-container">
+        <!-- 人名放入卡片 -->
+        <h1 id="profile-name">刘澜轩</h1>
+
+        <img src="../assets/img/teammate/51.jpg" alt="个人照片">
+
+        <div class="profile-text">
+            <h2>个人简介</h2>
+            <p><strong>任职：</strong>前端开发程序员</p>
+            <p><strong>自我介绍：</strong>刘澜轩，玩的游戏种类比较丰富，从策略到动作、从单机到网游都多少接触过一些，因此对不同类型的玩法都有一定的了解。个人成分相对复杂，说不上是哪一种固定的风格，常常在“努力卷一把”和“干脆躺平”之间徘徊，处于一种微妙的45度叠加态。很多时候会觉得自己什么都不会，但回过头想想，好像也多少会一点，至少能和别人聊上几句。兴趣比较杂，喜欢到处了解新鲜事物，知识面算是比较广，不过深入研究的时候往往容易分心，很难真正钻得很深。整体而言，我是一个性格随和的人，不拘泥于形式，喜欢保持一定的好奇心和探索精神。</p>
+            <p><strong>联系方式：</strong><a href="mailto:2010640834@qq.com">2010640834@qq.com</a></p>
+        </div>
+    </div>
+
+    <!-- 返回按钮 -->
+    <a href="index.html" class="back-link"><span>返回</span></a>
+</body>
+</html>

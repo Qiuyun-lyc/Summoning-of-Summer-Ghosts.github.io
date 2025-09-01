@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>个人简介 - 王万淇</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background: url('../assets/img/bgr/profile.png') no-repeat center center fixed;
+            background-size: cover;
+        }
+
+        /* 卡片容器 */
+        .profile-container {
+        display: flex;
+        flex-wrap: wrap; 
+        justify-content: center;
+        align-items: flex-start;
+        gap: 40px;
+        padding: 40px 60px;
+
+    /* 改动部分 ↓ */
+    background: rgba(255, 255, 255, 0.5);  /* 半透明白色背景 */
+    border-radius: 25px;
+    box-shadow: 0 10px 35px rgba(0,0,0,0.2); /* 柔和阴影，不像边框 */
+    max-width: 90%;
+}
+
+
+        /* 人名放在卡片内部 */
+        #profile-name {
+            flex-basis: 100%;   /* 占一整行 */
+            font-size: 42px;
+            text-align: center;
+            margin: 0 0 20px 0;
+            color: #333;  /* 深色文字更适合纸背景 */
+            text-shadow: none;
+        }
+
+        .profile-container img {
+            border-radius: 20px;
+            width: 100%;
+            max-width: 350px; /* 限制最大宽度 */
+            height: auto;     /* 按比例缩放 */
+            object-fit: cover;
+        }
+
+        .profile-text {
+            flex: 1; /* 占据剩余空间 */
+            min-width: 260px;
+            font-size: 20px;
+            line-height: 1.8;
+            color: #333;
+        }
+
+        .profile-text h2 {
+            margin-top: 0;
+            font-size: 28px;
+            border-bottom: 2px solid #ddd;
+            padding-bottom: 8px;
+        }
+
+        .profile-text p {
+            margin: 12px 0;
+        }
+
+        .profile-text a {
+            color: #0077cc;
+            text-decoration: none;
+        }
+
+        .profile-text a:hover {
+            text-decoration: underline;
+        }
+
+        /* ====== 返回按钮样式 ====== */
+        .back-link {
+            margin-top: 35px;
+            width: 180px;
+            height: 55px;
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 12px;
+            color: white;
+            font-size: 20px;
+            font-weight: bold;
+            text-decoration: none;
+            background: url('../assets/img/button.png') no-repeat center center;
+            background-size: cover;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 6px 18px rgba(0,0,0,0.25);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .back-link::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: rgba(0,0,0,0.3);
+            border-radius: 12px;
+        }
+
+        .back-link span {
+            position: relative;
+            z-index: 1;
+        }
+
+        .back-link:hover {
+            transform: translateY(-4px) scale(1.05);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.35);
+        }
+    </style>
+</head>
+<body>
+    <div class="profile-container">
+        <!-- 人名放入卡片 -->
+        <h1 id="profile-name">王万淇</h1>
+
+        <img src="../assets/img/teammate/11.jpg" alt="个人照片">
+
+        <div class="profile-text">
+            <h2>个人简介</h2>
+            <p><strong>任职：</strong>项目经理</p>
+            <p><strong>自我介绍：</strong>王万淇，cs玩家眼中的冷面枪男，实际上是我们团队里最有“魔王潜质”的PM。平日里，他戴着厚厚的程序员眼镜，手握咖啡杯，像是在暗中策划世界征服计划，其实只是在整理项目进度表。他热爱ACG文化，熟悉各种动漫梗和游戏设定，每次开会都能用“魔王C+级策略”秒杀混乱议题。尽管外表冷漠，但他内心深处是个纯情的大男孩，偶尔会被可爱的角色图包围时露出少女般的微笑。王万淇的博客就像他的实验室，里面充满了代码与奇思妙想，他时常在上面记录自己的项目心得与ACG吐槽。你若发邮件给他，别忘了附上一张二次元表情包，否则可能收不到回复——他会默默怀念自己没看懂的表情。总之，王万淇是团队的战略中枢，冷面外壳下隐藏着热血策划心。</p>
+            <p><strong>博客：</strong><a href="https://blog.csdn.net/rebirth557" target="_blank">https://blog.csdn.net/rebirth557</a></p>
+            <p><strong>联系方式：</strong><a href="mailto:yunqiu185@gmail.com">yunqiu185@gmail.com</a></p>
+        </div>
+    </div>
+
+    <!-- 返回按钮 -->
+    <a href="index.html" class="back-link"><span>返回</span></a>
+</body>
+</html>
