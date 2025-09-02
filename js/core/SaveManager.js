@@ -94,6 +94,14 @@ export default class SaveManager {
             this.currentUser.achievementArray.push(achievementId);
             this.persistCurrentUser();
             console.log(`成就已解锁: ${achievementId}`);
+
+            // 创建一个自定义事件，并携带成就ID作为数据
+            const event = new CustomEvent('achievementUnlocked', {
+                detail: { achievementId: achievementId }
+            });
+            
+            // 在全局的 window 对象上分派这个事件
+            window.dispatchEvent(event);
         }
     }
 }

@@ -22,13 +22,17 @@ const LoadView = {
                         <a>存档系统</a>
                     </span>
                     <div>
-                        <!-- 返回主菜单按钮 -->
                         <button id="back-to-menu" class="main-menu-button" style="top:-20px;right:-15px;background:none;border:none;font-family: 'lilyshow', 'FangSong', '仿宋', 'SimSun', sans-serif;">
                             <img class="button-img" src="./assets/img/button.png">
                             <a>${L.get('ui.title')}</a>
                         </button>
-                        <!-- 如果有当前存档，则显示“继续游戏”按钮 -->
-                        ${engine.gameState.currentSave ? `<button id="back-to-game">${L.get('ui.continue')}</button>` : ''}
+                        <!-- 如果有当前存档，则显示“继续游戏”按钮 (使用与“返回标题”相同的样式) -->
+                        ${engine.gameState.currentSave ? `
+                            <button id="back-to-game" class="main-menu-button" style="top:-20px;right:800px;background:none;border:none;font-family: 'lilyshow', 'FangSong', '仿宋', 'SimSun', sans-serif;">
+                                <img class="button-img" src="./assets/img/button.png">
+                                <a>${L.get('ui.continue')}</a>
+                            </button>
+                        ` : ''}
                     </div>
                 </nav>
 
@@ -116,7 +120,8 @@ const LoadView = {
         document.getElementById('back-to-menu').addEventListener('click', () => engine.showView('MainMenu'));
 
         // 返回游戏按钮
-        document.getElementById('back-to-game')?.addEventListener('click', () => engine.showView('Game'));
+                // 返回游戏按钮
+        document.getElementById('back-to-game')?.addEventListener('click', () => engine.resumeGame());
 
         // 滚动监听：当接近底部时加载更多
         const slotsContainer = container.querySelector('.save-slots-container');

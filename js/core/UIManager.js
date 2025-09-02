@@ -4,7 +4,6 @@ export default class UIManager {
     constructor(engine) {
         this.engine = engine;
         this.sentencePrinter = null;
-        // BigTextPrinter can be another instance if needed
     }
 
     clearContainer() {
@@ -75,32 +74,148 @@ export default class UIManager {
         }
     }
     
-    togglePauseMenu(show, fromGameView) {
-        let menu = document.getElementById('pause-menu');
+    togglePauseMenu(show) {
+        let menu = document.getElementById('ingame-menu-overlay');
+    
         if (show) {
             if (!menu) {
                 menu = document.createElement('div');
-                menu.id = 'pause-menu';
-                menu.className = 'pause-menu';
-                
-                const canContinue = fromGameView && this.engine.gameState.currentSave;
-                
+                menu.id = 'ingame-menu-overlay';
+                menu.className = 'ingame-menu-overlay';
+    
+                // 创建菜单的 HTML 结构和样式
                 menu.innerHTML = `
-                    <div class="pause-button-group">
-                        ${canContinue ? `<div class="pause-menu-button" data-action="unpause"><a>${this.engine.localization.get('ui.continue')}</a></div>` : ''}
-                        <div class="pause-menu-button" data-action="save_load"><a>${this.engine.localization.get('ui.save_load')}</a></div>
-                        <div class="pause-menu-button" data-action="title"><a>${this.engine.localization.get('ui.title')}</a></div>
+                    <style>
+                        .ingame-menu-overlay {
+                            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+                            background-color: rgba(0, 0, 0, 0.7);
+                            display: flex; justify-content: center; align-items: center;
+                            z-index: 999;
+                            opacity: 0; transition: opacity 0.3s ease;
+                            backdrop-filter: blur(5px); -webkit-backdrop-filter: blur(5px);
+                        }
+                        .ingame-menu-overlay.visible { opacity: 1; }
+                        .ingame-menu-content { display: flex; flex-direction: column; gap: 20px; align-items: center; }
+                        .ingame-menu-item { position: relative; width: 280px; cursor: pointer; text-align: center; }
+                        .ingame-menu-item img { width: 100%; transition: transform 0.2s ease; }
+                        .ingame-menu-item:hover img { transform: scale(1.05); }
+                        .ingame-menu-item span {
+                            position: absolute; top: 50%; left: 50%;
+                            transform: translate(-50%, -50%);
+                            font-family: 'lilyshow', 'FangSong', '仿宋', 'SimSun', sans-serif;
+                            font-size: 28px; color: white;
+                            text-shadow: 2px 2px 4px #000;
+                            pointer-events: none;
+                        }
+                    </style>
+                    <div class="ingame-menu-content">
+                        <div class="ingame-menu-item" data-action="unpause">
+                            <img src="./assets/img/button.png">
+                            <span>${this.engine.localization.get('ui.continue')}</span>
+                        </div>
+                        <div class="ingame-menu-item" data-action="save_load">
+                            <img src="./assets/img/button.png">
+                            <span>${this.engine.localization.get('ui.save_load')}</span>
+                        </div>
+                        <div class="ingame-menu-item" data-action="title">
+                            <img src="./assets/img/button.png">
+                            <span>${this.engine.localization.get('ui.title')}</span>
+                        </div>
                     </div>
                 `;
-                document.querySelector('.game-view')?.appendChild(menu); // Append to game view if it exists
                 
-                menu.querySelector('[data-action="unpause"]')?.addEventListener('click', () => this.engine.unpauseGame());
-                menu.querySelector('[data-action="save_load"]')?.addEventListener('click', () => { this.engine.unpauseGame(); this.engine.showView('Load'); });
-                menu.querySelector('[data-action="title"]')?.addEventListener('click', () => this.engine.showView('MainMenu'));
+                document.body.appendChild(menu);
+    
+                // 绑定事件
+                menu.querySelector('[data-action="unpause"]').addEventListener('click', () => { this.engine.audioManager.playSoundEffect('click'); this.engine.unpauseGame(); });
+                menu.querySelector('[data-action="save_load"]').addEventListener('click', () => { this.engine.audioManager.playSoundEffect('click'); this.engine.unpauseGame(); this.engine.showView('Load'); });
+                menu.querySelector('[data-action="title"]').addEventListener('click', () => { this.engine.audioManager.playSoundEffect('click'); this.engine.unpauseGame(); this.engine.showView('MainMenu'); });
+                menu.querySelectorAll('.ingame-menu-item').forEach(item => { item.addEventListener('mouseover', () => this.engine.audioManager.playSoundEffect('hover')); });
             }
+            
             menu.style.display = 'flex';
+            requestAnimationFrame(() => { menu.classList.add('visible'); });
+    
         } else {
-            if (menu) menu.style.display = 'none';
+            if (menu) {
+                menu.classList.remove('visible');
+                menu.addEventListener('transitionend', () => {
+                    menu.style.display = 'none';
+                }, { once: true });
+            }
         }
     }
-}
+    showAchievementPopup(achievementId) {
+        const achievement = this.engine.dataManager.getAllAchievements().find(a => a.id === achievementId);
+        if (!achievement) return;
+
+        // 播放解锁音效
+        this.engine.audioManager.playSoundEffect('sysYes'); //
+
+        const popup = document.createElement('div');
+        popup.className = 'achievement-popup';
+
+        popup.innerHTML = `
+            <style>
+                .achievement-popup {
+                    position: fixed;
+                    bottom: 20px;
+                    right: -400px; /* 初始位置在屏幕外 */
+                    width: 350px;
+                    background-color: rgba(0, 0, 0, 0.85);
+                    border-left: 5px solid #ffd700;
+                    border-radius: 10px 0 0 10px;
+                    padding: 15px;
+                    display: flex;
+                    align-items: center;
+                    gap: 15px;
+                    z-index: 1001; /* 确保在最顶层 */
+                    color: white;
+                    transition: right 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
+                    box-shadow: 0 0 20px rgba(0,0,0,0.5);
+                }
+                .achievement-popup.show {
+                    right: 20px; /* 滑入到屏幕内 */
+                }
+                .popup-icon {
+                    width: 60px;
+                    height: 60px;
+                    border-radius: 50%;
+                    object-fit: cover;
+                }
+                .popup-text h4 {
+                    margin: 0 0 5px 0;
+                    color: #ffd700;
+                    font-size: 1.1em;
+                }
+                .popup-text p {
+                    margin: 0;
+                    font-size: 0.9em;
+                }
+            </style>
+            <img class="popup-icon" src="${achievement.icon}" alt="成就">
+            <div class="popup-text">
+                <h4>成就解锁</h4>
+                <p>${achievement.name}</p>
+            </div>
+        `;
+
+        document.body.appendChild(popup);
+
+        // 动画流程
+        // 滑入
+        requestAnimationFrame(() => {
+            popup.classList.add('show');
+        });
+
+        // 停留 4 秒
+        setTimeout(() => {
+            // 滑出
+            popup.classList.remove('show');
+            // 动画结束后移除元素
+            popup.addEventListener('transitionend', () => {
+                popup.remove();
+            }, { once: true });
+        }, 4000); // 毫秒
+    }
+} 

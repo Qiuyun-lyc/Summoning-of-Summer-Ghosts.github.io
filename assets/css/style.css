@@ -456,7 +456,7 @@ a {
 
 .char-box {
     position: absolute;
-    bottom: 0;
+    bottom: 27%;
     height: 90vh;
     width: 50vw;
     display: flex;
@@ -580,4 +580,43 @@ a {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+/* 游戏内右上角菜单按钮 */
+.game-hud {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    z-index: 200;
+}
+
+.ingame-menu-button {
+    position: relative;
+    width: 200px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+}
+
+.ingame-menu-button img {
+    width: 100%;
+    display: block;
+    transition: transform 0.2s ease, filter 0.2s ease;
+}
+
+.ingame-menu-button:hover img {
+    transform: scale(1.05);
+    filter: brightness(1.2);
+}
+
+.ingame-menu-button span {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: 'lilyshow', 'FangSong', '仿宋', 'SimSun', sans-serif;
+    font-size: 28px;
+    color: white;
+    text-shadow: 1px 1px 3px #000;
+    pointer-events: none;
 }

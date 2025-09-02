@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>个人简介 - 陈煜玮</title>
+    <title>个人简介 - 王万淇</title>
 
     <style>
         body {
@@ -20,28 +20,28 @@
 
         /* 卡片容器 */
         .profile-container {
-        display: flex;
-        flex-wrap: wrap; 
-        justify-content: center;
-        align-items: flex-start;
-        gap: 40px;
-        padding: 40px 60px;
+            display: flex;
+            flex-wrap: wrap; 
+            justify-content: center;
+            align-items: flex-start;
+            gap: 40px;
+            padding: 40px 60px;
 
-    /* 改动部分 ↓ */
-    background: rgba(255, 255, 255, 0.5);  /* 半透明白色背景 */
-    border-radius: 25px;
-    box-shadow: 0 10px 35px rgba(0,0,0,0.2); /* 柔和阴影，不像边框 */
-    max-width: 90%;
-}
+            /* 改动部分  */
+            background: rgba(255, 255, 255, 0.5);  /* 半透明白色背景 */
+            border-radius: 25px;
+            box-shadow: 0 10px 35px rgba(0,0,0,0.2); /* 柔和阴影，不像边框 */
+            max-width: 90%;
+        }
 
 
         /* 人名放在卡片内部 */
         #profile-name {
-            flex-basis: 100%;   /* 占一整行 */
+            flex-basis: 100%;
             font-size: 42px;
             text-align: center;
             margin: 0 0 20px 0;
-            color: #333;  /* 深色文字更适合纸背景 */
+            color: #333;
             text-shadow: none;
         }
 
@@ -54,7 +54,7 @@
         }
 
         .profile-text {
-            flex: 1; /* 占据剩余空间 */
+            flex: 1; 
             min-width: 260px;
             font-size: 20px;
             line-height: 1.8;
@@ -81,7 +81,6 @@
             text-decoration: underline;
         }
 
-        /* ====== 返回按钮样式 ====== */
         .back-link {
             margin-top: 35px;
             width: 180px;
@@ -124,19 +123,33 @@
 <body>
     <div class="profile-container">
         <!-- 人名放入卡片 -->
-        <h1 id="profile-name">陈煜玮</h1>
+        <h1 id="profile-name">王万淇</h1>
 
-        <img src="../assets/img/teammate/41.jpg" alt="个人照片">
+        <img src="../assets/img/teammate/11.jpg" alt="个人照片">
 
         <div class="profile-text">
             <h2>个人简介</h2>
-            <p><strong>任职：</strong>视频剪辑师/测试员</p>
-            <p><strong>自我介绍：</strong>陈煜玮，一看就是吃饭睡觉两不误的生活大师，同时也是我们团队的视频剪辑鬼才和测试灵魂。白天，他可能在会议里认真点评剧情素材，手指在键盘上飞舞；晚上，他可能被一碗泡面和沙发吸引，进入半睡半剪辑模式。测试bug对他来说就像打怪升级——每找到一个错误，他的内心都会暗暗庆祝。他剪辑的视频不仅逻辑清晰，还带有奇妙的幽默感，总能让玩家在游戏之外也乐开花。陈煜玮是那种你永远不会知道下一秒在干啥的人——可能在吃，又可能在梦中修BUG，但无论何时，他都能保证我们的作品光鲜亮丽、流畅无误。他的存在就像团队里的定心丸，默默守护着游戏的完美运行。</p>
-            <p><strong>联系方式：</strong><a href="mailto:c3196746146@outlook.com">c3196746146@outlook.com</a></p>
+            <p><strong>任职：</strong>项目经理</p>
+            <p><strong>自我介绍：</strong>王万淇，cs玩家眼中的冷面枪男，实际上是我们团队里最有“魔王潜质”的PM。平日里，他戴着厚厚的程序员眼镜，手握咖啡杯，像是在暗中策划世界征服计划，其实只是在整理项目进度表。他热爱ACG文化，熟悉各种动漫梗和游戏设定，每次开会都能用“魔王C+级策略”秒杀混乱议题。尽管外表冷漠，但他内心深处是个纯情的大男孩，偶尔会被可爱的角色图包围时露出少女般的微笑。王万淇的博客就像他的实验室，里面充满了代码与奇思妙想，他时常在上面记录自己的项目心得与ACG吐槽。你若发邮件给他，别忘了附上一张二次元表情包，否则可能收不到回复——他会默默怀念自己没看懂的表情。总之，王万淇是团队的战略中枢，冷面外壳下隐藏着热血策划心。</p>
+            <p><strong>博客：</strong><a href="https://blog.csdn.net/rebirth557" target="_blank">https://blog.csdn.net/rebirth557</a></p>
+            <p><strong>联系方式：</strong><a href="mailto:yunqiu185@gmail.com">yunqiu185@gmail.com</a></p>
         </div>
     </div>
 
-    <!-- 返回按钮 -->
-    <a href="index.html" class="back-link"><span>返回</span></a>
+    <a id="back-button" href="#" class="back-link"><span>返回</span></a>
+
+    <script>
+        document.getElementById('back-button').addEventListener('click', function(event) {
+            event.preventDefault(); // 防止链接的默认跳转行为
+            try {
+                // 设置返回标记，以便 main.js 知道要显示哪个视图
+                sessionStorage.setItem('jumpToAbout', '1');
+            } catch (e) {
+                console.error("Session storage is not available.", e);
+            }
+            // 跳转回主应用页面
+            window.location.href = '../index.html';
+        });
+    </script>
 </body>
 </html>
