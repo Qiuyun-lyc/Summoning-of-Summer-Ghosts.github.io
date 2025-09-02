@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>个人简介 - 王光源</title>
+    <title>个人简介 - 葛洪康</title>
 
     <style>
         body {
@@ -20,28 +20,28 @@
 
         /* 卡片容器 */
         .profile-container {
-        display: flex;
-        flex-wrap: wrap; 
-        justify-content: center;
-        align-items: flex-start;
-        gap: 40px;
-        padding: 40px 60px;
+            display: flex;
+            flex-wrap: wrap; 
+            justify-content: center;
+            align-items: flex-start;
+            gap: 40px;
+            padding: 40px 60px;
 
-    /* 改动部分 ↓ */
-    background: rgba(255, 255, 255, 0.5);  /* 半透明白色背景 */
-    border-radius: 25px;
-    box-shadow: 0 10px 35px rgba(0,0,0,0.2); /* 柔和阴影，不像边框 */
-    max-width: 90%;
-}
+            /* 改动部分 */
+            background: rgba(255, 255, 255, 0.5); 
+            border-radius: 25px;
+            box-shadow: 0 10px 35px rgba(0,0,0,0.2);
+            max-width: 90%;
+        }
 
 
         /* 人名放在卡片内部 */
         #profile-name {
-            flex-basis: 100%;   /* 占一整行 */
+            flex-basis: 100%;
             font-size: 42px;
             text-align: center;
             margin: 0 0 20px 0;
-            color: #333;  /* 深色文字更适合纸背景 */
+            color: #333; 
             text-shadow: none;
         }
 
@@ -54,7 +54,7 @@
         }
 
         .profile-text {
-            flex: 1; /* 占据剩余空间 */
+            flex: 1; 
             min-width: 260px;
             font-size: 20px;
             line-height: 1.8;
@@ -81,7 +81,6 @@
             text-decoration: underline;
         }
 
-        /* ====== 返回按钮样式 ====== */
         .back-link {
             margin-top: 35px;
             width: 180px;
@@ -124,19 +123,32 @@
 <body>
     <div class="profile-container">
         <!-- 人名放入卡片 -->
-        <h1 id="profile-name">王光源</h1>
+        <h1 id="profile-name">葛洪康</h1>
 
-        <img src="../assets/img/teammate/31.jpg" alt="个人照片">
+        <img src="../assets/img/teammate/21.jpg" alt="个人照片">
 
         <div class="profile-text">
             <h2>个人简介</h2>
-            <p><strong>任职：</strong>技术总监</p>
-            <p><strong>自我介绍：</strong>王光源，团队的“像素风守护神”，每天靠咖啡续命，用anisong续魂。他是资深动漫宅，几乎能把每个经典动画台词倒背如流，对游戏的像素艺术有着执着的审美，手办收藏偶尔成灾——家里仿佛小型展览馆，但他依旧间歇性地买买买。技术上，他总能用神奇的算法和代码解决项目里的怪问题，每次调试bug就像在解开动漫剧情般的悬疑。他的电脑桌面永远堆满了像素画和游戏素材文件，每次团队讨论，他都能从中随手拎出一个创意，让大家瞠目结舌。王光源的世界观里，咖啡是血液，动漫是灵魂，而我们团队的代码，就是他维持宇宙平衡的小小仪式。他是技术的魔法师，也是像素世界的国王，带领我们把游戏从幻想变成现实。</p>
-            <p><strong>联系方式：</strong><a href="mailto:7972553@gmail.com">7972553@gmail.com</a></p>
+            <p><strong>任职：</strong>剧情设计总监</p>
+            <p><strong>自我介绍：</strong>葛洪康，剧情界的“猛攻大师”，二次元鼠鼠爱好者，他的生活哲学就是：剧情必须炸裂，角色必须生动，玩家必须沉迷。每次团队开会，他的脑洞总能让大家怀疑人生——一个看似简单的游戏关卡，在他笔下可能变成一部跌宕起伏的史诗。他擅长用文字和情节把玩家的心“掏空”，让大家在笑与泪中体验游戏的乐趣。葛洪康的桌上常常摆满了各种动漫周边，他说这是灵感来源，但我们怀疑那是他的小型收藏博物馆。他对细节的执着让剧情既精妙又有趣，而他的“猛攻风格”也常常让团队成员在会议中笑到腹肌抽筋。总之，他是剧情的炼金术士，用二次元的魔法铸造出游戏世界。</p>
+            <p><strong>联系方式：</strong>307193467(qq)</p>
         </div>
     </div>
 
-    <!-- 返回按钮 -->
-    <a href="index.html" class="back-link"><span>返回</span></a>
+    <a id="back-button" href="#" class="back-link"><span>返回</span></a>
+
+    <script>
+        document.getElementById('back-button').addEventListener('click', function(event) {
+            event.preventDefault(); // 防止链接的默认跳转行为
+            try {
+                // 设置返回标记，以便 main.js 知道要显示哪个视图
+                sessionStorage.setItem('jumpToAbout', '1');
+            } catch (e) {
+                console.error("Session storage is not available.", e);
+            }
+            // 跳转回主应用页面
+            window.location.href = '../index.html';
+        });
+    </script>
 </body>
 </html>

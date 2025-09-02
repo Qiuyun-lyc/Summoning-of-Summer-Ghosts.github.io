@@ -75,13 +75,13 @@ const AboutView = {
                     <div class="about-content-wrapper">
                         <!-- 第一排 2 个，居中 -->
                         <div class="gallery row1">
-                            <div class="icon_img">
+                            <div class="icon_img" data-profile="team/wwq.html">
                                 <div class="flip-box">
                                     <img class="zhengImg" src="./assets/img/teammate/1.jpg" alt="正面图" />
                                     <img class="fanImg" src="./assets/img/teammate/1.jpg" alt="反面图" />
                                 </div>
                             </div>
-                            <div class="icon_img">
+                            <div class="icon_img" data-profile="team/ghk.html">
                                 <div class="flip-box">
                                     <img class="zhengImg" src="./assets/img/teammate/2.png" alt="正面图" />
                                     <img class="fanImg" src="./assets/img/teammate/2.png" alt="反面图" />
@@ -91,19 +91,19 @@ const AboutView = {
 
                         <!-- 第二排 3 个，均分 -->
                         <div class="gallery row2">
-                            <div class="icon_img">
+                            <div class="icon_img" data-profile="team/wgy.html">
                                 <div class="flip-box">
                                     <img class="zhengImg" src="./assets/img/teammate/3.jpg" alt="正面图" />
                                     <img class="fanImg" src="./assets/img/teammate/3.jpg" alt="反面图" />
                                 </div>
                             </div>
-                            <div class="icon_img">
+                            <div class="icon_img" data-profile="team/cyw.html">
                                 <div class="flip-box">
                                     <img class="zhengImg" src="./assets/img/teammate/4.jpg" alt="正面图" />
                                     <img class="fanImg" src="./assets/img/teammate/4.jpg" alt="反面图" />
                                 </div>
                             </div>
-                            <div class="icon_img">
+                            <div class="icon_img" data-profile="team/llx.html">
                                 <div class="flip-box">
                                     <img class="zhengImg" src="./assets/img/teammate/5.jpg" alt="正面图" />
                                     <img class="fanImg" src="./assets/img/teammate/5.jpg" alt="反面图" />
@@ -121,7 +121,17 @@ const AboutView = {
             engine.audioManager.playSoundEffect('click');
             engine.showView('MainMenu');
         });
+
+        container.querySelectorAll('.icon_img[data-profile]').forEach(card => {
+            card.style.cursor = 'pointer';
+            card.addEventListener('click', () => {
+                engine.audioManager.playSoundEffect('click');
+                try { sessionStorage.setItem('jumpToAbout', '1'); } catch(e) {}
+                window.location.href = card.dataset.profile;      // 当前页内跳转
+            });
+        });
     }
+    
 };
 
 export default AboutView;

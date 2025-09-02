@@ -6,22 +6,19 @@ const AchievementView = {
         const unlockedIds = engine.saveManager.currentUser.achievementArray;
         const lockedIcon = engine.dataManager.getLockedAchievementIcon();
 
-        const achievementsHTML = allAchievements.map(ach => {
+const achievementsHTML = allAchievements.map(ach => {
             const isUnlocked = unlockedIds.includes(ach.id);
             const statusClass = isUnlocked ? 'unlocked' : 'locked';
             const iconSrc = isUnlocked ? ach.icon : lockedIcon;
-            const name = isUnlocked ? ach.name : '？？？';
-            const description = isUnlocked ? ach.description : '解锁条件未达成';
+            const name = isUnlocked ? `<h3>${ach.name}</h3>` : '<h3>？？？</h3>';
+            const description = isUnlocked ? `<p>${ach.description}</p>` : '<p>解锁条件未达成</p>';
 
             return `
-                <div class="achievement-item ${statusClass}">
-                    <div class="gallery row2">
-                        <div class="icon_img">
-                            <div class="flip-box">
-                                <img class="zhengImg" src="./assets/img/achievements/test.png" alt="正面图" />
-                                <img class="fanImg" src="./assets/img/achievements/test.png" alt="反面图" />
-                            </div>
-                        </div>
+                <div class="achievement-item ${statusClass}" title="${isUnlocked ? ach.name : '未解锁'}">
+                    <img class="achievement-icon" src="${iconSrc}" alt="${name}">
+                    <div class="achievement-info">
+                        ${name}
+                        ${description}
                     </div>
                 </div>
             `;
@@ -70,14 +67,71 @@ const AchievementView = {
                     pointer-events: none;
                 }
 
-                /* 成就网格 */
                 .achievement-grid-container {
+                    flex-grow: 1;
                     display: grid;
-                    grid-template-columns: repeat(4, 1fr);
-                    gap: 20px;
-                    padding: 20px 40px;   /* 左右留边距 */
-                    margin-top: 20px;     /* 导航栏下方留出空间 */
+                    /* 关键改动：将最小宽度从 250px 增加到 320px */
+                    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+                    gap: 35px; /* 稍微增大网格间距 */
+                    padding: 40px;
+                    overflow-y: auto;
                 }
+
+                /* 单个成就项目 */
+                .achievement-item {
+                    background-color: rgba(0, 0, 0, 0.4);
+                    border-radius: 15px;
+                    padding: 25px; /* 关键改动：增加内边距，让内部空间更大 */
+                    display: flex;
+                    align-items: center;
+                    gap: 20px; /* 关键改动：增大图标和文字的间距 */
+                    transition: all 0.3s ease;
+                    border: 2px solid transparent;
+                }
+
+                .achievement-item.unlocked {
+                    border-color: #ffd700;
+                    box-shadow: 0 0 15px rgba(255, 215, 0, 0.5);
+                }
+
+                .achievement-item:hover {
+                    transform: translateY(-5px);
+                    background-color: rgba(255, 255, 255, 0.1);
+                }
+
+                /* 成就图标 */
+                .achievement-icon {
+                    width: 90px; /* 关键改动：增大图标宽度 */
+                    height: 90px; /* 关键改动：增大图标高度 */
+                    border-radius: 50%;
+                    object-fit: cover;
+                    border: 3px solid #fff;
+                    flex-shrink: 0; /* 防止图标在空间不足时被压缩 */
+                }
+
+                .achievement-item.locked .achievement-icon {
+                    filter: grayscale(100%) brightness(0.7);
+                }
+
+                /* 成就信息 (名称和描述) */
+                .achievement-info h3 {
+                    margin: 0 0 8px 0; /* 增大标题和描述的间距 */
+                    font-size: 1.4em; /* 关键改动：增大标题字体 */
+                    color: #fff;
+                }
+                
+                .achievement-item.locked .achievement-info h3 {
+                    color: #aaa;
+                }
+
+                .achievement-info p {
+                    margin: 0;
+                    font-size: 1em; /* 关键改动：增大描述字体 */
+                    color: #ccc;
+                    line-height: 1.4; /* 增加行高，让描述更易读 */
+                }
+
+
             </style>
 
             <div class="view achievement-view">

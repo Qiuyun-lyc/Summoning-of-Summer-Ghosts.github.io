@@ -41,6 +41,13 @@ export default class GameEngine {
     }
 
     async init() {
+        // 添加事件监听器 
+        window.addEventListener('achievementUnlocked', (event) => {
+            const achievementId = event.detail.achievementId;
+            // 调用UI管理器来显示提示
+            this.uiManager.showAchievementPopup(achievementId);
+        });
+
         await this.dataManager.loadAllData();
         this.audioManager.init();
         
@@ -62,7 +69,7 @@ export default class GameEngine {
         }
     }
     
-    startGame(saveData) {
+    async startGame(saveData) {
         this.gameState.currentSave = saveData;
         this.showView('Game');
         this.processNode(this.gameState.currentSave.nodeId);
@@ -72,11 +79,54 @@ export default class GameEngine {
         const newSave = this.saveManager.createNewSave();
         this.startGame(newSave);
     }
+    async resumeGame() {
+        //先显示游戏视图的空框架
+        this.showView('Game');
+        
+        // 使用当前存档的节点ID，重新处理并绘制当前节点
+        this.processNode(this.gameState.currentSave.nodeId);
+    }
+    async preloadAssetsForNode(node) {
+        const assetsToLoad = [];
 
-    processNode(nodeId) {
+        // 收集需要加载的图片路径
+        if (node.bgr) {
+            assetsToLoad.push(`./assets/img/bgr/${node.bgr}.png`);
+        }
+        if (node.lCharactor) {
+            assetsToLoad.push(`./assets/img/character/${node.lCharactor}.png`);
+        }
+        if (node.rCharactor) {
+            assetsToLoad.push(`./assets/img/character/${node.rCharactor}.png`);
+        }
+
+        if (assetsToLoad.length === 0) {
+            return Promise.resolve(); // 如果没有要加载的资源，直接返回
+        }
+
+        // 并行加载所有图片
+        const promises = assetsToLoad.map(src => {
+            return new Promise((resolve, reject) => {
+                const img = new Image();
+                img.onload = () => resolve(img);
+                img.onerror = () => reject(new Error(`Failed to load image: ${src}`));
+                img.src = src;
+            });
+        });
+
+        // 等待所有图片都加载完成
+        try {
+            await Promise.all(promises);
+        } catch (error) {
+            console.error("Error preloading assets:", error);
+        }
+    }
+
+    async processNode(nodeId) {
         const node = this.dataManager.getNode(nodeId);
         if (!node) return;
 
+        await this.preloadAssetsForNode(node); 
         this.gameState.currentSave.nodeId = nodeId;
         this.uiManager.renderNode(node);
 
@@ -90,8 +140,8 @@ export default class GameEngine {
             this.saveManager.unlockAchievement(node.unlockAchievement);
         }
         
-        if (node.onEnter) { /* ... */ }
-        if (node.type === 'animation') { /* ... */ }
+        if (node.onEnter) { }
+        if (node.type === 'animation') {  }
     }
     
     async handleAnimation(node) {
@@ -101,7 +151,7 @@ export default class GameEngine {
         this.handlePlayerInput();
     }
 
-    handlePlayerInput(choiceIndex = null) {
+    async handlePlayerInput(choiceIndex = null) {
         if (this.gameState.isInputDisabled || this.gameState.isPaused) return;
         if (this.uiManager.isPrinting()) {
             this.uiManager.skipPrinting();
@@ -137,10 +187,10 @@ export default class GameEngine {
         this.gameState.isInputDisabled = isDisabled;
     }
 
-    pauseGame(fromGameView = true) {
+    pauseGame() {
         if (this.gameState.isPaused) return;
         this.gameState.isPaused = true;
-        this.uiManager.togglePauseMenu(true, fromGameView);
+        this.uiManager.togglePauseMenu(true);
     }
 
     unpauseGame() {

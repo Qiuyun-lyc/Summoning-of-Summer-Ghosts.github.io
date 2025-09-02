@@ -11,8 +11,6 @@
             "name": "narrator",
             "bgr": "test",
             "bgm": "test",
-            "lCharactor": "tomoya",
-            "rCharactor": "aoi",
             "onNext": { "setNode": 11001 },
             "unlockAchievement": "start_game"
         },
@@ -43,7 +41,7 @@
         "110040": {
             "type": "animation",
             "animation": "fadeInBlack",
-            "bgm": null,
+
             "onNext": { "setNode": 11005 }
         },
         "11005": {
@@ -55,7 +53,7 @@
             "type": "text",
             "name": "tomoya",
             "lCharactor":"tomoya",
-            "bgm": "test",
+
             "onNext": { "nextNode": true }
         },
         "11007": {
@@ -108,43 +106,43 @@
         "11015": {
             "type": "text",
             "name": "aoi",
-            "rCharactor":"aoi",
+            "lCharactor":"aoi",
             "onNext": { "nextNode": true }
         },
         "11016": {
             "type": "text",
             "name": "aoi",
-            "rCharactor":"aoi",
+            "lCharactor":"aoi",
             "onNext": { "nextNode": true }
         },
         "11017": {
             "type": "text",
             "name": "aoi",
-            "rCharactor":"aoi",
+            "lCharactor":"aoi",
             "onNext": { "nextNode": true }
         },
         "11018": {
             "type": "text",
             "name": "aoi",
-            "rCharactor":"aoi",
+            "lCharactor":"aoi",
             "onNext": { "nextNode": true }
         },
         "11019": {
             "type": "text",
             "name": "aoi",
-            "rCharactor":"aoi",
+            "lCharactor":"aoi",
             "onNext": { "nextNode": true }
         },
         "11020": {
             "type": "text",
             "name": "aoi",
-            "rCharactor":"aoi",
+            "lCharactor":"aoi",
             "onNext": { "nextNode": true }
         },
         "11021": {
             "type": "text",
             "name": "aoi",
-            "rCharactor":"aoi",
+            "lCharactor":"aoi",
             "onNext": { "nextNode": true }
         },
         "11022": {
@@ -318,7 +316,8 @@
             "onNext": { "choice":[
                 {"targetNode":11052},
                 {"targetNode":11052}
-            ] }
+            ] },
+            "unlockAchievement": "first_choice"
         },
         "11052": {
             "type": "text",

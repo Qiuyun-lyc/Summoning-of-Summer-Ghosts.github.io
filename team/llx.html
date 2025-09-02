@@ -20,28 +20,28 @@
 
         /* 卡片容器 */
         .profile-container {
-        display: flex;
-        flex-wrap: wrap; 
-        justify-content: center;
-        align-items: flex-start;
-        gap: 40px;
-        padding: 40px 60px;
+            display: flex;
+            flex-wrap: wrap; 
+            justify-content: center;
+            align-items: flex-start;
+            gap: 40px;
+            padding: 40px 60px;
 
-    /* 改动部分 ↓ */
-    background: rgba(255, 255, 255, 0.5);  /* 半透明白色背景 */
-    border-radius: 25px;
-    box-shadow: 0 10px 35px rgba(0,0,0,0.2); /* 柔和阴影，不像边框 */
-    max-width: 90%;
-}
+            /* 改动部分  */
+            background: rgba(255, 255, 255, 0.5);
+            border-radius: 25px;
+            box-shadow: 0 10px 35px rgba(0,0,0,0.2);
+            max-width: 90%;
+        }
 
 
         /* 人名放在卡片内部 */
         #profile-name {
-            flex-basis: 100%;   /* 占一整行 */
+            flex-basis: 100%;
             font-size: 42px;
             text-align: center;
             margin: 0 0 20px 0;
-            color: #333;  /* 深色文字更适合纸背景 */
+            color: #333; 
             text-shadow: none;
         }
 
@@ -54,7 +54,7 @@
         }
 
         .profile-text {
-            flex: 1; /* 占据剩余空间 */
+            flex: 1;
             min-width: 260px;
             font-size: 20px;
             line-height: 1.8;
@@ -81,7 +81,6 @@
             text-decoration: underline;
         }
 
-        /* ====== 返回按钮样式 ====== */
         .back-link {
             margin-top: 35px;
             width: 180px;
@@ -136,7 +135,20 @@
         </div>
     </div>
 
-    <!-- 返回按钮 -->
-    <a href="index.html" class="back-link"><span>返回</span></a>
+    <a id="back-button" href="#" class="back-link"><span>返回</span></a>
+
+    <script>
+        document.getElementById('back-button').addEventListener('click', function(event) {
+            event.preventDefault(); // 防止链接的默认跳转行为
+            try {
+                // 设置返回标记，以便 main.js 知道要显示哪个视图
+                sessionStorage.setItem('jumpToAbout', '1');
+            } catch (e) {
+                console.error("Session storage is not available.", e);
+            }
+            // 跳转回主应用页面
+            window.location.href = '../index.html';
+        });
+    </script>
 </body>
 </html>
