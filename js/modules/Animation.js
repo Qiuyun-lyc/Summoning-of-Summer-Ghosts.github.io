@@ -54,27 +54,41 @@ export default class Animation {
         this._fadeToggle('./assets/img/bgr/test.png', 'show-title-icon', 1000, 2000, 1000, resolve);
     }
     
+    // *** 修改 fadeInBlack ***
+    // 它现在只负责淡入黑屏，并保持黑色。它会留下一个ID，以便fadeOutBlack可以找到它。
     fadeInBlack(resolve) {
+        // 检查是否已经存在一个黑屏遮罩，如果存在就先移除
+        const existingOverlay = document.getElementById('black-overlay-transition');
+        if (existingOverlay) {
+            existingOverlay.remove();
+        }
+
         const element = document.createElement('div');
+        element.id = 'black-overlay-transition'; // 添加ID
         element.className = 'animation-overlay black-overlay';
+        element.style.zIndex = '9999'; // 确保在最顶层
         document.body.appendChild(element);
-        this._fade(element, 1200, 0, 1, () => {
-            setTimeout(() => {
-                document.body.removeChild(element);
-                if (resolve) resolve();
-            }, 500);
+        // 淡入时间缩短为600ms，让体验更流畅
+        this._fade(element, 600, 0, 1, () => {
+            if (resolve) resolve(); // 淡入完成后立即解析Promise
         });
     }
 
+    // *** 修改 fadeOutBlack ***
+    // 它现在负责找到由fadeInBlack创建的黑屏，并将其淡出后移除。
     fadeOutBlack(resolve) {
-        const element = document.createElement('div');
-        element.className = 'animation-overlay black-overlay';
-        element.style.opacity = 1;
-        document.body.appendChild(element);
-        this._fade(element, 1200, 1, 0, () => {
-            document.body.removeChild(element);
+        const element = document.getElementById('black-overlay-transition');
+        if (element) {
+            // 淡出时间也缩短为600ms
+            this._fade(element, 600, 1, 0, () => {
+                document.body.removeChild(element);
+                if (resolve) resolve();
+            });
+        } else {
+            // 如果没有找到遮罩，也直接解析Promise
+            console.warn("fadeOutBlack: 未找到黑屏遮罩。");
             if (resolve) resolve();
-        });
+        }
     }
 
     shakeViewport(resolve) {
