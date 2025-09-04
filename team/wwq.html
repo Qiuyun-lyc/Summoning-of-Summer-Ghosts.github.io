@@ -1,155 +1,224 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>个人简介 - 王万淇</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>个人简介 - 刘澜轩</title>
 
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            background: url('../assets/img/bgr/profile.png') no-repeat center center fixed;
-            background-size: cover;
-        }
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      background: url('../assets/img/bgr/profile.png') no-repeat center center fixed;
+      background-size: cover;
+    }
 
-        /* 卡片容器 */
-        .profile-container {
-            display: flex;
-            flex-wrap: wrap; 
-            justify-content: center;
-            align-items: flex-start;
-            gap: 40px;
-            padding: 40px 60px;
+    /* 公共宽度限制容器，左右留白 */
+    .content-wrapper {
+      width: calc(100% - 80px); /* 两边各留 40px */
+      max-width: 1600px;        /* 最大宽度限制 */
+      margin: 20px auto;
+    }
 
-            /* 改动部分  */
-            background: rgba(255, 255, 255, 0.5);  /* 半透明白色背景 */
-            border-radius: 25px;
-            box-shadow: 0 10px 35px rgba(0,0,0,0.2); /* 柔和阴影，不像边框 */
-            max-width: 90%;
-        }
+    /* 标题栏整体 */
+    .header-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+    }
 
+    .header-left,
+    .header-right {
+      display: flex;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
 
-        /* 人名放在卡片内部 */
-        #profile-name {
-            flex-basis: 100%;
-            font-size: 42px;
-            text-align: center;
-            margin: 0 0 20px 0;
-            color: #333;
-            text-shadow: none;
-        }
+    /* 单个独立背景容器 */
+    .glass-item {
+      padding: 8px 18px;
+      background: rgba(255, 255, 255, 0.5);
+      border-radius: 15px;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.2);
+      font-size: 18px;
+      color: #333;
+      text-decoration: none;
+      transition: transform 0.2s ease, box-shadow 0.2s ease, color 0.2s ease;
+    }
 
-        .profile-container img {
-            border-radius: 20px;
-            width: 100%;
-            max-width: 350px; /* 限制最大宽度 */
-            height: auto;     /* 按比例缩放 */
-            object-fit: cover;
-        }
+    .glass-item:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+      color: #0077cc;
+    }
 
-        .profile-text {
-            flex: 1; 
-            min-width: 260px;
-            font-size: 20px;
-            line-height: 1.8;
-            color: #333;
-        }
+    .glass-item.active {
+      font-weight: bold;
+      color: #0077cc;
+      text-decoration: underline;
+    }
 
-        .profile-text h2 {
-            margin-top: 0;
-            font-size: 28px;
-            border-bottom: 2px solid #ddd;
-            padding-bottom: 8px;
-        }
+    /* 个人卡片容器 */
+    .profile-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: flex-start;
+      gap: 40px;
+      padding: 40px 60px;
 
-        .profile-text p {
-            margin: 12px 0;
-        }
+      background: rgba(255, 255, 255, 0.5);
+      border-radius: 25px;
+      box-shadow: 0 10px 35px rgba(0,0,0,0.2);
+    }
 
-        .profile-text a {
-            color: #0077cc;
-            text-decoration: none;
-        }
+    #profile-name {
+      flex-basis: 100%;
+      font-size: 42px;
+      text-align: center;
+      margin: 0 0 20px 0;
+      color: #333;
+    }
 
-        .profile-text a:hover {
-            text-decoration: underline;
-        }
+    .profile-container img {
+      border-radius: 20px;
+      width: 100%;
+      max-width: 350px;
+      height: auto;
+      object-fit: cover;
+    }
 
-        .back-link {
-            margin-top: 35px;
-            width: 180px;
-            height: 55px;
-            display: inline-flex;
-            justify-content: center;
-            align-items: center;
-            border-radius: 12px;
-            color: white;
-            font-size: 20px;
-            font-weight: bold;
-            text-decoration: none;
-            background: url('../assets/img/button.png') no-repeat center center;
-            background-size: cover;
-            position: relative;
-            overflow: hidden;
-            box-shadow: 0 6px 18px rgba(0,0,0,0.25);
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
-        }
+    .profile-text {
+      flex: 1;
+      min-width: 260px;
+      font-size: 20px;
+      line-height: 1.8;
+      color: #333;
+    }
 
-        .back-link::before {
-            content: "";
-            position: absolute;
-            inset: 0;
-            background: rgba(0,0,0,0.3);
-            border-radius: 12px;
-        }
+    .profile-text h2 {
+      margin-top: 0;
+      font-size: 28px;
+      border-bottom: 2px solid #ddd;
+      padding-bottom: 8px;
+    }
 
-        .back-link span {
-            position: relative;
-            z-index: 1;
-        }
+    .profile-text p {
+      margin: 12px 0;
+    }
 
-        .back-link:hover {
-            transform: translateY(-4px) scale(1.05);
-            box-shadow: 0 10px 25px rgba(0,0,0,0.35);
-        }
-    </style>
+    .profile-text a {
+      color: #0077cc;
+      text-decoration: none;
+    }
+
+    .profile-text a:hover {
+      text-decoration: underline;
+    }
+
+    /* 下方返回按钮 */
+    .back-link {
+      margin: 20px 0 40px 0;
+      width: 180px;
+      height: 55px;
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 12px;
+      color: white;
+      font-size: 20px;
+      font-weight: bold;
+      text-decoration: none;
+      background: url('../assets/img/button.png') no-repeat center center;
+      background-size: cover;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.25);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .back-link::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,0.3);
+      border-radius: 12px;
+    }
+
+    .back-link span {
+      position: relative;
+      z-index: 1;
+    }
+
+    .back-link:hover {
+      transform: translateY(-4px) scale(1.05);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.35);
+    }
+
+    /* 响应式优化：小屏幕宽度时自动缩窄 */
+    @media (max-width: 768px) {
+      .content-wrapper {
+        width: 95%;
+      }
+    }
+  </style>
 </head>
 <body>
-    <div class="profile-container">
-        <!-- 人名放入卡片 -->
-        <h1 id="profile-name">王万淇</h1>
 
-        <img src="../assets/img/teammate/11.jpg" alt="个人照片">
-
-        <div class="profile-text">
-            <h2>个人简介</h2>
-            <p><strong>任职：</strong>项目经理</p>
-            <p><strong>自我介绍：</strong>王万淇，cs玩家眼中的冷面枪男，实际上是我们团队里最有“魔王潜质”的PM。平日里，他戴着厚厚的程序员眼镜，手握咖啡杯，像是在暗中策划世界征服计划，其实只是在整理项目进度表。他热爱ACG文化，熟悉各种动漫梗和游戏设定，每次开会都能用“魔王C+级策略”秒杀混乱议题。尽管外表冷漠，但他内心深处是个纯情的大男孩，偶尔会被可爱的角色图包围时露出少女般的微笑。王万淇的博客就像他的实验室，里面充满了代码与奇思妙想，他时常在上面记录自己的项目心得与ACG吐槽。你若发邮件给他，别忘了附上一张二次元表情包，否则可能收不到回复——他会默默怀念自己没看懂的表情。总之，王万淇是团队的战略中枢，冷面外壳下隐藏着热血策划心。</p>
-            <p><strong>博客：</strong><a href="https://blog.csdn.net/rebirth557" target="_blank">https://blog.csdn.net/rebirth557</a></p>
-            <p><strong>联系方式：</strong><a href="mailto:yunqiu185@gmail.com">yunqiu185@gmail.com</a></p>
-        </div>
+  <!-- 标题栏 -->
+  <div class="content-wrapper">
+    <div class="header-bar">
+      <div class="header-left">
+        <a href="../js/views/AboutView.js" id="header-back" class="glass-item">返回</a>
+        <span class="glass-item">个人简介</span>
+      </div>
+      <div class="header-right">
+        <a href="./wwq.html" class="glass-item active">王万淇</a>
+        <a href="./ghk.html" class="glass-item">葛洪康</a>
+        <a href="./wgy.html" class="glass-item">王光源</a>
+        <a href="./cyw.html" class="glass-item">陈煜玮</a>
+        <a href="./llx.html" class="glass-item ">刘澜轩</a>
+      </div>
     </div>
+  </div>
 
-    <a id="back-button" href="#" class="back-link"><span>返回</span></a>
+  <!-- 个人卡片 -->
+  <div class="content-wrapper">
+    <div class="profile-container">
+      <h1 id="profile-name">王万淇</h1>
+      <img src="../assets/img/teammate/11.jpg" alt="个人照片">
+      <div class="profile-text">
+        <h2>个人简介</h2>
+        <p><strong>任职：</strong>项目经理</p>
+        <p><strong>自我介绍：</strong>王万淇，cs玩家眼中的冷面枪男，实际上是我们团队里最有“魔王潜质”的PM。平日里，他戴着厚厚的程序员眼镜，手握咖啡杯，像是在暗中策划世界征服计划，其实只是在整理项目进度表。他热爱ACG文化，熟悉各种动漫梗和游戏设定，每次开会都能用“魔王C</p>
+        <p><strong>博客：</strong><a href="https://blog.csdn.net/rebirth557">https://blog.csdn.net/rebirth557</a></p>
+        <p><strong>联系方式：</strong><a href="mailto:yunqiu185@gmail.com">yunqiu185@gmail.com</a></p>
+      </div>
+    </div>
+  </div>
 
-    <script>
-        document.getElementById('back-button').addEventListener('click', function(event) {
-            event.preventDefault(); // 防止链接的默认跳转行为
-            try {
-                // 设置返回标记，以便 main.js 知道要显示哪个视图
-                sessionStorage.setItem('jumpToAbout', '1');
-            } catch (e) {
-                console.error("Session storage is not available.", e);
-            }
-            // 跳转回主应用页面
-            window.location.href = '../index.html';
-        });
-    </script>
+  <!-- 下方返回按钮 -->
+  <a id="back-button" href="#" class="back-link"><span>返回</span></a>
+
+  <script>
+    // 顶部返回
+    document.getElementById('header-back').addEventListener('click', function(event) {
+      event.preventDefault();
+      sessionStorage.setItem('jumpToAbout', '1');
+      window.location.href = '../index.html';
+    });
+
+    // 底部返回
+    document.getElementById('back-button').addEventListener('click', function(event) {
+      event.preventDefault();
+      sessionStorage.setItem('jumpToAbout', '1');
+      window.location.href = '../index.html';
+    });
+  </script>
 </body>
 </html>

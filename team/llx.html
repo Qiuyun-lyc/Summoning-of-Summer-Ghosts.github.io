@@ -1,154 +1,223 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>个人简介 - 刘澜轩</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>个人简介 - 刘澜轩</title>
 
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            background: url('../assets/img/bgr/profile.png') no-repeat center center fixed;
-            background-size: cover;
-        }
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      background: url('../assets/img/bgr/profile.png') no-repeat center center fixed;
+      background-size: cover;
+    }
 
-        /* 卡片容器 */
-        .profile-container {
-            display: flex;
-            flex-wrap: wrap; 
-            justify-content: center;
-            align-items: flex-start;
-            gap: 40px;
-            padding: 40px 60px;
+    /* 公共宽度限制容器，左右留白 */
+    .content-wrapper {
+      width: calc(100% - 80px); /* 两边各留 40px */
+      max-width: 1600px;        /* 最大宽度限制 */
+      margin: 20px auto;
+    }
 
-            /* 改动部分  */
-            background: rgba(255, 255, 255, 0.5);
-            border-radius: 25px;
-            box-shadow: 0 10px 35px rgba(0,0,0,0.2);
-            max-width: 90%;
-        }
+    /* 标题栏整体 */
+    .header-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+    }
 
+    .header-left,
+    .header-right {
+      display: flex;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
 
-        /* 人名放在卡片内部 */
-        #profile-name {
-            flex-basis: 100%;
-            font-size: 42px;
-            text-align: center;
-            margin: 0 0 20px 0;
-            color: #333; 
-            text-shadow: none;
-        }
+    /* 单个独立背景容器 */
+    .glass-item {
+      padding: 8px 18px;
+      background: rgba(255, 255, 255, 0.5);
+      border-radius: 15px;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.2);
+      font-size: 18px;
+      color: #333;
+      text-decoration: none;
+      transition: transform 0.2s ease, box-shadow 0.2s ease, color 0.2s ease;
+    }
 
-        .profile-container img {
-            border-radius: 20px;
-            width: 100%;
-            max-width: 350px; /* 限制最大宽度 */
-            height: auto;     /* 按比例缩放 */
-            object-fit: cover;
-        }
+    .glass-item:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+      color: #0077cc;
+    }
 
-        .profile-text {
-            flex: 1;
-            min-width: 260px;
-            font-size: 20px;
-            line-height: 1.8;
-            color: #333;
-        }
+    .glass-item.active {
+      font-weight: bold;
+      color: #0077cc;
+      text-decoration: underline;
+    }
 
-        .profile-text h2 {
-            margin-top: 0;
-            font-size: 28px;
-            border-bottom: 2px solid #ddd;
-            padding-bottom: 8px;
-        }
+    /* 个人卡片容器 */
+    .profile-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: flex-start;
+      gap: 40px;
+      padding: 40px 60px;
 
-        .profile-text p {
-            margin: 12px 0;
-        }
+      background: rgba(255, 255, 255, 0.5);
+      border-radius: 25px;
+      box-shadow: 0 10px 35px rgba(0,0,0,0.2);
+    }
 
-        .profile-text a {
-            color: #0077cc;
-            text-decoration: none;
-        }
+    #profile-name {
+      flex-basis: 100%;
+      font-size: 42px;
+      text-align: center;
+      margin: 0 0 20px 0;
+      color: #333;
+    }
 
-        .profile-text a:hover {
-            text-decoration: underline;
-        }
+    .profile-container img {
+      border-radius: 20px;
+      width: 100%;
+      max-width: 350px;
+      height: auto;
+      object-fit: cover;
+    }
 
-        .back-link {
-            margin-top: 35px;
-            width: 180px;
-            height: 55px;
-            display: inline-flex;
-            justify-content: center;
-            align-items: center;
-            border-radius: 12px;
-            color: white;
-            font-size: 20px;
-            font-weight: bold;
-            text-decoration: none;
-            background: url('../assets/img/button.png') no-repeat center center;
-            background-size: cover;
-            position: relative;
-            overflow: hidden;
-            box-shadow: 0 6px 18px rgba(0,0,0,0.25);
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
-        }
+    .profile-text {
+      flex: 1;
+      min-width: 260px;
+      font-size: 20px;
+      line-height: 1.8;
+      color: #333;
+    }
 
-        .back-link::before {
-            content: "";
-            position: absolute;
-            inset: 0;
-            background: rgba(0,0,0,0.3);
-            border-radius: 12px;
-        }
+    .profile-text h2 {
+      margin-top: 0;
+      font-size: 28px;
+      border-bottom: 2px solid #ddd;
+      padding-bottom: 8px;
+    }
 
-        .back-link span {
-            position: relative;
-            z-index: 1;
-        }
+    .profile-text p {
+      margin: 12px 0;
+    }
 
-        .back-link:hover {
-            transform: translateY(-4px) scale(1.05);
-            box-shadow: 0 10px 25px rgba(0,0,0,0.35);
-        }
-    </style>
+    .profile-text a {
+      color: #0077cc;
+      text-decoration: none;
+    }
+
+    .profile-text a:hover {
+      text-decoration: underline;
+    }
+
+    /* 下方返回按钮 */
+    .back-link {
+      margin: 20px 0 40px 0;
+      width: 180px;
+      height: 55px;
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 12px;
+      color: white;
+      font-size: 20px;
+      font-weight: bold;
+      text-decoration: none;
+      background: url('../assets/img/button.png') no-repeat center center;
+      background-size: cover;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.25);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .back-link::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,0.3);
+      border-radius: 12px;
+    }
+
+    .back-link span {
+      position: relative;
+      z-index: 1;
+    }
+
+    .back-link:hover {
+      transform: translateY(-4px) scale(1.05);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.35);
+    }
+
+    /* 响应式优化：小屏幕宽度时自动缩窄 */
+    @media (max-width: 768px) {
+      .content-wrapper {
+        width: 95%;
+      }
+    }
+  </style>
 </head>
 <body>
-    <div class="profile-container">
-        <!-- 人名放入卡片 -->
-        <h1 id="profile-name">刘澜轩</h1>
 
-        <img src="../assets/img/teammate/51.jpg" alt="个人照片">
-
-        <div class="profile-text">
-            <h2>个人简介</h2>
-            <p><strong>任职：</strong>前端开发程序员</p>
-            <p><strong>自我介绍：</strong>刘澜轩，玩的游戏种类比较丰富，从策略到动作、从单机到网游都多少接触过一些，因此对不同类型的玩法都有一定的了解。个人成分相对复杂，说不上是哪一种固定的风格，常常在“努力卷一把”和“干脆躺平”之间徘徊，处于一种微妙的45度叠加态。很多时候会觉得自己什么都不会，但回过头想想，好像也多少会一点，至少能和别人聊上几句。兴趣比较杂，喜欢到处了解新鲜事物，知识面算是比较广，不过深入研究的时候往往容易分心，很难真正钻得很深。整体而言，我是一个性格随和的人，不拘泥于形式，喜欢保持一定的好奇心和探索精神。</p>
-            <p><strong>联系方式：</strong><a href="mailto:2010640834@qq.com">2010640834@qq.com</a></p>
-        </div>
+  <!-- 标题栏 -->
+  <div class="content-wrapper">
+    <div class="header-bar">
+      <div class="header-left">
+        <a href="../js/views/AboutView.js" id="header-back" class="glass-item">返回</a>
+        <span class="glass-item">个人简介</span>
+      </div>
+      <div class="header-right">
+        <a href="./wwq.html" class="glass-item">王万淇</a>
+        <a href="./ghk.html" class="glass-item">葛洪康</a>
+        <a href="./wgy.html" class="glass-item">王光源</a>
+        <a href="./cyw.html" class="glass-item">陈煜玮</a>
+        <a href="./llx.html" class="glass-item active">刘澜轩</a>
+      </div>
     </div>
+  </div>
 
-    <a id="back-button" href="#" class="back-link"><span>返回</span></a>
+  <!-- 个人卡片 -->
+  <div class="content-wrapper">
+    <div class="profile-container">
+      <h1 id="profile-name">刘澜轩</h1>
+      <img src="../assets/img/teammate/51.jpg" alt="个人照片">
+      <div class="profile-text">
+        <h2>个人简介</h2>
+        <p><strong>任职：</strong>前端开发程序员</p>
+        <p><strong>自我介绍：</strong>刘澜轩，玩的游戏种类比较丰富，从策略到动作、从单机到网游都多少接触过一些，因此对不同类型的玩法都有一定的了解。个人成分相对复杂，说不上是哪一种固定的风格，常常在“努力卷一把”和“干脆躺平”之间徘徊，处于一种微妙的45度叠加态。很多时候会觉得自己什么都不会，但回过头想想，好像也多少会一点，至少能和别人聊上几句。兴趣比较杂，喜欢到处了解新鲜事物，知识面算是比较广，不过深入研究的时候往往容易分心，很难真正钻得很深。整体而言，我是一个性格随和的人，不拘泥于形式，喜欢保持一定的好奇心和探索精神。</p>
+        <p><strong>联系方式：</strong><a href="mailto:2010640834@qq.com">2010640834@qq.com</a></p>
+      </div>
+    </div>
+  </div>
 
-    <script>
-        document.getElementById('back-button').addEventListener('click', function(event) {
-            event.preventDefault(); // 防止链接的默认跳转行为
-            try {
-                // 设置返回标记，以便 main.js 知道要显示哪个视图
-                sessionStorage.setItem('jumpToAbout', '1');
-            } catch (e) {
-                console.error("Session storage is not available.", e);
-            }
-            // 跳转回主应用页面
-            window.location.href = '../index.html';
-        });
-    </script>
+  <!-- 下方返回按钮 -->
+  <a id="back-button" href="#" class="back-link"><span>返回</span></a>
+
+  <script>
+    // 顶部返回
+    document.getElementById('header-back').addEventListener('click', function(event) {
+      event.preventDefault();
+      sessionStorage.setItem('jumpToAbout', '1');
+      window.location.href = '../index.html';
+    });
+
+    // 底部返回
+    document.getElementById('back-button').addEventListener('click', function(event) {
+      event.preventDefault();
+      sessionStorage.setItem('jumpToAbout', '1');
+      window.location.href = '../index.html';
+    });
+  </script>
 </body>
 </html>
