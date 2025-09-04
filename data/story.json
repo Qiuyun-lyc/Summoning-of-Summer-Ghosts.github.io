@@ -21,11 +21,13 @@
             "onNext": { "nextNode": true }
         },
         "11002": {
+            "inherit": 11001,
             "type": "text",
             "name": "narrator",
             "onNext": { "nextNode": true }
         },
         "11003": {
+            "inherit": 11001,
             "type": "text",
             "name": "narrator",
             "onNext": { "nextNode": true }

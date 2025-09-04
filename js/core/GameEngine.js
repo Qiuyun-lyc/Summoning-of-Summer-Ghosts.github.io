@@ -41,6 +41,23 @@ export default class GameEngine {
     }
 
     async init() {
+        try {
+            // 检查当前会话是否已经有登录信息
+            if (!sessionStorage.getItem('loginUser')) {
+                // 如果没有，检查是否存在用于跨页恢复的“过桥”令牌
+                const activeUser = localStorage.getItem('activeSessionUser');
+                if (activeUser) {
+                    // 如果找到了令牌，说明用户是从团队页面返回的
+                    console.log('检测到从外部页面返回，正在恢复会话...');
+                    // 1. 使用令牌恢复 sessionStorage
+                    sessionStorage.setItem('loginUser', activeUser);
+                    // 2. 立即删除令牌，因为它是一次性的！
+                    localStorage.removeItem('activeSessionUser');
+                }
+            }
+        } catch (e) {
+            console.error('恢复会话状态时发生错误:', e);
+        }
         // 添加事件监听器 
         window.addEventListener('achievementUnlocked', (event) => {
             const achievementId = event.detail.achievementId;
