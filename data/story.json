@@ -24,8 +24,8 @@
                 "value": 9
             },
             "onComplete": {
-                "win": 101, 
-                "lose": 1001  
+                "win": 1001, 
+                "lose": 101  
             }
         },
 
