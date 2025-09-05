@@ -11,1807 +11,1866 @@
             "name": "narrator",
             "bgr": "test",
             "bgm": "test",
-            "onNext": { "setNode": 11001 },
+            "onNext": { "setNode": 1001 },
             "unlockAchievement": "start_game"
         },
-        "11001": {
-            "type": "text",
-            "name": "narrator",
-            "bgr":"1",
-            "onNext": { "nextNode": true }
-        },
-        "11002": {
-            "type": "text",
-            "name": "narrator",
-            "onNext": { "nextNode": true }
-        },
-        "11003": {
-            "type": "text",
-            "name": "narrator",
-            "onNext": { "nextNode": true }
-        },
-
-
-        "11004": {
-            "type": "text",
-            "name": "narrator",
-            "bgr":"2",
-            "onNext": { "setNode": 110040 }
-        },
-        "110040": {
-            "type": "animation",
-            "animation": "fadeInBlack",
-
-            "onNext": { "setNode": 11005 }
-        },
-        "11005": {
-            "type": "text",
-            "name":"tomoya",
-            "onNext": { "nextNode": true }
-        },
-        "11006": {
-            "type": "text",
-            "name": "tomoya",
-            "lCharactor":"tomoya",
-
-            "onNext": { "nextNode": true }
-        },
-        "11007": {
-            "type": "text",
-            "name": "tomoya",
-            "lCharactor":"tomoya",
-            "onNext": { "nextNode": true }
-        },
-        "11008": {
-            "type": "text",
-            "name": "narrator",
-            "onNext": { "nextNode": true }
-        },
-        "11009": {
-            "type": "text",
-            "name": "npcA",
+        "1001": {
+                "type": "text",
+                "name": "narrator",
+            "bgr": "原野1",
             "bgm": "test",
-            "onNext": { "nextNode": true }
+                "onNext": { "nextNode": true }
         },
-        "11010": {
-            "type": "text",
-            "name": "npcB",
-            "onNext": { "nextNode": true }
+        "1002": {
+                "type": "animation",
+                "name": "fadeInBlack",
+                "inherit":1001,
+                "onNext": { "setNode": 1004 }
         },
-        "11011": {
-            "type": "text",
-            "name": "npcA",
-            "onNext": { "nextNode": true }
+        "1003": {
+                "type": "text",
+                "name": "narrator",
+                "inherit":1001,
+                "onNext": { "nextNode": true }
         },
-        "11012": {
-            "type": "text",
-            "name": "tomoya",
-            "lCharactor":"tomoya",
-            "onNext": { "nextNode": true }
+        "1004": {
+                "type": "text",
+                "name": "narrator",
+                "inherit":1001,
+                "onNext": { "nextNode": true }
         },
-        "11013": {
-            "type": "text",
-            "name": "tomoya",
-            "lCharactor":"tomoya",
-            "onNext": { "nextNode": true }
+        "1005": {
+                "type": "text",
+                "name": "narrator",
+                "inherit":1001,
+                "onNext": { "nextNode": true }
         },
-
-
-        "11014": {
-            "type": "text",
-            "name": "narrator",
-            "bgr":"3",
-            "onNext": { "nextNode": true }
-        },
-        "11015": {
-            "type": "text",
-            "name": "aoi",
-            "lCharactor":"aoi",
-            "onNext": { "nextNode": true }
-        },
-        "11016": {
-            "type": "text",
-            "name": "aoi",
-            "lCharactor":"aoi",
-            "onNext": { "nextNode": true }
-        },
-        "11017": {
-            "type": "text",
-            "name": "aoi",
-            "lCharactor":"aoi",
-            "onNext": { "nextNode": true }
-        },
-        "11018": {
-            "type": "text",
-            "name": "aoi",
-            "lCharactor":"aoi",
-            "onNext": { "nextNode": true }
-        },
-        "11019": {
-            "type": "text",
-            "name": "aoi",
-            "lCharactor":"aoi",
-            "onNext": { "nextNode": true }
-        },
-        "11020": {
-            "type": "text",
-            "name": "aoi",
-            "lCharactor":"aoi",
-            "onNext": { "nextNode": true }
-        },
-        "11021": {
-            "type": "text",
-            "name": "aoi",
-            "lCharactor":"aoi",
-            "onNext": { "nextNode": true }
-        },
-        "11022": {
-            "type": "text",
-            "name": "narrator",
-            "bgr":"2_2",
-            "onNext": { "nextNode": true }
-        },
-        "11023": {
-            "type": "text",
-            "name": "aoi",
-            "rCharactor":"aoi",
-            "onNext": { "nextNode": true }
-        },
-        "11024": {
-            "type": "text",
-            "name": "aoi",
-            "rCharactor":"aoi",
-            "onNext": { "nextNode": true }
-        },
-        "11025": {
-            "type": "text",
-            "name": "aoi",
-            "rCharactor":"aoi",
-            "onNext": { "nextNode": true }
+        "1006": {
+                "type": "animation",
+                "name": "fadeInBlack",
+                "inherit":1001,
+                "onNext": { "nextNode": true }
         },
 
-
-        "11026": {
-            "type": "text",
-            "name": "narrator",
-            "bgr":"4",
-            "onNext": { "nextNode": true }
-        },
-        "11027": {
-            "type": "text",
-            "name": "ryo",
-            "lCharactor":"ryo",
-            "onNext": { "nextNode": true }
-        },
-        "11028": {
-            "type": "text",
-            "name": "ryo",
-            "lCharactor":"ryo",
-            "onNext": { "nextNode": true }
-        },
-        "11029": {
-            "type": "text",
-            "name": "ryo",
-            "lCharactor":"ryo",
-            "onNext": { "nextNode": true }
-        },
-        "11030": {
-            "type": "text",
-            "name": "ryo",
-            "lCharactor":"ryo",
-            "onNext": { "nextNode": true }
-        },
-        "11031": {
-            "type": "text",
-            "name": "narrator",
-            "onNext": { "nextNode": true }
-        },
-        "11032": {
-            "type": "text",
-            "name": "ryo",
-            "lCharactor":"ryo",
-            "onNext": { "nextNode": true }
-        },
-        "11033": {
-            "type": "text",
-            "name": "ryo",
-            "lCharactor":"ryo",
-            "onNext": { "nextNode": true }
-        },
-        "11034": {
-            "type": "text",
-            "name": "ryo",
-            "lCharactor":"ryo",
-            "onNext": { "nextNode": true }
-        },
-
-
-        "11035": {
-            "type": "text",
-            "name": "narrator",
-            "bgr":"5",
-            "onNext": { "nextNode": true }
-        },
-
-
-        "11036": {
-            "type": "text",
-            "name": "narrator",
-            "bgr":"6",
-            "onNext": { "nextNode": true }
-        },
-
-        "11037": {
-            "type": "text",
-            "name": "tomoya",
-            "lCharactor":"tomoya",
-            "onNext": { "nextNode": true }
-        },
-        "11038": {
-            "type": "text",
-            "name": "narrator",
-            "onNext": { "nextNode": true }
-        },
-        "11039": {
-            "type": "text",
-            "name": "tomoya",
-            "lCharactor":"tomoya",
-            "onNext": { "nextNode": true }
-        },
-        "11040": {
-            "type": "text",
-            "name": "narrator",
-            "onNext": { "nextNode": true }
-        },
-        "11041": {
-            "type": "text",
-            "name": "narrator",
-            "onNext": { "nextNode": true }
-        },
-        "11042": {
-            "type": "text",
-            "name": "narrator",
-            "onNext": { "nextNode": true }
-        },
-        "11043": {
-            "type": "text",
-            "name": "narrator",
-            "onNext": { "nextNode": true }
-        },
-        "11044": {
-            "type": "text",
-            "name": "tomoya",
-            "lCharactor":"tomoya",
-            "onNext": { "nextNode": true }
-        },
-        "11045": {
-            "type": "text",
-            "name": "narrator",
-            "onNext": { "nextNode": true }
-        },
-        "11046": {
-            "type": "text",
-            "name": "narrator",
-            "onNext": { "nextNode": true }
-        },
-        "11047": {
-            "type": "text",
-            "name": "narrator",
-            "onNext": { "nextNode": true }
-        },
-        "11048": {
-            "type": "text",
-            "name": "tomoya",
-            "lCharactor":"tomoya",
-            "onNext": { "nextNode": true }
-        },
-        "11049": {
-            "type": "text",
-            "name": "narrator",
-            "onNext": { "nextNode": true }
-        },
-        "11050": {
-            "type": "choices",
-            "name": "narrator",
-            "onNext": { "choice":[
-                {"targetNode":11052},
-                {"targetNode":11052}
-            ] },
-            "unlockAchievement": "first_choice"
-        },
-        "11052": {
-            "type": "text",
-            "name": "narrator",
-            "onNext": { "nextNode": true }
-        },
-        "11053": {
-            "type": "text",
-            "name": "narrator",
-            "onNext": { "nextNode": true }
-        },
-        "11054": {
-            "type": "text",
-            "name": "narrator",
-            "onNext": { "nextNode": true }
-        },
-        "11055": {
-            "type": "text",
-            "name": "narrator",
-            "onNext": { "nextNode": true }
-        },
-        "11056": {
-            "type": "text",
-            "name": "narrator",
-            "onNext": { "nextNode": true }
-        },
-        "11057": {
-            "type": "choices",
-            "name": "narrator",
-            "onNext": { "choice":[
-                {"targetNode":"11058102"},
-                {"targetNode":"11060202"}] }
-        },
-        "11058102": {
-            "type": "text",
-            "name": "narrator",
-            "onNext": { "setNode": 11061 }
-        },
-        "11060202": {
-            "type": "text",
-            "name": "narrator",
-            "onNext": { "setNode": 11061 }
-        },
-        "11061": {
-            "type": "text",
-            "name": "narrator",
-            "onNext": { "nextNode": true }
-        },
-        "11062": {
-            "type": "text",
-            "name": "narrator",
-            "onNext": { "nextNode": true }
-        },
-        "11063": {
-            "type": "text",
-            "name": "narrator",
-            "onNext": { "nextNode": true }
-        },
-        "11064": {
-            "type": "text",
-            "name": "narrator",
-            "onNext": { "nextNode": true }
-        },
-        "11065": {
-            "type": "text",
-            "name": "narrator",
-            "onNext": { "nextNode": true }
-        },
-        "11066": {
-            "type": "text",
-            "name": "narrator",
-            "onNext": { "nextNode": true }
-        },
-
-
-        "11067": {
-            "type": "text",
-            "name": "narrator",
-            "bgr":"7",
-            "onNext": { "nextNode": true }
-        },
-        "11068": {
-            "type": "text",
-            "name": "tomoya",
-            "lCharactor":"tomoya",
-            "onNext": { "nextNode": true }
-        },
-        "11069": {
-            "type": "text",
-            "name": "tomoya",
-            "lCharactor":"tomoya",
-            "onNext": { "nextNode": true }
-        },
-        "11070": {
-            "type": "text",
-            "name": "tomoya",
-            "lCharactor":"tomoya",
-            "onNext": { "nextNode": true }
-        },
-        "11071": {
-            "type": "text",
-            "name": "narrator",
-            "onNext": { "nextNode": true }
-        },
-
-
-        "11072": {
-            "type": "text",
-            "name": "narrator",
-            "bgr":"8",
-            "onNext": { "nextNode": true }
-        },
-        "11073": {
-            "type": "text",
-            "name": "narrator",
-            "onNext": { "nextNode": true }
-        },
-        "11074": {
-            "type": "text",
-            "name": "narrator",
-            "onNext": { "nextNode": true }
-        },
-        "11075": {
-            "type": "text",
-            "name": "narrator",
-            "onNext": { "nextNode": true }
-        },
-        "11076": {
-            "type": "text",
-            "name": "narrator",
-            "onNext": { "nextNode": true }
-        },
-
-
-        "11077": {
-            "type": "text",
-            "name": "narrator",
-            "bgr":"9",
-            "onNext": { "nextNode": true }
-        },
-        "11078": {
-            "type": "text",
-            "name": "narrator",
-            "onNext": { "nextNode": true }
-        },
-        "11079": {
-            "type": "text",
-            "name": "narrator",
-            "onNext": { "nextNode": true }
-        },
-        "11080": {
-            "type": "text",
-            "name": "tomoya",
-            "lCharactor":"tomoya",
-            "onNext": { "nextNode": true }
-        },
-        "11081": {
-            "type": "text",
-            "name": "aoi",
-            "rCharactor":"aoi",
-            "onNext": { "nextNode": true }
-        },
-        "11082": {
-            "type": "text",
-            "name": "tomoya",
-            "lCharactor":"tomoya",
-            "onNext": { "nextNode": true }
-        },
-        "11083": {
-            "type": "text",
-            "name": "narrator",
-            "onNext": { "nextNode": true }
-        },
-        "11084": {
-            "type": "text",
-            "name": "ryo",
-            "lCharactor":"ryo",
-            "onNext": { "nextNode": true }
-        },
-        "11085": {
-            "type": "text",
-            "name": "ryo",
-            "lCharactor":"ryo",
-            "onNext": { "nextNode": true }
-        },
-        "11086": {
-            "type": "text",
-            "name": "aoi",
-            "rCharactor":"aoi",
-            "onNext": { "nextNode": true }
-        },
-        "11087": {
-            "type": "text",
-            "name": "tomoya",
-            "lCharactor":"tomoya",
-            "onNext": { "nextNode": true }
-        },
-
-        "11088": {
-            "type": "text",
-            "name": "tomoya",
-            "lCharactor":"tomoya",
-            "bgr":"10",
-            "onNext": { "nextNode": true }
-        },
-        "11089": {
-            "type": "text",
-            "name": "tomoya",
-            "lCharactor":"tomoya",
-            "onNext": { "nextNode": true }
-        },
-        "11090": {
-            "type": "text",
-            "name": "aoi",
-            "rCharactor":"aoi",
-            "onNext": { "nextNode": true }
-        },
-        "11091": {
-            "type": "text",
-            "name": "tomoya",
-            "lCharactor":"tomoya",
-            "onNext": { "nextNode": true }
-        },
-        "11092": {
-            "type": "text",
-            "name": "ryo",
-            "lCharactor":"ryo",
-            "onNext": { "nextNode": true }
-        },
-        "11093": {
-            "type": "text",
-            "name": "aoi",
-            "rCharactor":"aoi",
-            "onNext": { "nextNode": true }
-        },
-        "11094": {
-            "type": "text",
-            "name": "ryo",
-            "lCharactor":"ryo",
-            "onNext": { "nextNode": true }
-        },
-
-        "11095": {
-            "type": "text",
-            "name": "ryo",
-            "lCharactor":"ryo",
-            "bgr":"11",
-            "onNext": { "nextNode": true }
-        },
-        "11096": {
-            "type": "text",
-            "name": "ryo",
-            "lCharactor":"ryo",
-            "onNext": { "nextNode": true }
-        },
-        "11097": {
-            "type": "text",
-            "name": "tomoya",
-            "lCharactor":"tomoya",
-            "onNext": { "nextNode": true }
-        },
         
-        "11098": {
-            "type": "text",
-            "name": "narrator",
-            "bgr":"12",
-            "onNext": { "nextNode": true }
+        "1007": {
+                "type": "text",
+                "name": "narrator",
+            "bgr": "黄昏画室2",
+            "bgm": "test",
+                "onNext": { "nextNode": true }
         },
-        "11099": {
-            "type": "text",
-            "name": "aoi",
-            "rCharactor":"aoi",
-            "onNext": { "nextNode": true }
+        "1008": {
+                "type": "text",
+                "name": "narrator",
+                "inherit":1007,
+                "onNext": { "nextNode": true }
         },
-        "11100": {
-            "type": "text",
-            "name": "tomoya",
-            "lCharactor":"tomoya",
-            "onNext": { "nextNode": true }
+        "1009": {
+                "type": "text",
+                "name": "tomoya","lCharactor":"友也_平静",
+                "inherit":1007,
+                "onNext": { "nextNode": true }
         },
-        "11101": {
-            "type": "choices",
-            "name": "tomoya",
-            "lCharactor":"tomoya",
-            "onNext": { "choice":[
-                {"targetNode":11103},
-                {"targetNode":11103}] }
+        "1010": {
+                "type": "text",
+                "name": "tomoya","lCharactor":"友也_不知道",
+                "inherit":1007,
+                "onNext": { "nextNode": true }
         },
-        "11103": {
-            "type": "choices",
-            "name": "ryo",
-            "lCharactor":"ryo",
-            "onNext": { "choice":[
-                {"targetNode":11105},
-                {"targetNode":11105}] }
+        "1011": {
+                "type": "text",
+                "name": "tomoya","lCharactor":"友也_平静",
+                "inherit":1007,
+                "onNext": { "nextNode": true }
+        },
+        "1012": {
+                "type": "text",
+                "name": "tomoya","lCharactor":"友也_无奈",
+                "inherit":1007,
+                "onNext": { "nextNode": true }
+        },
+        "1013": {
+                "type": "text",
+                "name": "narrator",
+                "inherit":1007,
+                "onNext": { "nextNode": true }
+        },
+        "1014": {
+                "type": "text",
+                "name": "studentA","lCharactor":"男生1",
+                "inherit":1007,
+                "onNext": { "nextNode": true }
+        },
+        "1015": {
+                "type": "text",
+                "name": "studentB","rCharactor":"女生2",
+                "inherit":1007,
+                "onNext": { "nextNode": true }
+        },
+        "1016": {
+                "type": "text",
+                "name": "studentA","lCharactor":"男生1",
+                "inherit":1007,
+                "onNext": { "nextNode": true }
+        },
+        "1017": {
+                "type": "text",
+                "name": "studentC","lCharactor":"男生2",
+                "inherit":1007,
+                "onNext": { "nextNode": true }
+        },
+        "1018": {
+                "type": "text",
+                "name": "studentA","lCharactor":"男生1",
+                "inherit":1007,
+                "onNext": { "nextNode": true }
+        },
+        "1019": {
+                "type": "text",
+                "name": "studentB","rCharactor":"女生2",
+                "inherit":1007,
+                "onNext": { "nextNode": true }
+        },
+        "1020": {
+                "type": "text",
+                "name": "studentC","lCharactor":"男生2",
+                "inherit":1007,
+                "onNext": { "nextNode": true }
+        },
+        "1021": {
+                "type": "text",
+                "name": "narrator",
+                "inherit":1007,
+                "onNext": { "nextNode": true }
+        },
+        "1022": {
+                "type": "text",
+                "name": "tomoya","lCharactor":"友也_平静",
+                "inherit":1007,
+                "onNext": { "nextNode": true }
+        },
+        "1023": {
+                "type": "text",
+                "name": "tomoya","lCharactor":"友也_平静",
+                "inherit":1007,
+                "onNext": { "nextNode": true }
+        },
+        "1024": {
+                "type": "text",
+                "name": "tomoya","lCharactor":"友也_平静",
+                "inherit":1007,
+                "onNext": { "nextNode": true }
+        },
+        "1025": {
+                "type": "text",
+                "name": "narrator",
+                "inherit":1007,
+                "onNext": { "nextNode": true }
+        },
+        "1026": {
+                "type": "text",
+                "name": "studentA","lCharactor":"男生1",
+                "inherit":1007,
+                "onNext": { "nextNode": true }
+        },
+        "1027": {
+                "type": "text",
+                "name": "studentB","rCharactor":"女生2",
+                "inherit":1007,
+                "onNext": { "nextNode": true }
+        },
+        "1028": {
+                "type": "text",
+                "name": "studentC","lCharactor":"男生2",
+                "inherit":1007,
+                "onNext": { "nextNode": true }
+        },
+        "1029": {
+                "type": "text",
+                "name": "narrator",
+                "inherit":1007,
+                "onNext": { "nextNode": true }
+        },
+        "1030": {
+                "type": "text",
+                "name": "tomoya","lCharactor":"友也_平静",
+                "inherit":1007,
+                "onNext": { "nextNode": true }
+        },
+        "1031": {
+                "type": "text",
+                "name": "narrator",
+                "inherit":1007,
+                "onNext": { "nextNode": true }
+        },
+
+
+        "1032": {
+                "type": "text",
+                "name": "narrator",
+            "bgr": "公园3",
+            "bgm": "test",
+                "onNext": { "nextNode": true }
+        },
+        "1033": {
+                "type": "text",
+                "name": "aoi","lCharactor":"葵_微笑",
+                "inherit":1032,
+                "onNext": { "nextNode": true }
+        },
+        "1034": {
+                "type": "text",
+                "name": "aoi","lCharactor":"葵_微笑",
+                "inherit":1032,
+                "onNext": { "nextNode": true }
+        },
+        "1035": {
+                "type": "text",
+                "name": "aoi","lCharactor":"葵_微笑",
+                "inherit":1032,
+                "onNext": { "nextNode": true }
+        },
+        "1036": {
+                "type": "text",
+                "name": "aoi","lCharactor":"葵_微笑",
+                "inherit":1032,
+                "onNext": { "nextNode": true }
+        },
+        "1037": {
+                "type": "text",
+                "name": "aoi","lCharactor":"葵_微笑",
+                "inherit":1032,
+                "onNext": { "nextNode": true }
+        },
+        "1038": {
+                "type": "text",
+                "name": "aoi","lCharactor":"葵_微笑",
+                "inherit":1032,
+                "onNext": { "nextNode": true }
+        },
+        "1039": {
+                "type": "text",
+                "name": "narrator",
+                "inherit":1032,
+                "onNext": { "nextNode": true }
+        },
+        "1040": {
+                "type": "text",
+                "name": "studentA",
+                "inherit":1032,
+                "onNext": { "nextNode": true }
+        },
+        "1041": {
+                "type": "text",
+                "name": "studentB",
+                "inherit":1032,
+                "onNext": { "nextNode": true }
+        },
+        "1042": {
+                "type": "text",
+                "name": "studentA",
+                "inherit":1032,
+                "onNext": { "nextNode": true }
+        },
+        "1043": {
+                "type": "text",
+                "name": "studentB",
+                "inherit":1032,
+                "onNext": { "nextNode": true }
+        },
+        "1044": {
+                "type": "text",
+                "name": "studentA",
+                "inherit":1032,
+                "onNext": { "nextNode": true }
+        },
+        "1045": {
+                "type": "text",
+                "name": "studentB",
+                "inherit":1032,
+                "onNext": { "nextNode": true }
+        },
+        "1046": {
+                "type": "text",
+                "name": "narrator",
+                "inherit":1032,
+                "onNext": { "nextNode": true }
+        },
+        "1047": {
+                "type": "text",
+                "name": "aoi","lCharactor":"葵_微笑",
+                "inherit":1032,
+                "onNext": { "nextNode": true }
+        },
+        "1048": {
+                "type": "text",
+                "name": "aoi","lCharactor":"葵_微笑",
+                "inherit":1032,
+                "onNext": { "nextNode": true }
+        },
+        "1049": {
+                "type": "text",
+                "name": "aoi","lCharactor":"葵_微笑",
+                "inherit":1032,
+                "onNext": { "nextNode": true }
+        },
+        "1050": {
+                "type": "text",
+                "name": "aoi","lCharactor":"葵_微笑",
+                "inherit":1032,
+                "onNext": { "nextNode": true }
+        },
+        "1051": {
+                "type": "text",
+                "name": "narrator",
+                "inherit":1032,
+                "onNext": { "nextNode": true }
         },
 
 
-        "11105": {
-            "type": "text",
-            "name": "narrator",
-            "bgr":"13",
-            "onNext": { "nextNode": true }
+        "1052": {
+                "type": "text",
+                "name": "narrator",
+            "bgr": "公园2",
+            "bgm": "test",
+                "onNext": { "nextNode": true }
         },
-        "11106": {
-            "type": "text",
-            "name": "aoi",
-            "rCharactor":"aoi",
-            "onNext": { "nextNode": true }
+        "1053": {
+                "type": "text",
+                "name": "narrator",
+                "inherit":1052,
+                "onNext": { "nextNode": true }
         },
-        "11107": {
-            "type": "choices",
-            "name": "narrator",
-            "onNext": { "choice":[
-                {"targetNode":11109},
-                {"targetNode":11109}] }
+        "1054": {
+                "type": "text",
+                "name": "aoi","lCharactor":"葵_微笑",
+                "inherit":1052,
+                "onNext": { "nextNode": true }
         },
-        "11109": {
-            "type": "text",
-            "name": "ryo",
-            "lCharactor":"ryo",
-            "onNext": { "nextNode": true }
+        "1055": {
+                "type": "text",
+                "name": "aoi","lCharactor":"葵_微笑",
+                "inherit":1052,
+                "onNext": { "nextNode": true }
         },
-        "11110": {
-            "type": "text",
-            "name": "aoi",
-            "rCharactor":"aoi",
-            "onNext": { "nextNode": true }
+        "1056": {
+                "type": "text",
+                "name": "aoi","lCharactor":"葵_微笑",
+                "inherit":1052,
+                "onNext": { "nextNode": true }
         },
-        "11111": {
-            "type": "text",
-            "name": "ryo",
-            "lCharactor":"ryo",
-            "onNext": { "nextNode": true }
-        },
-        "11112": {
-            "type": "text",
-            "name": "tomoya",
-            "lCharactor":"tomoya",
-            "onNext": { "nextNode": true }
-        },
-        "11113": {
-            "type": "text",
-            "name": "ryo",
-            "lCharactor":"ryo",
-            "onNext": { "nextNode": true }
+        "1057": {
+                "type": "text",
+                "name": "narrator",
+                "inherit":1052,
+                "onNext": { "nextNode": true }
         },
 
 
-        "11114": {
-            "type": "text",
-            "name": "narrator",
-            "bgr":"14",
-            "onNext": { "nextNode": true }
+        "1058": {
+                "type": "text",
+                "name": "narrator",
+            "bgr": "病房",
+            "bgm": "test",
+                "onNext": { "nextNode": true }
         },
-        "11115": {
-            "type": "text",
-            "name": "narrator",
-            "onNext": { "nextNode": true }
+        "1059": {
+                "type": "text",
+                "name": "ryo","rCharactor":"凉_微笑",
+                "inherit":1058,
+                "onNext": { "nextNode": true }
         },
-        "11116": {
-            "type": "text",
-            "name": "narrator",
-            "onNext": { "nextNode": true }
+        "1060": {
+                "type": "text",
+                "name": "ryo","rCharactor":"凉_微笑",
+                "inherit":1058,
+                "onNext": { "nextNode": true }
         },
-        "11117": {
-            "type": "text",
-            "name": "narrator",
-            "onNext": { "nextNode": true }
+        "1061": {
+                "type": "text",
+                "name": "ryo","rCharactor":"凉_微笑",
+                "inherit":1058,
+                "onNext": { "nextNode": true }
         },
-        "11118": {
-            "type": "text",
-            "name": "aoi",
-            "rCharactor":"aoi",
-            "onNext": { "nextNode": true }
+        "1062": {
+                "type": "text",
+                "name": "ryo","rCharactor":"凉_微笑",
+                "inherit":1058,
+                "onNext": { "nextNode": true }
         },
-        "11119": {
-            "type": "text",
-            "name": "ryo",
-            "lCharactor":"ryo",
-            "onNext": { "nextNode": true }
+        "1063": {
+                "type": "text",
+                "name": "ryo","rCharactor":"凉_微笑",
+                "inherit":1058,
+                "onNext": { "nextNode": true }
         },
-        "11120": {
-            "type": "text",
-            "name": "tomoya",
-            "lCharactor":"tomoya",
-            "onNext": { "nextNode": true }
+        "1064": {
+                "type": "text",
+                "name": "narrator",
+                "inherit":1058,
+                "onNext": { "nextNode": true }
         },
-        "11121": {
-            "type": "text",
-            "name": "aoi",
-            "rCharactor":"aoi",
-            "onNext": { "nextNode": true }
+        "1065": {
+                "type": "text",
+                "name": "patient","lCharactor":"病人大叔",
+                "inherit":1058,
+                "onNext": { "nextNode": true }
         },
-        "11122": {
-            "type": "text",
-            "name": "narrator",
-            "onNext": { "nextNode": true }
+        "1066": {
+                "type": "text",
+                "name": "narrator",
+                "inherit":1058,
+                "onNext": { "nextNode": true }
         },
-        "11123": {
-            "type": "text",
-            "name": "ryo",
-            "lCharactor":"ryo",
-            "onNext": { "nextNode": true }
+        "1067": {
+                "type": "text",
+                "name": "patient",
+                "inherit":1058,
+                "onNext": { "nextNode": true }
         },
-        "11124": {
-            "type": "choices",
-            "name": "tomoya",
-            "lCharactor":"tomoya",
-            "onNext": { "choice":[
-                {"targetNode":11125102},
-                {"targetNode":11128202}] }
+        "1068": {
+                "type": "text",
+                "name": "narrator",
+                "inherit":1058,
+                "onNext": { "nextNode": true }
         },
-        "11125102": {
-            "type": "text",
-            "name": "aoi",
-            "rCharactor":"aoi",
-            "onNext": { "nextNode": true }
+        "1069": {
+                "type": "text",
+                "name": "patient",
+                "inherit":1058,
+                "onNext": { "nextNode": true }
         },
-        "11125103": {
-            "type": "text",
-            "name": "ryo",
-            "lCharactor":"ryo",
-            "onNext": { "nextNode": true }
+        "1070": {
+                "type": "text",
+                "name": "narrator",
+                "inherit":1058,
+                "onNext": { "nextNode": true }
         },
-        "11125104": {
-            "type": "text",
-            "name": "tomoya",
-            "lCharactor":"tomoya",
-            "onNext": { "setNode": 11131 }
+        "1071": {
+                "type": "text",
+                "name": "patient",
+                "inherit":1058,
+                "onNext": { "nextNode": true }
         },
-        "11128202": {
-            "type": "text",
-            "name": "aoi",
-            "rCharactor":"aoi",
-            "onNext": { "nextNode": true }
+        "1072": {
+                "type": "text",
+                "name": "narrator",
+                "inherit":1058,
+                "onNext": { "nextNode": true }
         },
-        "11128203": {
-            "type": "text",
-            "name": "tomoya",
-            "lCharactor":"tomoya",
-            "onNext": { "setNode": 11131 }
+        "1073": {
+                "type": "text",
+                "name": "narrator",
+                "inherit":1058,
+                "onNext": { "nextNode": true }
         },
-
-        "11131": {
-            "type": "text",
-            "name": "narrator",
-            "bgr":"15",
-            "onNext": { "nextNode": true }
+        "1074": {
+                "type": "text",
+                "name": "ryo","rCharactor":"凉_微笑",
+                "inherit":1058,
+                "onNext": { "nextNode": true }
         },
-        "11132": {
-            "type": "text",
-            "name": "narrator",
-            "onNext": { "nextNode": true }
+        "1075": {
+                "type": "text",
+                "name": "ryo","rCharactor":"凉_微笑",
+                "inherit":1058,
+                "onNext": { "nextNode": true }
         },
-        "11133": {
-            "type": "text",
-            "name": "ryo",
-            "lCharactor":"ryo",
-            "onNext": { "nextNode": true }
+        "1076": {
+                "type": "text",
+                "name": "ryo","rCharactor":"凉_微笑",
+                "inherit":1058,
+                "onNext": { "nextNode": true }
         },
-        "11134": {
-            "type": "text",
-            "name": "narrator",
-            "onNext": { "nextNode": true }
+        "1077": {
+                "type": "text",
+                "name": "narrator",
+                "inherit":1058,
+                "onNext": { "nextNode": true }
         },
-        "11135": {
-            "type": "choices",
-            "name": "aoi",
-            "rCharactor":"aoi",
-            "onNext": { "choice":[
-                {"targetNode":11137},
-                {"targetNode":11137}] }
+        "1078": {
+                "type": "text",
+                "name": "ryo","rCharactor":"凉_微笑",
+                "inherit":1058,
+                "onNext": { "nextNode": true }
         },
-        "11137": {
-            "type": "choices",
-            "name": "narrator",
-            "onNext": { "choice":[
-                {"targetNode":11139},
-                {"targetNode":11139}] }
-        },
-        "11139": {
-            "type": "text",
-            "name": "ryo",
-            "lCharactor":"ryo",
-            "onNext": { "nextNode": true }
-        },
-        "11140": {
-            "type": "text",
-            "name": "ryo",
-            "lCharactor":"ryo",
-            "onNext": { "nextNode": true }
-        },
-        "11141": {
-            "type": "text",
-            "name": "narrator",
-            "bgr":"16",
-            "onNext": { "nextNode": true }
-        },
-        "11142": {
-            "type": "text",
-            "name": "narrator",
-            "onNext": { "nextNode": true }
-        },
-        "11143": {
-            "type": "text",
-            "name": "narrator",
-            "onNext": { "nextNode": true }
-        },
-        "11144": {
-            "type": "text",
-            "name": "narrator",
-            "onNext": { "nextNode": true }
-        },
-        "11145": {
-            "type": "text",
-            "name": "narrator",
-            "onNext": { "nextNode": true }
-        },
-        "11146": {
-            "type": "text",
-            "name": "narrator",
-            "onNext": { "nextNode": true }
+        "1079": {
+                "type": "text",
+                "name": "narrator",
+                "inherit":1058,
+                "onNext": { "nextNode": true }
         },
 
-        "11147": {
-            "type": "text",
-            "name": "aoi",
-            "rCharactor":"aoi",
-            "onNext": { "nextNode": true }
+
+        "1080": {
+                "type": "text",
+                "name": "narrator",
+                "onNext": { "nextNode": true }
         },
-        "11148": {
-            "type": "text",
-            "name": "aoi",
-            "rCharactor":"aoi",
-            "onNext": { "nextNode": true }
+        "1081": {
+                "type": "text",
+                "name": "narrator",
+                "inherit":1080,
+                "onNext": { "nextNode": true }
         },
-        "11149": {
-            "type": "text",
-            "name": "tomoya",
-            "lCharactor":"tomoya",
-            "onNext": { "nextNode": true }
+        "1082": {
+                "type": "text",
+                "name": "narrator",
+                "inherit":1080,
+                "onNext": { "setNode": 1101 }
         },
-        "11150": {
-            "type": "text",
-            "name": "narrator",
-            "onNext": { "nextNode": true }
-        },
-        "11151": {
-            "type": "text",
-            "name": "tomoya",
-            "lCharactor":"tomoya",
-            "onNext": { "nextNode": true }
-        },
-        "11152": {
-            "type": "text",
-            "name": "tomoya",
-            "lCharactor":"tomoya",
-            "onNext": { "nextNode": true }
-        },
+
+
+
         
-        "11153": {
-            "type": "text",
-            "name": "narrator",
-            "bgr":"17",
-            "onNext": { "nextNode": true }
+        "1101": {
+                "type": "text",
+                "name": "narrator",
+                "onNext": { "nextNode": true }
         },
-        "11154": {
-            "type": "choices",
-            "name": "ayane",
-            "rCharactor":"ayane",
-            "onNext": { "choice":[
-                {"targetNode":11155102},
-                {"targetNode":11157202}] }
+        "1102": {
+                "type": "text",
+                "name": "narrator",
+                "inherit":1101,
+                "onNext": { "nextNode": true }
         },
-        "11155102": {
-            "type": "text",
-            "name": "narrator",
-            "onNext": { "setNode": 11158 }
+        "1103": {
+                "type": "text",
+                "name": "narrator",
+                "inherit":1101,
+                "onNext": { "nextNode": true }
         },
-        "11157202": {
-            "type": "text",
-            "name": "narrator",
-            "onNext": { "setNode": 11158 }
+        "1104": {
+                "type": "text",
+                "name": "narrator",
+                "inherit":1101,
+                "onNext": { "nextNode": true }
         },
-        "11158": {
-            "type": "text",
-            "name": "narrator",
-            "onNext": { "nextNode": true }
+        "1105": {
+                "type": "text",
+                "name": "tomoya","lCharactor":"友也_平静",
+                "inherit":1101,
+                "onNext": { "nextNode": true }
         },
-        "11159": {
-            "type": "text",
-            "name": "aoi",
-            "rCharactor":"aoi",
-            "onNext": { "nextNode": true }
+        "1106": {
+                "type": "text",
+                "name": "narrator",
+                "inherit":1101,
+                "onNext": { "nextNode": true }
         },
-        "11160": {
-            "type": "text",
-            "name": "ayane",
-            "rCharactor":"ayane",
-            "onNext": { "nextNode": true }
+        "1107": {
+                "type": "text",
+                "name": "aoi","lCharactor":"葵_微笑",
+                "inherit":1101,
+                "onNext": { "nextNode": true }
         },
-        "11161": {
-            "type": "text",
-            "name": "aoi",
-            "rCharactor":"aoi",
-            "onNext": { "nextNode": true }
+        "1108": {
+                "type": "text",
+                "name": "narrator",
+                "inherit":1101,
+                "onNext": { "nextNode": true }
         },
-        "11162": {
-            "type": "text",
-            "name": "ayane",
-            "rCharactor":"ayane",
-            "onNext": { "nextNode": true }
+        "1109": {
+                "type": "text",
+                "name": "ryo","rCharactor":"凉_微笑",
+                "inherit":1101,
+                "onNext": { "nextNode": true }
         },
-        "11163": {
-            "type": "text",
-            "name": "narrator",
-            "onNext": { "nextNode": true }
+        "1110": {
+                "type": "text",
+                "name": "narrator",
+                "inherit":1101,
+                "onNext": { "nextNode": true }
         },
-        "11164": {
-            "type": "text",
-            "name": "ryo",
-            "lCharactor":"ryo",
-            "onNext": { "nextNode": true }
+        "1111": {
+                "type": "text",
+                "name": "narrator",
+                "inherit":1101,
+                "onNext": { "nextNode": true }
         },
-        "11165": {
-            "type": "choices",
-            "name": "narrator",
-            "onNext": { "choice":[
-                {"targetNode":11168},
-                {"targetNode":11168},
-                {"targetNode":11168}] }
+        "1112": {
+                "type": "text",
+                "name": "narrator",
+                "inherit":1101,
+                "onNext": { "nextNode": true }
         },
-        "11168": {
-            "type": "text",
-            "name": "ayane",
-            "rCharactor":"ayane",
-            "onNext": { "nextNode": true }
+        "1113": {
+                "type": "text",
+                "name": "narrator",
+                "inherit":1101,
+                "onNext": { "nextNode": true }
         },
-        "11169": {
-            "type": "text",
-            "name": "ayane",
-            "rCharactor":"ayane",
-            "onNext": { "nextNode": true }
+        "1114": {
+                "type": "text",
+                "name": "narrator",
+                "inherit":1101,
+                "onNext": { "nextNode": true }
         },
-        "11170": {
-            "type": "text",
-            "name": "aoi",
-            "rCharactor":"aoi",
-            "onNext": { "nextNode": true }
+        "1115": {
+                "type": "text",
+                "name": "narrator",
+                "inherit":1101,
+                "onNext": { "nextNode": true }
         },
-        "11171": {
-            "type": "text",
-            "name": "tomoya",
-            "lCharactor":"tomoya",
-            "onNext": { "nextNode": true }
+        "1116": {
+                "type": "text",
+                "name": "narrator",
+                "inherit":1101,
+                "onNext": { "nextNode": true }
         },
-        "11172": {
-            "type": "text",
-            "name": "ayane",
-            "rCharactor":"ayane",
-            "onNext": { "nextNode": true }
+        "1117": {
+                "type": "text",
+                "name": "narrator",
+                "inherit":1101,
+                "onNext": { "nextNode": true }
         },
-        "11173": {
-            "type": "text",
-            "name": "tomoya",
-            "lCharactor":"tomoya",
-            "onNext": { "nextNode": true }
+        "1118": {
+                "type": "text",
+                "name": "narrator",
+                "inherit":1101,
+                "onNext": { "nextNode": true }
         },
-        "11174": {
-            "type": "text",
-            "name": "tomoya",
-            "lCharactor":"tomoya",
-            "onNext": { "nextNode": true }
+        "1119": {
+                "type": "text",
+                "name": "narrator",
+                "inherit":1101,
+                "onNext": { "nextNode": true }
         },
-        "11175": {
-            "type": "text",
-            "name": "ayane",
-            "rCharactor":"ayane",
-            "onNext": { "nextNode": true }
+        "1120": {
+                "type": "text",
+                "name": "narrator",
+                "inherit":1101,
+                "onNext": { "nextNode": true }
         },
-        "11176": {
-            "type": "text",
-            "name": "ayane",
-            "rCharactor":"ayane",
-            "onNext": { "nextNode": true }
+        "1121": {
+                "type": "text",
+                "name": "aoi","lCharactor":"葵_微笑",
+                "inherit":1101,
+                "onNext": { "nextNode": true }
         },
-        "11177": {
-            "type": "text",
-            "name": "ryo",
-            "lCharactor":"ryo",
-            "onNext": { "nextNode": true }
+        "1122": {
+                "type": "text",
+                "name": "tomoya","lCharactor":"友也_平静",
+                "inherit":1101,
+                "onNext": { "nextNode": true }
         },
-
-        "11178": {
-            "type": "text",
-            "name": "narrator",
-            "onNext": { "nextNode": true }
+        "1123": {
+                "type": "text",
+                "name": "ryo","rCharactor":"凉_微笑",
+                "inherit":1101,
+                "onNext": { "nextNode": true }
         },
-        "11179": {
-            "type": "text",
-            "name": "ayane",
-            "rCharactor":"ayane",
-            "onNext": { "nextNode": true }
+        "1124": {
+                "type": "text",
+                "name": "narrator",
+                "inherit":1101,
+                "onNext": { "nextNode": true }
         },
-        "11180": {
-            "type": "text",
-            "name": "ayane",
-            "rCharactor":"ayane",
-            "onNext": { "nextNode": true }
+        "1125": {
+                "type": "text",
+                "name": "narrator",
+                "inherit":1101,
+                "onNext": { "nextNode": true }
         },
-        "11181": {
-            "type": "text",
-            "name": "narrator",
-            "onNext": { "nextNode": true }
+        "1126": {
+                "type": "text",
+                "name": "tomoya","lCharactor":"友也_平静",
+                "inherit":1101,
+                "onNext": { "nextNode": true }
         },
-        "11182": {
-            "type": "text",
-            "name": "narrator",
-            "onNext": { "nextNode": true }
+        "1127": {
+                "type": "text",
+                "name": "aoi","lCharactor":"葵_微笑",
+                "inherit":1101,
+                "onNext": { "nextNode": true }
         },
-        "11183": {
-            "type": "text",
-            "name": "tomoya",
-            "lCharactor":"tomoya",
-            "onNext": { "nextNode": true }
+        "1128": {
+                "type": "text",
+                "name": "ryo","rCharactor":"凉_微笑",
+                "inherit":1101,
+                "onNext": { "nextNode": true }
         },
-        "11184": {
-            "type": "text",
-            "name": "aoi",
-            "rCharactor":"aoi",
-            "onNext": { "nextNode": true }
+        "1129": {
+                "type": "text",
+                "name": "narrator",
+                "inherit":1101,
+                "onNext": { "nextNode": true }
         },
-        "11185": {
-            "type": "choices",
-            "name": "narrator",
-            "onNext": { "choice":[
-				{"targetNode":11187},
-				{"targetNode":11188}] }
-        },
-        "11187": {
-            "type": "text",
-            "name": "narrator",
-            "onNext": { "nextNode": true }
-        },
-        "11188": {
-            "type": "text",
-            "name": "narrator",
-            "onNext": { "setNode": 12001 }
+        "1130": {
+                "type": "text",
+                "name": "narrator",
+                "inherit":1101,
+                "onNext": { "nextNode": true }
         },
 
 
+        "1131": {
+                "type": "text",
+                "name": "narrator",
+                "onNext": { "nextNode": true }
+        },
+        "1132": {
+                "type": "text",
+                "name": "tomoya","lCharactor":"友也_平静",
+                "inherit":1131,
+                "onNext": { "nextNode": true }
+        },
+        "1133": {
+                "type": "text",
+                "name": "tomoya","lCharactor":"友也_平静",
+                "inherit":1031,
+                "onNext": { "nextNode": true }
+        },
+        "1134": {
+                "type": "text",
+                "name": "tomoya","lCharactor":"友也_平静",
+                "inherit":1031,
+                "onNext": { "nextNode": true }
+        },
+        "1135": {
+                "type": "text",
+                "name": "narrator",
+                "inherit":1031,
+                "onNext": { "nextNode": true }
+        },
+        "1136": {
+                "type": "text",
+                "name": "narrator",
+                "inherit":1031,
+                "onNext": { "nextNode": true }
+        },
+
+
+        "1137": {
+                "type": "text",
+                "name": "narrator",
+                "onNext": { "nextNode": true }
+        },
+        "1138": {
+                "type": "text",
+                "name": "ryo","rCharactor":"凉_微笑",
+                "inherit":1037,
+                "onNext": { "nextNode": true }
+        },
+        "1139": {
+                "type": "text",
+                "name": "aoi","lCharactor":"葵_微笑",
+                "inherit":1037,
+                "onNext": { "nextNode": true }
+        },
+        "1140": {
+                "type": "text",
+                "name": "tomoya","lCharactor":"友也_平静",
+                "inherit":1037,
+                "onNext": { "nextNode": true }
+        },
+        "1141": {
+                "type": "text",
+                "name": "aoi","lCharactor":"葵_微笑",
+                "inherit":1037,
+                "onNext": { "nextNode": true }
+        },
+        "1142": {
+                "type": "text",
+                "name": "tomoya","lCharactor":"友也_平静",
+                "inherit":1037,
+                "onNext": { "nextNode": true }
+        },
+        "1143": {
+                "type": "text",
+                "name": "narrator",
+                "inherit":1037,
+                "onNext": { "nextNode": true }
+        },
+
+
+        "1144": {
+                "type": "text",
+                "name": "narrator",
+                "onNext": { "nextNode": true }
+        },
+        "1145": {
+                "type": "text",
+                "name": "narrator",
+                "inherit":1144,
+                "onNext": { "nextNode": true }
+        },
+        "1146": {
+                "type": "text",
+                "name": "narrator",
+                "inherit":1144,
+                "onNext": { "nextNode": true }
+        },
+        "1147": {
+                "type": "text",
+                "name": "narrator",
+                "inherit":1144,
+                "onNext": { "nextNode": true }
+        },
+        "1148": {
+                "type": "text",
+                "name": "narrator",
+                "inherit":1144,
+                "onNext": { "nextNode": true }
+        },
+        "1149": {
+                "type": "text",
+                "name": "tomoya","lCharactor":"友也_平静",
+                "inherit":1144,
+                "onNext": { "nextNode": true }
+        },
+        "1150": {
+                "type": "text",
+                "name": "aoi","lCharactor":"葵_微笑",
+                "inherit":1144,
+                "onNext": { "nextNode": true }
+        },
+        "1151": {
+                "type": "text",
+                "name": "tomoya","lCharactor":"友也_平静",
+                "inherit":1144,
+                "onNext": { "nextNode": true }
+        },
+        "1152": {
+                "type": "text",
+                "name": "aoi","lCharactor":"葵_微笑",
+                "inherit":1144,
+                "onNext": { "nextNode": true }
+        },
+        "1153": {
+                "type": "text",
+                "name": "tomoya","lCharactor":"友也_平静",
+                "inherit":1144,
+                "onNext": { "nextNode": true }
+        },
+        "1154": {
+                "type": "text",
+                "name": "narrator",
+                "inherit":1144,
+                "onNext": { "nextNode": true }
+        },
+        "1155": {
+                "type": "text",
+                "name": "narrator",
+                "inherit":1144,
+                "onNext": { "nextNode": true }
+        },
+        "1156": {
+                "type": "text",
+                "name": "narrator",
+                "inherit":1144,
+                "onNext": { "nextNode": true }
+        },
+        "1157": {
+                "type": "text",
+                "name": "ryo","rCharactor":"凉_微笑",
+                "inherit":1144,
+                "onNext": { "nextNode": true }
+        },
+        "1158": {
+                "type": "text",
+                "name": "ryo","rCharactor":"凉_微笑",
+                "inherit":1144,
+                "onNext": { "nextNode": true }
+        },
+        "1159": {
+                "type": "text",
+                "name": "aoi","lCharactor":"葵_微笑",
+                "inherit":1144,
+                "onNext": { "nextNode": true }
+        },
+        "1160": {
+                "type": "text",
+                "name": "narrator",
+                "inherit":1144,
+                "onNext": { "nextNode": true }
+        },
+        "1161": {
+                "type": "text",
+                "name": "narrator",
+                "inherit":1144,
+                "onNext": { "nextNode": true }
+        },
+        "1162": {
+                "type": "text",
+                "name": "narrator",
+                "inherit":1144,
+                "onNext": { "nextNode": true }
+        },
+        "1163": {
+                "type": "text",
+                "name": "narrator",
+                "inherit":1144,
+                "onNext": { "nextNode": true }
+        },
+        "1164": {
+                "type": "text",
+                "name": "tomoya","lCharactor":"友也_平静",
+                "inherit":1144,
+                "onNext": { "nextNode": true }
+        },
+        "1165": {
+                "type": "text",
+                "name": "narrator",
+                "inherit":1144,
+                "onNext": { "nextNode": true }
+        },
+        "1166": {
+                "type": "text",
+                "name": "tomoya","lCharactor":"友也_平静",
+                "inherit":1144,
+                "onNext": { "nextNode": true }
+        },
+        "1167": {
+                "type": "text",
+                "name": "tomoya","lCharactor":"友也_平静",
+                "inherit":1144,
+                "onNext": { "nextNode": true }
+        },
+        "1168": {
+                "type": "text",
+                "name": "aoi","lCharactor":"葵_微笑",
+                "inherit":1144,
+                "onNext": { "nextNode": true }
+        },
+        "1169": {
+                "type": "text",
+                "name": "tomoya","lCharactor":"友也_平静",
+                "inherit":1144,
+                "onNext": { "nextNode": true }
+        },
+        "1170": {
+                "type": "text",
+                "name": "ryo","rCharactor":"凉_微笑",
+                "inherit":1144,
+                "onNext": { "nextNode": true }
+        },
+        "1171": {
+                "type": "text",
+                "name": "ryo","rCharactor":"凉_微笑",
+                "inherit":1144,
+                "onNext": { "nextNode": true }
+        },
+        "1172": {
+                "type": "text",
+                "name": "ryo","rCharactor":"凉_微笑",
+                "inherit":1144,
+                "onNext": { "nextNode": true }
+        },
+        "1173": {
+                "type": "text",
+                "name": "ryo","rCharactor":"凉_微笑",
+                "inherit":1144,
+                "onNext": { "nextNode": true }
+        },
+        "1174": {
+                "type": "text",
+                "name": "ryo","rCharactor":"凉_微笑",
+                "inherit":1144,
+                "onNext": { "nextNode": true }
+        },
+        "1175": {
+                "type": "text",
+                "name": "ryo","rCharactor":"凉_微笑",
+                "inherit":1144,
+                "onNext": { "nextNode": true }
+        },
+        "1176": {
+                "type": "text",
+                "name": "tomoya","lCharactor":"友也_平静",
+                "inherit":1144,
+                "onNext": { "nextNode": true }
+        },
+        "1177": {
+                "type": "text",
+                "name": "aoi","lCharactor":"葵_微笑",
+                "inherit":1144,
+                "onNext": { "nextNode": true }
+        },
+        "1178": {
+                "type": "text",
+                "name": "tomoya","lCharactor":"友也_平静",
+                "inherit":1144,
+                "onNext": { "nextNode": true }
+        },
+        "1179": {
+                "type": "text",
+                "name": "ryo","rCharactor":"凉_微笑",
+                "inherit":1144,
+                "onNext": { "nextNode": true }
+        },
+        "1180": {
+                "type": "text",
+                "name": "narrator",
+                "inherit":1144,
+                "onNext": { "nextNode": true }
+        },
+        "1181": {
+                "type": "text",
+                "name": "tomoya","lCharactor":"友也_平静",
+                "inherit":1144,
+                "onNext": { "nextNode": true }
+        },
+        "1182": {
+                "type": "text",
+                "name": "narrator",
+                "inherit":1144,
+                "onNext": { "nextNode": true }
+        },
+        "1183": {
+                "type": "text",
+                "name": "narrator",
+                "inherit":1144,
+                "onNext": { "nextNode": true }
+        },
+        "1184": {
+                "type": "text",
+                "name": "narrator",
+                "inherit":1144,
+                "onNext": { "nextNode": true }
+        },
+        "1185": {
+                "type": "text",
+                "name": "narrator",
+                "inherit":1144,
+                "onNext": { "nextNode": true }
+        },
+
+
+        "1186": {
+                "type": "text",
+                "name": "aoi","lCharactor":"葵_微笑",
+                "inherit":1144,
+                "onNext": { "nextNode": true }
+        },
+        "1187": {
+                "type": "text",
+                "name": "tomoya","lCharactor":"友也_平静",
+                "inherit":1144,
+                "onNext": { "nextNode": true }
+        },
+        "1188": {
+                "type": "text",
+                "name": "ryo","rCharactor":"凉_微笑",
+                "inherit":1144,
+                "onNext": { "nextNode": true }
+        },
+        "1189": {
+                "type": "text",
+                "name": "aoi","lCharactor":"葵_微笑",
+                "inherit":1144,
+                "onNext": { "nextNode": true }
+        },
+        "1190": {
+                "type": "text",
+                "name": "ryo","rCharactor":"凉_微笑",
+                "inherit":1144,
+                "onNext": { "nextNode": true }
+        },
+        "1191": {
+                "type": "text",
+                "name": "tomoya","lCharactor":"友也_平静",
+                "inherit":1144,
+                "onNext": { "nextNode": true }
+        },
+        "1192": {
+                "type": "text",
+                "name": "narrator",
+                "inherit":1144,
+                "onNext": { "nextNode": true }
+        },
+        "1193": {
+                "type": "text",
+                "name": "narrator",
+                "inherit":1144,
+                "onNext": { "nextNode": true }
+        },
+        "1194": {
+                "type": "text",
+                "name": "tomoya","lCharactor":"友也_平静",
+                "inherit":1144,
+                "onNext": { "nextNode": true }
+        },
+        "1195": {
+                "type": "text",
+                "name": "ryo","rCharactor":"凉_微笑",
+                "inherit":1144,
+                "onNext": { "nextNode": true }
+        },
+        "1196": {
+                "type": "text",
+                "name": "tomoya","lCharactor":"友也_平静",
+                "inherit":1144,
+                "onNext": { "nextNode": true }
+        },
+        "1197": {
+                "type": "text",
+                "name": "aoi","lCharactor":"葵_微笑",
+                "inherit":1144,
+                "onNext": { "nextNode": true }
+        },
+        "1198": {
+                "type": "text",
+                "name": "ryo","rCharactor":"凉_微笑",
+                "inherit":1144,
+                "onNext": { "nextNode": true }
+        },
+        "1199": {
+                "type": "text",
+                "name": "ryo","rCharactor":"凉_微笑",
+                "inherit":1144,
+                "onNext": { "nextNode": true }
+        },
+        "1200": {
+                "type": "text",
+                "name": "ryo","rCharactor":"凉_微笑",
+                "inherit":1144,
+                "onNext": { "nextNode": true }
+        },
+        "1201": {
+                "type": "text",
+                "name": "tomoya","lCharactor":"友也_平静",
+                "inherit":1144,
+                "onNext": { "nextNode": true }
+        },
+        "1202": {
+                "type": "text",
+                "name": "ryo","rCharactor":"凉_微笑",
+                "inherit":1144,
+                "onNext": { "nextNode": true }
+        },
+        "1203": {
+                "type": "text",
+                "name": "narrator",
+                "inherit":1144,
+                "onNext": { "nextNode": true }
+        },
+        "1204": {
+                "type": "text",
+                "name": "tomoya","lCharactor":"友也_平静",
+                "inherit":1144,
+                "onNext": { "nextNode": true }
+        },
+        "1205": {
+                "type": "text",
+                "name": "aoi","lCharactor":"葵_微笑",
+                "inherit":1144,
+                "onNext": { "nextNode": true }
+        },
+        "1206": {
+                "type": "text",
+                "name": "ryo","rCharactor":"凉_微笑",
+                "inherit":1144,
+                "onNext": { "nextNode": true }
+        },
+        "1207": {
+                "type": "text",
+                "name": "narrator",
+                "inherit":1144,
+                "onNext": { "nextNode": true }
+        },
+        "1208": {
+                "type": "text",
+                "name": "narrator",
+                "inherit":1144,
+                "onNext": { "nextNode": true }
+        },
+        "1209": {
+                "type": "text",
+                "name": "tomoya","lCharactor":"友也_平静",
+                "inherit":1144,
+                "onNext": { "nextNode": true }
+        },
+        "1210": {
+                "type": "text",
+                "name": "aoi","lCharactor":"葵_微笑",
+                "inherit":1144,
+                "onNext": { "nextNode": true }
+        },
+        "1211": {
+                "type": "text",
+                "name": "ryo","rCharactor":"凉_微笑",
+                "inherit":1144,
+                "onNext": { "nextNode": true }
+        },
+        "1212": {
+                "type": "text",
+                "name": "narrator",
+                "inherit":1144,
+                "onNext": { "nextNode": true }
+        },
+        "1213": {
+                "type": "text",
+                "name": "ryo","rCharactor":"凉_微笑",
+                "inherit":1144,
+                "onNext": { "nextNode": true }
+        },
+        "1214": {
+                "type": "text",
+                "name": "ryo","rCharactor":"凉_微笑",
+                "inherit":1144,
+                "onNext": { "nextNode": true }
+        },
+        "1215": {
+                "type": "text",
+                "name": "narrator",
+                "inherit":1144,
+                "onNext": { "nextNode": true }
+        },
+        "1216": {
+                "type": "text",
+                "name": "narrator",
+                "inherit":1144,
+                "onNext": { "nextNode": true }
+        },
+        "1217": {
+                "type": "text",
+                "name": "narrator",
+                "inherit":1144,
+                "onNext": { "nextNode": true }
+        },
+        "1218": {
+                "type": "text",
+                "name": "narrator",
+                "inherit":1144,
+                "onNext": { "nextNode": true }
+        },
+        "1219": {
+                "type": "text",
+                "name": "narrator",
+                "inherit":1144,
+                "onNext": { "nextNode": true }
+        },
+        "1220": {
+                "type": "text",
+                "name": "narrator",
+                "inherit":1144,
+                "onNext": { "nextNode": true }
+        },
+        "1221": {
+                "type": "text",
+                "name": "narrator",
+                "inherit":1144,
+                "onNext": { "nextNode": true }
+        },
+        "1222": {
+                "type": "text",
+                "name": "narrator",
+                "inherit":1144,
+                "onNext": { "setNode": 1301 }
+        },
 
 
 
+        "1301": {
+                "type": "text",
+                "name": "narrator",
+                "onNext": { "nextNode": true }
+        },
+        "1302": {
+                "type": "text",
+                "name": "narrator",
+                "inherit":1301,
+                "onNext": { "nextNode": true }
+        },
+        "1303": {
+                "type": "text",
+                "name": "aoi","lCharactor":"葵_微笑",
+                "inherit":1301,
+                "onNext": { "nextNode": true }
+        },
+        "1304": {
+                "type": "text",
+                "name": "ryo","rCharactor":"凉_微笑",
+                "inherit":1301,
+                "onNext": { "nextNode": true }
+        },
+        "1305": {
+                "type": "text",
+                "name": "narrator",
+                "inherit":1301,
+                "onNext": { "nextNode": true }
+        },
+        "1306": {
+                "type": "text",
+                "name": "narrator",
+                "inherit":1301,
+                "onNext": { "nextNode": true }
+        },
+        "1307": {
+                "type": "text",
+                "name": "ryo","rCharactor":"凉_微笑",
+                "inherit":1301,
+                "onNext": { "nextNode": true }
+        },
+        "1308": {
+                "type": "text",
+                "name": "aoi","lCharactor":"葵_微笑",
+                "inherit":1301,
+                "onNext": { "nextNode": true }
+        },
+        "1309": {
+                "type": "text",
+                "name": "ryo","rCharactor":"凉_微笑",
+                "inherit":1301,
+                "onNext": { "nextNode": true }
+        },
+        "1310": {
+                "type": "text",
+                "name": "tomoya","lCharactor":"友也_平静",
+                "inherit":1301,
+                "onNext": { "nextNode": true }
+        },
+        "1311": {
+                "type": "text",
+                "name": "ryo","rCharactor":"凉_微笑",
+                "inherit":1301,
+                "onNext": { "nextNode": true }
+        },
+        "1312": {
+                "type": "text",
+                "name": "narrator",
+                "inherit":1301,
+                "onNext": { "nextNode": true }
+        },
+        "1313": {
+                "type": "text",
+                "name": "narrator",
+                "inherit":1301,
+                "onNext": { "nextNode": true }
+        },
+        "1314": {
+                "type": "text",
+                "name": "narrator",
+                "inherit":1301,
+                "onNext": { "nextNode": true }
+        },
 
 
+        "1315": {
+                "type": "text",
+                "name": "narrator",
+                "onNext": { "nextNode": true }
+        },
+        "1316": {
+                "type": "text",
+                "name": "aoi","lCharactor":"葵_微笑",
+                "inherit":1315,
+                "onNext": { "nextNode": true }
+        },
+        "1317": {
+                "type": "text",
+                "name": "ryo","rCharactor":"凉_微笑",
+                "inherit":1315,
+                "onNext": { "nextNode": true }
+        },
+        "1318": {
+                "type": "text",
+                "name": "tomoya","lCharactor":"友也_平静",
+                "inherit":1315,
+                "onNext": { "nextNode": true }
+        },
+        "1319": {
+                "type": "text",
+                "name": "narrator",
+                "inherit":1315,
+                "onNext": { "nextNode": true }
+        },
+        "1320": {
+                "type": "text",
+                "name": "narrator",
+                "inherit":1315,
+                "onNext": { "nextNode": true }
+        },
+        "1321": {
+                "type": "text",
+                "name": "narrator",
+                "inherit":1315,
+                "onNext": { "nextNode": true }
+        },
+        "1322": {
+                "type": "text",
+                "name": "narrator",
+                "inherit":1315,
+                "onNext": { "nextNode": true }
+        },
+        "1323": {
+                "type": "text",
+                "name": "narrator",
+                "inherit":1315,
+                "onNext": { "nextNode": true }
+        },
+        "1324": {
+                "type": "text",
+                "name": "ryo","rCharactor":"凉_微笑",
+                "inherit":1315,
+                "onNext": { "nextNode": true }
+        },
+        "1325": {
+                "type": "text",
+                "name": "narrator",
+                "inherit":1315,
+                "onNext": { "nextNode": true }
+        },
+        "1326": {
+                "type": "text",
+                "name": "aoi","lCharactor":"葵_微笑",
+                "inherit":1315,
+                "onNext": { "nextNode": true }
+        },
+        "1327": {
+                "type": "text",
+                "name": "narrator",
+                "inherit":1315,
+                "onNext": { "nextNode": true }
+        },
+        "1328": {
+                "type": "text",
+                "name": "narrator",
+                "inherit":1315,
+                "onNext": { "nextNode": true }
+        },
+        "1329": {
+                "type": "text",
+                "name": "tomoya","lCharactor":"友也_平静",
+                "inherit":1315,
+                "onNext": { "nextNode": true }
+        },
+        "1330": {
+                "type": "text",
+                "name": "ryo","rCharactor":"凉_微笑",
+                "inherit":1315,
+                "onNext": { "nextNode": true }
+        },
+        "1331": {
+                "type": "text",
+                "name": "ryo","rCharactor":"凉_微笑",
+                "inherit":1315,
+                "onNext": { "nextNode": true }
+        },
+        "1332": {
+                "type": "text",
+                "name": "tomoya","lCharactor":"友也_平静",
+                "inherit":1315,
+                "onNext": { "nextNode": true }
+        },
+        "1333": {
+                "type": "text",
+                "name": "narrator",
+                "inherit":1315,
+                "onNext": { "nextNode": true }
+        },
+        "1334": {
+                "type": "text",
+                "name": "narrator",
+                "inherit":1315,
+                "onNext": { "nextNode": true }
+        },
+        "1335": {
+                "type": "text",
+                "name": "narrator",
+                "inherit":1315,
+                "onNext": { "nextNode": true }
+        },
+        "1336": {
+                "type": "text",
+                "name": "narrator",
+                "inherit":1315,
+                "onNext": { "nextNode": true }
+        },
+        "1337": {
+                "type": "text",
+                "name": "narrator",
+                "inherit":1315,
+                "onNext": { "nextNode": true }
+        },
+        "1338": {
+                "type": "text",
+                "name": "narrator",
+                "inherit":1315,
+                "onNext": { "nextNode": true }
+        },
+        "1339": {
+                "type": "text",
+                "name": "narrator",
+                "inherit":1315,
+                "onNext": { "nextNode": true }
+        },
+        "1340": {
+                "type": "text",
+                "name": "aoi","lCharactor":"葵_微笑",
+                "inherit":1315,
+                "onNext": { "nextNode": true }
+        },
+        "1341": {
+                "type": "text",
+                "name": "ryo","rCharactor":"凉_微笑",
+                "inherit":1315,
+                "onNext": { "nextNode": true }
+        },
+        "1342": {
+                "type": "text",
+                "name": "tomoya","lCharactor":"友也_平静",
+                "inherit":1315,
+                "onNext": { "nextNode": true }
+        },
+        "1343": {
+                "type": "text",
+                "name": "narrator",
+                "inherit":1315,
+                "onNext": { "nextNode": true }
+        },
+        "1344": {
+                "type": "text",
+                "name": "narrator",
+                "inherit":1315,
+                "onNext": { "nextNode": true }
+        },
+        "1345": {
+                "type": "text",
+                "name": "tomoya","lCharactor":"友也_平静",
+                "inherit":1315,
+                "onNext": { "nextNode": true }
+        },
+        "1346": {
+                "type": "text",
+                "name": "tomoya","lCharactor":"友也_平静",
+                "inherit":1315,
+                "onNext": { "nextNode": true }
+        },
+        "1347": {
+                "type": "text",
+                "name": "narrator",
+                "inherit":1315,
+                "onNext": { "nextNode": true }
+        },
 
-"12001": {
-"type": "text",
-"name": "narrator",
-"bgr":null,
-"onNext": { "nextNode": true }
-},
-"12002": {
-"type": "text",
-"name": "narrator",
-"onNext": { "nextNode": true }
-},
-"12003": {
-"type": "text",
-"name": "narrator",
-"onNext": { "nextNode": true }
-},
-"12004": {
-"type": "text",
-"name": "narrator",
-"onNext": { "nextNode": true }
-},
-"12005": {
-"type": "text",
-"name": "narrator",
-"onNext": { "nextNode": true }
-},
-"12006": {
-"type": "text",
-"name": "narrator",
-"onNext": { "nextNode": true }
-},
-"12007": {
-"type": "text",
-"name": "narrator",
-"onNext": { "nextNode": true }
-},
-"12008": {
-"type": "text",
-"name": "narrator",
-"onNext": { "nextNode": true }
-},
-"12009": {
-"type": "text",
-"name": "narrator",
-"onNext": { "nextNode": true }
-},
-"12010": {
-"type": "text",
-"name": "narrator",
-"onNext": { "nextNode": true }
-},
-"12011": {
-"type": "text",
-"name": "narrator",
-"onNext": { "nextNode": true }
-},
-"12012": {
-"type": "text",
-"name": "narrator",
-"onNext": { "nextNode": true }
-},
-"12013": {
-"type": "text",
-"name": "narrator",
-"onNext": { "nextNode": true }
-},
-"12014": {
-"type": "text",
-"name": "narrator",
-"onNext": { "nextNode": true }
-},
-"12015": {
-"type": "text",
-"name": "narrator",
-"onNext": { "nextNode": true }
-},
-"12016": {
-"type": "text",
-"name": "narrator",
-"onNext": { "nextNode": true }
-},
-"12017": {
-"type": "text",
-"name": "narrator",
-"onNext": { "nextNode": true }
-},
-"12018": {
-"type": "text",
-"name": "narrator",
-"onNext": { "nextNode": true }
-},
-"12019": {
-"type": "text",
-"name": "narrator",
-"onNext": { "nextNode": true }
-},
-"12020": {
-"type": "text",
-"name": "narrator",
-"onNext": { "nextNode": true }
-},
-"12021": {
-"type": "text",
-"name": "narrator",
-"onNext": { "nextNode": true }
-},
-"12022": {
-"type": "text",
-"name": "narrator",
-"onNext": { "nextNode": true }
-},
-"12023": {
-"type": "text",
-"name": "narrator",
-"onNext": { "nextNode": true }
-},
-"12024": {
-"type": "text",
-"name": "narrator",
-"onNext": { "nextNode": true }
-},
-"12025": {
-"type": "text",
-"name": "narrator",
-"onNext": { "nextNode": true }
-},
-"12026": {
-"type": "text",
-"name": "narrator",
-"onNext": { "nextNode": true }
-},
-"12027": {
-"type": "text",
-"name": "narrator",
-"onNext": { "nextNode": true }
-},
-"12028": {
-"type": "text",
-"name": "narrator",
-"onNext": { "nextNode": true }
-},
-"12029": {
-"type": "text",
-"name": "narrator",
-"onNext": { "nextNode": true }
-},
-"12030": {
-"type": "text",
-"name": "narrator",
-"onNext": { "nextNode": true }
-},
-"12031": {
-"type": "text",
-"name": "narrator",
-"onNext": { "nextNode": true }
-},
-"12032": {
-"type": "text",
-"name": "narrator",
-"onNext": { "nextNode": true }
-},
-"12033": {
-"type": "text",
-"name": "narrator",
-"onNext": { "nextNode": true }
-},
-"12034": {
-"type": "text",
-"name": "narrator",
-"onNext": { "nextNode": true }
-},
-"12035": {
-"type": "text",
-"name": "narrator",
-"onNext": { "nextNode": true }
-},
-"12036": {
-"type": "text",
-"name": "narrator",
-"onNext": { "nextNode": true }
-},
-"12037": {
-"type": "text",
-"name": "narrator",
-"onNext": { "nextNode": true }
-},
-"12038": {
-"type": "text",
-"name": "narrator",
-"onNext": { "nextNode": true }
-},
-"12039": {
-"type": "text",
-"name": "narrator",
-"onNext": { "nextNode": true }
-},
-"12040": {
-"type": "text",
-"name": "narrator",
-"onNext": { "nextNode": true }
-},
-"12041": {
-"type": "text",
-"name": "narrator",
-"onNext": { "nextNode": true }
-},
-"12042": {
-"type": "text",
-"name": "narrator",
-"onNext": { "nextNode": true }
-},
-"12043": {
-"type": "text",
-"name": "narrator",
-"onNext": { "nextNode": true }
-},
-"12044": {
-"type": "text",
-"name": "narrator",
-"onNext": { "nextNode": true }
-},
-"12045": {
-"type": "text",
-"name": "narrator",
-"onNext": { "nextNode": true }
-},
-"12046": {
-"type": "text",
-"name": "narrator",
-"onNext": { "nextNode": true }
-},
-"12047": {
-"type": "text",
-"name": "narrator",
-"onNext": { "nextNode": true }
-},
-"12048": {
-"type": "text",
-"name": "narrator",
-"onNext": { "nextNode": true }
-},
-"12049": {
-"type": "text",
-"name": "narrator",
-"onNext": { "nextNode": true }
-},
-"12050": {
-"type": "text",
-"name": "narrator",
-"onNext": { "nextNode": true }
-},
-"12051": {
-"type": "text",
-"name": "narrator",
-"onNext": { "nextNode": true }
-},
-"12052": {
-"type": "text",
-"name": "narrator",
-"onNext": { "nextNode": true }
-},
-"12053": {
-"type": "text",
-"name": "narrator",
-"onNext": { "nextNode": true }
-},
-"12054": {
-"type": "text",
-"name": "narrator",
-"onNext": { "nextNode": true }
-},
-"12055": {
-"type": "text",
-"name": "narrator",
-"onNext": { "nextNode": true }
-},
-"12056": {
-"type": "text",
-"name": "narrator",
-"onNext": { "nextNode": true }
-},
-"12057": {
-"type": "text",
-"name": "narrator",
-"onNext": { "nextNode": true }
-},
-"12058": {
-"type": "text",
-"name": "narrator",
-"onNext": { "nextNode": true }
-},
-"12059": {
-"type": "text",
-"name": "narrator",
-"onNext": { "nextNode": true }
-},
-"12060": {
-"type": "text",
-"name": "narrator",
-"onNext": { "nextNode": true }
-},
-"12061": {
-"type": "text",
-"name": "narrator",
-"onNext": { "nextNode": true }
-},
-"12062": {
-"type": "text",
-"name": "narrator",
-"onNext": { "nextNode": true }
-},
-"12063": {
-"type": "text",
-"name": "narrator",
-"onNext": { "nextNode": true }
-},
-"12064": {
-"type": "text",
-"name": "narrator",
-"onNext": { "nextNode": true }
-},
-"12065": {
-"type": "text",
-"name": "narrator",
-"onNext": { "nextNode": true }
-},
-"12066": {
-"type": "text",
-"name": "narrator",
-"onNext": { "nextNode": true }
-},
-"12067": {
-"type": "text",
-"name": "narrator",
-"onNext": { "nextNode": true }
-},
-"12068": {
-"type": "text",
-"name": "narrator",
-"onNext": { "nextNode": true }
-},
-"12069": {
-"type": "text",
-"name": "narrator",
-"onNext": { "nextNode": true }
-},
-"12070": {
-"type": "text",
-"name": "narrator",
-"onNext": { "nextNode": true }
-},
-"12071": {
-"type": "text",
-"name": "narrator",
-"onNext": { "nextNode": true }
-},
-"12072": {
-"type": "text",
-"name": "narrator",
-"onNext": { "nextNode": true }
-},
-"12073": {
-"type": "text",
-"name": "narrator",
-"onNext": { "nextNode": true }
-},
-"12074": {
-"type": "text",
-"name": "narrator",
-"onNext": { "nextNode": true }
-},
-"12075": {
-"type": "text",
-"name": "narrator",
-"onNext": { "nextNode": true }
-},
-"12076": {
-"type": "text",
-"name": "narrator",
-"onNext": { "nextNode": true }
-},
-"12077": {
-"type": "text",
-"name": "narrator",
-"onNext": { "nextNode": true }
-},
-"12078": {
-"type": "text",
-"name": "narrator",
-"onNext": { "nextNode": true }
-},
-"12079": {
-"type": "text",
-"name": "narrator",
-"onNext": { "nextNode": true }
-},
-"12080": {
-"type": "text",
-"name": "narrator",
-"onNext": { "nextNode": true }
-},
-"12081": {
-"type": "text",
-"name": "narrator",
-"onNext": { "nextNode": true }
-},
-"12082": {
-"type": "text",
-"name": "narrator",
-"onNext": { "nextNode": true }
-},
-"12083": {
-"type": "text",
-"name": "narrator",
-"onNext": { "nextNode": true }
-},
-"12084": {
-"type": "text",
-"name": "narrator",
-"onNext": { "nextNode": true }
-},
-"12085": {
-"type": "text",
-"name": "narrator",
-"onNext": { "nextNode": true }
-},
-"12086": {
-"type": "text",
-"name": "narrator",
-"onNext": { "nextNode": true }
-},
-"12087": {
-"type": "text",
-"name": "narrator",
-"onNext": { "nextNode": true }
-},
-"12088": {
-"type": "text",
-"name": "narrator",
-"onNext": { "nextNode": true }
-},
-"12089": {
-"type": "text",
-"name": "narrator",
-"onNext": { "nextNode": true }
-},
-"12090": {
-"type": "text",
-"name": "narrator",
-"onNext": { "nextNode": true }
-},
-"12091": {
-"type": "text",
-"name": "narrator",
-"onNext": { "nextNode": true }
-},
-"12092": {
-"type": "text",
-"name": "narrator",
-"onNext": { "nextNode": true }
-},
-"12093": {
-"type": "text",
-"name": "narrator",
-"onNext": { "nextNode": true }
-},
-"12094": {
-"type": "text",
-"name": "narrator",
-"onNext": { "nextNode": true }
-},
-"12095": {
-"type": "text",
-"name": "narrator",
-"onNext": { "nextNode": true }
-},
-"12096": {
-"type": "text",
-"name": "narrator",
-"onNext": { "nextNode": true }
-},
-"12097": {
-"type": "text",
-"name": "narrator",
-"onNext": { "nextNode": true }
-},
-"12098": {
-"type": "text",
-"name": "narrator",
-"onNext": { "nextNode": true }
-},
-"12099": {
-"type": "text",
-"name": "narrator",
-"onNext": { "nextNode": true }
-},
-"12100": {
-"type": "text",
-"name": "narrator",
-"onNext": { "nextNode": true }
-},
-"12101": {
-"type": "text",
-"name": "narrator",
-"onNext": { "nextNode": true }
-},
-"12102": {
-"type": "text",
-"name": "narrator",
-"onNext": { "nextNode": true }
-},
-"12103": {
-"type": "text",
-"name": "narrator",
-"onNext": { "nextNode": true }
-},
-"12104": {
-"type": "text",
-"name": "narrator",
-"onNext": { "nextNode": true }
-},
-"12105": {
-"type": "text",
-"name": "narrator",
-"onNext": { "nextNode": true }
-},
-"12106": {
-"type": "text",
-"name": "narrator",
-"onNext": { "nextNode": true }
-},
-"12107": {
-"type": "text",
-"name": "narrator",
-"onNext": { "nextNode": true }
-},
-"12108": {
-"type": "text",
-"name": "narrator",
-"onNext": { "nextNode": true }
-},
-"12109": {
-"type": "text",
-"name": "narrator",
-"onNext": { "nextNode": true }
-},
-"12110": {
-"type": "text",
-"name": "narrator",
-"onNext": { "nextNode": true }
-},
-"12111": {
-"type": "text",
-"name": "narrator",
-"onNext": { "nextNode": true }
-},
-"12112": {
-"type": "text",
-"name": "narrator",
-"onNext": { "nextNode": true }
-},
-"12113": {
-"type": "text",
-"name": "narrator",
-"onNext": { "nextNode": true }
-},
-"12114": {
-"type": "text",
-"name": "narrator",
-"onNext": { "nextNode": true }
-},
-"12115": {
-"type": "text",
-"name": "narrator",
-"onNext": { "nextNode": true }
-},
-"12116": {
-"type": "text",
-"name": "narrator",
-"onNext": { "nextNode": true }
-},
-"12117": {
-"type": "text",
-"name": "narrator",
-"onNext": { "nextNode": true }
-},
-"12118": {
-"type": "text",
-"name": "narrator",
-"onNext": { "nextNode": true }
-},
-"12119": {
-"type": "text",
-"name": "narrator",
-"onNext": { "nextNode": true }
-},
-"12120": {
-"type": "text",
-"name": "narrator",
-"onNext": { "nextNode": true }
-},
-"12121": {
-"type": "text",
-"name": "narrator",
-"onNext": { "nextNode": true }
-},
-"12122": {
-"type": "text",
-"name": "narrator",
-"onNext": { "nextNode": true }
-},
-"12123": {
-"type": "text",
-"name": "narrator",
-"onNext": { "nextNode": true }
-},
-"12124": {
-"type": "text",
-"name": "narrator",
-"onNext": { "nextNode": true }
-},
-"12125": {
-"type": "text",
-"name": "narrator",
-"onNext": { "nextNode": true }
-},
-"12126": {
-"type": "text",
-"name": "narrator",
-"onNext": { "nextNode": true }
-},
-"12127": {
-"type": "text",
-"name": "narrator",
-"onNext": { "nextNode": true }
-},
-"12128": {
-"type": "text",
-"name": "narrator",
-"onNext": { "nextNode": true }
-},
-"12129": {
-"type": "text",
-"name": "narrator",
-"onNext": { "nextNode": true }
-},
-"12130": {
-"type": "text",
-"name": "narrator",
-"onNext": { "nextNode": true }
-},
-"12131": {
-"type": "text",
-"name": "narrator",
-"onNext": { "nextNode": true }
-},
-"12132": {
-"type": "text",
-"name": "narrator",
-"onNext": { "nextNode": true }
-},
-"12133": {
-"type": "text",
-"name": "narrator",
-"onNext": { "nextNode": true }
-},
-"12134": {
-"type": "text",
-"name": "narrator",
-"onNext": { "nextNode": true }
-},
-"12135": {
-"type": "text",
-"name": "narrator",
-"onNext": { "nextNode": true }
-},
-"12136": {
-"type": "text",
-"name": "narrator",
-"onNext": { "nextNode": true }
-},
-"12137": {
-"type": "text",
-"name": "narrator",
-"onNext": { "nextNode": true }
-},
-"12138": {
-"type": "text",
-"name": "narrator",
-"onNext": { "nextNode": true }
-},
-"12139": {
-"type": "text",
-"name": "narrator",
-"onNext": { "nextNode": true }
-},
-"12140": {
-"type": "text",
-"name": "narrator",
-"onNext": { "nextNode": true }
-},
-"12141": {
-"type": "text",
-"name": "narrator",
-"onNext": { "nextNode": true }
-},
-"12142": {
-"type": "text",
-"name": "narrator",
-"onNext": { "nextNode": true }
-},
-"12143": {
-"type": "text",
-"name": "narrator",
-"onNext": { "nextNode": true }
-},
-"12144": {
-"type": "text",
-"name": "narrator",
-"onNext": { "nextNode": true }
-},
-"12145": {
-"type": "text",
-"name": "narrator",
-"onNext": { "nextNode": true }
-},
-"12146": {
-"type": "text",
-"name": "narrator",
-"onNext": { "nextNode": true }
-},
-"12147": {
-"type": "text",
-"name": "narrator",
-"onNext": { "ending": true }
-}
+
+        "1348": {
+                "type": "text",
+                "name": "narrator",
+                "onNext": { "nextNode": true }
+        },
+        "1349": {
+                "type": "text",
+                "name": "tomoya","lCharactor":"友也_平静",
+                "inherit":1348,
+                "onNext": { "nextNode": true }
+        },
+        "1350": {
+                "type": "text",
+                "name": "ayane","rCharactor":"绚音_平静",
+                "inherit":1348,
+                "onNext": { "nextNode": true }
+        },
+        "1351": {
+                "type": "text",
+                "name": "tomoya","lCharactor":"友也_平静",
+                "inherit":1348,
+                "onNext": { "nextNode": true }
+        },
+        "1352": {
+                "type": "text",
+                "name": "ayane","rCharactor":"绚音_平静",
+                "inherit":1348,
+                "onNext": { "nextNode": true }
+        },
+        "1353": {
+                "type": "text",
+                "name": "narrator",
+                "inherit":1348,
+                "onNext": { "nextNode": true }
+        },
+        "1354": {
+                "type": "text",
+                "name": "narrator",
+                "inherit":1348,
+                "onNext": { "nextNode": true }
+        },
+        "1355": {
+                "type": "text",
+                "name": "narrator",
+                "inherit":1348,
+                "onNext": { "nextNode": true }
+        },
+        "1356": {
+                "type": "text",
+                "name": "aoi","lCharactor":"葵_微笑",
+                "inherit":1348,
+                "onNext": { "nextNode": true }
+        },
+        "1357": {
+                "type": "text",
+                "name": "ayane","rCharactor":"绚音_平静",
+                "inherit":1348,
+                "onNext": { "nextNode": true }
+        },
+        "1358": {
+                "type": "text",
+                "name": "aoi","lCharactor":"葵_微笑",
+                "inherit":1348,
+                "onNext": { "nextNode": true }
+        },
+        "1359": {
+                "type": "text",
+                "name": "ayane","rCharactor":"绚音_平静",
+                "inherit":1348,
+                "onNext": { "nextNode": true }
+        },
+        "1360": {
+                "type": "text",
+                "name": "narrator",
+                "inherit":1348,
+                "onNext": { "nextNode": true }
+        },
+        "1361": {
+                "type": "text",
+                "name": "ryo","rCharactor":"凉_微笑",
+                "inherit":1348,
+                "onNext": { "nextNode": true }
+        },
+        "1362": {
+                "type": "text",
+                "name": "tomoya","lCharactor":"友也_平静",
+                "inherit":1348,
+                "onNext": { "nextNode": true }
+        },
+        "1363": {
+                "type": "text",
+                "name": "narrator",
+                "inherit":1348,
+                "onNext": { "nextNode": true }
+        },
+        "1364": {
+                "type": "text",
+                "name": "ayane","rCharactor":"绚音_平静",
+                "inherit":1348,
+                "onNext": { "nextNode": true }
+        },
+        "1365": {
+                "type": "text",
+                "name": "ayane","rCharactor":"绚音_平静",
+                "inherit":1348,
+                "onNext": { "nextNode": true }
+        },
+        "1366": {
+                "type": "text",
+                "name": "aoi","lCharactor":"葵_微笑",
+                "inherit":1348,
+                "onNext": { "nextNode": true }
+        },
+        "1367": {
+                "type": "text",
+                "name": "narrator",
+                "inherit":1348,
+                "onNext": { "nextNode": true }
+        },
+        "1368": {
+                "type": "text",
+                "name": "narrator",
+                "inherit":1348,
+                "onNext": { "nextNode": true }
+        },
+        "1369": {
+                "type": "text",
+                "name": "narrator",
+                "inherit":1348,
+                "onNext": { "nextNode": true }
+        },
+        "1370": {
+                "type": "text",
+                "name": "narrator",
+                "inherit":1348,
+                "onNext": { "nextNode": true }
+        },
+        "1371": {
+                "type": "text",
+                "name": "narrator",
+                "inherit":1348,
+                "onNext": { "nextNode": true }
+        },
+        "1372": {
+                "type": "text",
+                "name": "tomoya","lCharactor":"友也_平静",
+                "inherit":1348,
+                "onNext": { "nextNode": true }
+        },
+        "1373": {
+                "type": "text",
+                "name": "ayane","rCharactor":"绚音_平静",
+                "inherit":1348,
+                "onNext": { "nextNode": true }
+        },
+        "1374": {
+                "type": "text",
+                "name": "ayane","rCharactor":"绚音_平静",
+                "inherit":1348,
+                "onNext": { "nextNode": true }
+        },
+        "1375": {
+                "type": "text",
+                "name": "tomoya","lCharactor":"友也_平静",
+                "inherit":1348,
+                "onNext": { "nextNode": true }
+        },
+        "1376": {
+                "type": "text",
+                "name": "tomoya","lCharactor":"友也_平静",
+                "inherit":1348,
+                "onNext": { "nextNode": true }
+        },
+        "1377": {
+                "type": "text",
+                "name": "tomoya","lCharactor":"友也_平静",
+                "inherit":1348,
+                "onNext": { "nextNode": true }
+        },
+        "1378": {
+                "type": "text",
+                "name": "ayane","rCharactor":"绚音_平静",
+                "inherit":1348,
+                "onNext": { "nextNode": true }
+        },
+        "1379": {
+                "type": "text",
+                "name": "ayane","rCharactor":"绚音_平静",
+                "inherit":1348,
+                "onNext": { "nextNode": true }
+        },
+        "1380": {
+                "type": "text",
+                "name": "ayane","rCharactor":"绚音_平静",
+                "inherit":1348,
+                "onNext": { "nextNode": true }
+        },
+        "1381": {
+                "type": "text",
+                "name": "narrator",
+                "inherit":1348,
+                "onNext": { "nextNode": true }
+        },
+        "1382": {
+                "type": "text",
+                "name": "ryo","rCharactor":"凉_微笑",
+                "inherit":1348,
+                "onNext": { "nextNode": true }
+        },
+        "1383": {
+                "type": "text",
+                "name": "narrator",
+                "inherit":1348,
+                "onNext": { "nextNode": true }
+        },
+        "1384": {
+                "type": "text",
+                "name": "narrator",
+                "inherit":1348,
+                "onNext": { "nextNode": true }
+        },
+        "1385": {
+                "type": "text",
+                "name": "ayane","rCharactor":"绚音_平静",
+                "inherit":1348,
+                "onNext": { "nextNode": true }
+        },
+        "1386": {
+                "type": "text",
+                "name": "ayane","rCharactor":"绚音_平静",
+                "inherit":1348,
+                "onNext": { "nextNode": true }
+        },
+        "1387": {
+                "type": "text",
+                "name": "ayane","rCharactor":"绚音_平静",
+                "inherit":1348,
+                "onNext": { "nextNode": true }
+        },
+        "1388": {
+                "type": "text",
+                "name": "ayane","rCharactor":"绚音_平静",
+                "inherit":1348,
+                "onNext": { "nextNode": true }
+        },
+        "1389": {
+                "type": "text",
+                "name": "narrator",
+                "inherit":1348,
+                "onNext": { "nextNode": true }
+        },
+
+
+        "1390": {
+                "type": "text",
+                "name": "narrator",
+                "onNext": { "nextNode": true }
+        },
+        "1391": {
+                "type": "text",
+                "name": "narrator",
+                "inherit":1390,
+                "onNext": { "nextNode": true }
+        },
+        "1392": {
+                "type": "text",
+                "name": "narrator",
+                "inherit":1390,
+                "onNext": { "nextNode": true }
+        },
+        "1393": {
+                "type": "text",
+                "name": "ayane","rCharactor":"绚音_平静",
+                "inherit":1390,
+                "onNext": { "nextNode": true }
+        },
+        "1394": {
+                "type": "text",
+                "name": "aoi","lCharactor":"葵_微笑",
+                "inherit":1390,
+                "onNext": { "nextNode": true }
+        },
+        "1395": {
+                "type": "text",
+                "name": "ryo","rCharactor":"凉_微笑",
+                "inherit":1390,
+                "onNext": { "nextNode": true }
+        },
+        "1396": {
+                "type": "text",
+                "name": "ryo","rCharactor":"凉_微笑",
+                "inherit":1390,
+                "onNext": { "nextNode": true }
+        },
+        "1397": {
+                "type": "text",
+                "name": "narrator",
+                "inherit":1390,
+                "onNext": { "nextNode": true }
+        },
+        "1398": {
+                "type": "text",
+                "name": "narrator",
+                "inherit":1390,
+                "onNext": { "nextNode": true }
+        },
+        "1399": {
+                "type": "text",
+                "name": "narrator",
+                "inherit":1390,
+                "onNext": { "nextNode": true }
+        },
+        "1400": {
+                "type": "text",
+                "name": "narrator",
+                "inherit":1390,
+                "onNext": { "nextNode": true }
+        },
+        "1401": {
+                "type": "text",
+                "name": "narrator",
+                "inherit":1390,
+                "onNext": { "nextNode": true }
+        }
 
     }
 }
