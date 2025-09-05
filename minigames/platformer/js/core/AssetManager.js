@@ -1,7 +1,7 @@
+//--- START OF FILE minigames/platformer/js/core/AssetManager.js ---
 import { loadSpriteSheet, loadImage, loadJSON } from '../utils/loaders.js';
 
 export class AssetManager {
-    // 构造函数接收一个基础路径
     constructor(basePath = '') {
         this.basePath = basePath;
         this.images = new Map();
@@ -13,7 +13,7 @@ export class AssetManager {
         const bp = this.basePath; // base path shorthand
         const [
             idleData, walkData, jumpData, fallData, landData, attackData,
-            slashImg, tilesetImg,
+            slashImg, tilesetImg, lightOrbImg,
             mapLevel1Data, mapLevel2Data
         ] = await Promise.all([
             // 所有路径前都加上基础路径
@@ -25,6 +25,7 @@ export class AssetManager {
             loadSpriteSheet(`${bp}assets/sprites/player/attack.png`, 5),
             loadImage(`${bp}assets/sprites/player/lr1.png`),
             loadImage(`${bp}assets/sprites/tileset.png`),
+            loadImage(`${bp}assets/sprites/light_orb.png`),
             loadJSON(`${bp}assets/maps/level1.json`),
             loadJSON(`${bp}assets/maps/level2.json`),
         ]);
@@ -38,6 +39,7 @@ export class AssetManager {
 
         this.images.set('slash', slashImg);
         this.images.set('tileset', tilesetImg);
+        this.images.set('light_orb', lightOrbImg);
 
         this.jsons.set('level1.json', mapLevel1Data);
         this.jsons.set('level2.json', mapLevel2Data);
@@ -47,3 +49,4 @@ export class AssetManager {
     getImage(name) { return this.images.get(name); }
     getJson(name) { return this.jsons.get(name); }
 }
+//--- END OF FILE minigames/platformer/js/core/AssetManager.js ---

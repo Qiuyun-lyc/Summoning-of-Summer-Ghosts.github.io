@@ -1,3 +1,4 @@
+//--- START OF FILE minigames/platformer/js/states/PlayState.js ---
 import { BaseState } from './BaseState.js';
 import { Scene } from '../core/Scene.js';
 import { UIManager } from '../ui/UIManager.js';
@@ -11,7 +12,7 @@ export class PlayState extends BaseState {
 
     enter(params) {
         this.scene = new Scene(params.level, this.game.assetManager);
-        this.uiManager = new UIManager(this.game.canvas); 
+        this.uiManager = new UIManager(this.game.canvas, this.game.config); 
     }
 
     exit() {
@@ -34,3 +35,4 @@ export class PlayState extends BaseState {
         }
     }
 }
+//--- END OF FILE minigames/platformer/js/states/PlayState.js ---
