@@ -1,4 +1,3 @@
-//--- START OF FILE minigames/platformer/js/components/SpriteRenderer.js ---
 import { TARGET_H } from '../constants.js';
 import { Transform } from './Transform.js';
 import { Animator } from './Animator.js';
@@ -98,4 +97,3 @@ export class SpriteRenderer {
         }
     }
 }
-//--- END OF FILE minigames/platformer/js/components/SpriteRenderer.js ---

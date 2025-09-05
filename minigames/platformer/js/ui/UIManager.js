@@ -1,4 +1,3 @@
-//--- START OF FILE minigames/platformer/js/ui/UIManager.js ---
 import { gameEvents } from '../core/EventBus.js';
 
 export class UIManager {
@@ -65,4 +64,3 @@ export class UIManager {
         this.ctx.shadowColor = 'transparent';
     }
 }
-//--- END OF FILE minigames/platformer/js/ui/UIManager.js ---

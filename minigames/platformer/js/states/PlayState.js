@@ -1,4 +1,3 @@
-//--- START OF FILE minigames/platformer/js/states/PlayState.js ---
 import { BaseState } from './BaseState.js';
 import { Scene } from '../core/Scene.js';
 import { UIManager } from '../ui/UIManager.js';
@@ -35,4 +34,3 @@ export class PlayState extends BaseState {
         }
     }
 }
-//--- END OF FILE minigames/platformer/js/states/PlayState.js ---

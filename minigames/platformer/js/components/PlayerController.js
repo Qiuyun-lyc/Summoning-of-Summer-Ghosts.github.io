@@ -1,4 +1,3 @@
-//--- START OF FILE minigames/platformer/js/components/PlayerController.js ---
 import { MOVE_SPEED } from '../constants.js';
 import { Physics } from './Physics.js';
 import { Transform } from './Transform.js';
@@ -66,4 +65,3 @@ export class PlayerController {
         }
     }
 }
-//--- END OF FILE minigames/platformer/js/components/PlayerController.js ---

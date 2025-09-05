@@ -1,4 +1,4 @@
-//--- START OF FILE minigames/platformer/js/core/AssetManager.js ---
+
 import { loadSpriteSheet, loadImage, loadJSON } from '../utils/loaders.js';
 
 export class AssetManager {
@@ -49,4 +49,3 @@ export class AssetManager {
     getImage(name) { return this.images.get(name); }
     getJson(name) { return this.jsons.get(name); }
 }
-//--- END OF FILE minigames/platformer/js/core/AssetManager.js ---
