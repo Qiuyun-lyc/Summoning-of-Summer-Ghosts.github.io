@@ -11,9 +11,24 @@
             "name": "narrator",
             "bgr": "test",
             "bgm": "test",
-            "onNext": { "setNode": 1001 },
+            "onNext": { "setNode": 99999 },
             "unlockAchievement": "start_game"
         },
+
+        "99999": {
+            "type": "minigame",
+            "gameId": "platformer", 
+            "level": "level1.json",
+            "winCondition": {
+                "type": "collect",
+                "value": 9
+            },
+            "onComplete": {
+                "win": 101, 
+                "lose": 1001  
+            }
+        },
+
         "1001": {
                 "type": "text",
                 "name": "narrator",
