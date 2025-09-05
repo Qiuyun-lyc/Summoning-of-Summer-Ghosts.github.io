@@ -11,7 +11,6 @@
             "name": "narrator",
             "bgr": "test",
             "bgm": "test",
-<<<<<<< Updated upstream
             "onNext": { "setNode": 1001 },
             "unlockAchievement": "start_game"
         },
@@ -19,84 +18,6 @@
                 "type": "text",
                 "name": "narrator",
             "bgr": "原野1",
-=======
-            "onNext": { "setNode": 91001 },
-            "unlockAchievement": "start_game"
-        },
-        
-        "91001": {
-            "type": "minigame",
-            "gameId": "platformer", 
-            "level": "level1.json", 
-            "winCondition": {
-                "type": "collect",
-                "value": 9 
-            },
-            "onComplete": {
-                "win": 101, 
-                "lose": 11001  
-            }
-        },
-
-        "11001": {
-            "type": "text",
-            "name": "narrator",
-            "bgr":"1",
-            "onNext": { "nextNode": true }
-        },
-        "11002": {
-            "inherit": 11001,
-            "type": "text",
-            "name": "narrator",
-            "onNext": { "nextNode": true }
-        },
-        "11003": {
-            "inherit": 11001,
-            "type": "text",
-            "name": "narrator",
-            "onNext": { "nextNode": true }
-        },
-
-
-        "11004": {
-            "type": "text",
-            "name": "narrator",
-            "bgr":"2",
-            "onNext": { "setNode": 110040 }
-        },
-        "110040": {
-            "type": "animation",
-            "animation": "fadeInBlack",
-
-            "onNext": { "setNode": 11005 }
-        },
-        "11005": {
-            "type": "text",
-            "name":"tomoya",
-            "onNext": { "nextNode": true }
-        },
-        "11006": {
-            "type": "text",
-            "name": "tomoya",
-            "lCharactor":"tomoya",
-
-            "onNext": { "nextNode": true }
-        },
-        "11007": {
-            "type": "text",
-            "name": "tomoya",
-            "lCharactor":"tomoya",
-            "onNext": { "nextNode": true }
-        },
-        "11008": {
-            "type": "text",
-            "name": "narrator",
-            "onNext": { "nextNode": true }
-        },
-        "11009": {
-            "type": "text",
-            "name": "npcA",
->>>>>>> Stashed changes
             "bgm": "test",
                 "onNext": { "nextNode": true }
         },

@@ -1,4 +1,3 @@
-//--- START OF FILE minigames/platformer/js/core/Scene.js ---
 //引入实体工厂和地图类
 import { createPlayer } from '../game/PlayerFactory.js';
 import Tilemap from '../game/Tilemap.js';
@@ -61,4 +60,3 @@ export class Scene {
         }
     }
 }
-//--- END OF FILE minigames/platformer/js/core/Scene.js ---

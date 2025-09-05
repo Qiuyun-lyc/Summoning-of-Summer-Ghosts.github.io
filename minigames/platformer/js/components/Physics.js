@@ -1,4 +1,3 @@
-//--- START OF FILE minigames/platformer/js/components/Physics.js ---
 import { GRAVITY } from '../constants.js';
 import { Transform } from './Transform.js';
 import { SpriteRenderer } from './SpriteRenderer.js';
@@ -34,7 +33,7 @@ export class Physics {
             this.transform.y = this._baseY + offsetY;
         }
 
-        // 应用重力（如果存在）
+        // 应用重力
         this.velocityY += this.gravity;
         
         // 根据速度更新位置
@@ -93,4 +92,3 @@ export class Physics {
         return tilemap.isSolid(feetX, feetY);
     }
 }
-//--- END OF FILE minigames/platformer/js/components/Physics.js ---

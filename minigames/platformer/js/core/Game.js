@@ -1,4 +1,3 @@
-//--- START OF FILE minigames/platformer/js/core/Game.js ---
 import { AssetManager } from './AssetManager.js';
 import { InputHandler } from './InputHandler.js';
 import { RendererSystem } from '../systems/RendererSystem.js';
@@ -87,4 +86,3 @@ export class Game {
         this.stateManager.draw();
     }
 }
-//--- END OF FILE minigames/platformer/js/core/Game.js ---

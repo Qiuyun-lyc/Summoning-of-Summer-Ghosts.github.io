@@ -1,4 +1,3 @@
-//与GameStateManager不同，管理的是单个实体的围观行为（站立、行走等）
 export class StateMachine {
     constructor() {
         this.states = new Map();

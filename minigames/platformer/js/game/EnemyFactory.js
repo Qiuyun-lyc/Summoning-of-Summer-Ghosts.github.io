@@ -1,4 +1,3 @@
-//--- START OF FILE minigames/platformer/js/game/EnemyFactory.js ---
 //引入创建实体所需的各种模块和组件
 import { GameObject } from '../core/GameObject.js';
 import { Transform } from '../components/Transform.js';
@@ -43,4 +42,3 @@ export function createLightOrb(assetManager, x, y) {
 
     return orb;
 }
-//--- END OF FILE minigames/platformer/js/game/EnemyFactory.js ---
