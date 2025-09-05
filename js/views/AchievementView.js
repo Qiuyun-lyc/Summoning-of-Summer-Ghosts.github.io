@@ -1,24 +1,56 @@
 // 成就界面视图对象
 const AchievementView = {
+    totalSlots: 16, // 固定成就槽数量
+    slotsPerRow: 4, // 每行成就数量
+
     render: (container, engine) => {
         const L = engine.localization;
         const allAchievements = engine.dataManager.getAllAchievements();
         const unlockedIds = engine.saveManager.currentUser.achievementArray;
         const lockedIcon = engine.dataManager.getLockedAchievementIcon();
 
-const achievementsHTML = allAchievements.map(ach => {
-            const isUnlocked = unlockedIds.includes(ach.id);
-            const statusClass = isUnlocked ? 'unlocked' : 'locked';
-            const iconSrc = isUnlocked ? ach.icon : lockedIcon;
-            const name = isUnlocked ? `<h3>${ach.name}</h3>` : '<h3>？？？</h3>';
-            const description = isUnlocked ? `<p>${ach.description}</p>` : '<p>解锁条件未达成</p>';
+        // 取前16个成就，如果不足16个，用空占位
+        const achievementsToRender = allAchievements.slice(0, AchievementView.totalSlots);
+        while (achievementsToRender.length < AchievementView.totalSlots) {
+            achievementsToRender.push(null); // 空占位
+        }
+
+        // 将成就按行分组，每行4个
+        const rows = [];
+        for (let i = 0; i < achievementsToRender.length; i += AchievementView.slotsPerRow) {
+            rows.push(achievementsToRender.slice(i, i + AchievementView.slotsPerRow));
+        }
+
+        // 每行生成 HTML
+        const rowsHTML = rows.map((row, rowIndex) => {
+            const rowCategory = `类别 ${rowIndex + 1}`; // 可根据需要修改成真实类别名称
+            const rowItemsHTML = row.map(ach => {
+                if (ach) {
+                    const isUnlocked = unlockedIds.includes(ach.id);
+                    const statusClass = isUnlocked ? 'unlocked' : 'locked';
+                    const iconSrc = isUnlocked ? ach.icon : lockedIcon;
+                    const name = isUnlocked ? `<h3>${ach.name}</h3>` : '<h3>？？？</h3>';
+                    const description = isUnlocked ? `<p>${ach.description}</p>` : '<p>解锁条件未达成</p>';
+
+                    return `
+                        <div class="achievement-item ${statusClass}" title="${isUnlocked ? ach.name : '未解锁'}">
+                            <img class="achievement-icon" src="${iconSrc}" alt="${name}">
+                            <div class="achievement-info">
+                                ${name}
+                                ${description}
+                            </div>
+                        </div>
+                    `;
+                } else {
+                    return `<div class="achievement-item empty"></div>`;
+                }
+            }).join('');
 
             return `
-                <div class="achievement-item ${statusClass}" title="${isUnlocked ? ach.name : '未解锁'}">
-                    <img class="achievement-icon" src="${iconSrc}" alt="${name}">
-                    <div class="achievement-info">
-                        ${name}
-                        ${description}
+                <div class="achievement-row">
+                    <h2 class="row-category">${rowCategory}</h2>
+                    <div class="achievement-row-items">
+                        ${rowItemsHTML}
                     </div>
                 </div>
             `;
@@ -29,9 +61,9 @@ const achievementsHTML = allAchievements.map(ach => {
                 .achievement-view {
                     display: flex;
                     flex-direction: column;
+                    padding: 20px;
                 }
 
-                /* 顶部导航栏 */
                 .navbar {
                     height: 100px;
                     display: flex;
@@ -42,7 +74,6 @@ const achievementsHTML = allAchievements.map(ach => {
                     z-index: 10;
                 }
 
-                /* 通用按钮样式 */
                 .menu-button {
                     position: relative;
                     background: none;
@@ -67,26 +98,45 @@ const achievementsHTML = allAchievements.map(ach => {
                     pointer-events: none;
                 }
 
-                .achievement-grid-container {
-                    flex-grow: 1;
-                    display: grid;
-                    /* 关键改动：将最小宽度从 250px 增加到 320px */
-                    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-                    gap: 35px; /* 稍微增大网格间距 */
-                    padding: 40px;
-                    overflow-y: auto;
+                /* 每行成就容器 */
+                .achievement-row {
+                    margin-bottom: 40px;
                 }
 
-                /* 单个成就项目 */
+                .row-category {
+                    text-align: center;
+                    font-size: 1.6em;
+                    color: #ffd700;
+                    margin-bottom: 15px;
+                    text-shadow: 1px 1px 3px #000;
+                }
+
+                /* 每行成就格子容器 */
+                .achievement-row-items {
+                    display: flex;
+                    justify-content: space-around; /* 每行均分空间 */
+                    flex-wrap: wrap;
+                    gap: 25px;
+                }
+
                 .achievement-item {
                     background-color: rgba(0, 0, 0, 0.4);
                     border-radius: 15px;
-                    padding: 25px; /* 关键改动：增加内边距，让内部空间更大 */
+                    padding: 20px;
                     display: flex;
                     align-items: center;
-                    gap: 20px; /* 关键改动：增大图标和文字的间距 */
+                    gap: 15px;
                     transition: all 0.3s ease;
                     border: 2px solid transparent;
+                    width: 100%;
+                    max-width: 220px;
+                    min-height: 130px;
+                    box-sizing: border-box;
+                }
+
+                .achievement-item.empty {
+                    background: transparent;
+                    border: none;
                 }
 
                 .achievement-item.unlocked {
@@ -99,65 +149,59 @@ const achievementsHTML = allAchievements.map(ach => {
                     background-color: rgba(255, 255, 255, 0.1);
                 }
 
-                /* 成就图标 */
                 .achievement-icon {
-                    width: 90px; /* 关键改动：增大图标宽度 */
-                    height: 90px; /* 关键改动：增大图标高度 */
+                    width: 90px;
+                    height: 90px;
                     border-radius: 50%;
                     object-fit: cover;
                     border: 3px solid #fff;
-                    flex-shrink: 0; /* 防止图标在空间不足时被压缩 */
+                    flex-shrink: 0;
                 }
 
                 .achievement-item.locked .achievement-icon {
                     filter: grayscale(100%) brightness(0.7);
                 }
 
-                /* 成就信息 (名称和描述) */
                 .achievement-info h3 {
-                    margin: 0 0 8px 0; /* 增大标题和描述的间距 */
-                    font-size: 1.4em; /* 关键改动：增大标题字体 */
+                    margin: 0 0 8px 0;
+                    font-size: 1.4em;
                     color: #fff;
                 }
-                
+
                 .achievement-item.locked .achievement-info h3 {
                     color: #aaa;
                 }
 
                 .achievement-info p {
                     margin: 0;
-                    font-size: 1em; /* 关键改动：增大描述字体 */
+                    font-size: 1em;
                     color: #ccc;
-                    line-height: 1.4; /* 增加行高，让描述更易读 */
+                    line-height: 1.4;
                 }
-
-
             </style>
 
             <div class="view achievement-view">
                 <div class="bg" style="background-image: url('./assets/img/bgr/mainmenu.png');"></div>
-                
-                <!-- 顶部导航栏 -->
+
                 <nav class="navbar" id="achievement-navbar">
-                    <!-- 我的成就 -->
                     <button class="menu-button">
                         <img class="button-img" src="./assets/img/button.png">
                         <span>${L.get('ui.achievement')}</span>
                     </button>
 
-                    <!-- 返回主菜单 -->
                     <button id="back-to-menu" class="menu-button">
                         <img class="button-img" src="./assets/img/button.png">
                         <span>${L.get('ui.title')}</span>
                     </button>
                 </nav>
-                
-                <!-- 成就展示网格 -->
+
                 <div class="achievement-grid-container">
-                    ${achievementsHTML}
+                    ${rowsHTML}
                 </div>
             </div>
         `;
+
+        AchievementView.attachEventListeners(container, engine);
     },
 
     attachEventListeners: (container, engine) => {
