@@ -12,6 +12,7 @@ import GameView from '../views/GameView.js';
 import LoadView from '../views/LoadView.js';
 import AchievementView from '../views/AchievementView.js';
 import AboutView from '../views/AboutView.js';
+import MinigameView from '../views/MinigameView.js';
 
 export default class GameEngine {
     constructor(container) {
@@ -36,11 +37,24 @@ export default class GameEngine {
             Game: GameView,
             Load: LoadView,
             Achievement: AchievementView, 
-            About: AboutView
+            About: AboutView,
+            Minigame: MinigameView 
         };
     }
 
     async init() {
+        try {
+            if (!sessionStorage.getItem('loginUser')) {
+                const activeUser = localStorage.getItem('activeSessionUser');
+                if (activeUser) {
+                    console.log('检测到从外部页面返回，正在恢复会话...');
+                    sessionStorage.setItem('loginUser', activeUser);
+                    localStorage.removeItem('activeSessionUser');
+                }
+            }
+        } catch (e) {
+            console.error('恢复会话状态时发生错误:', e);
+        }
         // 添加事件监听器 
         window.addEventListener('achievementUnlocked', (event) => {
             const achievementId = event.detail.achievementId;
@@ -58,12 +72,13 @@ export default class GameEngine {
         }
     }
 
-    showView(viewName) {
+    showView(viewName, params = {}) {
         this.uiManager.clearContainer();
         const view = this.views[viewName];
         if (view) {
-            view.render(this.container, this);
-            view.attachEventListeners(this.container, this);
+            // 将 params 传递给 render 和 attachEventListeners
+            view.render(this.container, this, params);
+            view.attachEventListeners(this.container, this, params);
         } else {
             console.error(`视图 "${viewName}" 未找到。`);
         }
@@ -125,6 +140,16 @@ export default class GameEngine {
     async processNode(nodeId) {
         const node = this.dataManager.getNode(nodeId);
         if (!node) return;
+        
+        // 4. 在 processNode 中处理 minigame 类型的节点
+        if (node.type === 'minigame') {
+            console.log(`检测到小游戏节点 [${nodeId}]，正在启动...`);
+            // 停止当前背景音乐，小游戏会有自己的音乐
+            this.audioManager.stopBgm();
+            // 显示 MinigameView 并传递节点数据
+            this.showView('Minigame', { nodeData: node });
+            return; // 流程交给 MinigameView，此处中断
+        }
 
         await this.preloadAssetsForNode(node); 
         this.gameState.currentSave.nodeId = nodeId;
@@ -141,7 +166,10 @@ export default class GameEngine {
         }
         
         if (node.onEnter) { }
-        if (node.type === 'animation') {  }
+        if (node.type === 'animation') { 
+            // 注意：如果动画节点在小游戏后，需要确保流程正确
+            // this.handleAnimation(node);
+         }
     }
     
     async handleAnimation(node) {

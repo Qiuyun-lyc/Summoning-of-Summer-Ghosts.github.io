@@ -111,7 +111,7 @@ const LoadView = {
 
             // 给新生成的按钮绑定事件
             LoadView.bindSlotButtons(container, engine);
-        }, 500);
+        }, 1);
     },
 
     // 绑定全局事件监听器

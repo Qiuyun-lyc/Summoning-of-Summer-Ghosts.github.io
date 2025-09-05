@@ -126,6 +126,9 @@ const AboutView = {
             card.style.cursor = 'pointer';
             card.addEventListener('click', () => {
                 engine.audioManager.playSoundEffect('click');
+                if (engine.saveManager.currentUser) {
+                    localStorage.setItem('activeSessionUser', engine.saveManager.currentUser.username);
+                }
                 try { sessionStorage.setItem('jumpToAbout', '1'); } catch(e) {}
                 window.location.href = card.dataset.profile;      // 当前页内跳转
             });
