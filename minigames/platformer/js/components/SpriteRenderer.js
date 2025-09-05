@@ -1,12 +1,14 @@
+//--- START OF FILE minigames/platformer/js/components/SpriteRenderer.js ---
 import { TARGET_H } from '../constants.js';
 import { Transform } from './Transform.js';
 import { Animator } from './Animator.js';
 import { StateMachine } from './StateMachine.js';
 
-//负责将实体动画帧绘制到屏幕上
 export class SpriteRenderer {
     constructor(slashFrame) {
         this.slashFrame = slashFrame;
+        this.isStatic = false;
+        this.staticImage = null;
     }
 
     init() {
@@ -15,23 +17,46 @@ export class SpriteRenderer {
         this.stateMachine = this.gameObject.getComponent(StateMachine);
     }
 
-    //计算精灵在屏幕上应该绘制的尺寸（基于缩放）
     getDrawSize() {
-        const size = this.animator.getFrameSize();
-        if (size.h === 0) return { w: 0, h: 0 };
-        const scale = TARGET_H / size.h;
-        return { w: size.w * scale, h: size.h * scale };
+        // *** 核心修正 1: 升级静态图片的尺寸计算逻辑 ***
+        if (this.isStatic && this.staticImage) {
+            // 定义光芒的目标高度为主角的一半
+            const targetHeight = TARGET_H / 2; 
+            if (this.staticImage.height === 0) return { w: 0, h: 0 };
+            
+            // 计算缩放比例
+            const scale = targetHeight / this.staticImage.height;
+            // 根据比例计算新的宽度
+            const targetWidth = this.staticImage.width * scale;
+            
+            return { w: targetWidth, h: targetHeight };
+        }
+        
+        if (this.animator) {
+            const size = this.animator.getFrameSize();
+            if (size.h === 0) return { w: 0, h: 0 };
+            const scale = TARGET_H / size.h;
+            return { w: size.w * scale, h: size.h * scale };
+        }
+        return { w: 0, h: 0 };
     }
 
-    //绘制方法
     draw(ctx) {
+        // *** 核心修正 2: 在绘制静态图片时使用计算出的新尺寸 ***
+        if (this.isStatic && this.staticImage) {
+            const { w: drawW, h: drawH } = this.getDrawSize();
+            ctx.drawImage(this.staticImage, this.transform.x, this.transform.y, drawW, drawH);
+            return;
+        }
+
+        // --- 原有的动画绘制逻辑 (保持不变) ---
+        if (!this.animator) return;
         const frameCanvas = this.animator.getCurrentFrame();
         if (!frameCanvas) return;
 
         const { w: drawW, h: drawH } = this.getDrawSize();
 
         ctx.save();
-        //根据朝向翻转精灵
         if (this.transform.facingRight) { 
             ctx.translate(this.transform.x + drawW, this.transform.y);
             ctx.scale(-1, 1);
@@ -41,11 +66,9 @@ export class SpriteRenderer {
         }
         
         ctx.restore();
-        //如果有攻击特效，则绘制它
         this._drawSlash(ctx, drawW, drawH);
     }
     
-    //绘制攻击特效
     _drawSlash(ctx, playerW, playerH) {
         if (this.stateMachine && this.stateMachine.currentState.state === 'ATTACK') {
             const slashW = this.slashFrame.width;
@@ -60,13 +83,13 @@ export class SpriteRenderer {
             let slashX, slashY;
             
             ctx.save();
-            if (this.transform.facingRight) { //朝右
+            if (this.transform.facingRight) { 
                 slashX = this.transform.x + playerW * (1 - offsetX);
                 slashY = this.transform.y + playerH * offsetY;
                 ctx.translate(slashX + newW, slashY);
                 ctx.scale(-1, 1);
                 ctx.drawImage(this.slashFrame, 0, 0, newW, newH);
-            } else {//朝左
+            } else {
                 slashX = this.transform.x + playerW * offsetX - newW;
                 slashY = this.transform.y + playerH * offsetY;
                 ctx.drawImage(this.slashFrame, slashX, slashY, newW, newH);
@@ -75,3 +98,4 @@ export class SpriteRenderer {
         }
     }
 }
+//--- END OF FILE minigames/platformer/js/components/SpriteRenderer.js ---
