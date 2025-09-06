@@ -15,7 +15,10 @@ export class Game {
 
         this.sfxVolume = 0.5;
         this.bgmVolume = 0.3;
-        this.currentBgm = null;
+
+        this.bgmPlayers = [null, null];
+        this.activeBgmIndex = 0; 
+        this.bgmLoopTimer = null;
 
         this.lastTime = 0;
         this.isRunning = false;
@@ -34,24 +37,41 @@ export class Game {
         this._gameLoop = this._gameLoop.bind(this);
     }
 
-    playBgm(name) {
-        if (this.currentBgm) {
-            this.currentBgm.pause();
-        }
-        const bgm = this.assetManager.getAudio(name);
-        if (bgm) {
-            this.currentBgm = bgm;
-            this.currentBgm.currentTime = 0;
-            this.currentBgm.volume = this.bgmVolume;
-            this.currentBgm.loop = true;
-            this.currentBgm.play().catch(e => {});
-        }
+     playBgm(name) {
+        const originalAudio = this.assetManager.getAudio(name);
+        if (!originalAudio) return;
+
+        this.bgmPlayers[0] = originalAudio.cloneNode();
+        this.bgmPlayers[1] = originalAudio.cloneNode();
+
+        this.activeBgmIndex = 0;
+        const activePlayer = this.bgmPlayers[this.activeBgmIndex];
+        activePlayer.volume = this.bgmVolume;
+        activePlayer.play().catch(e => {});
+
+        this.bgmLoopTimer = setInterval(() => {
+            const currentPlayer = this.bgmPlayers[this.activeBgmIndex];
+            const nextPlayer = this.bgmPlayers[1 - this.activeBgmIndex];
+
+            if (currentPlayer.duration - currentPlayer.currentTime < 0.2) {
+                nextPlayer.currentTime = 0;
+                nextPlayer.volume = this.bgmVolume;
+                nextPlayer.play().catch(e => {});
+                
+                this.activeBgmIndex = 1 - this.activeBgmIndex;
+            }
+        }, 10);
     }
     
     stopBgm() {
-        if (this.currentBgm) {
-            this.currentBgm.pause();
-            this.currentBgm = null;
+        this.bgmPlayers.forEach(player => {
+            if (player) {
+                player.pause();
+            }
+        });
+        if (this.bgmLoopTimer) {
+            clearInterval(this.bgmLoopTimer);
+            this.bgmLoopTimer = null;
         }
     }
     
