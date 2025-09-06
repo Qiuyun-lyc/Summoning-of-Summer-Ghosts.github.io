@@ -70,7 +70,8 @@ const MinigameView = {
         const gameConfig = {
             level: node.level,
             winCondition: node.winCondition,
-            loseCondition: node.loseCondition
+            loseCondition: node.loseCondition,
+            timeLimit: node.timeLimit
         };
 
         MinigameView.gameInstance = new PlatformerGame(canvas, gameConfig, onGameComplete);
