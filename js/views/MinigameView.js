@@ -97,8 +97,6 @@ const MinigameView = {
             resultOverlay.style.display = 'flex';
 
             continueButton.addEventListener('click', async () => {
-                resultOverlay.style.display = 'none';
-
                 await engine.animation.play('fadeInBlack');
 
                 if (MinigameView.gameInstance) {
@@ -107,6 +105,7 @@ const MinigameView = {
                 }
                 
                 const nextNodeId = resultData.targetNode;
+
                 engine.showView('Game');
                 await engine.processNode(nextNodeId);
                 await engine.animation.play('fadeOutBlack');

@@ -77,7 +77,7 @@ export class UIManager {
         const y = 30;
 
         // 当时间紧张时，将颜色变为红色以警示玩家
-        this.ctx.fillStyle = secondsLeft <= 10 ? 'red' : 'white';
+        this.ctx.fillStyle = secondsLeft <= 10 ? '#bd504fff' : 'white';
         this.ctx.font = "bold 28px 'Courier New', serif";
         this.ctx.textAlign = 'center'; // 居中对齐
         this.ctx.textBaseline = 'middle';
