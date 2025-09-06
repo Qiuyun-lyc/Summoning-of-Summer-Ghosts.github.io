@@ -23,7 +23,7 @@ export class UIManager {
     }
 
     draw() {
-        this.drawPlayerHealthBar();
+        //this.drawPlayerHealthBar();
         this.drawOrbCounter();
     }
 
@@ -49,18 +49,20 @@ export class UIManager {
         const x = this.canvas.width - 20;
         const y = 30;
         
-        this.ctx.fillStyle = '#FFD700'; // 使用金色来代表光芒
-        this.ctx.font = 'bold 20px sans-serif';
+
+        this.ctx.fillStyle = 'white'; 
+        this.ctx.font = "bold 28px 'Georgia', serif"; 
         this.ctx.textAlign = 'right';
         this.ctx.textBaseline = 'middle';
-        this.ctx.shadowColor = 'rgba(0,0,0,0.5)';
-        this.ctx.shadowBlur = 4;
-        this.ctx.shadowOffsetX = 2;
-        this.ctx.shadowOffsetY = 2;
+        
+        this.ctx.shadowColor = '#FFD700'; 
+        this.ctx.shadowBlur = 8; 
+        this.ctx.shadowOffsetX = 0;
+        this.ctx.shadowOffsetY = 0;
         
         this.ctx.fillText(`光芒: ${this.collectedOrbs} / ${this.totalOrbs}`, x, y);
 
-        // 重置阴影，以免影响其他绘制
         this.ctx.shadowColor = 'transparent';
+        this.ctx.shadowBlur = 0;
     }
 }
