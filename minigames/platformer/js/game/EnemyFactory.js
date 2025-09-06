@@ -37,8 +37,8 @@ export function createLightOrb(assetManager, x, y) {
     renderer.staticImage = assetManager.getImage('light_orb');
 
     const physics = orb.addComponent(new Physics({ gravity: 0 })); 
-    physics.floatAmplitude = 5; 
-    physics.floatSpeed = 0.05; 
+    physics.floatAmplitude = 3; 
+    physics.floatSpeed = 0.02; 
 
     return orb;
 }

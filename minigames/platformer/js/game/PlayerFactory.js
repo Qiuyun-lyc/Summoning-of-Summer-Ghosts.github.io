@@ -15,7 +15,7 @@ export function createPlayer(assetManager) {
     //创建一个新的GameObject实例
     const player = new GameObject('Player');
     //添加玩家组件
-    player.addComponent(new Transform(150, -200));
+    player.addComponent(new Transform(50, 1100));
     player.addComponent(new HealthComponent(100));
     //定义玩家的所有动画
     const animations = {
@@ -42,7 +42,7 @@ export function createPlayer(assetManager) {
     //添加玩家输入控制器组件
     player.addComponent(new PlayerController());
     //设置玩家的初始状态为下落
-    stateMachine.setState(states.FALL);
+    stateMachine.setState(states.IDLE);
     //返回组装好的玩家对象
     return player;
 }

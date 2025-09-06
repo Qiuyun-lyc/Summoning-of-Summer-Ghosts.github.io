@@ -21,6 +21,12 @@ export class Game {
         this.stateManager = new GameStateManager(this);
         this.achievementManager = achievementManager;
 
+        // --- 开始修改 ---
+        // 1. 添加计时器属性，并从配置中读取时间（转换为毫秒）
+        this.timeLimit = (config.timeLimit || 99) * 1000; // 如果未设置，默认为99秒
+        this.levelTimer = this.timeLimit;
+        // --- 结束修改 ---
+
         this.boundEntityDiedHandler = this._onEntityDied.bind(this);
         gameEvents.on('entityDied', this.boundEntityDiedHandler);
         
@@ -40,6 +46,10 @@ export class Game {
         
         this.isRunning = true;
         this.lastTime = performance.now();
+        
+        // 2. 在游戏开始时重置计时器
+        this.levelTimer = this.timeLimit; 
+        
         this.stateManager.setState('PLAY', { level: this.config.level });
         requestAnimationFrame(this._gameLoop);
     }
@@ -71,6 +81,18 @@ export class Game {
 
     update(deltaTime, input) {
         this.stateManager.update(deltaTime, input);
+
+        // --- 开始修改 ---
+        // 3. 更新计时器并检查是否超时
+        if (this.isRunning) {
+            this.levelTimer -= deltaTime;
+            if (this.levelTimer <= 0) {
+                this.levelTimer = 0;
+                console.log("时间到！游戏失败。");
+                this._endGame({ status: 'lose' });
+            }
+        }
+        // --- 结束修改 ---
 
         const uiManager = this.stateManager.currentState?.uiManager;
         if (uiManager) {

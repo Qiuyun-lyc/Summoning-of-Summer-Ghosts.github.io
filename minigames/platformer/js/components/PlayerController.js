@@ -52,11 +52,15 @@ export class PlayerController {
                 const orbRenderer = other.getComponent(SpriteRenderer);
                 const orbImage = orbRenderer.staticImage;
 
-                if (orbImage &&
-                    playerTransform.x < orbTransform.x + orbImage.width &&
+                const { w: orbW, h: orbH } = orbRenderer.getDrawSize(); // <--- 关键修改点
+
+                // 使用获取到的缩放尺寸进行碰撞检测
+                if (
+                    playerTransform.x < orbTransform.x + orbW && // <--- 使用缩放后的宽度
                     playerTransform.x + playerW > orbTransform.x &&
-                    playerTransform.y < orbTransform.y + orbImage.height &&
-                    playerTransform.y + playerH > orbTransform.y) {
+                    playerTransform.y < orbTransform.y + orbH && // <--- 使用缩放后的高度
+                    playerTransform.y + playerH > orbTransform.y
+                ) {
                     
                     other.active = false;
                     gameEvents.emit('lightOrbCollected');

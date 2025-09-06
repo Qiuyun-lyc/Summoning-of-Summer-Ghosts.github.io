@@ -1,10 +1,11 @@
 import { gameEvents } from '../core/EventBus.js';
 
 export class UIManager {
-    constructor(canvas, config) {
+    constructor(canvas, config, game) { // 在构造函数中接收 game 对象
         this.canvas = canvas;
         this.ctx = canvas.getContext('2d');
         this.config = config;
+        this.game = game; // 保存 game 对象的引用
         this.playerHealth = { current: 100, max: 100 };
         
         this.collectedOrbs = 0;
@@ -23,8 +24,9 @@ export class UIManager {
     }
 
     draw() {
-        this.drawPlayerHealthBar();
+        //this.drawPlayerHealthBar();
         this.drawOrbCounter();
+        this.drawTimer();
     }
 
     drawPlayerHealthBar() {
@@ -49,18 +51,46 @@ export class UIManager {
         const x = this.canvas.width - 20;
         const y = 30;
         
-        this.ctx.fillStyle = '#FFD700'; // 使用金色来代表光芒
-        this.ctx.font = 'bold 20px sans-serif';
+
+        this.ctx.fillStyle = 'white'; 
+        this.ctx.font = "bold 28px 'Georgia', serif"; 
         this.ctx.textAlign = 'right';
         this.ctx.textBaseline = 'middle';
-        this.ctx.shadowColor = 'rgba(0,0,0,0.5)';
-        this.ctx.shadowBlur = 4;
-        this.ctx.shadowOffsetX = 2;
-        this.ctx.shadowOffsetY = 2;
+        
+        this.ctx.shadowColor = '#FFD700'; 
+        this.ctx.shadowBlur = 8; 
+        this.ctx.shadowOffsetX = 0;
+        this.ctx.shadowOffsetY = 0;
         
         this.ctx.fillText(`光芒: ${this.collectedOrbs} / ${this.totalOrbs}`, x, y);
 
-        // 重置阴影，以免影响其他绘制
         this.ctx.shadowColor = 'transparent';
+        this.ctx.shadowBlur = 0;
+    }
+    drawTimer() {
+        // 从 game 对象获取剩余时间，并转换为秒
+        const secondsLeft = Math.max(0, Math.ceil(this.game.levelTimer / 1000));
+        
+        // 将计时器放在屏幕顶部中央
+        const x = this.canvas.width / 2;
+        const y = 30;
+
+        // 当时间紧张时，将颜色变为红色以警示玩家
+        this.ctx.fillStyle = secondsLeft <= 10 ? 'red' : 'white';
+        this.ctx.font = "bold 28px 'Georgia', serif";
+        this.ctx.textAlign = 'center'; // 居中对齐
+        this.ctx.textBaseline = 'middle';
+
+        // 添加轻微的黑色阴影以增强可读性
+        this.ctx.shadowColor = 'black';
+        this.ctx.shadowBlur = 5;
+        this.ctx.shadowOffsetX = 0;
+        this.ctx.shadowOffsetY = 0;
+        
+        this.ctx.fillText(`时间: ${secondsLeft}`, x, y);
+
+        // 重置阴影属性，避免影响其他UI绘制
+        this.ctx.shadowColor = 'transparent';
+        this.ctx.shadowBlur = 0;
     }
 }

@@ -19,6 +19,7 @@
             "type": "minigame",
             "gameId": "platformer", 
             "level": "level1.json",
+            "timeLimit": 60,
             "winCondition": {
                 "type": "collect",
                 "value": 9

@@ -11,7 +11,7 @@ export class PlayState extends BaseState {
 
     enter(params) {
         this.scene = new Scene(params.level, this.game.assetManager);
-        this.uiManager = new UIManager(this.game.canvas, this.game.config); 
+        this.uiManager = new UIManager(this.game.canvas, this.game.config, this.game);
     }
 
     exit() {
