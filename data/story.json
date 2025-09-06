@@ -19,15 +19,22 @@
             "type": "minigame",
             "gameId": "platformer", 
             "level": "level1.json",
-            "timeLimit": 60,
+            "timeLimit": 30,
             "introText": "为了找到幽灵留下的线索，你必须在破碎的记忆空间中收集散落的光芒。但要小心，这片空间并不稳定，你必须在时间耗尽前完成任务。",
+            "resultTitle": "任务结果",
             "winCondition": {
                 "type": "collect",
                 "value": 9
             },
             "onComplete": {
-                "win": 1001, 
-                "lose": 101  
+                "win": {
+                    "targetNode": 1001,
+                    "outroText": "你成功收集了所有记忆碎片。光芒汇聚在一起，似乎指引着下一个方向。"
+                }, 
+                "lose": {
+                    "targetNode": 99999,
+                    "outroText": "记忆空间在时间流逝中崩塌，光芒消散了。你回到了原点，也许可以再试一次。"
+                }
             }
         },
 

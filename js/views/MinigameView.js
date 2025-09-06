@@ -1,4 +1,3 @@
-
 import { Game as PlatformerGame } from '../../minigames/platformer/js/core/Game.js';
 
 const MinigameView = {
@@ -9,75 +8,58 @@ const MinigameView = {
         
         container.innerHTML = `
             <style>
-                /* 从 platformer/style.css 移入的关键样式 */
-                .minigame-canvas {
-                    display: block;
-                    width: 100vw;
-                    height: 100vh;
-                }
-                .minigame-intro-overlay {
-                    position: fixed;
-                    top: 0; left: 0;
+                .minigame-canvas { display: block; width: 100vw; height: 100vh; }
+                
+                /* 介绍和结果浮层的通用样式 */
+                .minigame-overlay {
+                    position: fixed; top: 0; left: 0;
                     width: 100%; height: 100%;
-                    background-color: rgba(0, 0, 0, 0.85);
-                    color: white;
-                    display: flex;
-                    justify-content: center;
-                    align-items: center;
-                    text-align: center;
-                    z-index: 1001; /* 确保在加载提示之上 */
+                    background-color: rgba(0, 0, 0, 0.85); color: white;
+                    display: flex; justify-content: center; align-items: center;
+                    text-align: center; z-index: 1001;
                     font-family: 'FangSong', '仿宋', sans-serif;
                 }
-                .intro-content {
-                    max-width: 600px;
-                    padding: 40px;
-                    border: 2px solid #aaa;
-                    background-color: rgba(10, 10, 10, 0.7);
+                .overlay-content {
+                    max-width: 600px; padding: 40px;
+                    border: 2px solid #aaa; background-color: rgba(10, 10, 10, 0.7);
                     border-radius: 10px;
                 }
-                .intro-content h2 {
-                    font-size: 2.5em;
-                    margin-bottom: 20px;
-                    color: #5b6ba9ff;
+                .overlay-content h2 { font-size: 2.5em; margin-bottom: 20px; }
+                .overlay-content p { font-size: 1.2em; line-height: 1.6; margin-bottom: 30px; }
+                .overlay-content .controls-hint { font-size: 1.1em; color: #ccc; margin-bottom: 40px; }
+                .overlay-content button {
+                    padding: 15px 40px; font-size: 1.5em; cursor: pointer;
+                    background-color: #333; color: white; border: 2px solid white;
+                    border-radius: 5px; transition: all 0.3s ease;
                 }
-                .intro-content p {
-                    font-size: 1.2em;
-                    line-height: 1.6;
-                    margin-bottom: 30px;
-                }
-                .controls-hint {
-                    font-size: 1.1em;
-                    color: #ccc;
-                    margin-bottom: 40px;
-                }
-                #minigame-start-btn {
-                    padding: 15px 40px;
-                    font-size: 1.5em;
-                    cursor: pointer;
-                    background-color: #333;
-                    color: white;
-                    border: 2px solid white;
-                    border-radius: 5px;
-                    transition: all 0.3s ease;
-                }
-                #minigame-start-btn:hover {
-                    background-color: white;
-                    color: black;
-                }
+                .overlay-content button:hover { background-color: white; color: black; }
+                
+                /* 特定样式 */
+                #minigame-intro-overlay .overlay-content h2 { color: #5b6ba9ff; }
+                #minigame-result-overlay { display: none; } /* 结果浮层默认隐藏 */
             </style>
             <div class="view minigame-view">
-                <div id="minigame-intro-overlay" class="minigame-intro-overlay">
-                    <div class="intro-content">
+                <!-- 介绍浮层 -->
+                <div id="minigame-intro-overlay" class="minigame-overlay">
+                    <div class="overlay-content">
                         <h2>记忆碎片</h2>
                         <p>${node.introText || '收集所有光芒以继续。'}</p>
                         <div class="controls-hint">A / D : 移动  |  W : 跳跃</div>
                         <button id="minigame-start-btn">开始</button>
                     </div>
                 </div>
-                <canvas id="minigame-canvas" class="minigame-canvas"></canvas>
-                <div id="minigame-loading-overlay" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: #000; color: #fff; display: flex; justify-content: center; align-items: center; font-size: 2em; z-index: 1000;">
-                    正在加载小游戏...
+
+                <!-- 结果浮层 -->
+                <div id="minigame-result-overlay" class="minigame-overlay">
+                    <div class="overlay-content">
+                        <h2 id="result-title"></h2>
+                        <p id="result-text"></p>
+                        <button id="minigame-continue-btn">继续</button>
+                    </div>
                 </div>
+
+                <canvas id="minigame-canvas" class="minigame-canvas"></canvas>
+                <div id="minigame-loading-overlay" style="/* ... */">正在加载小游戏...</div>
             </div>
         `;
     },
@@ -88,32 +70,48 @@ const MinigameView = {
         const introOverlay = document.getElementById('minigame-intro-overlay');
         const loadingOverlay = document.getElementById('minigame-loading-overlay');
         const startButton = document.getElementById('minigame-start-btn');
+
+        const resultOverlay = document.getElementById('minigame-result-overlay');
+        const resultTitle = document.getElementById('result-title');
+        const resultText = document.getElementById('result-text');
+        const continueButton = document.getElementById('minigame-continue-btn');
         
         canvas.width = window.innerWidth;
         canvas.height = window.innerHeight;
 
-        const onGameComplete = async (result) => {
+        const onGameComplete = (result) => {
             console.log("MinigameView 收到完成回调:", result);
-
-            await engine.animation.play('fadeInBlack');
-
-            if (MinigameView.gameInstance) {
-                MinigameView.gameInstance.stop();
-                MinigameView.gameInstance = null;
+            
+            const resultData = node.onComplete[result.status];
+            if (!resultData) {
+                console.error("未找到对应的游戏结果数据:", result.status);
+                engine.showView('MainMenu');
+                return;
             }
             
-            const nextNodeId = node.onComplete[result.status];
-            if (nextNodeId) {
+            resultTitle.textContent = node.resultTitle || '任务结果';
+            resultText.textContent = resultData.outroText;
+            resultTitle.style.color = result.status === 'win' ? '#5b6ba9ff' : '#bd504fff';
+            
+
+            resultOverlay.style.display = 'flex';
+
+            continueButton.addEventListener('click', async () => {
+                resultOverlay.style.display = 'none';
+
+                await engine.animation.play('fadeInBlack');
+
+                if (MinigameView.gameInstance) {
+                    MinigameView.gameInstance.stop();
+                    MinigameView.gameInstance = null;
+                }
+                
+                const nextNodeId = resultData.targetNode;
                 engine.showView('Game');
-
                 await engine.processNode(nextNodeId);
+                await engine.animation.play('fadeOutBlack');
 
-                await engine.animation.play('fadeOutBlack');
-            } else {
-                console.error("未找到对应的小游戏结果节点:", result.status);
-                engine.showView('MainMenu');
-                await engine.animation.play('fadeOutBlack');
-            }
+            }, { once: true });
         };
 
         const gameConfig = {
