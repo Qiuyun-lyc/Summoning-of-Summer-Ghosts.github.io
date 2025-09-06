@@ -27,6 +27,7 @@ export class UIManager {
         //this.drawPlayerHealthBar();
         this.drawOrbCounter();
         this.drawTimer();
+        this.drawControlsHint();
     }
 
     drawPlayerHealthBar() {
@@ -90,6 +91,29 @@ export class UIManager {
         this.ctx.fillText(`时间: ${secondsLeft}`, x, y);
 
         // 重置阴影属性，避免影响其他UI绘制
+        this.ctx.shadowColor = 'transparent';
+        this.ctx.shadowBlur = 0;
+    }
+    drawControlsHint() {
+        const hintText = "A / D : 移动  |  W : 跳跃";
+        
+        // 将提示放在屏幕底部中央
+        const x = this.canvas.width / 2;
+        const y = this.canvas.height - 30; // 距离底部30像素
+
+        // 使用半透明的白色，使其不那么刺眼
+        this.ctx.fillStyle = 'rgba(255, 255, 255, 0.7)';
+        this.ctx.font = "18px 'Courier New', monospace"; // 使用稍小一点的字体
+        this.ctx.textAlign = 'center';
+        this.ctx.textBaseline = 'middle';
+
+        // 添加一个非常轻微的阴影以增加可读性
+        this.ctx.shadowColor = 'black';
+        this.ctx.shadowBlur = 4;
+        
+        this.ctx.fillText(hintText, x, y);
+
+        // 重置阴影
         this.ctx.shadowColor = 'transparent';
         this.ctx.shadowBlur = 0;
     }
