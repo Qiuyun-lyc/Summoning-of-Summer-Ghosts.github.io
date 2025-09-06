@@ -21,17 +21,24 @@ export class AssetManager {
 
     async loadAudios() {
         const bp = this.basePath;
-        const audioNames = [
+        const sfxNames = [
             'collect_0', 'collect_1', 'collect_2', 'collect_3', 
             'collect_4', 'collect_5', 'collect_6'
         ];
         
-        const promises = audioNames.map(name => loadAudio(`${bp}assets/sfx/${name}.mp3`));
-        const loadedAudios = await Promise.all(promises);
+        const bgmName = 'rain_bgm';
 
-        audioNames.forEach((name, index) => {
+        const sfxPromises = sfxNames.map(name => loadAudio(`${bp}assets/sfx/${name}.mp3`));
+        const bgmPromise = loadAudio(`${bp}assets/audio/music/${bgmName}.mp3`);
+        const allAudioPromises = [...sfxPromises, bgmPromise];
+
+        const loadedAudios = await Promise.all(allAudioPromises);
+
+        sfxNames.forEach((name, index) => {
             this.audios.set(name, loadedAudios[index]);
         });
+        
+        this.audios.set(bgmName, loadedAudios[sfxNames.length]);
     }
 
     async loadAll() {

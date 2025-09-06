@@ -14,7 +14,8 @@ export class Game {
         this.onComplete = onCompleteCallback;
 
         this.sfxVolume = 0.5;
-       
+        this.bgmVolume = 0.3;
+        this.currentBgm = null;
 
         this.lastTime = 0;
         this.isRunning = false;
@@ -33,6 +34,27 @@ export class Game {
         this._gameLoop = this._gameLoop.bind(this);
     }
 
+    playBgm(name) {
+        if (this.currentBgm) {
+            this.currentBgm.pause();
+        }
+        const bgm = this.assetManager.getAudio(name);
+        if (bgm) {
+            this.currentBgm = bgm;
+            this.currentBgm.currentTime = 0;
+            this.currentBgm.volume = this.bgmVolume;
+            this.currentBgm.loop = true;
+            this.currentBgm.play().catch(e => {});
+        }
+    }
+    
+    stopBgm() {
+        if (this.currentBgm) {
+            this.currentBgm.pause();
+            this.currentBgm = null;
+        }
+    }
+    
     playSoundEffect(name) {
         const sfx = this.assetManager.getAudio(name);
         if (sfx) {
@@ -66,8 +88,9 @@ export class Game {
 
         this.isRunning = true;
         this.lastTime = performance.now();
-        
         this.levelTimer = this.timeLimit; 
+        
+        this.playBgm('rain_bgm');
         
         this.stateManager.setState('PLAY', { level: this.config.level });
         requestAnimationFrame(this._gameLoop);
@@ -80,6 +103,7 @@ export class Game {
         if (this.boundOrbCollectedHandler) {
             gameEvents.off('lightOrbCollected', this.boundOrbCollectedHandler);
         }
+        this.stopBgm();
     }
 
     _endGame(result) {
