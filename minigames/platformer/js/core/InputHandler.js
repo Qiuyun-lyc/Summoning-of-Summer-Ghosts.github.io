@@ -26,9 +26,9 @@ export class InputHandler {
 
     _setKey(code, value) {
         switch (code) {
-            case 'ArrowLeft': this.keys.ArrowLeft = value; break;
-            case 'ArrowRight': this.keys.ArrowRight = value; break;
-            case 'Space': this.keys.Space = value; break;
+            case 'KeyA': this.keys.ArrowLeft = value; break;
+            case 'KeyD': this.keys.ArrowRight = value; break;
+            case 'KeyW': this.keys.Space = value; break;
             case 'KeyX': this.keys.Attack = value; break;
         }
     }
