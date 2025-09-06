@@ -14,7 +14,11 @@ export class Game {
         this.onComplete = onCompleteCallback;
 
         this.sfxVolume = 0.5;
-       
+        this.bgmVolume = 0.3;
+
+        this.bgmPlayers = [null, null];
+        this.activeBgmIndex = 0; 
+        this.bgmLoopTimer = null;
 
         this.lastTime = 0;
         this.isRunning = false;
@@ -33,6 +37,44 @@ export class Game {
         this._gameLoop = this._gameLoop.bind(this);
     }
 
+     playBgm(name) {
+        const originalAudio = this.assetManager.getAudio(name);
+        if (!originalAudio) return;
+
+        this.bgmPlayers[0] = originalAudio.cloneNode();
+        this.bgmPlayers[1] = originalAudio.cloneNode();
+
+        this.activeBgmIndex = 0;
+        const activePlayer = this.bgmPlayers[this.activeBgmIndex];
+        activePlayer.volume = this.bgmVolume;
+        activePlayer.play().catch(e => {});
+
+        this.bgmLoopTimer = setInterval(() => {
+            const currentPlayer = this.bgmPlayers[this.activeBgmIndex];
+            const nextPlayer = this.bgmPlayers[1 - this.activeBgmIndex];
+
+            if (currentPlayer.duration - currentPlayer.currentTime < 0.2) {
+                nextPlayer.currentTime = 0;
+                nextPlayer.volume = this.bgmVolume;
+                nextPlayer.play().catch(e => {});
+                
+                this.activeBgmIndex = 1 - this.activeBgmIndex;
+            }
+        }, 10);
+    }
+    
+    stopBgm() {
+        this.bgmPlayers.forEach(player => {
+            if (player) {
+                player.pause();
+            }
+        });
+        if (this.bgmLoopTimer) {
+            clearInterval(this.bgmLoopTimer);
+            this.bgmLoopTimer = null;
+        }
+    }
+    
     playSoundEffect(name) {
         const sfx = this.assetManager.getAudio(name);
         if (sfx) {
@@ -66,8 +108,9 @@ export class Game {
 
         this.isRunning = true;
         this.lastTime = performance.now();
-        
         this.levelTimer = this.timeLimit; 
+        
+        this.playBgm('rain_bgm');
         
         this.stateManager.setState('PLAY', { level: this.config.level });
         requestAnimationFrame(this._gameLoop);
@@ -80,6 +123,7 @@ export class Game {
         if (this.boundOrbCollectedHandler) {
             gameEvents.off('lightOrbCollected', this.boundOrbCollectedHandler);
         }
+        this.stopBgm();
     }
 
     _endGame(result) {
