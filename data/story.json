@@ -11,7 +11,7 @@
             "name": "narrator",
             "bgr": "test",
             "bgm": "test",
-            "onNext": { "setNode": 99999 },
+            "onNext": { "setNode": 1001 },
             "unlockAchievement": "start_game"
         },
 
@@ -28,7 +28,7 @@
             },
             "onComplete": {
                 "win": {
-                    "targetNode": 1001,
+                    "targetNode": 1402,
                     "outroText": "你成功收集了所有记忆碎片。光芒汇聚在一起，似乎指引着下一个方向。"
                 }, 
                 "lose": {
@@ -170,7 +170,7 @@
         },
         "1022": {
                 "type": "text",
-                "name": "tomoya","lCharactor":"友也_平静",
+                "name": "tomoya","lCharactor":"友也_思考",
                 "inherit":1007,
                 "onNext": { "nextNode": true }
         },
@@ -182,7 +182,7 @@
         },
         "1024": {
                 "type": "text",
-                "name": "tomoya","lCharactor":"友也_平静",
+                "name": "tomoya","lCharactor":"友也_思考",
                 "inherit":1007,
                 "onNext": { "nextNode": true }
         },
@@ -218,13 +218,13 @@
         },
         "1030": {
                 "type": "text",
-                "name": "tomoya","lCharactor":"友也_平静",
+                "name": "tomoya","lCharactor":"友也_思考",
                 "inherit":1007,
                 "onNext": { "nextNode": true }
         },
         "1031": {
-                "type": "text",
-                "name": "narrator",
+                "type": "animation",
+                "name": "fadeInBlack",
                 "inherit":1007,
                 "onNext": { "nextNode": true }
         },
@@ -239,37 +239,37 @@
         },
         "1033": {
                 "type": "text",
-                "name": "aoi","lCharactor":"葵_微笑",
+                "name": "aoi","lCharactor":"葵_伤心",
                 "inherit":1032,
                 "onNext": { "nextNode": true }
         },
         "1034": {
                 "type": "text",
-                "name": "aoi","lCharactor":"葵_微笑",
+                "name": "aoi","lCharactor":"葵_疑惑",
                 "inherit":1032,
                 "onNext": { "nextNode": true }
         },
         "1035": {
                 "type": "text",
-                "name": "aoi","lCharactor":"葵_微笑",
+                "name": "aoi","lCharactor":"葵_疑惑",
                 "inherit":1032,
                 "onNext": { "nextNode": true }
         },
         "1036": {
                 "type": "text",
-                "name": "aoi","lCharactor":"葵_微笑",
+                "name": "aoi","lCharactor":"葵_思考",
                 "inherit":1032,
                 "onNext": { "nextNode": true }
         },
         "1037": {
                 "type": "text",
-                "name": "aoi","lCharactor":"葵_微笑",
+                "name": "aoi","lCharactor":"葵_思考",
                 "inherit":1032,
                 "onNext": { "nextNode": true }
         },
         "1038": {
                 "type": "text",
-                "name": "aoi","lCharactor":"葵_微笑",
+                "name": "aoi","lCharactor":"葵_畅想",
                 "inherit":1032,
                 "onNext": { "nextNode": true }
         },
@@ -281,37 +281,37 @@
         },
         "1040": {
                 "type": "text",
-                "name": "studentA",
+                "name": "studentD","lCharactor":"女生1",
                 "inherit":1032,
                 "onNext": { "nextNode": true }
         },
         "1041": {
                 "type": "text",
-                "name": "studentB",
+                "name": "studentB","rCharactor":"女生2",
                 "inherit":1032,
                 "onNext": { "nextNode": true }
         },
         "1042": {
                 "type": "text",
-                "name": "studentA",
+                "name": "studentD","lCharactor":"女生1",
                 "inherit":1032,
                 "onNext": { "nextNode": true }
         },
         "1043": {
                 "type": "text",
-                "name": "studentB",
+                "name": "studentB","rCharactor":"女生2",
                 "inherit":1032,
                 "onNext": { "nextNode": true }
         },
         "1044": {
                 "type": "text",
-                "name": "studentA",
+                "name": "studentD","lCharactor":"女生1",
                 "inherit":1032,
                 "onNext": { "nextNode": true }
         },
         "1045": {
                 "type": "text",
-                "name": "studentB",
+                "name": "studentB","rCharactor":"女生2",
                 "inherit":1032,
                 "onNext": { "nextNode": true }
         },
@@ -323,7 +323,7 @@
         },
         "1047": {
                 "type": "text",
-                "name": "aoi","lCharactor":"葵_微笑",
+                "name": "aoi","lCharactor":"葵_思考",
                 "inherit":1032,
                 "onNext": { "nextNode": true }
         },
@@ -335,19 +335,19 @@
         },
         "1049": {
                 "type": "text",
-                "name": "aoi","lCharactor":"葵_微笑",
+                "name": "aoi","lCharactor":"葵_可爱",
                 "inherit":1032,
                 "onNext": { "nextNode": true }
         },
         "1050": {
                 "type": "text",
-                "name": "aoi","lCharactor":"葵_微笑",
+                "name": "aoi","lCharactor":"葵_畅想",
                 "inherit":1032,
                 "onNext": { "nextNode": true }
         },
         "1051": {
-                "type": "text",
-                "name": "narrator",
+                "type": "animation",
+                "name": "fadeInBlack",
                 "inherit":1032,
                 "onNext": { "nextNode": true }
         },
@@ -374,19 +374,19 @@
         },
         "1055": {
                 "type": "text",
-                "name": "aoi","lCharactor":"葵_微笑",
+                "name": "aoi","lCharactor":"葵_畅想",
                 "inherit":1052,
                 "onNext": { "nextNode": true }
         },
         "1056": {
                 "type": "text",
-                "name": "aoi","lCharactor":"葵_微笑",
+                "name": "aoi","lCharactor":"葵_畅想",
                 "inherit":1052,
                 "onNext": { "nextNode": true }
         },
         "1057": {
-                "type": "text",
-                "name": "narrator",
+                "type": "animation",
+                "name": "fadeInBlack",
                 "inherit":1052,
                 "onNext": { "nextNode": true }
         },
@@ -397,35 +397,35 @@
                 "name": "narrator",
             "bgr": "病房",
             "bgm": "test",
-                "onNext": { "nextNode": true }
+                "onNext": { "setNode": 1060 }
         },
         "1059": {
                 "type": "text",
-                "name": "ryo","rCharactor":"凉_微笑",
+                "name": "ryo","rCharactor":"凉_思考",
                 "inherit":1058,
                 "onNext": { "nextNode": true }
         },
         "1060": {
                 "type": "text",
-                "name": "ryo","rCharactor":"凉_微笑",
+                "name": "ryo","rCharactor":"凉_思考",
                 "inherit":1058,
                 "onNext": { "nextNode": true }
         },
         "1061": {
                 "type": "text",
-                "name": "ryo","rCharactor":"凉_微笑",
+                "name": "ryo","rCharactor":"凉_不舍",
                 "inherit":1058,
                 "onNext": { "nextNode": true }
         },
         "1062": {
                 "type": "text",
-                "name": "ryo","rCharactor":"凉_微笑",
+                "name": "ryo","rCharactor":"凉_思考",
                 "inherit":1058,
                 "onNext": { "nextNode": true }
         },
         "1063": {
                 "type": "text",
-                "name": "ryo","rCharactor":"凉_微笑",
+                "name": "ryo","rCharactor":"凉_难过",
                 "inherit":1058,
                 "onNext": { "nextNode": true }
         },
@@ -449,7 +449,7 @@
         },
         "1067": {
                 "type": "text",
-                "name": "patient",
+                "name": "patient","lCharactor":"病人大叔",
                 "inherit":1058,
                 "onNext": { "nextNode": true }
         },
@@ -461,7 +461,7 @@
         },
         "1069": {
                 "type": "text",
-                "name": "patient",
+                "name": "patient","lCharactor":"病人大叔",
                 "inherit":1058,
                 "onNext": { "nextNode": true }
         },
@@ -473,13 +473,13 @@
         },
         "1071": {
                 "type": "text",
-                "name": "patient",
+                "name": "patient","lCharactor":"病人大叔",
                 "inherit":1058,
                 "onNext": { "nextNode": true }
         },
         "1072": {
-                "type": "text",
-                "name": "narrator",
+                "type": "animation",
+                "name": "fadeInBlack",
                 "inherit":1058,
                 "onNext": { "nextNode": true }
         },
@@ -491,19 +491,19 @@
         },
         "1074": {
                 "type": "text",
-                "name": "ryo","rCharactor":"凉_微笑",
+                "name": "ryo","rCharactor":"凉_思考",
                 "inherit":1058,
                 "onNext": { "nextNode": true }
         },
         "1075": {
                 "type": "text",
-                "name": "ryo","rCharactor":"凉_微笑",
+                "name": "ryo","rCharactor":"凉_思考",
                 "inherit":1058,
                 "onNext": { "nextNode": true }
         },
         "1076": {
                 "type": "text",
-                "name": "ryo","rCharactor":"凉_微笑",
+                "name": "ryo","rCharactor":"凉_思考",
                 "inherit":1058,
                 "onNext": { "nextNode": true }
         },
@@ -520,8 +520,8 @@
                 "onNext": { "nextNode": true }
         },
         "1079": {
-                "type": "text",
-                "name": "narrator",
+                "type": "animation",
+                "name": "fadeInBlack",
                 "inherit":1058,
                 "onNext": { "nextNode": true }
         },
@@ -530,6 +530,8 @@
         "1080": {
                 "type": "text",
                 "name": "narrator",
+            "bgr": "城市落日",
+            "bgm": "test",
                 "onNext": { "nextNode": true }
         },
         "1081": {
@@ -549,9 +551,11 @@
 
         
         "1101": {
-                "type": "text",
-                "name": "narrator",
-                "onNext": { "nextNode": true }
+                "type": "animation",
+                "name": "fadeInBlack",
+            "bgr": "电脑",
+            "bgm": "test",
+                "onNext": { "setNode": 1103 }
         },
         "1102": {
                 "type": "text",
@@ -566,8 +570,8 @@
                 "onNext": { "nextNode": true }
         },
         "1104": {
-                "type": "text",
-                "name": "narrator",
+                "type": "animation",
+                "name": "fadeInBlack",
                 "inherit":1101,
                 "onNext": { "nextNode": true }
         },
@@ -608,8 +612,8 @@
                 "onNext": { "nextNode": true }
         },
         "1111": {
-                "type": "text",
-                "name": "narrator",
+                "type": "animation",
+                "name": "fadeInBlack",
                 "inherit":1101,
                 "onNext": { "nextNode": true }
         },
@@ -656,8 +660,8 @@
                 "onNext": { "nextNode": true }
         },
         "1119": {
-                "type": "text",
-                "name": "narrator",
+                "type": "animation",
+                "name": "fadeInBlack",
                 "inherit":1101,
                 "onNext": { "nextNode": true }
         },
@@ -686,8 +690,8 @@
                 "onNext": { "nextNode": true }
         },
         "1124": {
-                "type": "text",
-                "name": "narrator",
+                "type": "animation",
+                "name": "fadeInBlack",
                 "inherit":1101,
                 "onNext": { "nextNode": true }
         },
@@ -722,8 +726,8 @@
                 "onNext": { "nextNode": true }
         },
         "1130": {
-                "type": "text",
-                "name": "narrator",
+                "type": "animation",
+                "name": "fadeInBlack",
                 "inherit":1101,
                 "onNext": { "nextNode": true }
         },
@@ -732,17 +736,19 @@
         "1131": {
                 "type": "text",
                 "name": "narrator",
+            "bgr": "俯瞰城市",
+            "bgm": "test",
                 "onNext": { "nextNode": true }
         },
         "1132": {
                 "type": "text",
-                "name": "tomoya","lCharactor":"友也_平静",
+                "name": "tomoya","lCharactor":"友也_思考",
                 "inherit":1131,
                 "onNext": { "nextNode": true }
         },
         "1133": {
                 "type": "text",
-                "name": "tomoya","lCharactor":"友也_平静",
+                "name": "tomoya","lCharactor":"友也_思考",
                 "inherit":1031,
                 "onNext": { "nextNode": true }
         },
@@ -759,8 +765,8 @@
                 "onNext": { "nextNode": true }
         },
         "1136": {
-                "type": "text",
-                "name": "narrator",
+                "type": "animation",
+                "name": "fadeInBlack",
                 "inherit":1031,
                 "onNext": { "nextNode": true }
         },
@@ -769,6 +775,8 @@
         "1137": {
                 "type": "text",
                 "name": "narrator",
+            "bgr": "俯瞰城市",
+            "bgm": "test",
                 "onNext": { "nextNode": true }
         },
         "1138": {
@@ -802,8 +810,8 @@
                 "onNext": { "nextNode": true }
         },
         "1143": {
-                "type": "text",
-                "name": "narrator",
+                "type": "animation",
+                "name": "fadeInBlack",
                 "inherit":1037,
                 "onNext": { "nextNode": true }
         },
@@ -812,6 +820,8 @@
         "1144": {
                 "type": "text",
                 "name": "narrator",
+            "bgr": "咖啡馆3",
+            "bgm": "test",
                 "onNext": { "nextNode": true }
         },
         "1145": {
@@ -827,8 +837,8 @@
                 "onNext": { "nextNode": true }
         },
         "1147": {
-                "type": "text",
-                "name": "narrator",
+                "type": "animation",
+                "name": "fadeInBlack",
                 "inherit":1144,
                 "onNext": { "nextNode": true }
         },
@@ -840,13 +850,13 @@
         },
         "1149": {
                 "type": "text",
-                "name": "tomoya","lCharactor":"友也_平静",
+                "name": "tomoya","lCharactor":"友也_微笑",
                 "inherit":1144,
                 "onNext": { "nextNode": true }
         },
         "1150": {
                 "type": "text",
-                "name": "aoi","lCharactor":"葵_微笑",
+                "name": "aoi","lCharactor":"葵_可爱",
                 "inherit":1144,
                 "onNext": { "nextNode": true }
         },
@@ -864,7 +874,7 @@
         },
         "1153": {
                 "type": "text",
-                "name": "tomoya","lCharactor":"友也_平静",
+                "name": "tomoya","lCharactor":"友也_微笑",
                 "inherit":1144,
                 "onNext": { "nextNode": true }
         },
@@ -888,7 +898,7 @@
         },
         "1157": {
                 "type": "text",
-                "name": "ryo","rCharactor":"凉_微笑",
+                "name": "ryo","rCharactor":"凉_悠闲",
                 "inherit":1144,
                 "onNext": { "nextNode": true }
         },
@@ -911,8 +921,8 @@
                 "onNext": { "nextNode": true }
         },
         "1161": {
-                "type": "text",
-                "name": "narrator",
+                "type": "animation",
+                "name": "fadeInBlack",
                 "inherit":1144,
                 "onNext": { "nextNode": true }
         },
@@ -923,8 +933,8 @@
                 "onNext": { "nextNode": true }
         },
         "1163": {
-                "type": "text",
-                "name": "narrator",
+                "type": "animation",
+                "name": "fadeInBlack",
                 "inherit":1144,
                 "onNext": { "nextNode": true }
         },
@@ -935,8 +945,8 @@
                 "onNext": { "nextNode": true }
         },
         "1165": {
-                "type": "text",
-                "name": "narrator",
+                "type": "animation",
+                "name": "fadeInBlack",
                 "inherit":1144,
                 "onNext": { "nextNode": true }
         },
@@ -954,7 +964,7 @@
         },
         "1168": {
                 "type": "text",
-                "name": "aoi","lCharactor":"葵_微笑",
+                "name": "aoi","lCharactor":"葵_疑惑",
                 "inherit":1144,
                 "onNext": { "nextNode": true }
         },
@@ -1008,7 +1018,7 @@
         },
         "1177": {
                 "type": "text",
-                "name": "aoi","lCharactor":"葵_微笑",
+                "name": "aoi","lCharactor":"葵_惊讶",
                 "inherit":1144,
                 "onNext": { "nextNode": true }
         },
@@ -1025,16 +1035,18 @@
                 "onNext": { "nextNode": true }
         },
         "1180": {
-                "type": "text",
-                "name": "narrator",
+                "type": "animation",
+                "name": "fadeInBlack",
                 "inherit":1144,
                 "onNext": { "nextNode": true }
         },
         "1181": {
-                "type": "text",
+                "type": "choices",
                 "name": "tomoya","lCharactor":"友也_平静",
                 "inherit":1144,
-                "onNext": { "nextNode": true }
+                "onNext": { "choice":[
+				{"targetNode":1184},
+				{"targetNode":1184}] }
         },
         "1182": {
                 "type": "text",
@@ -1055,8 +1067,8 @@
                 "onNext": { "nextNode": true }
         },
         "1185": {
-                "type": "text",
-                "name": "narrator",
+                "type": "animation",
+                "name": "fadeInBlack",
                 "inherit":1144,
                 "onNext": { "nextNode": true }
         },
@@ -1064,13 +1076,13 @@
 
         "1186": {
                 "type": "text",
-                "name": "aoi","lCharactor":"葵_微笑",
+                "name": "aoi","lCharactor":"葵_疑惑",
                 "inherit":1144,
                 "onNext": { "nextNode": true }
         },
         "1187": {
                 "type": "text",
-                "name": "tomoya","lCharactor":"友也_平静",
+                "name": "tomoya","lCharactor":"友也_思考",
                 "inherit":1144,
                 "onNext": { "nextNode": true }
         },
@@ -1082,7 +1094,7 @@
         },
         "1189": {
                 "type": "text",
-                "name": "aoi","lCharactor":"葵_微笑",
+                "name": "aoi","lCharactor":"葵_可爱",
                 "inherit":1144,
                 "onNext": { "nextNode": true }
         },
@@ -1099,8 +1111,8 @@
                 "onNext": { "nextNode": true }
         },
         "1192": {
-                "type": "text",
-                "name": "narrator",
+                "type": "animation",
+                "name": "fadeInBlack",
                 "inherit":1144,
                 "onNext": { "nextNode": true }
         },
@@ -1118,13 +1130,13 @@
         },
         "1195": {
                 "type": "text",
-                "name": "ryo","rCharactor":"凉_微笑",
+                "name": "ryo","rCharactor":"凉_悠闲",
                 "inherit":1144,
                 "onNext": { "nextNode": true }
         },
         "1196": {
                 "type": "text",
-                "name": "tomoya","lCharactor":"友也_平静",
+                "name": "tomoya","lCharactor":"友也_无奈",
                 "inherit":1144,
                 "onNext": { "nextNode": true }
         },
@@ -1136,7 +1148,7 @@
         },
         "1198": {
                 "type": "text",
-                "name": "ryo","rCharactor":"凉_微笑",
+                "name": "ryo","rCharactor":"凉_难过",
                 "inherit":1144,
                 "onNext": { "nextNode": true }
         },
@@ -1178,13 +1190,13 @@
         },
         "1205": {
                 "type": "text",
-                "name": "aoi","lCharactor":"葵_微笑",
+                "name": "aoi","lCharactor":"葵_畅想",
                 "inherit":1144,
                 "onNext": { "nextNode": true }
         },
         "1206": {
                 "type": "text",
-                "name": "ryo","rCharactor":"凉_微笑",
+                "name": "ryo","rCharactor":"凉_思考",
                 "inherit":1144,
                 "onNext": { "nextNode": true }
         },
@@ -1195,8 +1207,8 @@
                 "onNext": { "nextNode": true }
         },
         "1208": {
-                "type": "text",
-                "name": "narrator",
+                "type": "animation",
+                "name": "fadeInBlack",
                 "inherit":1144,
                 "onNext": { "nextNode": true }
         },
@@ -1219,8 +1231,8 @@
                 "onNext": { "nextNode": true }
         },
         "1212": {
-                "type": "text",
-                "name": "narrator",
+                "type": "animation",
+                "name": "fadeInBlack",
                 "inherit":1144,
                 "onNext": { "nextNode": true }
         },
@@ -1249,8 +1261,8 @@
                 "onNext": { "nextNode": true }
         },
         "1217": {
-                "type": "text",
-                "name": "narrator",
+                "type": "animation",
+                "name": "fadeInBlack",
                 "inherit":1144,
                 "onNext": { "nextNode": true }
         },
@@ -1279,10 +1291,10 @@
                 "onNext": { "nextNode": true }
         },
         "1222": {
-                "type": "text",
-                "name": "narrator",
+                "type": "animation",
+                "name": "fadeInBlack",
                 "inherit":1144,
-                "onNext": { "setNode": 1301 }
+                "onNext": { "setNode": 1302 }
         },
 
 
@@ -1290,6 +1302,8 @@
         "1301": {
                 "type": "text",
                 "name": "narrator",
+            "bgr": "机场跑道1",
+            "bgm": "test",
                 "onNext": { "nextNode": true }
         },
         "1302": {
@@ -1300,15 +1314,17 @@
         },
         "1303": {
                 "type": "text",
-                "name": "aoi","lCharactor":"葵_微笑",
+                "name": "aoi","lCharactor":"葵_惊讶",
                 "inherit":1301,
                 "onNext": { "nextNode": true }
         },
         "1304": {
-                "type": "text",
+                "type": "choices",
                 "name": "ryo","rCharactor":"凉_微笑",
                 "inherit":1301,
-                "onNext": { "nextNode": true }
+                "onNext": { "choice":[
+				{"targetNode":1307},
+				{"targetNode":1307}] }
         },
         "1305": {
                 "type": "text",
@@ -1330,7 +1346,7 @@
         },
         "1308": {
                 "type": "text",
-                "name": "aoi","lCharactor":"葵_微笑",
+                "name": "aoi","lCharactor":"葵_可爱",
                 "inherit":1301,
                 "onNext": { "nextNode": true }
         },
@@ -1342,7 +1358,7 @@
         },
         "1310": {
                 "type": "text",
-                "name": "tomoya","lCharactor":"友也_平静",
+                "name": "tomoya","lCharactor":"友也_思考",
                 "inherit":1301,
                 "onNext": { "nextNode": true }
         },
@@ -1365,8 +1381,8 @@
                 "onNext": { "nextNode": true }
         },
         "1314": {
-                "type": "text",
-                "name": "narrator",
+                "type": "animation",
+                "name": "fadeInBlack",
                 "inherit":1301,
                 "onNext": { "nextNode": true }
         },
@@ -1375,11 +1391,13 @@
         "1315": {
                 "type": "text",
                 "name": "narrator",
+            "bgr": "原画三人与夕阳",
+            "bgm": "test",
                 "onNext": { "nextNode": true }
         },
         "1316": {
                 "type": "text",
-                "name": "aoi","lCharactor":"葵_微笑",
+                "name": "aoi","lCharactor":"葵_疑惑",
                 "inherit":1315,
                 "onNext": { "nextNode": true }
         },
@@ -1391,7 +1409,7 @@
         },
         "1318": {
                 "type": "text",
-                "name": "tomoya","lCharactor":"友也_平静",
+                "name": "tomoya","lCharactor":"友也_思考",
                 "inherit":1315,
                 "onNext": { "nextNode": true }
         },
@@ -1402,8 +1420,8 @@
                 "onNext": { "nextNode": true }
         },
         "1320": {
-                "type": "text",
-                "name": "narrator",
+                "type": "animation",
+                "name": "fadeInBlack",
                 "inherit":1315,
                 "onNext": { "nextNode": true }
         },
@@ -1427,7 +1445,7 @@
         },
         "1324": {
                 "type": "text",
-                "name": "ryo","rCharactor":"凉_微笑",
+                "name": "ryo","rCharactor":"凉_思考",
                 "inherit":1315,
                 "onNext": { "nextNode": true }
         },
@@ -1438,10 +1456,12 @@
                 "onNext": { "nextNode": true }
         },
         "1326": {
-                "type": "text",
-                "name": "aoi","lCharactor":"葵_微笑",
+                "type": "choices",
+                "name": "aoi","lCharactor":"葵_疑惑",
                 "inherit":1315,
-                "onNext": { "nextNode": true }
+                "onNext": { "choice":[
+				{"targetNode":1329},
+				{"targetNode":1329}] }
         },
         "1327": {
                 "type": "text",
@@ -1457,13 +1477,13 @@
         },
         "1329": {
                 "type": "text",
-                "name": "tomoya","lCharactor":"友也_平静",
+                "name": "tomoya","lCharactor":"友也_微笑",
                 "inherit":1315,
                 "onNext": { "nextNode": true }
         },
         "1330": {
                 "type": "text",
-                "name": "ryo","rCharactor":"凉_微笑",
+                "name": "ryo","rCharactor":"凉_悠闲",
                 "inherit":1315,
                 "onNext": { "nextNode": true }
         },
@@ -1480,8 +1500,8 @@
                 "onNext": { "nextNode": true }
         },
         "1333": {
-                "type": "text",
-                "name": "narrator",
+                "type": "animation",
+                "name": "fadeInBlack",
                 "inherit":1315,
                 "onNext": { "nextNode": true }
         },
@@ -1516,26 +1536,26 @@
                 "onNext": { "nextNode": true }
         },
         "1339": {
-                "type": "text",
-                "name": "narrator",
+                "type": "animation",
+                "name": "fadeInBlack",
                 "inherit":1315,
                 "onNext": { "nextNode": true }
         },
         "1340": {
                 "type": "text",
-                "name": "aoi","lCharactor":"葵_微笑",
+                "name": "aoi","lCharactor":"葵_疑惑",
                 "inherit":1315,
                 "onNext": { "nextNode": true }
         },
         "1341": {
                 "type": "text",
-                "name": "ryo","rCharactor":"凉_微笑",
+                "name": "ryo","rCharactor":"凉_思考",
                 "inherit":1315,
                 "onNext": { "nextNode": true }
         },
         "1342": {
                 "type": "text",
-                "name": "tomoya","lCharactor":"友也_平静",
+                "name": "tomoya","lCharactor":"友也_思考",
                 "inherit":1315,
                 "onNext": { "nextNode": true }
         },
@@ -1546,14 +1566,14 @@
                 "onNext": { "nextNode": true }
         },
         "1344": {
-                "type": "text",
-                "name": "narrator",
+                "type": "animation",
+                "name": "fadeInBlack",
                 "inherit":1315,
                 "onNext": { "nextNode": true }
         },
         "1345": {
                 "type": "text",
-                "name": "tomoya","lCharactor":"友也_平静",
+                "name": "tomoya","lCharactor":"友也_思考",
                 "inherit":1315,
                 "onNext": { "nextNode": true }
         },
@@ -1564,8 +1584,8 @@
                 "onNext": { "nextNode": true }
         },
         "1347": {
-                "type": "text",
-                "name": "narrator",
+                "type": "animation",
+                "name": "fadeInBlack",
                 "inherit":1315,
                 "onNext": { "nextNode": true }
         },
@@ -1574,6 +1594,8 @@
         "1348": {
                 "type": "text",
                 "name": "narrator",
+            "bgr": "原画三人烟火",
+            "bgm": "test",
                 "onNext": { "nextNode": true }
         },
         "1349": {
@@ -1613,32 +1635,32 @@
                 "onNext": { "nextNode": true }
         },
         "1355": {
-                "type": "text",
-                "name": "narrator",
+                "type": "animation",
+                "name": "fadeInBlack",
                 "inherit":1348,
                 "onNext": { "nextNode": true }
         },
         "1356": {
                 "type": "text",
-                "name": "aoi","lCharactor":"葵_微笑",
+                "name": "aoi","lCharactor":"葵_可爱",
                 "inherit":1348,
                 "onNext": { "nextNode": true }
         },
         "1357": {
                 "type": "text",
-                "name": "ayane","rCharactor":"绚音_平静",
+                "name": "ayane","rCharactor":"绚音_回忆",
                 "inherit":1348,
                 "onNext": { "nextNode": true }
         },
         "1358": {
                 "type": "text",
-                "name": "aoi","lCharactor":"葵_微笑",
+                "name": "aoi","lCharactor":"葵_可爱",
                 "inherit":1348,
                 "onNext": { "nextNode": true }
         },
         "1359": {
                 "type": "text",
-                "name": "ayane","rCharactor":"绚音_平静",
+                "name": "ayane","rCharactor":"绚音_沉默",
                 "inherit":1348,
                 "onNext": { "nextNode": true }
         },
@@ -1650,45 +1672,45 @@
         },
         "1361": {
                 "type": "text",
-                "name": "ryo","rCharactor":"凉_微笑",
+                "name": "ryo","rCharactor":"凉_思考",
                 "inherit":1348,
                 "onNext": { "nextNode": true }
         },
         "1362": {
                 "type": "text",
-                "name": "tomoya","lCharactor":"友也_平静",
+                "name": "tomoya","lCharactor":"友也_微笑",
                 "inherit":1348,
                 "onNext": { "nextNode": true }
         },
         "1363": {
-                "type": "text",
-                "name": "narrator",
+                "type": "animation",
+                "name": "fadeInBlack",
                 "inherit":1348,
                 "onNext": { "nextNode": true }
         },
         "1364": {
                 "type": "text",
-                "name": "ayane","rCharactor":"绚音_平静",
+                "name": "ayane","rCharactor":"绚音_微笑",
                 "inherit":1348,
                 "onNext": { "nextNode": true }
         },
         "1365": {
                 "type": "text",
-                "name": "ayane","rCharactor":"绚音_平静",
+                "name": "ayane","rCharactor":"绚音_沉默",
                 "inherit":1348,
                 "onNext": { "nextNode": true }
         },
         "1366": {
                 "type": "text",
-                "name": "aoi","lCharactor":"葵_微笑",
+                "name": "aoi","lCharactor":"葵_惊讶",
                 "inherit":1348,
                 "onNext": { "nextNode": true }
         },
         "1367": {
-                "type": "text",
-                "name": "narrator",
+                "type": "animation",
+                "name": "fadeInBlack",
                 "inherit":1348,
-                "onNext": { "nextNode": true }
+                "onNext": { "setNode": 1372 }
         },
         "1368": {
                 "type": "text",
@@ -1728,7 +1750,7 @@
         },
         "1374": {
                 "type": "text",
-                "name": "ayane","rCharactor":"绚音_平静",
+                "name": "ayane","rCharactor":"绚音_微笑",
                 "inherit":1348,
                 "onNext": { "nextNode": true }
         },
@@ -1740,7 +1762,7 @@
         },
         "1376": {
                 "type": "text",
-                "name": "tomoya","lCharactor":"友也_平静",
+                "name": "tomoya","lCharactor":"友也_思考",
                 "inherit":1348,
                 "onNext": { "nextNode": true }
         },
@@ -1752,13 +1774,13 @@
         },
         "1378": {
                 "type": "text",
-                "name": "ayane","rCharactor":"绚音_平静",
+                "name": "ayane","rCharactor":"绚音_沉默",
                 "inherit":1348,
                 "onNext": { "nextNode": true }
         },
         "1379": {
                 "type": "text",
-                "name": "ayane","rCharactor":"绚音_平静",
+                "name": "ayane","rCharactor":"绚音_回忆",
                 "inherit":1348,
                 "onNext": { "nextNode": true }
         },
@@ -1781,8 +1803,8 @@
                 "onNext": { "nextNode": true }
         },
         "1383": {
-                "type": "text",
-                "name": "narrator",
+                "type": "animation",
+                "name": "fadeInBlack",
                 "inherit":1348,
                 "onNext": { "nextNode": true }
         },
@@ -1800,7 +1822,7 @@
         },
         "1386": {
                 "type": "text",
-                "name": "ayane","rCharactor":"绚音_平静",
+                "name": "ayane","rCharactor":"绚音_微笑",
                 "inherit":1348,
                 "onNext": { "nextNode": true }
         },
@@ -1812,7 +1834,7 @@
         },
         "1388": {
                 "type": "text",
-                "name": "ayane","rCharactor":"绚音_平静",
+                "name": "ayane","rCharactor":"绚音_回忆",
                 "inherit":1348,
                 "onNext": { "nextNode": true }
         },
@@ -1827,6 +1849,8 @@
         "1390": {
                 "type": "text",
                 "name": "narrator",
+            "bgr": "原画三人仰望",
+            "bgm": "test",
                 "onNext": { "nextNode": true }
         },
         "1391": {
@@ -1843,25 +1867,25 @@
         },
         "1393": {
                 "type": "text",
-                "name": "ayane","rCharactor":"绚音_平静",
+                "name": "ayane","rCharactor":"绚音_哭泣",
                 "inherit":1390,
                 "onNext": { "nextNode": true }
         },
         "1394": {
                 "type": "text",
-                "name": "aoi","lCharactor":"葵_微笑",
+                "name": "aoi","lCharactor":"葵_疑惑",
                 "inherit":1390,
                 "onNext": { "nextNode": true }
         },
         "1395": {
                 "type": "text",
-                "name": "ryo","rCharactor":"凉_微笑",
+                "name": "ryo","rCharactor":"凉_思考",
                 "inherit":1390,
                 "onNext": { "nextNode": true }
         },
         "1396": {
                 "type": "text",
-                "name": "ryo","rCharactor":"凉_微笑",
+                "name": "ryo","rCharactor":"凉_思考",
                 "inherit":1390,
                 "onNext": { "nextNode": true }
         },
@@ -1878,8 +1902,8 @@
                 "onNext": { "nextNode": true }
         },
         "1399": {
-                "type": "text",
-                "name": "narrator",
+                "type": "animation",
+                "name": "fadeInBlack",
                 "inherit":1390,
                 "onNext": { "nextNode": true }
         },
@@ -1893,7 +1917,13 @@
                 "type": "text",
                 "name": "narrator",
                 "inherit":1390,
-                "onNext": { "nextNode": true }
+                "onNext": { "setNode": 99999 }
+        },
+        "1402": {
+                "type": "text",
+                "name": "narrator",
+                "inherit":1390,
+                "onNext": { "ending": true }
         }
 
     }
