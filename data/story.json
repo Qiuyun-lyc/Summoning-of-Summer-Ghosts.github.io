@@ -20,6 +20,7 @@
             "gameId": "platformer", 
             "level": "level1.json",
             "timeLimit": 60,
+            "introText": "为了找到幽灵留下的线索，你必须在破碎的记忆空间中收集散落的光芒。但要小心，这片空间并不稳定，你必须在时间耗尽前完成任务。",
             "winCondition": {
                 "type": "collect",
                 "value": 9
