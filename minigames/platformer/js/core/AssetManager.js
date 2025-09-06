@@ -1,22 +1,46 @@
 
 import { loadSpriteSheet, loadImage, loadJSON } from '../utils/loaders.js';
 
+function loadAudio(path) {
+    return new Promise((resolve, reject) => {
+        const audio = new Audio();
+        audio.src = path;
+        audio.oncanplaythrough = () => resolve(audio);
+        audio.onerror = () => reject(new Error(`加载音频失败: ${path}`));
+    });
+}
+
 export class AssetManager {
     constructor(basePath = '') {
         this.basePath = basePath;
         this.images = new Map();
         this.jsons = new Map();
         this.spriteSheets = new Map();
+         this.audios = new Map();
+    }
+
+    async loadAudios() {
+        const bp = this.basePath;
+        const audioNames = [
+            'collect_0', 'collect_1', 'collect_2', 'collect_3', 
+            'collect_4', 'collect_5', 'collect_6'
+        ];
+        
+        const promises = audioNames.map(name => loadAudio(`${bp}assets/sfx/${name}.mp3`));
+        const loadedAudios = await Promise.all(promises);
+
+        audioNames.forEach((name, index) => {
+            this.audios.set(name, loadedAudios[index]);
+        });
     }
 
     async loadAll() {
-        const bp = this.basePath; // base path shorthand
+        const bp = this.basePath;
         const [
             idleData, walkData, jumpData, fallData, landData, attackData,
             slashImg, tilesetImg, lightOrbImg,
             mapLevel1Data, mapLevel2Data
         ] = await Promise.all([
-            // 所有路径前都加上基础路径
             loadSpriteSheet(`${bp}assets/sprites/player/idle.png`, 9),
             loadSpriteSheet(`${bp}assets/sprites/player/walk.png`, 8),
             loadSpriteSheet(`${bp}assets/sprites/player/jump.png`, 9),
@@ -28,6 +52,7 @@ export class AssetManager {
             loadImage(`${bp}assets/sprites/light_orb.png`),
             loadJSON(`${bp}assets/maps/level1.json`),
             loadJSON(`${bp}assets/maps/level2.json`),
+            this.loadAudios(),
         ]);
 
         this.spriteSheets.set('idle', idleData);
@@ -48,4 +73,5 @@ export class AssetManager {
     getSpriteSheet(name) { return this.spriteSheets.get(name); }
     getImage(name) { return this.images.get(name); }
     getJson(name) { return this.jsons.get(name); }
+    getAudio(name) { return this.audios.get(name); }
 }

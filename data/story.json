@@ -24,7 +24,7 @@
             "resultTitle": "任务结果",
             "winCondition": {
                 "type": "collect",
-                "value": 9
+                "value": 7
             },
             "onComplete": {
                 "win": {
