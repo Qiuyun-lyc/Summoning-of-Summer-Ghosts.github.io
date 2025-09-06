@@ -13,6 +13,9 @@ export class Game {
         this.config = config;
         this.onComplete = onCompleteCallback;
 
+        this.sfxVolume = 0.5;
+       
+
         this.lastTime = 0;
         this.isRunning = false;
         this.inputHandler = new InputHandler();
@@ -21,16 +24,30 @@ export class Game {
         this.stateManager = new GameStateManager(this);
         this.achievementManager = achievementManager;
 
-        // --- 开始修改 ---
-        // 1. 添加计时器属性，并从配置中读取时间（转换为毫秒）
-        this.timeLimit = (config.timeLimit || 99) * 1000; // 如果未设置，默认为99秒
+        this.timeLimit = (config.timeLimit || 99) * 1000;
         this.levelTimer = this.timeLimit;
-        // --- 结束修改 ---
 
         this.boundEntityDiedHandler = this._onEntityDied.bind(this);
         gameEvents.on('entityDied', this.boundEntityDiedHandler);
         
         this._gameLoop = this._gameLoop.bind(this);
+    }
+
+    playSoundEffect(name) {
+        const sfx = this.assetManager.getAudio(name);
+        if (sfx) {
+            sfx.currentTime = 0;
+            sfx.volume = this.sfxVolume;
+            sfx.play().catch(e => {});
+        }
+    }
+
+    _onOrbCollected() {
+        const collectedCount = this.stateManager.currentState?.uiManager?.collectedOrbs || 0;
+        
+        const sfxIndex = collectedCount % 7 ; 
+        
+        this.playSoundEffect(`collect_${sfxIndex}`);
     }
 
     _onEntityDied(payload) {
@@ -44,10 +61,12 @@ export class Game {
         await this.assetManager.loadAll();
         this.stateManager.addState('PLAY', new PlayState());
         
+        this.boundOrbCollectedHandler = this._onOrbCollected.bind(this);
+        gameEvents.on('lightOrbCollected', this.boundOrbCollectedHandler);
+
         this.isRunning = true;
         this.lastTime = performance.now();
         
-        // 2. 在游戏开始时重置计时器
         this.levelTimer = this.timeLimit; 
         
         this.stateManager.setState('PLAY', { level: this.config.level });
@@ -58,6 +77,9 @@ export class Game {
         this.isRunning = false;
         this.inputHandler.destroy();
         gameEvents.off('entityDied', this.boundEntityDiedHandler);
+        if (this.boundOrbCollectedHandler) {
+            gameEvents.off('lightOrbCollected', this.boundOrbCollectedHandler);
+        }
     }
 
     _endGame(result) {
@@ -82,8 +104,6 @@ export class Game {
     update(deltaTime, input) {
         this.stateManager.update(deltaTime, input);
 
-        // --- 开始修改 ---
-        // 3. 更新计时器并检查是否超时
         if (this.isRunning) {
             this.levelTimer -= deltaTime;
             if (this.levelTimer <= 0) {
@@ -92,7 +112,6 @@ export class Game {
                 this._endGame({ status: 'lose' });
             }
         }
-        // --- 结束修改 ---
 
         const uiManager = this.stateManager.currentState?.uiManager;
         if (uiManager) {

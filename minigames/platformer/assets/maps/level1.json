@@ -213,24 +213,6 @@
                 }, 
                 {
                  "height":0,
-                 "id":11,
-                 "name":"",
-                 "point":true,
-                 "properties":[
-                        {
-                         "name":"type",
-                         "type":"string",
-                         "value":"light_orb"
-                        }],
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":0,
-                 "x":659.5,
-                 "y":238.984848484848
-                }, 
-                {
-                 "height":0,
                  "id":12,
                  "name":"",
                  "point":true,
@@ -282,24 +264,6 @@
                  "width":0,
                  "x":1799.70454545455,
                  "y":1050.13636363636
-                }, 
-                {
-                 "height":0,
-                 "id":15,
-                 "name":"",
-                 "point":true,
-                 "properties":[
-                        {
-                         "name":"type",
-                         "type":"string",
-                         "value":"light_orb"
-                        }],
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":0,
-                 "x":1560.25,
-                 "y":239.75
                 }, 
                 {
                  "height":0,
