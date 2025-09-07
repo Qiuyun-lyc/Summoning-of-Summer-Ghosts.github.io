@@ -1,8 +1,8 @@
 // 成就界面视图对象
 const AchievementView = {
-    totalSlots: 32, // 固定成就槽数量（4组 * 每组8个）
-    slotsPerGroup: 8, // 每组显示 8 个
-    categories: ["战斗类", "探索类", "收集类", "隐藏类"],
+    totalSlots: 16, // 固定成就槽数量（4组 * 每组4个）
+    slotsPerGroup: 4, // 每组显示 4 个
+    categories: ["友也", "葵", "凉", "绚音"],
 
     render: (container, engine) => {
         const L = engine.localization;
@@ -10,13 +10,12 @@ const AchievementView = {
         const unlockedIds = engine.saveManager.currentUser.achievementArray;
         const lockedIcon = engine.dataManager.getLockedAchievementIcon();
 
-        // 取前32个成就，如果不足32个，用空占位
-        const achievementsToRender = allAchievements.slice(0, AchievementView.totalSlots);
-        while (achievementsToRender.length < AchievementView.totalSlots) {
-            achievementsToRender.push(null); // 空占位
-        }
+        const traitByIndex = ["warm", "brave", "cool", "mystic"];
 
-        // 将成就按组分，每组8个（共4组）
+        const achievementsToRender = allAchievements.slice(0, AchievementView.totalSlots);
+        while (achievementsToRender.length < AchievementView.totalSlots) achievementsToRender.push(null);
+
+        // 分组
         const groups = [];
         for (let i = 0; i < achievementsToRender.length; i += AchievementView.slotsPerGroup) {
             groups.push(achievementsToRender.slice(i, i + AchievementView.slotsPerGroup));
@@ -25,6 +24,7 @@ const AchievementView = {
         // 每组生成 HTML
         const groupsHTML = groups.map((group, groupIndex) => {
             const rowCategory = AchievementView.categories[groupIndex] || `类别 ${groupIndex + 1}`;
+            const traitKey = traitByIndex[groupIndex] || "warm";
 
             const itemsHTML = group.map((ach) => {
                 if (ach) {
@@ -33,10 +33,9 @@ const AchievementView = {
                     const iconSrc = isUnlocked ? ach.icon : lockedIcon;
                     const name = isUnlocked ? `<h3>${ach.name}</h3>` : '<h3>？？？</h3>';
                     const description = isUnlocked ? `<p>${ach.description}</p>` : '<p>解锁条件未达成</p>';
-
                     return `
                         <div class="achievement-item ${statusClass}" title="${isUnlocked ? ach.name : '未解锁'}">
-                            <img class="achievement-icon" src="${iconSrc}" alt="${name}">
+                            <img class="achievement-icon" src="${iconSrc}" alt="${isUnlocked ? ach.name : '未解锁'}">
                             <div class="achievement-info">
                                 ${name}
                                 ${description}
@@ -50,7 +49,8 @@ const AchievementView = {
 
             return `
                 <div class="achievement-group">
-                    <h2 class="row-category">${rowCategory}</h2>
+                    <!-- 给分类标题打上 data-trait 以套用对应性格配色 -->
+                    <h2 class="row-category" data-trait="${traitKey}">${rowCategory}</h2>
                     <div class="achievement-group-items">
                         ${itemsHTML}
                     </div>
@@ -89,9 +89,7 @@ const AchievementView = {
                     padding: 0;
                 }
 
-                .menu-button img {
-                    display: block;
-                }
+                .menu-button img { display: block; }
 
                 .menu-button span {
                     position: absolute;
@@ -107,39 +105,61 @@ const AchievementView = {
                 .achievement-grid-container {
                     flex: 1;
                     overflow-y: auto;
-                    padding: 20px 40px;
+                    padding: 0 40px 20px; /* 去掉顶部内边距，避免与导航产生缝隙 */
                     box-sizing: border-box;
-                }
-
-                .achievement-grid-container::-webkit-scrollbar {
-                    display: none;
-                }
-                .achievement-grid-container {
                     -ms-overflow-style: none;
                     scrollbar-width: none;
                 }
+                .achievement-grid-container::-webkit-scrollbar { display: none; }
 
                 .achievement-group {
                     margin-bottom: 50px;
                     position: relative; /* sticky 需要父容器 */
                 }
 
-                /* 固定类别标题 */
-                .row-category {
+                /* —— 固定类别标题（分类栏） —— */
+                .row-category{
+                    position: sticky;
+                    top: 0;
+                    z-index: 15;
+
                     text-align: center;
                     font-size: 1.6em;
                     color: #ffd700;
-                    margin-bottom: 10px;
-                    text-shadow: 1px 1px 3px #000;
+                    margin: 0 0 10px;
 
-                    position: sticky;
-                    top: 0;
-                    background: rgba(0,0,0,0.6);
-                    z-index: 10;
-                    padding: 5px 0;
+                    /* 毛玻璃底色 */
+                    background-color: rgba(15,15,25,0.85);
+                    backdrop-filter: blur(8px);
+                    -webkit-backdrop-filter: blur(8px);
+
+                    padding: 20px;
+
+                    /* 圆角与投影 */
+                    border-radius: 12px;
+                    overflow: hidden;
+                    border: 1px solid rgba(255,255,255,0.12);
+                    box-shadow: 0 6px 18px rgba(0,0,0,.35);
                 }
 
-                /* 成就槽布局，沿用战斗类前四个样式 */
+                /* —— 性格主题着色（轻度覆盖层，保证文本可读） —— */
+                .row-category::before{
+                    content:"";
+                    position:absolute; inset:0;
+                    background: var(--cat-tint, transparent);
+                    opacity:.25;            /* 透明度可按需微调 */
+                    pointer-events:none;
+                }
+                /* 温柔/治愈（友也） */
+                .row-category[data-trait="warm"]   { --cat-tint: linear-gradient(135deg,#ff9a9e 0%, #57babae2 100%); }
+                /* 阳光/热情（葵） */
+                .row-category[data-trait="brave"]  { --cat-tint: linear-gradient(135deg,#ff512f 0%, #f09819 100%); }
+                /* 冷静/理智（凉） */
+                .row-category[data-trait="cool"]   { --cat-tint: linear-gradient(135deg,#36d1dc 0%, #5a00c762 100%); }
+                /* 神秘/文艺（绚音） */
+                .row-category[data-trait="mystic"] { --cat-tint: linear-gradient(135deg,#6a11cb 0%, #fecfef 100%); }
+
+                /* 成就槽布局 */
                 .achievement-group-items {
                     display: grid;
                     grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
@@ -158,8 +178,8 @@ const AchievementView = {
                     transition: all 0.3s ease;
                     border: 2px solid transparent;
                     width: 100%;
-                    max-width: 220px;
-                    height: 220px;
+                    max-width: 300px;
+                    height: 300px;
                     box-sizing: border-box;
                     text-align: center;
                 }
@@ -180,8 +200,8 @@ const AchievementView = {
                 }
 
                 .achievement-icon {
-                    width: 90px;
-                    height: 90px;
+                    width: 180px;
+                    height: 180px;
                     border-radius: 50%;
                     object-fit: cover;
                     border: 3px solid #fff;
@@ -203,17 +223,15 @@ const AchievementView = {
 
                 .achievement-info h3 {
                     margin: 0 0 8px 0;
-                    font-size: 1.2em;
+                    font-size: 1.5em;
                     color: #fff;
                 }
 
-                .achievement-item.locked .achievement-info h3 {
-                    color: #aaa;
-                }
+                .achievement-item.locked .achievement-info h3 { color: #aaa; }
 
                 .achievement-info p {
                     margin: 0;
-                    font-size: 0.9em;
+                    font-size: 1.2em;
                     color: #ccc;
                     line-height: 1.4;
                 }
