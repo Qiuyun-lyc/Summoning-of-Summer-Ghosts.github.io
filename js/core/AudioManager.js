@@ -7,11 +7,17 @@ export default class AudioManager {
         this.sfxTitleClickPlayer = document.getElementById('sfx-title-click-player');
         this.sfxSysYesPlayer = document.getElementById('sfx-sys-yes-player');
 
+        this.voicePlayer = document.createElement('audio');
+        this.voicePlayer.id = 'voice-player';
+        document.body.appendChild(this.voicePlayer);
+        this.currentVoice = '';
+
         this.currentBgm = '';
         this.volumes = {
             gameBgm: 0.5,
             sfx: 0.5,
-            indexBgm: 0.5
+            indexBgm: 0.5,
+            voice: 2.0,
         };
     }
 
@@ -19,6 +25,7 @@ export default class AudioManager {
         this.volumes.gameBgm = parseFloat(localStorage.getItem('gameBgmVolume') || 0.5);
         this.volumes.indexBgm = parseFloat(localStorage.getItem('indexBgmVolume') || 0.5);
         this.volumes.sfx = parseFloat(localStorage.getItem('sfxVolume') || 0.5);
+        this.volumes.voice = parseFloat(localStorage.getItem('voiceVolume') || 1.0);
         
         this.sfxHoverPlayer.src = './assets/bgm/holver.ogg';
         this.sfxClickPlayer.src = './assets/bgm/click.ogg';
@@ -36,6 +43,7 @@ export default class AudioManager {
         this.sfxTitleHoverPlayer.volume = this.volumes.sfx;
         this.sfxTitleClickPlayer.volume = this.volumes.sfx;
         this.sfxSysYesPlayer.volume = this.volumes.sfx;
+        this.voicePlayer.volume = this.volumes.voice;
     }
     
     setVolume(type, value) {
@@ -49,6 +57,10 @@ export default class AudioManager {
         } else if (type === 'sfx') {
             this.volumes.sfx = volume;
             localStorage.setItem('sfxVolume', volume);
+        } 
+        if (type === 'voice') {
+            this.volumes.voice = volume;
+            localStorage.setItem('voiceVolume', volume);
         }
         this.applyVolumes();
     }
@@ -66,6 +78,26 @@ export default class AudioManager {
     stopBgm() {
         this.bgmPlayer.pause();
         this.currentBgm = '';
+    }
+
+    playVoice(src) {
+        // 如果正在播放语音，先停止
+        this.stopVoice();
+
+        if (!src) return;
+
+        this.currentVoice = src;
+        this.voicePlayer.src = src;
+        this.voicePlayer.play().catch(e => console.warn("语音自动播放被浏览器阻止。"));
+    }
+
+    // --- 新增：停止语音的方法 ---
+    stopVoice() {
+        if (this.voicePlayer && !this.voicePlayer.paused) {
+            this.voicePlayer.pause();
+            this.voicePlayer.currentTime = 0;
+        }
+        this.currentVoice = '';
     }
     
     playSoundEffect(type) {

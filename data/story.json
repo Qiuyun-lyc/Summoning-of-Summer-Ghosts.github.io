@@ -100,17 +100,20 @@
                 "type": "text",
                 "name": "tomoya","lCharactor":"友也_不知道",
                 "inherit":1007,
+                "voice": "tomoya_1010",
                 "onNext": { "nextNode": true }
         },
         "1011": {
                 "type": "text",
                 "name": "tomoya","lCharactor":"友也_平静",
                 "inherit":1007,
+                "voice": "tomoya_1010",
                 "onNext": { "nextNode": true }
         },
         "1012": {
                 "type": "text",
                 "name": "tomoya","lCharactor":"友也_无奈",
+                "voice": "tomoya_1010",
                 "inherit":1007,
                 "onNext": { "nextNode": true }
         },
