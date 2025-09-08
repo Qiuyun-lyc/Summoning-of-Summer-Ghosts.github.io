@@ -17,7 +17,17 @@ export class Scene {
     //初始化场景内容，加载地图，创建玩家和实体
     _initialize() {
         const mapData = this.assetManager.getJson(this.mapFileName);
-        const tilesetImg = this.assetManager.getImage('tileset');
+        
+        const tilesetSource = mapData.tilesets[0].source;
+        
+        const tilesetImageName = tilesetSource.split('/').pop().replace('.xml', '');
+        const tilesetImg = this.assetManager.getImage(tilesetImageName);
+
+        if (!tilesetImg) {
+            console.error(`错误：在 AssetManager 中未找到名为 "${tilesetImageName}" 的图块集图片！`);
+            return;
+        }
+
         this.tilemap = new Tilemap(mapData, tilesetImg);
 
         this.player = createPlayer(this.assetManager);

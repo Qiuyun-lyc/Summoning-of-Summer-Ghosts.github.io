@@ -1,6 +1,6 @@
 export const GRAVITY = 0.12;
 export const MOVE_SPEED = 3; 
-export const JUMP_POWER = 5.5;
+export const JUMP_POWER = 6;
 //玩家渲染的目标高度
 export const TARGET_H = 120; 
 //行走动画中前三帧为非循环起步动画
