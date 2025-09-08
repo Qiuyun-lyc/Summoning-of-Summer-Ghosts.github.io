@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tileset version="1.10" tiledversion="1.11.2" name="floor1" tilewidth="30" tileheight="30" tilecount="52" columns="13">
+ <image source="../../../../../map/floor1.png" width="394" height="120"/>
+</tileset>

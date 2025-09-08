@@ -45,8 +45,8 @@ export class AssetManager {
         const bp = this.basePath;
         const [
             idleData, walkData, jumpData, fallData, landData, attackData,
-            slashImg, tilesetImg, lightOrbImg,
-            mapLevel1Data, mapLevel2Data
+            slashImg, tilesetImg, lightOrbImg,floor1Img,
+            mapLevel1Data, mapLevel2Data, mapLevel3Data
         ] = await Promise.all([
             loadSpriteSheet(`${bp}assets/sprites/player/idle.png`, 9),
             loadSpriteSheet(`${bp}assets/sprites/player/walk.png`, 8),
@@ -57,8 +57,10 @@ export class AssetManager {
             loadImage(`${bp}assets/sprites/player/lr1.png`),
             loadImage(`${bp}assets/sprites/tileset.png`),
             loadImage(`${bp}assets/sprites/light_orb.png`),
+            loadImage(`${bp}assets/sprites/floor1.png`),
             loadJSON(`${bp}assets/maps/level1.json`),
             loadJSON(`${bp}assets/maps/level2.json`),
+            loadJSON(`${bp}assets/maps/level3.json`),
             this.loadAudios(),
         ]);
 
@@ -72,9 +74,11 @@ export class AssetManager {
         this.images.set('slash', slashImg);
         this.images.set('tileset', tilesetImg);
         this.images.set('light_orb', lightOrbImg);
+        this.images.set('floor1', floor1Img);
 
         this.jsons.set('level1.json', mapLevel1Data);
         this.jsons.set('level2.json', mapLevel2Data);
+        this.jsons.set('level3.json', mapLevel3Data);
     }
 
     getSpriteSheet(name) { return this.spriteSheets.get(name); }
