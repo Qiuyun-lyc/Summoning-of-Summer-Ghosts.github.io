@@ -11,7 +11,7 @@
             "name": "narrator",
             "bgr": "test",
             "bgm": "test",
-            "onNext": { "setNode": 1001 },
+            "onNext": { "setNode": 99999 },
             "unlockAchievement": "start_game"
         },
 
@@ -28,7 +28,7 @@
             },
             "onComplete": {
                 "win": {
-                    "targetNode": 1402,
+                    "targetNode": 1001,
                     "outroText": "你成功收集了所有记忆碎片。光芒汇聚在一起，似乎指引着下一个方向。"
                 }, 
                 "lose": {
@@ -1920,13 +1920,453 @@
                 "type": "text",
                 "name": "narrator",
                 "inherit":1390,
-                "onNext": { "setNode": 99999 }
+                "onNext": { "setNode": 20001 }
         },
-        "1402": {
+
+
+
+
+
+
+        "20001": {
                 "type": "text",
                 "name": "narrator",
-                "inherit":1390,
-                "onNext": { "ending": true }
+            "bgr": "卧室2",
+            "bgm": "test",
+                "onNext": { "nextNode": true }
+        },
+        "20002": {
+                "type": "text",
+                "name": "narrator",
+                "inherit":20001,
+                "onNext": { "nextNode": true }
+        },
+        "20003": {
+                "type": "text",
+                "name": "tomoya","lCharactor":"友也_思考",
+                "inherit":20001,
+                "onNext": { "nextNode": true }
+        },
+        "20004": {
+                "type": "text",
+                "name": "narrator",
+                "inherit":20001,
+                "onNext": { "nextNode": true }
+        },
+        "20005": {
+                "type": "text",
+                "name": "tomoya","lCharactor":"友也_平静",
+                "inherit":20001,
+                "onNext": { "nextNode": true }
+        },
+        "20006": {
+                "type": "text",
+                "name": "tomoya","lCharactor":"友也_平静",
+                "inherit":20001,
+                "onNext": { "nextNode": true }
+        },
+        "20007": {
+                "type": "text",
+                "name": "narrator",
+                "inherit":20001,
+                "onNext": { "nextNode": true }
+        },
+        "20008": {
+                "type": "text",
+                "name": "tomoya","lCharactor":"友也_思考",
+                "inherit":20001,
+                "onNext": { "nextNode": true }
+        },
+        "20009": {
+                "type": "text",
+                "name": "narrator",
+                "inherit":20001,
+                "onNext": { "nextNode": true }
+        },
+        "20010": {
+                "type": "text",
+                "name": "narrator",
+                "inherit":20001,
+                "onNext": { "nextNode": true }
+        },
+        "20011": {
+                "type": "text",
+                "name": "narrator",
+                "inherit":20001,
+                "onNext": { "nextNode": true }
+        },
+        "20012": {
+                "type": "text",
+                "name": "tomoya","lCharactor":"友也_思考",
+                "inherit":20001,
+                "onNext": { "setNode": 20013 }
+        },
+
+        
+
+
+
+        "20013": {
+                "type": "text",
+                "name": "narrator",
+            "bgr": "公园",
+            "bgm": "test",
+                "onNext": { "nextNode": true }
+        },
+        "20014": {
+                "type": "text",
+                "name": "aoi","lCharactor":"葵_畅想",
+                "inherit":20013,
+                "onNext": { "nextNode": true }
+        },
+        "20015": {
+                "type": "text",
+                "name": "narrator",
+                "inherit":20013,
+                "onNext": { "nextNode": true }
+        },
+        "20016": {
+                "type": "text",
+                "name": "aoi","lCharactor":"葵_畅想",
+                "inherit":20013,
+                "onNext": { "nextNode": true }
+        },
+        "20017": {
+                "type": "text",
+                "name": "narrator",
+                "inherit":20013,
+                "onNext": { "nextNode": true }
+        },
+        "20018": {
+                "type": "text",
+                "name": "aoi","lCharactor":"葵_微笑",
+                "inherit":20013,
+                "onNext": { "nextNode": true }
+        },
+        "20019": {
+                "type": "text",
+                "name": "narrator",
+                "inherit":20013,
+                "onNext": { "nextNode": true }
+        },
+        "20020": {
+                "type": "text",
+                "name": "aoi","lCharactor":"葵_微笑",
+                "inherit":20013,
+                "onNext": { "nextNode": true }
+        },
+        "20021": {
+                "type": "text",
+                "name": "narrator",
+                "inherit":20013,
+                "onNext": { "nextNode": true }
+        },
+        "20022": {
+                "type": "choices",
+                "name": "aoi","lCharactor":"葵_思考",
+                "inherit":20013,
+                "onNext": { "choice":[
+                                {"targetNode":20023},
+                                {"targetNode":20023}
+                ]}
+        },
+        "20023": {
+                "type": "text",
+                "name": "aoi","lCharactor":"葵_畅想",
+                "inherit":20013,
+                "onNext": { "nextNode": true }
+        },
+        "20024": {
+                "type": "text",
+                "name": "narrator",
+                "inherit":20013,
+                "onNext": { "setNode": 20025 }
+        },
+
+
+
+
+
+        
+        "20025": {
+                "type": "text",
+                "name": "narrator",
+            "bgr": "教室2",
+            "bgm": "test",
+                "onNext": { "nextNode": true }
+        },
+        "20026": {
+                "type": "text",
+                "name": "studentA","lCharactor":"男生1",
+                "inherit":20025,
+                "onNext": { "nextNode": true }
+        },
+        "20027": {
+                "type": "choices",
+                "name": "ryo","lCharactor":"凉_思考",
+                "inherit":20025,
+                "onNext": { "choice":[
+                                {"targetNode":20028},
+                                {"targetNode":20028}
+                ]}
+        },
+        "20028": {
+                "type": "text",
+                "name": "narrator",
+                "inherit":20025,
+                "onNext": { "nextNode": true }
+        },
+        "20029": {
+                "type": "text",
+                "name": "ryo","rCharactor":"凉_思考",
+                "inherit":20025,
+                "onNext": { "nextNode": true }
+        },
+        "20030": {
+                "type": "text",
+                "name": "narrator",
+                "inherit":20025,
+                "onNext": { "setNode": 20031 }
+        },
+
+        "20031": {
+                "type": "text",
+                "name": "narrator",
+                "bgr": "杂货铺1",
+                "bgm": "test",
+                "onNext": { "nextNode": true }
+        },
+        "20032": {
+                "type": "text",
+                "name": "tomoya","lCharactor":"友也_平静",
+                "inherit":20031,
+                "onNext": { "nextNode": true }
+        },
+        "20033": {
+                "type": "text",
+                "name": "shop_owner","rCharactor":"杂货店老板",
+                "inherit":20031,
+                "onNext": { "nextNode": true }
+        },
+        "20034": {
+                "type": "text",
+                "name": "tomoya","lCharactor":"友也_平静",
+                "inherit":20031,
+                "onNext": { "nextNode": true }
+        },
+        "20035": {
+                "type": "text",
+                "name": "shop_owner","rCharactor":"杂货店老板",
+                "inherit":20031,
+                "onNext": { "nextNode": true }
+        },
+        "20036": {
+                "type": "text",
+                "name": "narrator",
+                "inherit":20031,
+                "onNext": { "nextNode": true }
+        },
+        "20037": {
+                "type": "text",
+                "name": "shop_owner","rCharactor":"杂货店老板",
+                "inherit":20031,
+                "onNext": { "nextNode": true }
+        },
+        "20038": {
+                "type": "choices",
+                "name": "tomoya","lCharactor":"友也_平静",
+                "inherit":20031,
+                "onNext": { "choice":[
+                                {"targetNode":20039},
+                                {"targetNode":20039}
+                ]}
+        },
+        "20039": {
+                "type": "text",
+                "name": "tomoya","lCharactor":"友也_平静",
+                "inherit":20031,
+                "onNext": { "nextNode": true }
+        },
+        "20040": {
+                "type": "text",
+                "name": "narrator",
+                "inherit":20031,
+                "onNext": { "nextNode": true }
+        },
+        "20041": {
+                "type": "text",
+                "name": "tomoya","lCharactor":"友也_平静",
+                "inherit":20031,
+                "onNext": { "setNode": 20042 }
+        },
+
+        "20042": {
+                "type": "text",
+                "name": "narrator",
+            "bgr": "游乐场",
+            "bgm": "test",
+                "onNext": { "nextNode": true }
+        },
+        "20043": {
+                "type": "text",
+                "name": "aoi","lCharactor":"葵_微笑",
+                "inherit":20042,
+                "onNext": { "nextNode": true }
+        },
+        "20044": {
+                "type": "text",
+                "name": "narrator",
+                "inherit":20042,
+                "onNext": { "nextNode": true }
+        },
+        "20045": {
+                "type": "text",
+                "name": "aoi","lCharactor":"葵_微笑",
+                "inherit":20042,
+                "onNext": { "nextNode": true }
+        },
+        "20046": {
+                "type": "text",
+                "name": "narrator",
+                "inherit":20042,
+                "onNext": { "nextNode": true }
+        },
+        "20047": {
+                "type": "text",
+                "name": "aoi","lCharactor":"葵_微笑",
+                "inherit":20042,
+                "onNext": { "nextNode": true }
+        },
+        "20048": {
+                "type": "text",
+                "name": "narrator",
+                "inherit":20042,
+                "onNext": { "nextNode": true }
+        },
+        "20049": {
+                "type": "text",
+                "name": "narrator",
+                "inherit":20042,
+                "onNext": { "nextNode": true }
+        },
+        "20050": {
+                "type": "choices",
+                "name": "aoi","lCharactor":"葵_思考",
+                "inherit":20042,
+                "onNext": { "choice":[
+                                {"targetNode":20051},
+                                {"targetNode":20056}
+                ]}
+        },
+
+        "20051": {
+                "type": "text",
+                "name": "aoi","lCharactor":"葵_微笑",
+                "inherit":20042,
+                "onNext": { "nextNode": true }
+        },
+        "20052": {
+                "type": "text",
+                "name": "narrator",
+                "inherit":20042,
+                "onNext": { "nextNode": true }
+        },
+        "20053": {
+                "type": "text",
+                "name": "narrator",
+                "inherit":20042,
+                "onNext": { "nextNode": true }
+        },
+        "20054": {
+                "type": "text",
+                "name": "aoi","lCharactor":"葵_微笑",
+                "inherit":20042,
+                "onNext": { "nextNode": true }
+        },
+        "20055": {
+                "type": "text",
+                "name": "aoi","lCharactor":"葵_思考",
+                "inherit":20042,
+                "onNext": { "setNode": 20058 }
+        },
+
+        "20056": {
+                "type": "text",
+                "name": "narrator",
+                "inherit":20042,
+                "onNext": { "nextNode": true }
+        },
+        "20057": {
+                "type": "text",
+                "name": "aoi","lCharactor":"葵_微笑",
+                "inherit":20042,
+                "onNext": { "setNode": 20058 }
+        },
+
+
+        "20058": {
+                "type": "text",
+                "name": "narrator",
+            "bgr": "体育馆",
+            "bgm": "test",
+                "onNext": { "nextNode": true }
+        },
+        "20059": {
+                "type": "text",
+                "name": "studentA","lCharactor":"男生2",
+                "inherit":20058,
+                "onNext": { "nextNode": true }
+        },
+        "20060": {
+                "type": "text",
+                "name": "ryo","rCharactor":"凉_微笑",
+                "inherit":20058,
+                "onNext": { "nextNode": true }
+        },
+        "20061": {
+                "type": "text",
+                "name": "narrator",
+                "inherit":20058,
+                "onNext": { "nextNode": true }
+        },
+        "20062": {
+                "type": "text",
+                "name": "studentB","lCharactor":"男生1",
+                "inherit":20058,
+                "onNext": { "nextNode": true }
+        },
+        "20063": {
+                "type": "text",
+                "name": "ryo","rCharactor":"凉_微笑",
+                "inherit":20058,
+                "onNext": { "nextNode": true }
+        },
+        "20064": {
+                "type": "text",
+                "name": "narrator",
+                "inherit":20058,
+                "onNext": { "nextNode": true }
+        },
+        "20065": {
+                "type": "choices",
+                "name": "ryo","lCharactor":"凉_微笑",
+                "inherit":20058,
+                "onNext": { "choice":[
+                                {"targetNode":20066},
+                                {"targetNode":20066}
+                ] }
+        },
+        "20066": {
+                "type": "text",
+                "name": "narrator",
+                "inherit":20058,
+                "onNext": { "nextNode": true }
+        },
+        "20067": {
+                "type": "text",
+                "name": "narrator",
+                "inherit":20058,
+                "onNext": { "setNode": 30000 }
         }
 
     }
