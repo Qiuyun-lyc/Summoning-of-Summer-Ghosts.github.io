@@ -60,12 +60,14 @@
         "1004": {
                 "type": "text",
                 "name": "narrator",
+                "voice":"1004-soConvert",
                 "inherit":1001,
                 "onNext": { "nextNode": true }
         },
         "1005": {
                 "type": "text",
                 "name": "narrator",
+                "voice":"1005-soConvert",
                 "inherit":1001,
                 "onNext": { "nextNode": true }
         },
@@ -80,6 +82,7 @@
         "1007": {
                 "type": "text",
                 "name": "narrator",
+                "voice":"1007-soConvert",
             "bgr": "黄昏画室2",
             "bgm": "test",
                 "onNext": { "nextNode": true }
@@ -87,6 +90,7 @@
         "1008": {
                 "type": "text",
                 "name": "narrator",
+                "voice":"1008-soConvert",
                 "inherit":1007,
                 "onNext": { "nextNode": true }
         },
@@ -100,128 +104,146 @@
                 "type": "text",
                 "name": "tomoya","lCharactor":"友也_不知道",
                 "inherit":1007,
-                "voice": "tomoya_1010",
+                "voice":"1010-soConvert",
                 "onNext": { "nextNode": true }
         },
         "1011": {
                 "type": "text",
                 "name": "tomoya","lCharactor":"友也_平静",
                 "inherit":1007,
-                "voice": "tomoya_1010",
+                "voice":"1011-soConvert",
                 "onNext": { "nextNode": true }
         },
         "1012": {
                 "type": "text",
                 "name": "tomoya","lCharactor":"友也_无奈",
-                "voice": "tomoya_1010",
+                "voice":"1012-soConvert",
                 "inherit":1007,
                 "onNext": { "nextNode": true }
         },
         "1013": {
                 "type": "text",
                 "name": "narrator",
+                "voice":"1013-soConvert",
                 "inherit":1007,
                 "onNext": { "nextNode": true }
         },
         "1014": {
                 "type": "text",
                 "name": "studentA","lCharactor":"男生1",
+                "voice":"null",
                 "inherit":1007,
                 "onNext": { "nextNode": true }
         },
         "1015": {
                 "type": "text",
                 "name": "studentB","rCharactor":"女生2",
+                "voice":"null",
                 "inherit":1007,
                 "onNext": { "nextNode": true }
         },
         "1016": {
                 "type": "text",
                 "name": "studentA","lCharactor":"男生1",
+                "voice":"null",
                 "inherit":1007,
                 "onNext": { "nextNode": true }
         },
         "1017": {
                 "type": "text",
                 "name": "studentC","lCharactor":"男生2",
+                "voice":"null",
                 "inherit":1007,
                 "onNext": { "nextNode": true }
         },
         "1018": {
                 "type": "text",
                 "name": "studentA","lCharactor":"男生1",
+                "voice":"null",
                 "inherit":1007,
                 "onNext": { "nextNode": true }
         },
         "1019": {
                 "type": "text",
                 "name": "studentB","rCharactor":"女生2",
+                "voice":"null",
                 "inherit":1007,
                 "onNext": { "nextNode": true }
         },
         "1020": {
                 "type": "text",
                 "name": "studentC","lCharactor":"男生2",
+                "voice":"null",
                 "inherit":1007,
                 "onNext": { "nextNode": true }
         },
         "1021": {
                 "type": "text",
                 "name": "narrator",
+                "voice":"1021-soConvert",
                 "inherit":1007,
                 "onNext": { "nextNode": true }
         },
         "1022": {
                 "type": "text",
                 "name": "tomoya","lCharactor":"友也_思考",
+                "voice":"1022-soConvert",
                 "inherit":1007,
                 "onNext": { "nextNode": true }
         },
         "1023": {
                 "type": "text",
                 "name": "tomoya","lCharactor":"友也_平静",
+                "voice":"1023-soConvert",
                 "inherit":1007,
                 "onNext": { "nextNode": true }
         },
         "1024": {
                 "type": "text",
                 "name": "tomoya","lCharactor":"友也_思考",
+                "voice":"1024-soConvert",
                 "inherit":1007,
                 "onNext": { "nextNode": true }
         },
         "1025": {
                 "type": "text",
                 "name": "narrator",
+                "voice":"1025-soConvert",
                 "inherit":1007,
                 "onNext": { "nextNode": true }
         },
         "1026": {
                 "type": "text",
                 "name": "studentA","lCharactor":"男生1",
+                "voice":"null",
                 "inherit":1007,
                 "onNext": { "nextNode": true }
         },
         "1027": {
                 "type": "text",
                 "name": "studentB","rCharactor":"女生2",
+                "voice":"null",
                 "inherit":1007,
                 "onNext": { "nextNode": true }
         },
         "1028": {
                 "type": "text",
                 "name": "studentC","lCharactor":"男生2",
+                "voice":"null",
                 "inherit":1007,
                 "onNext": { "nextNode": true }
         },
         "1029": {
                 "type": "text",
                 "name": "narrator",
+                "voice":"1029-soConvert",
                 "inherit":1007,
                 "onNext": { "nextNode": true }
         },
         "1030": {
                 "type": "text",
                 "name": "tomoya","lCharactor":"友也_思考",
+                "voice":"1030-soConvert",
                 "inherit":1007,
                 "onNext": { "nextNode": true }
         },
@@ -243,42 +265,49 @@
         "1033": {
                 "type": "text",
                 "name": "aoi","lCharactor":"葵_伤心",
+                "voice":"1033-soConvert",
                 "inherit":1032,
                 "onNext": { "nextNode": true }
         },
         "1034": {
                 "type": "text",
                 "name": "aoi","lCharactor":"葵_疑惑",
+                "voice":"1034-soConvert",
                 "inherit":1032,
                 "onNext": { "nextNode": true }
         },
         "1035": {
                 "type": "text",
                 "name": "aoi","lCharactor":"葵_疑惑",
+                "voice":"1035-soConvert",
                 "inherit":1032,
                 "onNext": { "nextNode": true }
         },
         "1036": {
                 "type": "text",
                 "name": "aoi","lCharactor":"葵_思考",
+                "voice":"1036-soConvert",
                 "inherit":1032,
                 "onNext": { "nextNode": true }
         },
         "1037": {
                 "type": "text",
                 "name": "aoi","lCharactor":"葵_思考",
+                "voice":"1037-soConvert",
                 "inherit":1032,
                 "onNext": { "nextNode": true }
         },
         "1038": {
                 "type": "text",
                 "name": "aoi","lCharactor":"葵_畅想",
+                "voice":"1038-soConvert",
                 "inherit":1032,
                 "onNext": { "nextNode": true }
         },
         "1039": {
                 "type": "text",
                 "name": "narrator",
+                "voice":"1039-soConvert",
                 "inherit":1032,
                 "onNext": { "nextNode": true }
         },
@@ -327,24 +356,28 @@
         "1047": {
                 "type": "text",
                 "name": "aoi","lCharactor":"葵_思考",
+                "voice":"1047-soConvert",
                 "inherit":1032,
                 "onNext": { "nextNode": true }
         },
         "1048": {
                 "type": "text",
                 "name": "aoi","lCharactor":"葵_微笑",
+                "voice":"1048-soConvert",
                 "inherit":1032,
                 "onNext": { "nextNode": true }
         },
         "1049": {
                 "type": "text",
                 "name": "aoi","lCharactor":"葵_可爱",
+                "voice":"1049-soConvert",
                 "inherit":1032,
                 "onNext": { "nextNode": true }
         },
         "1050": {
                 "type": "text",
                 "name": "aoi","lCharactor":"葵_畅想",
+                "voice":"1050-soConvert",
                 "inherit":1032,
                 "onNext": { "nextNode": true }
         },
@@ -372,18 +405,21 @@
         "1054": {
                 "type": "text",
                 "name": "aoi","lCharactor":"葵_微笑",
+                "voice":"1054-soConvert",
                 "inherit":1052,
                 "onNext": { "nextNode": true }
         },
         "1055": {
                 "type": "text",
                 "name": "aoi","lCharactor":"葵_畅想",
+                "voice":"1055-soConvert",
                 "inherit":1052,
                 "onNext": { "nextNode": true }
         },
         "1056": {
                 "type": "text",
                 "name": "aoi","lCharactor":"葵_畅想",
+                "voice":"1056-soConvert",
                 "inherit":1052,
                 "onNext": { "nextNode": true }
         },
@@ -405,30 +441,35 @@
         "1059": {
                 "type": "text",
                 "name": "ryo","rCharactor":"凉_思考",
+                "voice":"1059-soConvert",
                 "inherit":1058,
                 "onNext": { "nextNode": true }
         },
         "1060": {
                 "type": "text",
                 "name": "ryo","rCharactor":"凉_思考",
+                "voice":"1060-soConvert",
                 "inherit":1058,
                 "onNext": { "nextNode": true }
         },
         "1061": {
                 "type": "text",
                 "name": "ryo","rCharactor":"凉_不舍",
+                "voice":"1061-soConvert",
                 "inherit":1058,
                 "onNext": { "nextNode": true }
         },
         "1062": {
                 "type": "text",
                 "name": "ryo","rCharactor":"凉_思考",
+                "voice":"1062-soConvert",
                 "inherit":1058,
                 "onNext": { "nextNode": true }
         },
         "1063": {
                 "type": "text",
                 "name": "ryo","rCharactor":"凉_难过",
+                "voice":"1063-soConvert",
                 "inherit":1058,
                 "onNext": { "nextNode": true }
         },
@@ -495,18 +536,21 @@
         "1074": {
                 "type": "text",
                 "name": "ryo","rCharactor":"凉_思考",
+                "voice":"1074-soConvert",
                 "inherit":1058,
                 "onNext": { "nextNode": true }
         },
         "1075": {
                 "type": "text",
                 "name": "ryo","rCharactor":"凉_思考",
+                "voice":"1075-soConvert",
                 "inherit":1058,
                 "onNext": { "nextNode": true }
         },
         "1076": {
                 "type": "text",
                 "name": "ryo","rCharactor":"凉_思考",
+                "voice":"1076-soConvert",
                 "inherit":1058,
                 "onNext": { "nextNode": true }
         },
@@ -519,6 +563,7 @@
         "1078": {
                 "type": "text",
                 "name": "ryo","rCharactor":"凉_微笑",
+                "voice":"1078-soConvert",
                 "inherit":1058,
                 "onNext": { "nextNode": true }
         },
@@ -581,6 +626,7 @@
         "1105": {
                 "type": "text",
                 "name": "tomoya","lCharactor":"友也_平静",
+                "voice":"1105-soConvert",
                 "inherit":1101,
                 "onNext": { "nextNode": true }
         },
@@ -593,6 +639,7 @@
         "1107": {
                 "type": "text",
                 "name": "aoi","lCharactor":"葵_微笑",
+                "voice":"1107-soConvert",
                 "inherit":1101,
                 "onNext": { "nextNode": true }
         },
@@ -605,6 +652,7 @@
         "1109": {
                 "type": "text",
                 "name": "ryo","rCharactor":"凉_微笑",
+                "voice":"1109-soConvert",
                 "inherit":1101,
                 "onNext": { "nextNode": true }
         },
@@ -647,18 +695,21 @@
         "1116": {
                 "type": "text",
                 "name": "narrator",
+                "voice":"1116-soConvert",
                 "inherit":1101,
                 "onNext": { "nextNode": true }
         },
         "1117": {
                 "type": "text",
                 "name": "narrator",
+                "voice":"1117-soConvert",
                 "inherit":1101,
                 "onNext": { "nextNode": true }
         },
         "1118": {
                 "type": "text",
                 "name": "narrator",
+                "voice":"1118-soConvert",
                 "inherit":1101,
                 "onNext": { "nextNode": true }
         },
@@ -677,18 +728,21 @@
         "1121": {
                 "type": "text",
                 "name": "aoi","lCharactor":"葵_微笑",
+                "voice":"1121-soConvert",
                 "inherit":1101,
                 "onNext": { "nextNode": true }
         },
         "1122": {
                 "type": "text",
                 "name": "tomoya","lCharactor":"友也_平静",
+                "voice":"1122-soConvert",
                 "inherit":1101,
                 "onNext": { "nextNode": true }
         },
         "1123": {
                 "type": "text",
                 "name": "ryo","rCharactor":"凉_微笑",
+                "voice":"1123-soConvert",
                 "inherit":1101,
                 "onNext": { "nextNode": true }
         },
@@ -707,18 +761,21 @@
         "1126": {
                 "type": "text",
                 "name": "tomoya","lCharactor":"友也_平静",
+                "voice":"1126-soConvert",
                 "inherit":1101,
                 "onNext": { "nextNode": true }
         },
         "1127": {
                 "type": "text",
                 "name": "aoi","lCharactor":"葵_微笑",
+                "voice":"1127-soConvert",
                 "inherit":1101,
                 "onNext": { "nextNode": true }
         },
         "1128": {
                 "type": "text",
                 "name": "ryo","rCharactor":"凉_微笑",
+                "voice":"1128-soConvert",
                 "inherit":1101,
                 "onNext": { "nextNode": true }
         },
@@ -746,18 +803,21 @@
         "1132": {
                 "type": "text",
                 "name": "tomoya","lCharactor":"友也_思考",
+                "voice":"1132-soConvert",
                 "inherit":1131,
                 "onNext": { "nextNode": true }
         },
         "1133": {
                 "type": "text",
                 "name": "tomoya","lCharactor":"友也_思考",
+                "voice":"1133-soConvert",
                 "inherit":1031,
                 "onNext": { "nextNode": true }
         },
         "1134": {
                 "type": "text",
                 "name": "tomoya","lCharactor":"友也_平静",
+                "voice":"1134-soConvert",
                 "inherit":1031,
                 "onNext": { "nextNode": true }
         },
@@ -854,30 +914,35 @@
         "1149": {
                 "type": "text",
                 "name": "tomoya","lCharactor":"友也_微笑",
+                "voice":"1149-soConvert",
                 "inherit":1144,
                 "onNext": { "nextNode": true }
         },
         "1150": {
                 "type": "text",
                 "name": "aoi","lCharactor":"葵_可爱",
+                "voice":"1150-soConvert",
                 "inherit":1144,
                 "onNext": { "nextNode": true }
         },
         "1151": {
                 "type": "text",
                 "name": "tomoya","lCharactor":"友也_平静",
+                "voice":"1151-soConvert",
                 "inherit":1144,
                 "onNext": { "nextNode": true }
         },
         "1152": {
                 "type": "text",
                 "name": "aoi","lCharactor":"葵_微笑",
+                "voice":"1152-soConvert",
                 "inherit":1144,
                 "onNext": { "nextNode": true }
         },
         "1153": {
                 "type": "text",
                 "name": "tomoya","lCharactor":"友也_微笑",
+                "voice":"1153-soConvert",
                 "inherit":1144,
                 "onNext": { "nextNode": true }
         },
@@ -902,18 +967,21 @@
         "1157": {
                 "type": "text",
                 "name": "ryo","rCharactor":"凉_悠闲",
+                "voice":"1157-soConvert",
                 "inherit":1144,
                 "onNext": { "nextNode": true }
         },
         "1158": {
                 "type": "text",
                 "name": "ryo","rCharactor":"凉_微笑",
+                "voice":"1158-soConvert",
                 "inherit":1144,
                 "onNext": { "nextNode": true }
         },
         "1159": {
                 "type": "text",
                 "name": "aoi","lCharactor":"葵_微笑",
+                "voice":"1159-soConvert",
                 "inherit":1144,
                 "onNext": { "nextNode": true }
         },
@@ -944,6 +1012,7 @@
         "1164": {
                 "type": "text",
                 "name": "tomoya","lCharactor":"友也_平静",
+                "voice":"1164-soConvert",
                 "inherit":1144,
                 "onNext": { "nextNode": true }
         },
@@ -956,84 +1025,98 @@
         "1166": {
                 "type": "text",
                 "name": "tomoya","lCharactor":"友也_平静",
+                "voice":"1166-soConvert",
                 "inherit":1144,
                 "onNext": { "nextNode": true }
         },
         "1167": {
                 "type": "text",
                 "name": "tomoya","lCharactor":"友也_平静",
+                "voice":"1167-soConvert",
                 "inherit":1144,
                 "onNext": { "nextNode": true }
         },
         "1168": {
                 "type": "text",
                 "name": "aoi","lCharactor":"葵_疑惑",
+                "voice":"1168-soConvert",
                 "inherit":1144,
                 "onNext": { "nextNode": true }
         },
         "1169": {
                 "type": "text",
                 "name": "tomoya","lCharactor":"友也_平静",
+                "voice":"1169-soConvert",
                 "inherit":1144,
                 "onNext": { "nextNode": true }
         },
         "1170": {
                 "type": "text",
                 "name": "ryo","rCharactor":"凉_微笑",
+                "voice":"1170-soConvert",
                 "inherit":1144,
                 "onNext": { "nextNode": true }
         },
         "1171": {
                 "type": "text",
                 "name": "ryo","rCharactor":"凉_微笑",
+                "voice":"1171-soConvert",
                 "inherit":1144,
                 "onNext": { "nextNode": true }
         },
         "1172": {
                 "type": "text",
                 "name": "ryo","rCharactor":"凉_微笑",
+                "voice":"1172-soConvert",
                 "inherit":1144,
                 "onNext": { "nextNode": true }
         },
         "1173": {
                 "type": "text",
                 "name": "ryo","rCharactor":"凉_微笑",
+                "voice":"1173-soConvert",
                 "inherit":1144,
                 "onNext": { "nextNode": true }
         },
         "1174": {
                 "type": "text",
                 "name": "ryo","rCharactor":"凉_微笑",
+                "voice":"1174-soConvert",
                 "inherit":1144,
                 "onNext": { "nextNode": true }
         },
         "1175": {
                 "type": "text",
                 "name": "ryo","rCharactor":"凉_微笑",
+                "voice":"1175-soConvert",
                 "inherit":1144,
                 "onNext": { "nextNode": true }
         },
         "1176": {
                 "type": "text",
                 "name": "tomoya","lCharactor":"友也_平静",
+                "voice":"1176-soConvert",
                 "inherit":1144,
                 "onNext": { "nextNode": true }
         },
         "1177": {
                 "type": "text",
                 "name": "aoi","lCharactor":"葵_惊讶",
+                "voice":"1177-soConvert",
                 "inherit":1144,
                 "onNext": { "nextNode": true }
         },
         "1178": {
                 "type": "text",
                 "name": "tomoya","lCharactor":"友也_平静",
+                "voice":"1178-soConvert",
                 "inherit":1144,
                 "onNext": { "nextNode": true }
         },
         "1179": {
                 "type": "text",
                 "name": "ryo","rCharactor":"凉_微笑",
+                "voice":"1179-soConvert",
                 "inherit":1144,
                 "onNext": { "nextNode": true }
         },
@@ -1080,36 +1163,42 @@
         "1186": {
                 "type": "text",
                 "name": "aoi","lCharactor":"葵_疑惑",
+                "voice":"1186-soConvert",
                 "inherit":1144,
                 "onNext": { "nextNode": true }
         },
         "1187": {
                 "type": "text",
                 "name": "tomoya","lCharactor":"友也_思考",
+                "voice":"1187-soConvert",
                 "inherit":1144,
                 "onNext": { "nextNode": true }
         },
         "1188": {
                 "type": "text",
                 "name": "ryo","rCharactor":"凉_微笑",
+                "voice":"1188-soConvert",
                 "inherit":1144,
                 "onNext": { "nextNode": true }
         },
         "1189": {
                 "type": "text",
                 "name": "aoi","lCharactor":"葵_可爱",
+                "voice":"1189-soConvert",
                 "inherit":1144,
                 "onNext": { "nextNode": true }
         },
         "1190": {
                 "type": "text",
                 "name": "ryo","rCharactor":"凉_微笑",
+                "voice":"1190-soConvert",
                 "inherit":1144,
                 "onNext": { "nextNode": true }
         },
         "1191": {
                 "type": "text",
                 "name": "tomoya","lCharactor":"友也_平静",
+                "voice":"1191-soConvert",
                 "inherit":1144,
                 "onNext": { "nextNode": true }
         },
@@ -1128,24 +1217,28 @@
         "1194": {
                 "type": "text",
                 "name": "tomoya","lCharactor":"友也_平静",
+                "voice":"1194-soConvert",
                 "inherit":1144,
                 "onNext": { "nextNode": true }
         },
         "1195": {
                 "type": "text",
                 "name": "ryo","rCharactor":"凉_悠闲",
+                "voice":"1195-soConvert",
                 "inherit":1144,
                 "onNext": { "nextNode": true }
         },
         "1196": {
                 "type": "text",
                 "name": "tomoya","lCharactor":"友也_无奈",
+                "voice":"1196-soConvert",
                 "inherit":1144,
                 "onNext": { "nextNode": true }
         },
         "1197": {
                 "type": "text",
                 "name": "aoi","lCharactor":"葵_微笑",
+                "voice":"1197-soConvert",
                 "inherit":1144,
                 "onNext": { "nextNode": true }
         },
@@ -1153,17 +1246,20 @@
                 "type": "text",
                 "name": "ryo","rCharactor":"凉_难过",
                 "inherit":1144,
+                "voice":"1198-soConvert",
                 "onNext": { "nextNode": true }
         },
         "1199": {
                 "type": "text",
                 "name": "ryo","rCharactor":"凉_微笑",
+                "voice":"1199-soConvert",
                 "inherit":1144,
                 "onNext": { "nextNode": true }
         },
         "1200": {
                 "type": "text",
                 "name": "ryo","rCharactor":"凉_微笑",
+                "voice":"1200-soConvert",
                 "inherit":1144,
                 "onNext": { "nextNode": true }
         },
@@ -1171,11 +1267,13 @@
                 "type": "text",
                 "name": "tomoya","lCharactor":"友也_平静",
                 "inherit":1144,
+                "voice":"1201-soConvert",
                 "onNext": { "nextNode": true }
         },
         "1202": {
                 "type": "text",
                 "name": "ryo","rCharactor":"凉_微笑",
+                "voice":"1202-soConvert",
                 "inherit":1144,
                 "onNext": { "nextNode": true }
         },
@@ -1188,6 +1286,7 @@
         "1204": {
                 "type": "text",
                 "name": "tomoya","lCharactor":"友也_平静",
+                "voice":"1204-soConvert",
                 "inherit":1144,
                 "onNext": { "nextNode": true }
         },
@@ -1195,11 +1294,13 @@
                 "type": "text",
                 "name": "aoi","lCharactor":"葵_畅想",
                 "inherit":1144,
+                "voice":"1205-soConvert",
                 "onNext": { "nextNode": true }
         },
         "1206": {
                 "type": "text",
                 "name": "ryo","rCharactor":"凉_思考",
+                "voice":"1206-soConvert",
                 "inherit":1144,
                 "onNext": { "nextNode": true }
         },
@@ -1218,12 +1319,14 @@
         "1209": {
                 "type": "text",
                 "name": "tomoya","lCharactor":"友也_平静",
+                "voice":"1209-soConvert",
                 "inherit":1144,
                 "onNext": { "nextNode": true }
         },
         "1210": {
                 "type": "text",
                 "name": "aoi","lCharactor":"葵_微笑",
+                "voice":"1210-soConvert",
                 "inherit":1144,
                 "onNext": { "nextNode": true }
         },
@@ -1231,6 +1334,7 @@
                 "type": "text",
                 "name": "ryo","rCharactor":"凉_微笑",
                 "inherit":1144,
+                "voice":"1211-soConvert",
                 "onNext": { "nextNode": true }
         },
         "1212": {
@@ -1242,12 +1346,14 @@
         "1213": {
                 "type": "text",
                 "name": "ryo","rCharactor":"凉_微笑",
+                "voice":"1213-soConvert",
                 "inherit":1144,
                 "onNext": { "nextNode": true }
         },
         "1214": {
                 "type": "text",
                 "name": "ryo","rCharactor":"凉_微笑",
+                "voice":"1214-soConvert",
                 "inherit":1144,
                 "onNext": { "nextNode": true }
         },
@@ -1318,6 +1424,7 @@
         "1303": {
                 "type": "text",
                 "name": "aoi","lCharactor":"葵_惊讶",
+                "voice":"1303-soConvert",
                 "inherit":1301,
                 "onNext": { "nextNode": true }
         },
@@ -1344,30 +1451,35 @@
         "1307": {
                 "type": "text",
                 "name": "ryo","rCharactor":"凉_微笑",
+                "voice":"1307-soConvert",
                 "inherit":1301,
                 "onNext": { "nextNode": true }
         },
         "1308": {
                 "type": "text",
                 "name": "aoi","lCharactor":"葵_可爱",
+                "voice":"1308-soConvert",
                 "inherit":1301,
                 "onNext": { "nextNode": true }
         },
         "1309": {
                 "type": "text",
                 "name": "ryo","rCharactor":"凉_微笑",
+                "voice":"1309-soConvert",
                 "inherit":1301,
                 "onNext": { "nextNode": true }
         },
         "1310": {
                 "type": "text",
                 "name": "tomoya","lCharactor":"友也_思考",
+                "voice":"1310-soConvert",
                 "inherit":1301,
                 "onNext": { "nextNode": true }
         },
         "1311": {
                 "type": "text",
                 "name": "ryo","rCharactor":"凉_微笑",
+                "voice":"1311-soConvert",
                 "inherit":1301,
                 "onNext": { "nextNode": true }
         },
@@ -1401,18 +1513,21 @@
         "1316": {
                 "type": "text",
                 "name": "aoi","lCharactor":"葵_疑惑",
+                "voice":"1316-soConvert",
                 "inherit":1315,
                 "onNext": { "nextNode": true }
         },
         "1317": {
                 "type": "text",
                 "name": "ryo","rCharactor":"凉_微笑",
+                "voice":"1317-soConvert",
                 "inherit":1315,
                 "onNext": { "nextNode": true }
         },
         "1318": {
                 "type": "text",
                 "name": "tomoya","lCharactor":"友也_思考",
+                "voice":"1318-soConvert",
                 "inherit":1315,
                 "onNext": { "nextNode": true }
         },
@@ -1449,6 +1564,7 @@
         "1324": {
                 "type": "text",
                 "name": "ryo","rCharactor":"凉_思考",
+                "voice":"1324-soConvert",
                 "inherit":1315,
                 "onNext": { "nextNode": true }
         },
@@ -1481,24 +1597,28 @@
         "1329": {
                 "type": "text",
                 "name": "tomoya","lCharactor":"友也_微笑",
+                "voice":"1329-soConvert",
                 "inherit":1315,
                 "onNext": { "nextNode": true }
         },
         "1330": {
                 "type": "text",
                 "name": "ryo","rCharactor":"凉_悠闲",
+                "voice":"1330-soConvert",
                 "inherit":1315,
                 "onNext": { "nextNode": true }
         },
         "1331": {
                 "type": "text",
                 "name": "ryo","rCharactor":"凉_微笑",
+                "voice":"1331-soConvert",
                 "inherit":1315,
                 "onNext": { "nextNode": true }
         },
         "1332": {
                 "type": "text",
                 "name": "tomoya","lCharactor":"友也_平静",
+                "voice":"1332-soConvert",
                 "inherit":1315,
                 "onNext": { "nextNode": true }
         },
@@ -1610,18 +1730,21 @@
         "1350": {
                 "type": "text",
                 "name": "ayane","rCharactor":"绚音_平静",
+                "voice":"1350-soConvert",
                 "inherit":1348,
                 "onNext": { "nextNode": true }
         },
         "1351": {
                 "type": "text",
                 "name": "tomoya","lCharactor":"友也_平静",
+                "voice":"1351-soConvert",
                 "inherit":1348,
                 "onNext": { "nextNode": true }
         },
         "1352": {
                 "type": "text",
                 "name": "ayane","rCharactor":"绚音_平静",
+                "voice":"1352-soConvert",
                 "inherit":1348,
                 "onNext": { "nextNode": true }
         },
@@ -1646,24 +1769,28 @@
         "1356": {
                 "type": "text",
                 "name": "aoi","lCharactor":"葵_可爱",
+                "voice":"1356-soConvert",
                 "inherit":1348,
                 "onNext": { "nextNode": true }
         },
         "1357": {
                 "type": "text",
                 "name": "ayane","rCharactor":"绚音_回忆",
+                "voice":"1357-soConvert",
                 "inherit":1348,
                 "onNext": { "nextNode": true }
         },
         "1358": {
                 "type": "text",
                 "name": "aoi","lCharactor":"葵_可爱",
+                "voice":"1358-soConvert",
                 "inherit":1348,
                 "onNext": { "nextNode": true }
         },
         "1359": {
                 "type": "text",
                 "name": "ayane","rCharactor":"绚音_沉默",
+                "voice":"1359-soConvert",
                 "inherit":1348,
                 "onNext": { "nextNode": true }
         },
@@ -1676,12 +1803,14 @@
         "1361": {
                 "type": "text",
                 "name": "ryo","rCharactor":"凉_思考",
+                "voice":"1361-soConvert",
                 "inherit":1348,
                 "onNext": { "nextNode": true }
         },
         "1362": {
                 "type": "text",
                 "name": "tomoya","lCharactor":"友也_微笑",
+                "voice":"1362-soConvert",
                 "inherit":1348,
                 "onNext": { "nextNode": true }
         },
@@ -1694,18 +1823,21 @@
         "1364": {
                 "type": "text",
                 "name": "ayane","rCharactor":"绚音_微笑",
+                "voice":"1364-soConvert",
                 "inherit":1348,
                 "onNext": { "nextNode": true }
         },
         "1365": {
                 "type": "text",
                 "name": "ayane","rCharactor":"绚音_沉默",
+                "voice":"1365-soConvert",
                 "inherit":1348,
                 "onNext": { "nextNode": true }
         },
         "1366": {
                 "type": "text",
                 "name": "aoi","lCharactor":"葵_惊讶",
+                "voice":"1366-soConvert",
                 "inherit":1348,
                 "onNext": { "nextNode": true }
         },
@@ -1742,54 +1874,63 @@
         "1372": {
                 "type": "text",
                 "name": "tomoya","lCharactor":"友也_平静",
+                "voice":"1372-soConvert",
                 "inherit":1348,
                 "onNext": { "nextNode": true }
         },
         "1373": {
                 "type": "text",
                 "name": "ayane","rCharactor":"绚音_平静",
+                "voice":"1373-soConvert",
                 "inherit":1348,
                 "onNext": { "nextNode": true }
         },
         "1374": {
                 "type": "text",
                 "name": "ayane","rCharactor":"绚音_微笑",
+                "voice":"1374-soConvert",
                 "inherit":1348,
                 "onNext": { "nextNode": true }
         },
         "1375": {
                 "type": "text",
                 "name": "tomoya","lCharactor":"友也_平静",
+                "voice":"1375-soConvert",
                 "inherit":1348,
                 "onNext": { "nextNode": true }
         },
         "1376": {
                 "type": "text",
                 "name": "tomoya","lCharactor":"友也_思考",
+                "voice":"1376-soConvert",
                 "inherit":1348,
                 "onNext": { "nextNode": true }
         },
         "1377": {
                 "type": "text",
                 "name": "tomoya","lCharactor":"友也_平静",
+                "voice":"1377-soConvert",
                 "inherit":1348,
                 "onNext": { "nextNode": true }
         },
         "1378": {
                 "type": "text",
                 "name": "ayane","rCharactor":"绚音_沉默",
+                "voice":"1378-soConvert",
                 "inherit":1348,
                 "onNext": { "nextNode": true }
         },
         "1379": {
                 "type": "text",
                 "name": "ayane","rCharactor":"绚音_回忆",
+                "voice":"1379-soConvert",
                 "inherit":1348,
                 "onNext": { "nextNode": true }
         },
         "1380": {
                 "type": "text",
                 "name": "ayane","rCharactor":"绚音_平静",
+                "voice":"1380-soConvert",
                 "inherit":1348,
                 "onNext": { "nextNode": true }
         },
@@ -1802,6 +1943,7 @@
         "1382": {
                 "type": "text",
                 "name": "ryo","rCharactor":"凉_微笑",
+                "voice":"1382-soConvert",
                 "inherit":1348,
                 "onNext": { "nextNode": true }
         },
@@ -1820,24 +1962,28 @@
         "1385": {
                 "type": "text",
                 "name": "ayane","rCharactor":"绚音_平静",
+                "voice":"1385-soConvert",
                 "inherit":1348,
                 "onNext": { "nextNode": true }
         },
         "1386": {
                 "type": "text",
                 "name": "ayane","rCharactor":"绚音_微笑",
+                "voice":"1386-soConvert",
                 "inherit":1348,
                 "onNext": { "nextNode": true }
         },
         "1387": {
                 "type": "text",
                 "name": "ayane","rCharactor":"绚音_平静",
+                "voice":"1387-soConvert",
                 "inherit":1348,
                 "onNext": { "nextNode": true }
         },
         "1388": {
                 "type": "text",
                 "name": "ayane","rCharactor":"绚音_回忆",
+                "voice":"1388-soConvert",
                 "inherit":1348,
                 "onNext": { "nextNode": true }
         },
@@ -1871,24 +2017,28 @@
         "1393": {
                 "type": "text",
                 "name": "ayane","rCharactor":"绚音_哭泣",
+                "voice":"1393-soConvert",
                 "inherit":1390,
                 "onNext": { "nextNode": true }
         },
         "1394": {
                 "type": "text",
                 "name": "aoi","lCharactor":"葵_疑惑",
+                "voice":"1394-soConvert",
                 "inherit":1390,
                 "onNext": { "nextNode": true }
         },
         "1395": {
                 "type": "text",
                 "name": "ryo","rCharactor":"凉_思考",
+                "voice":"1395-soConvert",
                 "inherit":1390,
                 "onNext": { "nextNode": true }
         },
         "1396": {
                 "type": "text",
                 "name": "ryo","rCharactor":"凉_思考",
+                "voice":"1396-soConvert",
                 "inherit":1390,
                 "onNext": { "nextNode": true }
         },
