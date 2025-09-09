@@ -34,13 +34,13 @@ export class Physics {
         }
 
         // 应用重力
-        this.velocityY += this.gravity;
+        this.velocityY += this.gravity*deltaTime;
         
         // 根据速度更新位置
-        this.transform.x += this.velocityX;
+        this.transform.x += this.velocityX*deltaTime;
         // 如果有重力，才更新Y轴速度
         if (this.gravity !== 0) {
-            this.transform.y += this.velocityY;
+            this.transform.y += this.velocityY*deltaTime;
         }
         
         // 只对有重力的物体进行碰撞处理

@@ -11,6 +11,7 @@ export class RendererSystem {
         this.raindrops = [];
         this.numRaindrops = 200;
         this.rainInitialized = false;
+        this.lastTime = performance.now();
     }
 
     _initRainEffect(tilemap) {
@@ -35,13 +36,16 @@ export class RendererSystem {
         this._initRainEffect(tilemap);
 
         const mapWidth = tilemap.mapWidth * tilemap.tileWidth;
+        const now = performance.now();
+        const deltaTime = now - this.lastTime;
+        this.lastTime = now;
         
         this.ctx.strokeStyle = 'rgba(174, 194, 224, 0.6)';
         this.ctx.lineWidth = 1.5;
         this.ctx.beginPath();
 
         for (const drop of this.raindrops) {
-            drop.y += drop.speed;
+            drop.y += drop.speed *deltaTime*0.1;
             
             if (drop.y > this.camera.y + this.camera.viewportHeight) {
                 drop.y = this.camera.y - drop.length;
