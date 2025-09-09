@@ -1,3 +1,5 @@
+// minigames/platformer/js/systems/RendererSystem.js
+
 import { Camera } from './Camera.js';
 import { SpriteRenderer } from '../components/SpriteRenderer.js';
 import { Transform } from '../components/Transform.js';
@@ -24,7 +26,7 @@ export class RendererSystem {
                 x: Math.random() * mapWidth,
                 y: Math.random() * mapHeight,
                 length: Math.random() * 20 + 10, 
-                speed: Math.random() * 5 + 4 
+                speed: Math.random() * 5 + 4
             });
         }
         this.rainInitialized = true;
