@@ -22,17 +22,20 @@ export class Animator {
 
     //每帧更新动画逻辑
     update(deltaTime) {
-        if (!this.currentAnimation) return;
-        
-        this.frameTimer++;
-        //从常量中获取当前动画的播放延迟
-        const delay = frameDelayByState[this.currentAnimationName];
-        //如果计时器达到延迟值，则切换到到下一帧
-        if (this.frameTimer >= delay) {
-            this.frameTimer = 0;
-            this.currentFrameIndex++;
-        }
+    if (!this.currentAnimation) return;
+
+    // 累积真实时间
+    this.frameTimer += deltaTime;
+
+    // 当前动画帧延迟（假设单位是毫秒）
+    const delay = frameDelayByState[this.currentAnimationName];
+
+    // 如果累计时间超过一帧的播放时间，就切换下一帧
+    if (this.frameTimer >= delay) {
+        this.frameTimer -= delay; // 这里用 -=，避免掉帧时丢失多余时间
+        this.currentFrameIndex++;
     }
+}
     
     //获取当前应该显示的动画帧（一个离屏canvas）
     getCurrentFrame() {
