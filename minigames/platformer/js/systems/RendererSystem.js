@@ -1,3 +1,5 @@
+// minigames/platformer/js/systems/RendererSystem.js
+
 import { Camera } from './Camera.js';
 import { SpriteRenderer } from '../components/SpriteRenderer.js';
 import { Transform } from '../components/Transform.js';
@@ -11,7 +13,6 @@ export class RendererSystem {
         this.raindrops = [];
         this.numRaindrops = 200;
         this.rainInitialized = false;
-        this.lastTime = performance.now();
     }
 
     _initRainEffect(tilemap) {
@@ -25,7 +26,7 @@ export class RendererSystem {
                 x: Math.random() * mapWidth,
                 y: Math.random() * mapHeight,
                 length: Math.random() * 20 + 10, 
-                speed: Math.random() * 5 + 4 
+                speed: Math.random() * 5 + 4
             });
         }
         this.rainInitialized = true;
@@ -36,16 +37,13 @@ export class RendererSystem {
         this._initRainEffect(tilemap);
 
         const mapWidth = tilemap.mapWidth * tilemap.tileWidth;
-        const now = performance.now();
-        const deltaTime = now - this.lastTime;
-        this.lastTime = now;
         
         this.ctx.strokeStyle = 'rgba(174, 194, 224, 0.6)';
         this.ctx.lineWidth = 1.5;
         this.ctx.beginPath();
 
         for (const drop of this.raindrops) {
-            drop.y += drop.speed *deltaTime*0.1;
+            drop.y += drop.speed;
             
             if (drop.y > this.camera.y + this.camera.viewportHeight) {
                 drop.y = this.camera.y - drop.length;
