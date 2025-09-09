@@ -1,3 +1,5 @@
+// minigames/platformer/js/core/Game.js
+
 import { AssetManager } from './AssetManager.js';
 import { InputHandler } from './InputHandler.js';
 import { RendererSystem } from '../systems/RendererSystem.js';
@@ -22,6 +24,10 @@ export class Game {
 
         this.lastTime = 0;
         this.isRunning = false;
+        
+        this.accumulator = 0;
+        this.timeStep = 1000 / 165;
+
         this.inputHandler = new InputHandler();
         this.assetManager = new AssetManager('minigames/platformer/');
         this.renderer = new RendererSystem(this.canvas);
@@ -86,9 +92,7 @@ export class Game {
 
     _onOrbCollected() {
         const collectedCount = this.stateManager.currentState?.uiManager?.collectedOrbs || 0;
-        
         const sfxIndex = collectedCount % 7 ; 
-        
         this.playSoundEffect(`collect_${sfxIndex}`);
     }
 
@@ -139,17 +143,24 @@ export class Game {
         
         const deltaTime = (timestamp - this.lastTime);
         this.lastTime = timestamp;
-        this.update(deltaTime, this.inputHandler);
+        
+        this.accumulator += deltaTime;
+
+        while (this.accumulator >= this.timeStep) {
+            this.update(this.timeStep, this.inputHandler);
+            this.accumulator -= this.timeStep;
+        }
+        
         this.draw();
         this.inputHandler.consumeActionKeys();
         requestAnimationFrame(this._gameLoop);
     }
 
-    update(deltaTime, input) {
-        this.stateManager.update(deltaTime, input);
+    update(timeStep, input) {
+        this.stateManager.update(timeStep, input);
 
         if (this.isRunning) {
-            this.levelTimer -= deltaTime;
+            this.levelTimer -= timeStep; 
             if (this.levelTimer <= 0) {
                 this.levelTimer = 0;
                 console.log("时间到！游戏失败。");
