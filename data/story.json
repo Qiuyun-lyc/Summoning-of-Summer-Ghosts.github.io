@@ -2775,7 +2775,9 @@
 
         "30000": {
                 "type": "text",
+
 "voice":"null",
+
                 "name": "narrator",
                 "bgr": "卧室2",
                 "bgm": "test",
@@ -2785,7 +2787,10 @@
 
         "30001": {
                 "type": "text",
+
+
 "voice":"null",
+
                 "name": "narrator",
                 "inherit":30000,
                 "onNext": { "nextNode": true }
@@ -2793,126 +2798,162 @@
 
         "30002": {
                 "type": "text",
+
 "voice":"null",
+
                 "name": "narrator",
                 "inherit":30000,
                 "onNext": { "nextNode": true }
         },
         "30003": {
                 "type": "text",
+
 "voice":"null",
+
                 "name": "tomoya","lCharactor":"友也_平静",
                 "inherit":30000,
                 "onNext": { "nextNode": true }
         },
         "30004": {
                 "type": "text",
+
 "voice":"null",
+
                 "name": "tomoya","lCharactor":"友也_平静",
                 "inherit":30000,
                 "onNext": { "nextNode": true }
         },
         "30005": {
                 "type": "text",
+
 "voice":"null",
+
                 "name": "tomoya","lCharactor":"友也_平静",
                 "inherit":30000,
                 "onNext": { "nextNode": true }
         },
         "30006": {
                 "type": "text",
+
 "voice":"null",
+
                 "name": "tomoya","lCharactor":"友也_平静",
                 "inherit":30000,
                 "onNext": { "nextNode": true }
         },
         "30007": {
                 "type": "text",
+
 "voice":"null",
+
                 "bgr": "电脑",
                 "bgm": "test",
                 "onNext": { "nextNode": true }
         },
         "30008": {
                 "type": "text",
+
 "voice":"null",
+
                 "name":"aoi","lCharactor":"葵_疑惑",
                 "inherit":30000,
                 "onNext": { "nextNode": true }
         },
         "30009": {
                 "type": "text",
+
 "voice":"null",
+
                 "name":"ryo","lCharactor":"凉_思考",
                 "inherit":30000,
                 "onNext": { "nextNode": true }
         },
         "30010": {
                 "type": "text",
+
 "voice":"null",
+
                 "name":"tomoya","lCharactor":"友也_平静",
                 "inherit":30000,
                 "onNext": { "nextNode": true }
         },
         "30011": {
                 "type": "text",
+
 "voice":"null",
+
                 "name":"ryo","lCharactor":"凉_思考",
                 "inherit":30000,
                 "onNext": { "nextNode": true }
         },
         "30012": {
                 "type": "text",
+
 "voice":"null",
+
                 "name":"tomoya","lCharactor":"友也_思考",
                 "inherit":30000,
                 "onNext": { "nextNode": true }
         },
         "30013": {
                 "type": "text",
+
 "voice":"null",
+
                 "name":"aoi","lCharactor":"葵_思考",
                 "inherit":30000,
                 "onNext": { "nextNode": true }
         },
         "30014": {
                 "type": "text",
+
 "voice":"null",
+
                 "name":"ryo","lCharactor":"凉_思考",
                 "inherit":30000,
                 "onNext": { "nextNode": true }
         },
         "30015": {
                 "type": "text",
+
 "voice":"null",
+
                 "name":"ryo","lCharactor":"凉_思考",
                 "inherit":30000,
                 "onNext": { "nextNode": true }
         },
         "30016": {
                 "type": "text",
+
 "voice":"null",
+
                 "name":"tomoya","lCharactor":"友也_微笑",
                 "inherit":30000,
                 "onNext": { "nextNode": true }
         },
         "30017": {
                 "type": "text",
+
 "voice":"null",
+
                 "name":"aoi","rCharactor":"葵_思考",
                 "inherit":30000,
                 "onNext": { "nextNode": true }
         },
         "30018": {
                 "type": "text",
+
 "voice":"null",
+
                 "name":"ryo","rCharactor":"凉_思考",
                 "inherit":30000,
                 "onNext": { "nextNode": true }
         },
         "30019": {
                 "type": "text",
+
 "voice":"null",
+
                 "name":"ryo","rCharactor":"凉_思考",
                 "inherit":30000,
                 "onNext": { "nextNode": true }
@@ -2920,7 +2961,9 @@
 
         "30020": {
                 "type": "text",
+
 "voice":"null",
+
                 "name":"tomoya","lCharactor":"友也_思考",
                 "bgr":"学校天台",
                 "bgm": "test",
@@ -2928,41 +2971,52 @@
         },
         "30021": {
                 "type": "text",
+
 "voice":"null",
+
                 "name":"ryo","lCharactor":"凉_悠闲",
                 "inherit":30020,
                 "onNext": { "nextNode": true }
         },
         "30022": {
                 "type": "text",
+
 "voice":"null",
+
                 "name":"narrator","lCharactor":"旁白",
                 "inherit":30020,
                 "onNext": { "nextNode": true }
         },
         "30023": {
                 "type": "text",
+
 "voice":"null",
+
                 "name":"tomoya","lCharactor":"友也_思考",
                 "inherit":30020,
                 "onNext": { "nextNode": true }
         },
         "30024": {
                 "type": "text",
+
 "voice":"null",
+
                 "name":"aoi","lCharactor":"葵_疑惑",
                 "inherit":30020,
                 "onNext": { "nextNode": true }
         },
         "30025": {
                 "type": "text",
+
 "voice":"null",
+
                 "name":"aoi","lCharactor":"葵_疑惑",
                 "inherit":30020,
                 "onNext": { "nextNode": true }
         },
         "30026": {
                 "type": "text",
+
 "voice":"null",
                 "name":"aoi","lCharactor":"葵_疑惑",
                 "inherit":30020,
@@ -2970,54 +3024,70 @@
         },
         "30027": {
                 "type": "text",
+
 "voice":"null",
+
                 "name":"aoi","lCharactor":"葵_伤心",
                 "inherit":30020,
                 "onNext": { "nextNode": true }
         },
         "30028": {
                 "type": "text",
+
 "voice":"null",
+
                 "name":"aoi","lCharactor":"葵_伤心",
                 "inherit":30020,
                 "onNext": { "nextNode": true }
         },
         "30029": {
                 "type": "text",
+
 "voice":"null",
+
                 "name":"ryo","lCharactor":"凉_思考",
                 "inherit":30020,
                 "onNext": { "nextNode": true }
         },
         "30030": {
                 "type": "text",
+
 "voice":"null",
+
                 "name":"aoi","lCharactor":"葵_伤心",
                 "inherit":30020,
                 "onNext": { "nextNode": true }
         },
         "30031": {
                 "type": "text",
+
 "voice":"null",
+
                 "name":"ryo","lCharactor":"凉_思考",
                 "inherit":30020,
                 "onNext": { "nextNode": true }
         },
         "30032": {
                 "type": "text",
+
 "voice":"null",
+
                 "name":"ryo","lCharactor":"凉_思考",
                 "inherit":30020,
                 "onNext": { "nextNode": true }
         },
         "30033": {
                 "type": "text",
+
 "voice":"null",
+
                 "name":"ryo","lCharactor":"凉_思考",
                 "inherit":30020,
                 "onNext": { "nextNode": true }
         },
 
+      
+      
         "30034": {
                 "type": "text",
 "voice":"null",
@@ -7247,6 +7317,1590 @@
                 "inherit":30304,
                 "voice":"30311",
                 "onNext": { "nextNode": true}
+        },
+
+
+ "20100": {
+                "type": "text",
+                "voice":"20100",
+                "name": "narrator",
+                "bgr": "城市郊区",
+                "bgm": "test",
+                "onNext": { "nextNode": true }
+        },
+        "20101": {
+                "type": "text",
+                "voice":"20101",
+                "name": "aoi","lCharactor":"葵_微笑",
+                "inherit":20100,
+                "onNext": { "nextNode": true }
+        },
+        "20102": {
+                "type": "text",
+                "voice":"20102",
+                "name": "aoi","lCharactor":"葵_微笑",
+                "inherit":20100,
+                "onNext": { "nextNode": true }
+        },
+        "20103": {
+                "type": "text",
+                "voice":"20103",
+                "name": "narrator",
+                "inherit":20100,
+                "onNext": { "nextNode": true }
+        },
+        "20104": {
+                "type": "text",
+                "voice":"20104",
+                "name": "ryo","rCharactor":"凉_微笑",
+                "inherit":20100,
+                "onNext": { "nextNode": true }
+        },
+        "20105": {
+                "type": "text",
+                "voice":"20105",
+                "name": "ryo","rCharactor":"凉_微笑",
+                "inherit":20100,
+                "onNext": { "nextNode": true }
+        },
+        "20106": {
+                "type": "text",
+                "voice":"20106",
+                "name": "aoi","lCharactor":"葵_微笑",
+                "inherit":20100,
+                "onNext": { "nextNode": 123456789 }
+        },
+        "20107": {
+                "type": "text",
+                "voice":"20107",
+                "name": "narrator",
+                "inherit":20100,
+                "onNext": { "nextNode": true }
+        },
+        "20108": {
+                "type": "text",
+                "voice":"20108",
+                "name": "aoi","lCharactor":"葵_微笑",
+                "inherit":20100,
+                "onNext": { "nextNode": true }
+        },
+        "20109": {
+                "type": "text",
+                "voice":"20109",
+                "name": "ryo","rCharactor":"凉_难过",
+                "inherit":20100,
+                "onNext": { "nextNode": true }
+        },
+        "20110": {
+                "type": "text",
+                "voice":"20110",
+                "name": "aoi","lCharactor":"葵_思考",
+                "inherit":20100,
+                "onNext": { "nextNode": true }
+        },
+        "20111": {
+                "type": "text",
+                "voice":"20111",
+                "name": "narrator",
+                "inherit":20100,
+                "onNext": { "nextNode": true }
+        },
+        "20112": {
+                "type": "text",
+                "voice":"20112",
+                "name": "aoi","lCharactor":"葵_微笑",
+                "inherit":20100,
+                "onNext": { "nextNode": true }
+        },
+        "20113": {
+                "type": "text",
+                "voice":"20113",
+                "name": "ryo","rCharactor":"凉_微笑",
+                "inherit":20100,
+                "onNext": { "setNode": 20114 }
+        },
+
+
+
+
+
+
+
+        "20114": {
+                "type": "text",
+                "voice":"20114", 
+                "name": "narrator",
+                "bgr": "病房",
+                "bgm": "test",
+                "onNext": { "nextNode": true }
+        },
+        "20115":{
+                "type": "text",
+                "voice":"20115", 
+                "name": "ryo","rCharactor":"凉_微笑",
+                "inherit":20114,
+                "onNext": { "nextNode": true }
+        },
+        "20116":{
+                "type": "text",
+                "voice":"20116", 
+                "name": "aoi","rCharactor":"葵_微笑",
+                "inherit":20114,
+                "onNext": { "nextNode": true }
+        },
+        "20117":{
+                "type": "text",
+                "voice":"20117", 
+                "name": "narrator",
+                "inherit":20114,
+                "onNext": { "nextNode": true }
+        },
+        "20118":{
+                "type": "text",
+                "voice":"20118", 
+                "name": "narrator",
+                "inherit":20114,
+                "onNext": { "nextNode": true }
+        },
+        "20119":{
+                "type": "text",
+                "voice":"20119", 
+                "name": "ryo","lCharactor":"凉_微笑",
+                "inherit":20114,
+                "onNext": { "nextNode": true }
+        },
+        "20120":{
+                "type": "text",
+                "voice":"20120", 
+                "name": "narrator",
+                "inherit":20114,
+                "onNext": { "nextNode": true }
+        },
+        "20121":{
+                "type": "text",
+                "voice":"20121", 
+                "name": "aoi","lCharactor":"葵_微笑",
+                "inherit":20114,
+                "onNext": { "nextNode": true }
+        },
+        "20122":{
+                "type": "text",
+                "voice":"20122", 
+                "name": "ryo","lCharactor":"凉_微笑",
+                "inherit":20114,
+                "onNext": { "nextNode": true }
+        },
+        "20123":{
+                "type": "text",
+                "voice":"20123", 
+                "name": "narrator",
+                "inherit":20114,
+                "onNext": { "nextNode": true }
+        },
+        "20124":{
+                "type": "text",
+                "voice":"20124", 
+                "name": "narrator",
+                "inherit":20114,
+                "onNext": { "nextNode": true }
+        },
+        "20125":{
+                "type": "text",
+                "voice":"20125", 
+                "name": "narrator",
+                "inherit":20114,
+                "onNext": { "nextNode": true }
+        },
+
+
+
+        "20126":{
+                "type": "text",
+                "voice":"20126", 
+                "name": "narrator",
+                "inherit":20114,
+                "onNext": { "nextNode": true }
+        },
+        "20127":{
+                "type": "text",
+                "voice":"20127", 
+                "name": "doctor","lCharactor":"男医生",
+                "inherit":20114,
+                "onNext": { "nextNode": true }
+        },
+        "20128":{
+                "type": "text",
+                "voice":"20128", 
+                "name": "ryo","lCharactor":"凉_微笑",
+                "inherit":20114,
+                "onNext": { "nextNode": true }
+        },
+        "20129":{
+                "type": "text",
+                "voice":"20129", 
+                "name": "narrator",
+                "inherit":20114,
+                "onNext": { "nextNode": true }
+        },
+        "20130":{
+                "type": "text",
+                "voice":"20130", 
+                "name": "doctor","lCharactor":"男医生",
+                "inherit":20114,
+                "onNext": { "nextNode": true }
+        },
+        "20131":{
+                "type": "text",
+                "voice":"20131", 
+                "name": "narrator",
+                "inherit":20114,
+                "onNext": { "nextNode": true }
+        },
+        "20132":{
+                "type": "text",
+                "voice":"20132", 
+                "name": "nurse","lCharactor":"女护士",
+                "inherit":20114,
+                "onNext": { "nextNode": true }
+        },
+        "20133":{
+                "type": "text",
+                "voice":"20133", 
+                "name": "aoi","lCharactor":"葵_微笑",
+                "inherit":20114,
+                "onNext": { "nextNode": true }
+        },
+        "20134":{
+                "type": "text",
+                "voice":"20134", 
+                "name": "ryo","lCharactor":"凉_微笑",
+                "inherit":20114,
+                "onNext": { "nextNode": true }
+        },
+        "20135":{
+                "type": "text",
+                "voice":"20135", 
+                "name": "narrator",
+                "inherit":20114,
+                "onNext": { "nextNode": true }
+        },
+        "20136":{
+                "type": "text",
+                "voice":"20136", 
+                "name": "narrator",
+                "inherit":20114,
+                "onNext": { "nextNode": true }
+        },
+        "20137":{
+                "type": "text",
+                "voice":"20137", 
+                "name": "aoi","lCharactor":"葵_微笑",
+                "inherit":20114,
+                "onNext": { "nextNode": true }
+        },
+        "20138":{
+                "type": "text",
+                "voice":"20138", 
+                "name": "aoi","lCharactor":"葵_微笑",
+                "inherit":20114,
+                "onNext": { "nextNode": true }
+        },
+        "20139":{
+                "type": "text",
+                "voice":"20139", 
+                "name": "aoi","lCharactor":"葵_惊讶",
+                "inherit":20114,
+                "onNext": { "nextNode": true }
+        },
+        "20140":{
+                "type": "text",
+                "voice":"20140", 
+                "name": "narrator",
+                "inherit":20114,
+                "onNext": { "nextNode": true }
+        },
+        "20141":{
+                "type": "text",
+                "voice":"20141", 
+                "name": "aoi","lCharactor":"葵_微笑",
+                "inherit":20114,
+                "onNext": { "nextNode": true }
+        },
+        "20142":{
+                "type": "text",
+                "voice":"20142", 
+                "name": "narrator",
+                "inherit":20114,
+                "onNext": { "nextNode": true }
+        },
+        "20143":{
+                "type": "text",
+                "voice":"20143", 
+                "name": "doctor","lCharactor":"男医生",
+                "inherit":20114,
+                "onNext": { "nextNode": true }
+        },
+        "20144":{
+                "type": "text",
+                "voice":"20144", 
+                "name": "ryo","lCharactor":"凉_微笑",
+                "inherit":20114,
+                "onNext": { "nextNode": true }
+        },
+        "20145":{
+                "type": "text",
+                "voice":"20145", 
+                "name": "narrator",
+                "inherit":20114,
+                "onNext": { "nextNode": true }
+        },
+        "20146":{
+                "type": "text",
+                "voice":"20146", 
+                "name": "narrator",
+                "inherit":20114,
+                "onNext": { "nextNode": true }
+        },
+        "20147":{
+                "type": "text",
+                "voice":"20147", 
+                "name": "narrator",
+                "inherit":20114,
+                "onNext": { "nextNode": true }
+        },
+        "20148":{
+                "type": "text",
+                "voice":"20148", 
+                "name": "narrator",
+                "inherit":20114,
+                "onNext": { "nextNode": true }
+        },
+        "20149":{
+                "type": "text",
+                "voice":"20149", 
+                "name": "ryo","lCharactor":"凉_微笑",
+                "inherit":20114,
+                "onNext": { "nextNode": true }
+        },
+        "20150":{
+                "type": "text",
+                "voice":"20150", 
+                "name": "aoi","lCharactor":"葵_微笑",
+                "inherit":20114,
+                "onNext": { "setNode": 30123 }
+        },
+
+
+
+
+
+        "20200":{
+                "type": "text",
+                "voice":"20200", 
+                "name": "narrator",
+                "bgr":"友也房间",
+                "bgm":"test",
+                "onNext": { "nextNode": true }
+        },
+        "20201":{
+                "type": "text",
+                "voice":"20201", 
+                "name": "tomoya","lCharactor":"友也_平静",
+                "inherit":20200,
+                "onNext": { "nextNode": true }
+        },
+
+        "20202":{
+                "type": "text",
+                "voice":"20202", 
+                "name": "narrator",
+                "bgm":"test",
+                "bgr":"深夜机场跑道",
+                "onNext": { "nextNode": true }
+        },
+
+        "20203":{
+                "type": "text",
+                "voice":"20203", 
+                "name": "narrator",
+                "inherit":20202,
+                "onNext": { "nextNode": true }
+        },
+
+        "20204":{
+                "type": "text",
+                "voice":"20204", 
+                "name": "narrator",
+                "inherit":20202,
+                "onNext": { "nextNode": true }
+        },
+
+        "20205":{
+                "type": "text",
+                "voice":"20205", 
+                "name": "ayane","lCharactor":"绚音_微笑",
+                "inherit":20202,
+                "onNext": { "nextNode": true }
+        },
+
+        "20206":{
+                "type": "text",
+                "voice":"20206", 
+                "name": "tomoya","lCharactor":"友也_平静",
+                "inherit":20202,
+                "onNext": { "nextNode": true }
+        },
+
+        "20207":{
+                "type": "text",
+                "voice":"20207", 
+                "name": "ayane","lCharactor":"绚音_微笑",
+                "inherit":20202,
+                "onNext": { "nextNode": true }
+        },
+
+        "20208":{
+                "type": "text",
+                "voice":"20208", 
+                "name": "tomoya","lCharactor":"友也_平静",
+                "inherit":20202,
+                "onNext": { "nextNode": true }
+        },
+
+        "20209":{
+                "type": "text",
+                "voice":"20209", 
+                "name": "ayane","lCharactor":"绚音_微笑",
+                "inherit":20202,
+                "onNext": { "nextNode": true }
+        },
+
+        "20210":{
+                "type": "text",
+                "voice":"20210", 
+                "name": "narrator",
+                "inherit":20202,
+                "onNext": { "nextNode": true }
+        },
+
+        "20211":{
+                "type": "text",
+                "voice":"20211", 
+                "name": "tomoya","lCharactor":"友也_平静",
+                "inherit":20202,
+                "onNext": { "nextNode": true }
+        },
+
+        "20212":{
+                "type": "text",
+                "voice":"20212", 
+                "name": "ayane","lCharactor":"绚音_微笑",
+                "inherit":20202,
+                "onNext": { "nextNode": true }
+        },
+
+        "20213":{
+                "type": "text",
+                "voice":"20213", 
+                "name": "narrator",
+                "inherit":20202,
+                "onNext": { "nextNode": true }
+        },
+
+        "20214":{
+                "type": "text",
+                "voice":"20214", 
+                "name": "tomoya","lCharactor":"友也_平静",
+                "inherit":20202,
+                "onNext": { "nextNode": true }
+        },
+
+        "20215":{
+                "type": "text",
+                "voice":"20215", 
+                "name": "ayane","lCharactor":"绚音_微笑",
+                "inherit":20202,
+                "onNext": { "nextNode": true }
+        },
+
+        "20216":{
+                "type": "text",
+                "voice":"20216", 
+                "name": "narrator",
+                "inherit":20202,
+                "onNext": { "nextNode": true }
+        },
+
+        "20217":{
+                "type": "text",
+                "voice":"20217", 
+                "name": "ayane","lCharactor":"绚音_微笑",
+                "inherit":20202,
+                "onNext": { "nextNode": true }
+        },
+
+        "20218":{
+                "type": "text",
+                "voice":"20218", 
+                "name": "tomoya","lCharactor":"友也_平静",
+                "inherit":20202,
+                "onNext": { "nextNode": true }
+        },
+
+        "20219":{
+                "type": "text",
+                "voice":"20219", 
+                "name": "narrator",
+                "inherit":20202,
+                "onNext": { "nextNode": true }
+        },
+
+        "20220":{
+                "type": "text",
+                "voice":"20220", 
+                "name": "ayane","lCharactor":"绚音_微笑",
+                "inherit":20202,
+                "onNext": { "nextNode": true }
+        },
+
+        "20221":{
+                "type": "text",
+                "voice":"20221", 
+                "name": "tomoya","lCharactor":"友也_微笑",
+                "inherit":20202,
+                "onNext": { "nextNode": true }
+        },
+
+        "20222":{
+                "type": "text",
+                "voice":"20222", 
+                "name": "narrator",
+                "inherit":20202,
+                "onNext": { "nextNode": true }
+        },
+
+        "20223":{
+                "type": "text",
+                "voice":"20223", 
+                "name": "tomoya","lCharactor":"友也_微笑",
+                "inherit":20202,
+                "onNext": { "nextNode": true }
+        },
+
+        "20224":{
+                "type": "text",
+                "voice":"20224", 
+                "name": "ayane","lCharactor":"绚音_微笑",
+                "inherit":20202,
+                "onNext": { "nextNode": true }
+        },
+
+        "20225":{
+                "type": "text",
+                "voice":"20225", 
+                "name": "narrator",
+                "inherit":20202,
+                "onNext": { "nextNode": true }
+        },
+
+        "20226":{
+                "type": "text",
+                "voice":"20226", 
+                "name": "tomoya","lCharactor":"友也_平静",
+                "inherit":20202,
+                "onNext": { "nextNode": true }
+        },
+
+        "20227":{
+                "type": "text",
+                "voice":"20227", 
+                "name": "ayane","lCharactor":"绚音_沉默",
+                "inherit":20202,
+                "onNext": { "nextNode": true }
+        },
+
+        "20228":{
+                "type": "text",
+                "voice":"20228", 
+                "name": "tomoya","lCharactor":"友也_平静",
+                "inherit":20202,
+                "onNext": { "nextNode": true }
+        },
+
+        "20229":{
+                "type": "text",
+                "voice":"20229", 
+                "name": "narrator",
+                "inherit":20202,
+                "onNext": { "nextNode": true }
+        },
+
+        "20230":{
+                "type": "text",
+                "voice":"20230", 
+                "name": "ayane","lCharactor":"绚音_微笑",
+                "inherit":20202,
+                "onNext": { "nextNode": true }
+        },
+
+        "20231":{
+                "type": "text",
+                "voice":"20231", 
+                "name": "tomoya","lCharactor":"友也_平静",
+                "inherit":20202,
+                "onNext": { "nextNode": true }
+        },
+
+        "20232":{
+                "type": "text",
+                "voice":"20232", 
+                "name": "ayane","lCharactor":"绚音_平静",
+                "inherit":20202,
+                "onNext": { "nextNode": true }
+        },
+
+        "20233":{
+                "type": "text",
+                "voice":"20233", 
+                "name": "narrator",
+                "inherit":20202,
+                "onNext": { "nextNode": true }
+        },
+
+
+
+
+        "20234":{
+                "type": "text",
+                "voice":"20234", 
+                "name": "narrator",
+                "bgr":"test",
+                "bgm":"test",
+                "onNext": { "nextNode": true }
+        },
+
+        "20235":{
+                "type": "text",
+                "voice":"20235", 
+                "name": "tomoya","lCharactor":"友也_微笑",
+                "inherit":20234,
+                "onNext": { "nextNode": true }
+        },
+
+        "20236":{
+                "type": "text",
+                "voice":"20236", 
+                "name": "ayane","lCharactor":"绚音_平静",
+                "inherit":20234,
+                "onNext": { "nextNode": true }
+        },
+
+        "20237":{
+                "type": "text",
+                "voice":"20237", 
+                "name": "narrator",
+                "inherit":20234,
+                "onNext": { "nextNode": true }
+        },
+
+        "20238":{
+                "type": "text",
+                "voice":"20238", 
+                "name": "tomoya","lCharactor":"友也_微笑",
+                "inherit":20234,
+                "onNext": { "nextNode": true }
+        },
+
+        "20239":{
+                "type": "text",
+                "voice":"20239", 
+                "name": "ayane","lCharactor":"绚音_平静",
+                "inherit":20234,
+                "onNext": { "nextNode": true }
+        },
+
+        "20240":{
+                "type": "text",
+                "voice":"20240", 
+                "name": "narrator",
+                "inherit":20234,
+                "onNext": { "nextNode": true }
+        },
+
+        "20241":{
+                "type": "text",
+                "voice":"20241", 
+                "name": "ayane","lCharactor":"绚音_微笑",
+                "inherit":20234,
+                "onNext": { "nextNode": true }
+        },
+
+        "20242":{
+                "type": "text",
+                "voice":"20242", 
+                "name": "tomoya","lCharactor":"友也_微笑",
+                "inherit":20234,
+                "onNext": { "nextNode": true }
+        },
+
+        "20243":{
+                "type": "text",
+                "voice":"20243", 
+                "name": "ayane","lCharactor":"绚音_微笑",
+                "inherit":20234,
+                "onNext": { "nextNode": true }
+        },
+
+        "20244":{
+                "type": "text",
+                "voice":"20244", 
+                "name": "narrator",
+                "inherit":20234,
+                "onNext": { "nextNode": true }
+        },
+
+        "20245":{
+                "type": "text",
+                "voice":"20245", 
+                "name": "tomoya","lCharactor":"友也_微笑",
+                "inherit":20234,
+                "onNext": { "nextNode": true }
+        },
+
+        "20246":{
+                "type": "text",
+                "voice":"20246", 
+                "name": "ayane","lCharactor":"绚音_微笑",
+                "inherit":20234,
+                "onNext": { "nextNode": true }
+        },
+
+        "20247":{
+                "type": "text",
+                "voice":"20247", 
+                "name": "narrator",
+                "inherit":20234,
+                "onNext": { "nextNode": true }
+        },
+
+        "20248":{
+                "type": "text",
+                "voice":"20248", 
+                "name": "tomoya","lCharactor":"友也_平静",
+                "inherit":20234,
+                "onNext": { "nextNode": true }
+        },
+
+        "20249":{
+                "type": "text",
+                "voice":"20249", 
+                "name": "ayane","lCharactor":"绚音_微笑",
+                "inherit":20234,
+                "onNext": { "nextNode": true }
+        },
+
+
+        "20250":{
+                "type": "text",
+                "voice":"20250", 
+                "name": "narrator",
+                "bgr":"test",
+                "bgm":"test",
+                "onNext": { "nextNode": true }
+        },
+
+        "20251":{
+                "type": "text",
+                "voice":"20251", 
+                "name": "narrator",
+                "inherit":20250,
+                "onNext": { "nextNode": true }
+        },
+
+        "20252":{
+                "type": "text",
+                "voice":"20252", 
+                "name": "tomoya","lCharactor":"友也_微笑",
+                "inherit":20250,
+                "onNext": { "nextNode": true }
+        },
+
+        "20253":{
+                "type": "text",
+                "voice":"20253", 
+                "name": "ayane","lCharactor":"绚音_微笑",
+                "inherit":20250,
+                "onNext": { "nextNode": true }
+        },
+
+        "20254":{
+                "type": "text",
+                "voice":"20254", 
+                "name": "narrator",
+                "inherit":20250,
+                "onNext": { "nextNode": true }
+        },
+
+        "20255":{
+                "type": "text",
+                "voice":"20255", 
+                "name": "ayane","lCharactor":"绚音_微笑",
+                "inherit":20250,
+                "onNext": { "nextNode": true }
+        },
+
+        "20256":{
+                "type": "text",
+                "voice":"20256", 
+                "name": "tomoya","lCharactor":"友也_平静",
+                "inherit":20250,
+                "onNext": { "nextNode": true }
+        },
+
+        "20257":{
+                "type": "text",
+                "voice":"20257", 
+                "name": "narrator",
+                "inherit":20250,
+                "onNext": { "nextNode": true }
+        },
+
+        "20258":{
+                "type": "text",
+                "voice":"20258", 
+                "name": "tomoya","lCharactor":"友也_平静",
+                "inherit":20250,
+                "onNext": { "nextNode": true }
+        },
+
+        "20259":{
+                "type": "text",
+                "voice":"20259", 
+                "name": "ayane","lCharactor":"绚音_微笑",
+                "inherit":20250,
+                "onNext": { "nextNode": true }
+        },
+
+        "20260":{
+                "type": "text",
+                "voice":"20260", 
+                "name": "narrator",
+                "inherit":20250,
+                "onNext": { "nextNode": true }
+        },
+
+        "20261":{
+                "type": "text",
+                "voice":"20261", 
+                "name": "tomoya","lCharactor":"友也_平静",
+                "inherit":20250,
+                "onNext": { "nextNode": true }
+        },
+
+        "20262":{
+                "type": "text",
+                "voice":"20262", 
+                "name": "ayane","lCharactor":"绚音_微笑",
+                "inherit":20250,
+                "onNext": { "nextNode": true }
+        },
+
+        "20263":{
+                "type": "text",
+                "voice":"20263", 
+                "name": "narrator",
+                "inherit":20250,
+                "onNext": { "setNode": 30184 }
+        },
+
+
+
+
+
+
+
+        "20300":{
+                "type": "text",
+                "voice":"20300", 
+                "name": "narrator",
+                "bgr":"友也房间",
+                "bgm":"test",
+                "onNext": { "nextNode": true }
+        },
+        "20301":{
+                "type": "text",
+                "voice":"20301", 
+                "name": "narrator",
+                "inherit":20300,
+                "onNext": { "nextNode": true }
+        },
+        "20302":{
+                "type": "text",
+                "voice":"20302", 
+                "name": "tomoya","lCharactor":"友也_微笑",
+                "inherit":20300,
+                "onNext": { "nextNode": true }
+        },
+        "20303":{
+                "type": "text",
+                "voice":"20303", 
+                "name": "narrator",
+                "inherit":20300,
+                "onNext": { "nextNode": true }
+        },
+        "20304":{
+                "type": "text",
+                "voice":"20304", 
+                "name": "ayane","lCharactor":"绚音_微笑",
+                "inherit":20300,
+                "onNext": { "nextNode": true }
+        },
+        "20305":{
+                "type": "text",
+                "voice":"20305", 
+                "name": "tomoya","lCharactor":"友也_微笑",
+                "inherit":20300,
+                "onNext": { "nextNode": true }
+        },
+        "20306":{
+                "type": "text",
+                "voice":"20306", 
+                "name": "ayane","lCharactor":"绚音_微笑",
+                "inherit":20300,
+                "onNext": { "nextNode": true }
+        },
+        "20307":{
+                "type": "text",
+                "voice":"20307", 
+                "name": "tomoya","lCharactor":"友也_平静",
+                "inherit":20300,
+                "onNext": { "nextNode": true }
+        },
+        "20308":{
+                "type": "text",
+                "voice":"20308", 
+                "name": "narrator",
+                "inherit":20300,
+                "onNext": { "nextNode": true }
+        },
+        "20309":{
+                "type": "text",
+                "voice":"20309", 
+                "name": "ayane","lCharactor":"绚音_微笑",
+                "inherit":20300,
+                "onNext": { "nextNode": true }
+        },
+        "20310":{
+                "type": "text",
+                "voice":"20310", 
+                "name": "tomoya","lCharactor":"友也_平静",
+                "inherit":20300,
+                "onNext": { "nextNode": true }
+        },
+        "20311":{
+                "type": "text",
+                "voice":"20311", 
+                "name": "narrator",
+                "inherit":20300,
+                "onNext": { "nextNode": true }
+        },
+        "20312":{
+                "type": "text",
+                "voice":"203122", 
+                "name": "tomoya","lCharactor":"友也_平静",
+                "inherit":20300,
+                "onNext": { "nextNode": true }
+        },
+        "20313":{
+                "type": "text",
+                "voice":"20313", 
+                "name": "narrator",
+                "inherit":20300,
+                "onNext": { "nextNode": true }
+        },
+        "20314":{
+                "type": "text",
+                "voice":"20314", 
+                "name": "narrator",
+                "inherit":20300,
+                "onNext": { "nextNode": true }
+        },
+        "20315":{
+                "type": "text",
+                "voice":"20315", 
+                "name": "narrator",
+                "inherit":20300,
+                "onNext": { "nextNode": true }
+        },
+        "20316":{
+                "type": "text",
+                "voice":"20316", 
+                "name": "narrator",
+                "inherit":20300,
+                "onNext": { "nextNode": true }
+        },
+        "20317":{
+                "type": "text",
+                "voice":"20317", 
+                "name": "tomoya","lCharactor":"友也_平静",
+                "inherit":20300,
+                "onNext": { "nextNode": true }
+        },
+        "20318":{
+                "type": "text",
+                "voice":"20318", 
+                "name": "ayane","lCharactor":"绚音_微笑",
+                "inherit":20300,
+                "onNext": { "nextNode": true }
+        },
+        "20319":{
+                "type": "text",
+                "voice":"20319", 
+                "name": "narrator",
+                "inherit":20300,
+                "onNext": { "nextNode": true }
+        },
+        "20320":{
+                "type": "text",
+                "voice":"20320", 
+                "name": "narrator",
+                "inherit":20300,
+                "onNext": { "nextNode": true }
+        },
+        "20321":{
+                "type": "text",
+                "voice":"20321", 
+                "name": "tomoya_mother","lCharactor":"友也母亲",
+                "inherit":20300,
+                "onNext": { "nextNode": true }
+        },
+        "20322":{
+                "type": "text",
+                "voice":"20322", 
+                "name": "narrator",
+                "inherit":20300,
+                "onNext": { "nextNode": true }
+        },
+        "20323":{
+                "type": "text",
+                "voice":"20323", 
+                "name": "tomoya","lCharactor":"友也_平静",
+                "inherit":20300,
+                "onNext": { "nextNode": true }
+        },
+        "20324":{
+                "type": "text",
+                "voice":"20324", 
+                "name": "ayane","lCharactor":"绚音_平静",
+                "inherit":20300,
+                "onNext": { "nextNode": true }
+        },
+        "20325":{
+                "type": "text",
+                "voice":"20325", 
+                "name": "narrator",
+                "inherit":20300,
+                "onNext": { "nextNode": true }
+        },
+        "20326":{
+                "type": "text",
+                "voice":"20326", 
+                "name": "narrator",
+                "inherit":20300,
+                "onNext": { "nextNode": true }
+        },
+        "20327":{
+                "type": "text",
+                "voice":"20327", 
+                "name": "aoi","lCharactor":"葵_伤心",
+                "inherit":20300,
+                "onNext": { "nextNode": true }
+        },
+        "20328":{
+                "type": "text",
+                "voice":"20328", 
+                "name": "ryo","lCharactor":"凉_难过",
+                "inherit":20300,
+                "onNext": { "nextNode": true }
+        },
+        "20329":{
+                "type": "text",
+                "voice":"20329", 
+                "name": "narrator",
+                "inherit":20300,
+                "onNext": { "nextNode": true }
+        },
+        "20330":{
+                "type": "text",
+                "voice":"20330", 
+                "name": "ayane","lCharactor":"绚音_平静",
+                "inherit":20300,
+                "onNext": { "nextNode": true }
+        },
+        "20331":{
+                "type": "text",
+                "voice":"20331", 
+                "name": "narrator",
+                "inherit":20300,
+                "onNext": { "nextNode": true }
+        },
+        "20332":{
+                "type": "text",
+                "voice":"20332", 
+                "name": "tomoya","lCharactor":"友也_平静",
+                "inherit":20300,
+                "onNext": { "nextNode": true }
+        },
+        "20333":{
+                "type": "text",
+                "voice":"20333", 
+                "name": "narrator",
+                "inherit":20300,
+                "onNext": { "nextNode": true }
+        },
+        "20334":{
+                "type": "text",
+                "voice":"20334", 
+                "name": "ryo","lCharactor":"凉_不舍",
+                "inherit":20300,
+                "onNext": { "nextNode": true }
+        },
+        "20335":{
+                "type": "text",
+                "voice":"20335", 
+                "name": "aoi","lCharactor":"葵_伤心",
+                "inherit":20300,
+                "onNext": { "nextNode": true }
+        },
+        "20336":{
+                "type": "text",
+                "voice":"20336", 
+                "name": "narrator",
+                "inherit":20300,
+                "onNext": { "setNode": 30219 }
+        },
+
+
+
+
+
+        "20350":{
+                "type": "text",
+                "voice":"20300", 
+                "name": "tomoya","lCharactor":"友也_平静",
+                "bgr":"友也房间",
+                "bgm":"test",
+                "onNext": { "nextNode": true }
+        },
+        "20351":{
+                "type": "text",
+                "voice":"20351", 
+                "name": "tomoya_mother","lCharactor":"友也母亲",
+                "inherit":20350,
+                "onNext": { "nextNode": true }
+        },
+        "20352":{
+                "type": "text",
+                "voice":"20353", 
+                "name": "narrator",
+                "inherit":20350,
+                "onNext": { "nextNode": true }
+        },
+        "20353":{
+                "type": "text",
+                "voice":"20353", 
+                "name": "tomoya","lCharactor":"友也_平静",
+                "inherit":20350,
+                "onNext": { "nextNode": true }
+        },
+        "20354":{
+                "type": "text",
+                "voice":"20354", 
+                "name": "tomoya_mother","lCharactor":"友也母亲",
+                "inherit":20350,
+                "onNext": { "nextNode": true }
+        },
+        "20355":{
+                "type": "text",
+                "voice":"20355", 
+                "name": "tomoya","lCharactor":"友也_平静",
+                "inherit":20350,
+                "onNext": { "nextNode": true }
+        },
+        "20356":{
+                "type": "text",
+                "voice":"20356", 
+                "name": "tomoya_mother","lCharactor":"友也母亲",
+                "inherit":20350,
+                "onNext": { "nextNode": true }
+        },
+        "20357":{
+                "type": "text",
+                "voice":"20357", 
+                "name": "tomoya","lCharactor":"友也_平静",
+                "inherit":20350,
+                "onNext": { "nextNode": true }
+        },
+        "20358":{
+                "type": "text",
+                "voice":"20358", 
+                "name": "tomoya","lCharactor":"友也_平静",
+                "inherit":20350,
+                "onNext": { "nextNode": true }
+        },
+        "20359":{
+                "type": "text",
+                "voice":"20359", 
+                "name": "tomoya_mother","lCharactor":"友也母亲",
+                "inherit":20350,
+                "onNext": { "nextNode": true }
+        },
+        "20360":{
+                "type": "text",
+                "voice":"20360", 
+                "name": "tomoya","lCharactor":"友也_平静",
+                "inherit":20350,
+                "onNext": { "nextNode": true }
+        },
+        "20361":{
+                "type": "text",
+                "voice":"20361", 
+                "name": "narrator",
+                "inherit":20350,
+                "onNext": { "nextNode": true }
+        },
+        "20362":{
+                "type": "text",
+                "voice":"20362", 
+                "name": "tomoya","lCharactor":"友也_平静",
+                "inherit":20350,
+                "onNext": { "nextNode": true }
+        },
+        "20363":{
+                "type": "text",
+                "voice":"20363", 
+                "name": "narrator",
+                "inherit":20350,
+                "onNext": { "nextNode": true }
+        },
+        "20364":{
+                "type": "text",
+                "voice":"20364", 
+                "name": "narrator",
+                "inherit":20350,
+                "onNext": { "nextNode": true }
+        },
+        "20365":{
+                "type": "text",
+                "voice":"20365", 
+                "name": "narrator",
+                "inherit":20350,
+                "onNext": { "nextNode": true }
+        },
+        "20366":{
+                "type": "text",
+                "voice":"20366", 
+                "name": "narrator",
+                "inherit":20350,
+                "onNext": { "nextNode": true }
+        },
+        "20367":{
+                "type": "text",
+                "voice":"20367", 
+                "name": "narrator",
+                "inherit":20350,
+                "onNext": { "nextNode": true }
+        },
+        "20368":{
+                "type": "text",
+                "voice":"20368", 
+                "name": "narrator",
+                "inherit":20350,
+                "onNext": { "nextNode": true }
+        },
+        "20369":{
+                "type": "text",
+                "voice":"20369", 
+                "name": "narrator",
+                "inherit":20350,
+                "onNext": { "nextNode": true }
+        },
+        "20370":{
+                "type": "text",
+                "voice":"20370", 
+                "name": "narrator",
+                "inherit":20350,
+                "onNext": { "nextNode": true }
+        },
+        "20371":{
+                "type": "text",
+                "voice":"20371", 
+                "name": "narrator",
+                "inherit":20350,
+                "onNext": { "nextNode": true }
+        },
+        "20372":{
+                "type": "text",
+                "voice":"20372", 
+                "name": "narrator",
+                "onNext": { "nextNode": true }
+        },
+        "20373":{
+                "type": "text",
+                "voice":"20373", 
+                "name": "narrator",
+                "inherit":20350,
+                "onNext": { "setNode": 30219 }
+        },
+        
+
+
+
+        "20400":{
+                "type": "text",
+                "voice":"20400", 
+                "name": "narrator",
+                "bgm":"test",
+                "bgr":"夜间机场跑道",
+                "onNext": { "nextNode": true }
+        },
+        "20401":{
+                "type": "text",
+                "voice":"20401", 
+                "name": "ayane","lCharactor":"绚音_平静",
+                "inherit":20400,
+                "onNext": { "nextNode": true }
+        },
+        "20402":{
+                "type": "text",
+                "voice":"20402", 
+                "name": "tomoya","lCharactor":"友也_平静",
+                "inherit":20400,
+                "onNext": { "nextNode": true }
+        },
+        "20403":{
+                "type": "text",
+                "voice":"20403", 
+                "name": "ayane","lCharactor":"绚音_微笑",
+                "inherit":20400,
+                "onNext": { "nextNode": true }
+        },
+        "20404":{
+                "type": "text",
+                "voice":"20404", 
+                "name": "narrator",
+                "inherit":20400,
+                "onNext": { "nextNode": true }
+        },
+        "20405":{
+                "type": "text",
+                "voice":"20405", 
+                "name": "ryo","lCharactor":"凉_思考",
+                "inherit":20400,
+                "onNext": { "nextNode": true }
+        },
+        "20406":{
+                "type": "text",
+                "voice":"20406", 
+                "name": "ayane","lCharactor":"绚音_微笑",
+                "inherit":20400,
+                "onNext": { "nextNode": true }
+        },
+        "20407":{
+                "type": "text",
+                "voice":"20407", 
+                "name": "ryo","lCharactor":"凉_微笑",
+                "inherit":20400,
+                "onNext": { "nextNode": true }
+        },
+        "20408":{
+                "type": "text",
+                "voice":"20408", 
+                "name": "ayane","lCharactor":"绚音_哭泣",
+                "inherit":20400,
+                "onNext": { "nextNode": true }
+        },
+        "20409":{
+                "type": "text",
+                "voice":"20409", 
+                "name": "tomoya","lCharactor":"友也_思考",
+                "inherit":20400,
+                "onNext": { "nextNode": true }
+        },
+        "20410":{
+                "type": "text",
+                "voice":"20410", 
+                "name": "narrator",
+                "inherit":20400,
+                "onNext": { "nextNode": true }
+        },
+        "20411":{
+                "type": "text",
+                "voice":"20411", 
+                "name": "aoi","lCharactor":"葵_畅想",
+                "inherit":20400,
+                "onNext": { "nextNode": true }
+        },
+        "20412":{
+                "type": "text",
+                "voice":"20412", 
+                "name": "ryo","lCharactor":"凉_微笑",
+                "inherit":20400,
+                "onNext": { "nextNode": true }
+        },
+        "20413":{
+                "type": "text",
+                "voice":"20413", 
+                "name": "ayane","lCharactor":"绚音_平静",
+                "inherit":20400,
+                "onNext": { "nextNode": true }
+        },
+        "20414":{
+                "type": "text",
+                "voice":"20414", 
+                "name": "tomoya","lCharactor":"友也_思考",
+                "inherit":20400,
+                "onNext": { "nextNode": true }
+        },
+        "20415":{
+                "type": "text",
+                "voice":"20415", 
+                "name": "narrator",
+                "inherit":20400,
+                "onNext": { "nextNode": true }
+        },
+        "20416":{
+                "type": "text",
+                "voice":"20416", 
+                "name": "ayane","lCharactor":"绚音_平静",
+                "inherit":20400,
+                "onNext": { "nextNode": true }
+        },
+        "20417":{
+                "type": "text",
+                "voice":"20417", 
+                "name": "ryo","lCharactor":"凉_微笑",
+                "inherit":20400,
+                "onNext": { "nextNode": true }
+        },
+        "20418":{
+                "type": "text",
+                "voice":"20148", 
+                "name": "aoi","lCharactor":"葵_伤心",
+                "inherit":20400,
+                "onNext": { "nextNode": true }
+        },
+        "20419":{
+                "type": "text",
+                "voice":"20419", 
+                "name": "tomoya","lCharactor":"友也_平静",
+                "inherit":20400,
+                "onNext": { "nextNode": true }
+        },
+        "20420":{
+                "type": "text",
+                "voice":"20420", 
+                "name": "ayane","lCharactor":"绚音_微笑",
+                "inherit":20400,
+                "onNext": { "nextNode": true }
+        },
+        "20421":{
+                "type": "text",
+                "voice":"20421", 
+                "name": "narrator",
+                "inherit":20400,
+                "onNext": { "nextNode": true }
+        },
+        "20422":{
+                "type": "text",
+                "voice":"20422", 
+                "name": "ryo","lCharactor":"凉_微笑",
+                "inherit":20400,
+                "onNext": { "nextNode": true }
+        },
+        "20423":{
+                "type": "text",
+                "voice":"20423", 
+                "name": "aoi","lCharactor":"葵_微笑",
+                "inherit":20400,
+                "onNext": { "nextNode": true }
+        },
+        "20424":{
+                "type": "text",
+                "voice":"20424", 
+                "name": "tomoya","lCharactor":"友也_平静",
+                "inherit":20400,
+                "onNext": { "nextNode": true }
+        },
+        "20425":{
+                "type": "text",
+                "voice":"20425", 
+                "name": "ayane","lCharactor":"绚音_哭泣",
+                "inherit":20400,
+                "onNext": { "nextNode": true }
+        },
+        "20426":{
+                "type": "text",
+                "voice":"20426", 
+                "name": "narrator",
+                "inherit":20400,
+                "onNext": { "nextNode": true }
+        },
+        "20427":{
+                "type": "text",
+                "voice":"20427", 
+                "name": "aoi","lCharactor":"葵_疑惑",
+                "inherit":20400,
+                "onNext": { "nextNode": true }
+        },
+        "20428":{
+                "type": "text",
+                "voice":"20428", 
+                "name": "tomoya","lCharactor":"友也_平静",
+                "inherit":20400,
+                "onNext": { "nextNode": true }
+        },
+        "20429":{
+                "type": "text",
+                "voice":"20429", 
+                "name": "ayane","lCharactor":"绚音_平静",
+                "inherit":20400,
+                "onNext": { "nextNode": true }
+        },
+        "20430":{
+                "type": "text",
+                "voice":"20430", 
+                "name": "narrator",
+                "inherit":20400,
+                "onNext": { "nextNode": true }
+        },
+        "20431":{
+                "type": "text",
+                "voice":"20431", 
+                "name": "ryo","lCharactor":"凉_微笑",
+                "inherit":20400,
+                "onNext": { "nextNode": true }
+        },
+        "20432":{
+                "type": "text",
+                "voice":"20432", 
+                "name": "aoi","lCharactor":"葵_伤心",
+                "inherit":20400,
+                "onNext": { "nextNode": true }
+        },
+        "20433":{
+                "type": "text",
+                "voice":"20433", 
+                "name": "tomoya","lCharactor":"友也_平静",
+                "inherit":20400,
+                "onNext": { "nextNode": true }
+        },
+        "20434":{
+                "type": "text",
+                "voice":"20400", 
+                "name": "ayane","lCharactor":"绚音_微笑",
+                "inherit":20400,
+                "onNext": { "setNode": 30304 }
         }
     }
 }
