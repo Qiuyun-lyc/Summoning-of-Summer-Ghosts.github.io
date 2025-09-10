@@ -4126,7 +4126,7 @@
 "voice":"null",
                 "name": "narrator",
                 "inherit":40053,
-                "onNext": { "nextNode": true }
+                "onNext": { "setNode": 40096 }
         },
 
 
