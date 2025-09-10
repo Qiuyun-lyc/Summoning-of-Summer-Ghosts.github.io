@@ -1,6 +1,9 @@
+// minigames/platformer/js/constants.js
+
 export const GRAVITY = 0.12;
-export const MOVE_SPEED = 3; 
-export const JUMP_POWER = 6;
+export const MOVE_SPEED = 2.5; 
+export const JUMP_POWER = 6.2;
+
 //玩家渲染的目标高度
 export const TARGET_H = 120; 
 //行走动画中前三帧为非循环起步动画
@@ -14,7 +17,7 @@ export const states = {
     LAND: 4,
     ATTACK: 5,
 };
-//玩家不同状态帧延迟
+//玩家不同状态帧延迟 (单位：游戏逻辑帧)
 export const frameDelayByState = {
     idle: 15,
     walk: 10,
