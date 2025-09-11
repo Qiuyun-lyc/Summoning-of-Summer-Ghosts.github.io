@@ -2921,6 +2921,7 @@
       "onNext": { "setNode": 2 }
     },
 
+
     "30000": {
       "type": "text",
 
@@ -3802,8 +3803,8 @@
       "onNext": {
         "choice": [
           { "targetNode": 30101 },
-          { "targetNode": 330000 },
-          { "targetNode": 330000 }
+          { "targetNode": 20100 },
+          { "targetNode": 30136 }
         ]
       }
     },
@@ -4728,7 +4729,7 @@
       "inherit": 40086,
       "voice": "40139",
       "lCharactor": "葵_无奈",
-      "onNext": { "ending": 99999 }
+      "onNext": { "setNode": 30219 }
     },
 
     "40096": {
@@ -4830,7 +4831,7 @@
       "name": "tomoya",
       "inherit": 40105,
       "lCharactor": "友也_无奈",
-      "onNext": { "choice": [{ "targetNode": 40109 }, { "ending": 99999 }] }
+      "onNext": { "choice": [{ "targetNode": 40109 }, { "targetNode": 20351 }] }
     },
 
     "40109": {
@@ -5046,7 +5047,7 @@
       "voice": "40136",
       "inherit": 40105,
       "lCharactor": "友也_平静",
-      "onNext": { "ending": true }
+      "onNext": { "setNode": 20200 }
     },
 
     "40140": {
@@ -5570,7 +5571,7 @@
       "name": "tomoya",
       "inherit": 40203,
       "lCharactor": "友也_平静",
-      "onNext": { "nextNode": true }
+      "onNext": { "setNode": 20303 }
     },
 
     "40206": {
@@ -5721,7 +5722,7 @@
       "name": "narrator",
       "voice": "40225",
       "inherit": 40216,
-      "onNext": { "nextNode": true }
+      "onNext": { "ending": true }
     },
 
     "40226": {
@@ -5837,8 +5838,21 @@
       "voice": "40240",
       "inherit": 40234,
       "lCharactor": "葵_思考",
-      "onNext": { "nextNode": true }
+      "onNext": { "setNode": 402400 }
     },
+  "402400": {
+      "type": "choices",
+      "name": "ayane",
+      "inherit": 40234,
+      "voice": "40241",
+      "rCharactor": "绚音_回忆",
+      "onNext": { "choice":[
+				{"targetNode":40241},
+				{"targetNode":20500}] }
+    },
+
+
+
     "40241": {
       "type": "text",
       "name": "ayane",
@@ -6156,7 +6170,7 @@
       "voice": "40281",
       "inherit": 40255,
       "rCharactor": "绚音_微笑",
-      "onNext": { "nextNode": true }
+      "onNext": { "setNode": 20400 }
     },
 
     "40282": {
@@ -6187,7 +6201,7 @@
       "name": "narrator",
       "voice": "40285",
       "inherit": 40282,
-      "onNext": { "nextNode": true }
+      "onNext": { "setNode": 30338 }
     },
 
     "30123": {
@@ -6286,7 +6300,7 @@
       "name": "narrator",
       "voice": "30135",
       "inherit": 30123,
-      "onNext": { "nextNode": true }
+      "onNext": { "setNode": 40096 }
     },
 
     "30136": {
@@ -6659,7 +6673,7 @@
       "lCharactor": "男老师1",
       "inherit": 30159,
       "voice": "30183",
-      "onNext": { "nextNode": true }
+      "onNext": { "setNode": 40061 }
     },
 
     "30184": {
@@ -6948,7 +6962,7 @@
       "lCharactor": "旁白",
       "inherit": 30216,
       "voice": "30218",
-      "onNext": { "nextNode": true }
+      "onNext": { "setNode": 40140 }
     },
 
     "30219": {
@@ -7245,12 +7259,14 @@
       "onNext": { "nextNode": true }
     },
     "30255": {
-      "type": "text",
+      "type": "choices",
       "name": "narrator",
       "lCharactor": "",
       "inherit": 30244,
       "voice": "30255",
-      "onNext": { "nextNode": true }
+      "onNext": { "choice":[
+				{"targetNode":30271},
+				{"targetNode":30256}] }
     },
 
     "30256": {
@@ -7644,7 +7660,7 @@
       "lCharactor": "",
       "inherit": 30299,
       "voice": "30303",
-      "onNext": { "nextNode": true }
+      "onNext": { "setNode": 40206 }
     },
 
     "30304": {
@@ -7710,7 +7726,7 @@
       "lCharactor": "",
       "inherit": 30304,
       "voice": "30311",
-      "onNext": { "nextNode": true }
+      "onNext": { "setNode": 40282 }
     },
 
     "20100": {
@@ -8937,7 +8953,7 @@
       "voice": "20336",
       "name": "narrator",
       "inherit": 20300,
-      "onNext": { "setNode": 30219 }
+      "onNext": { "ending": true }
     },
 
     "20350": {
@@ -9117,7 +9133,7 @@
       "voice": "20373",
       "name": "narrator",
       "inherit": 20350,
-      "onNext": { "setNode": 30219 }
+      "onNext": { "setNode": 40225 }
     },
 
     "20400": {
@@ -9581,7 +9597,7 @@
                 "lCharactor":"",
                 "inherit":30336,
                 "voice":"30337",
-                "onNext": { "nextNode": true}
+                "onNext": { "ending": true}
         },        "30338": {
                 "type": "text",
                 "name":"",
@@ -10036,7 +10052,7 @@
                 "lCharactor":"",
                 "inherit":30391,
                 "voice":"30401",
-                "onNext": { "nextNode": true}
+                "onNext": { "setNode": 40297}
         },
 
 
@@ -10219,8 +10235,12 @@
                 "bgr":"",
                 "bgm": "test",
                 "voice":"40310",
-                "onNext": { "nextNode": true}
-        },        "40311": {
+                "onNext": { "setNode": 40311}
+        },        
+        
+        
+        
+        "40311": {
                 "type": "text",
                 "name":"",
                 "lCharactor":"",
