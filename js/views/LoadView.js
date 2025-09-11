@@ -63,6 +63,10 @@ const LoadView = {
                             <img class="button-icon" src="./assets/img/save.png">
                             <img class="button-icon-hover" src="./assets/img/save_hover.png">
                         </div>
+                         <div class="action-button" data-action="delete" data-slot="${i}">
+                            <img class="button-icon" src="./assets/img/delete.png">
+                            <img class="button-icon-hover" src="./assets/img/delete_hover.png">
+                        </div>
                     </div>
                 </div>
                 <div class="save-chapter">${chapter}</div>
@@ -113,6 +117,18 @@ const LoadView = {
                             alert("没有正在进行的游戏可以存档。");
                         }
                     }
+                    else if (action === 'delete') {
+                    if (engine.saveManager.currentUser.saveArray[slot]) {
+                        if (confirm(`您确定要删除 存档 ${slot + 1} 吗？此操作不可恢复。`)) {
+                            if (engine.saveManager.deleteSave(slot)) {
+                                alert(`存档 ${slot + 1} 已被删除。`);
+                                LoadView.render(container, engine); // 重新渲染界面以更新显示
+                            }
+                        }
+                    } else {
+                        alert("这是一个空存档，无需删除。");
+                    }
+                }
                 });
             }
         });
