@@ -30,7 +30,9 @@ export default class GameEngine {
             isPaused: false,
             isInputDisabled: false,
             isHistoryVisible: false,
-            historyCheckpoint: -1,
+            historyCheckpoint: -1, 
+            interactionCount: 0,
+            fastForwardTooltipShown: false,
         };
 
         this.views = {
@@ -87,6 +89,10 @@ export default class GameEngine {
     
     async startGame(saveData) {
         this.gameState.currentSave = saveData;
+        this.gameState.currentSave.dialogueHistory = []; 
+
+        this.gameState.interactionCount = 0;
+        this.gameState.fastForwardTooltipShown = false;
 
         this.showView('Game');
         await this.processNode(this.gameState.currentSave.nodeId);
@@ -99,7 +105,6 @@ export default class GameEngine {
 
     async resumeGame() {
         this.showView('Game');
-        
         await this.processNode(this.gameState.currentSave.nodeId);
     }
 
@@ -108,37 +113,22 @@ export default class GameEngine {
             this.gameState.currentSave.dialogueHistory.length = this.gameState.historyCheckpoint;
             this.gameState.historyCheckpoint = -1;
         }
-
         this.showView('Game');
         await this.processNode(this.gameState.currentSave.nodeId);
     }
 
     async preloadAssetsForNode(node) {
         const assetsToLoad = [];
-
-        if (node.bgr) {
-            assetsToLoad.push(`./assets/img/bgr/${node.bgr}.png`);
-        }
-        if (node.lCharactor) {
-            assetsToLoad.push(`./assets/img/character/${node.lCharactor}.png`);
-        }
-        if (node.rCharactor) {
-            assetsToLoad.push(`./assets/img/character/${node.rCharactor}.png`);
-        }
-
-        if (assetsToLoad.length === 0) {
-            return Promise.resolve(); 
-        }
-
-        const promises = assetsToLoad.map(src => {
-            return new Promise((resolve, reject) => {
-                const img = new Image();
-                img.onload = () => resolve(img);
-                img.onerror = () => reject(new Error(`Failed to load image: ${src}`));
-                img.src = src;
-            });
-        });
-
+        if (node.bgr) assetsToLoad.push(`./assets/img/bgr/${node.bgr}.png`);
+        if (node.lCharactor) assetsToLoad.push(`./assets/img/character/${node.lCharactor}.png`);
+        if (node.rCharactor) assetsToLoad.push(`./assets/img/character/${node.rCharactor}.png`);
+        if (assetsToLoad.length === 0) return Promise.resolve(); 
+        const promises = assetsToLoad.map(src => new Promise((resolve, reject) => {
+            const img = new Image();
+            img.onload = () => resolve(img);
+            img.onerror = () => reject(new Error(`Failed to load image: ${src}`));
+            img.src = src;
+        }));
         try {
             await Promise.all(promises);
         } catch (error) {
@@ -151,7 +141,6 @@ export default class GameEngine {
         if (!node) return;
         
         if (node.type === 'minigame') {
-            console.log(`检测到小游戏节点 [${nodeId}]，正在启动...`);
             this.gameState.historyCheckpoint = this.gameState.currentSave.dialogueHistory.length;
             this.audioManager.stopBgm();
             this.showView('Minigame', { nodeData: node });
@@ -161,16 +150,9 @@ export default class GameEngine {
         if (node.type === 'text' || node.type === 'choices') {
             const textKey = `story.nodes.${nodeId}.text`;
             const textContent = this.localization.get(textKey);
-
-            const historyEntry = {
-                speaker: node.name,
-                text: textContent,
-                nodeId: nodeId
-            };
-            
+            const historyEntry = { speaker: node.name, text: textContent, nodeId: nodeId };
             const history = this.gameState.currentSave.dialogueHistory;
             const lastEntry = history.length > 0 ? history[history.length - 1] : null;
-
             if (!lastEntry || lastEntry.nodeId !== historyEntry.nodeId || lastEntry.speaker !== historyEntry.speaker) {
                 history.push(historyEntry);
             }
@@ -180,26 +162,22 @@ export default class GameEngine {
         this.gameState.currentSave.nodeId = nodeId;
         this.uiManager.renderNode(node);
 
-        if (node.bgm) {
-            this.audioManager.playBgm(`./assets/bgm/${node.bgm}.mp3`);
-        } else if (node.bgm === null) {
-            this.audioManager.stopBgm();
+        if (this.gameState.interactionCount === 0) {
+            this.uiManager.displayTooltip('点击鼠标或按 <kbd>SPACE</kbd> 继续');
         }
 
-        if (node.voice) {
-            this.audioManager.playVoice(`./assets/voice/${node.voice}.mp3`);
-        } else {
-            this.audioManager.stopVoice();
+        if (this.gameState.currentSave.dialogueHistory.length > 10 && !this.gameState.fastForwardTooltipShown) {
+            this.uiManager.displayTooltip('长按 <kbd>SPACE</kbd> 快进', 7000);
+            this.gameState.fastForwardTooltipShown = true;
         }
-        
-        if (node.unlockAchievement) {
-            this.saveManager.unlockAchievement(node.unlockAchievement);
-        }
-        
-        if (node.onEnter) { }
-        if (node.type === 'animation') { 
 
-         }
+        if (node.bgm) this.audioManager.playBgm(`./assets/bgm/${node.bgm}.mp3`);
+        else if (node.bgm === null) this.audioManager.stopBgm();
+
+        if (node.voice) this.audioManager.playVoice(`./assets/voice/${node.voice}.mp3`);
+        else this.audioManager.stopVoice();
+        
+        if (node.unlockAchievement) this.saveManager.unlockAchievement(node.unlockAchievement);
     }
     
     async handleAnimation(node) {
@@ -209,11 +187,15 @@ export default class GameEngine {
 
     requestPlayerInput(choiceIndex = null) {
         if (this.gameState.isInputDisabled || this.gameState.isPaused || this.gameState.isHistoryVisible) return;
-        
         this.setInputDisabled(true);
         
         this._handlePlayerInput(choiceIndex).finally(() => {
             this.setInputDisabled(false);
+            
+            if (this.gameState.interactionCount === 0) {
+                this.uiManager.hideTooltip();
+            }
+            this.gameState.interactionCount++;
         });
     }
 
@@ -237,13 +219,8 @@ export default class GameEngine {
                 const choiceTextKey = `story.nodes.${currentNodeId}.choices`;
                 const choiceTexts = this.localization.get(choiceTextKey);
                 const selectedText = choiceTexts[choiceIndex];
-                
-                const choiceEntry = {
-                    type: 'choice', 
-                    text: selectedText
-                };
+                const choiceEntry = { type: 'choice', text: selectedText };
                 this.gameState.currentSave.dialogueHistory.push(choiceEntry);
-
                 const choice = onNext.choice[choiceIndex];
                 if (choice.loveValue) {
                     this.gameState.currentSave.LoveValue = (this.gameState.currentSave.LoveValue || 0) + choice.loveValue;

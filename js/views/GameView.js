@@ -149,6 +149,39 @@ const GameView = {
                 #history-content::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.4); border-radius: 4px;}
                 #history-content::-webkit-scrollbar-thumb:hover { background: rgba(255,255,255,0.6); }
 
+                .tooltip-container {
+                    position: fixed;
+                    bottom: 20px;
+                    right: 20px;
+                    z-index: 998;
+                }
+                .tooltip {
+                    background-color: rgba(0, 0, 0, 0.8); 
+                    color: white;
+                    padding: 12px 20px;
+                    border-radius: 8px;
+                    font-size: 16px;
+                    opacity: 0;
+                    transition: opacity 0.5s ease-in-out;
+                    pointer-events: none;
+                    border: 1px solid rgba(255, 255, 255, 0.2);
+                    box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+                }
+                .tooltip.visible {
+                    opacity: 1;
+                }
+                .tooltip kbd {
+                    display: inline-block;
+                    padding: 2px 6px;
+                    font-family: monospace;
+                    background-color: #333;
+                    border: 1px solid #555;
+                    border-radius: 3px;
+                    margin: 0 4px;
+                }
+                #basic-tooltip.hidden {
+                    display: none;
+                }
             </style>
             <div class="view game-view">
                 <img class="game-bgr" id="game-bgr">
@@ -202,6 +235,9 @@ const GameView = {
                         </div>
                     </div>
                     <button id="history-close-btn">&times;</button>
+                </div>
+                <div class="tooltip-container">
+                    <div id="game-tooltip" class="tooltip"></div>
                 </div>
             </div>
         `;
