@@ -79,6 +79,16 @@ export default class SaveManager {
         return true;
     }
 
+    deleteSave(slotIndex) {
+        if (!this.currentUser || slotIndex < 0 || slotIndex >= this.currentUser.saveArray.length) {
+            return false;
+        }
+
+        this.currentUser.saveArray[slotIndex] = null;
+        this.persistCurrentUser();
+        return true;
+    }
+
     loadGame(slotIndex) {
         if (!this.currentUser || !this.currentUser.saveArray[slotIndex]) {
             return null;
