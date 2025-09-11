@@ -190,7 +190,7 @@ export default class UIManager {
         if (!achievement) return;
 
         // 播放解锁音效
-        this.engine.audioManager.playSoundEffect('sysYes'); //
+        this.engine.audioManager.playSoundEffect('sysYes'); 
 
         const popup = document.createElement('div');
         popup.className = 'achievement-popup';
