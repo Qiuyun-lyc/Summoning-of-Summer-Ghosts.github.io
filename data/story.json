@@ -84,11 +84,34 @@
       }
     },
 
+    "4": {
+      "type": "minigame",
+      "gameId": "platformer",
+      "level": "level3.json",
+      "timeLimit": 30,
+      "introText": "搜集与事故有关的线索，找到遗忘在历史中的记忆.",
+      "resultTitle": "任务结果",
+      "winCondition": {
+        "type": "collect",
+        "value": 7
+      },
+      "onComplete": {
+        "win": {
+          "targetNode": 40310,
+          "outroText": "你成功找到了一些线索，窥见了时光在当年事故中留下的一丝痕迹."
+        },
+        "lose": {
+          "targetNode": 40311,
+          "outroText": "岁月的尘埃被洗刷干净，迷雾笼罩了正义与窥秘人的双眼"
+        }
+      }
+    },
+
     "1001": {
       "type": "text",
       "name": "narrator",
       "bgr": "原野1",
-      "bgm": "test",
+      "bgm": "雨后夏日",
       "voice": "null",
       "onNext": { "nextNode": true }
     },
@@ -133,7 +156,7 @@
       "name": "narrator",
       "voice": "1007",
       "bgr": "黄昏画室2",
-      "bgm": "test",
+      "bgm": "雨后夏日",
       "onNext": { "nextNode": true }
     },
     "1008": {
@@ -327,7 +350,7 @@
       "name": "narrator",
       "voice": "null",
       "bgr": "公园3",
-      "bgm": "test",
+      "bgm": "雨后夏日",
       "onNext": { "nextNode": true }
     },
     "1033": {
@@ -484,7 +507,7 @@
       "voice": "null",
       "name": "narrator",
       "bgr": "公园2",
-      "bgm": "test",
+      "bgm": "雨后夏日",
       "onNext": { "nextNode": true }
     },
     "1053": {
@@ -530,7 +553,7 @@
       "voice": "null",
       "name": "narrator",
       "bgr": "病房",
-      "bgm": "test",
+      "bgm": "雨后夏日",
       "onNext": { "setNode": 1060 }
     },
     "1059": {
@@ -700,7 +723,7 @@
       "name": "narrator",
       "voice": "null",
       "bgr": "城市落日",
-      "bgm": "test",
+      "bgm": "夏夜低语",
       "onNext": { "nextNode": true }
     },
     "1081": {
@@ -723,7 +746,7 @@
       "name": "fadeInBlack",
       "voice": "null",
       "bgr": "电脑",
-      "bgm": "test",
+      "bgm": "夏夜低语",
       "onNext": { "setNode": 1103 }
     },
     "1102": {
@@ -943,7 +966,7 @@
       "name": "narrator",
       "bgr": "俯瞰城市",
       "voice": "null",
-      "bgm": "test",
+      "bgm": "夏夜低语",
       "onNext": { "nextNode": true }
     },
     "1132": {
@@ -990,7 +1013,7 @@
       "name": "narrator",
       "voice": "null",
       "bgr": "俯瞰城市",
-      "bgm": "test",
+      "bgm": "夏夜低语",
       "onNext": { "nextNode": true }
     },
     "1138": {
@@ -1046,7 +1069,7 @@
       "name": "narrator",
       "voice": "null",
       "bgr": "咖啡馆3",
-      "bgm": "test",
+      "bgm": "日落橘风",
       "onNext": { "nextNode": true }
     },
     "1145": {
@@ -1649,7 +1672,7 @@
       "voice": "null",
       "name": "narrator",
       "bgr": "机场跑道1",
-      "bgm": "test",
+      "bgm": "云村的风",
       "onNext": { "nextNode": true }
     },
     "1302": {
@@ -1756,7 +1779,7 @@
       "name": "narrator",
       "voice": "null",
       "bgr": "原画三人与夕阳",
-      "bgm": "test",
+      "bgm": "云村的风",
       "onNext": { "nextNode": true }
     },
     "1316": {
@@ -2003,7 +2026,7 @@
       "name": "narrator",
       "voice": "null",
       "bgr": "原画三人烟火",
-      "bgm": "test",
+      "bgm": "云村的风",
       "onNext": { "nextNode": true }
     },
     "1349": {
