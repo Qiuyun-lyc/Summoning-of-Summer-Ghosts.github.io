@@ -142,9 +142,11 @@ export default class GameEngine {
             this.showView('Minigame', { nodeData: node });
             return;
         }
+
         if (node.type === 'text' || node.type === 'choices') {
             const textKey = `story.nodes.${nodeId}.text`;
             const textContent = this.localization.get(textKey);
+
             const historyEntry = {
                 speaker: node.name,
                 text: textContent,
@@ -206,6 +208,17 @@ export default class GameEngine {
 
         if (onNext.choice) {
             if (choiceIndex !== null && onNext.choice[choiceIndex]) {
+                // 记录选择
+                const choiceTextKey = `story.nodes.${currentNodeId}.choices`;
+                const choiceTexts = this.localization.get(choiceTextKey);
+                const selectedText = choiceTexts[choiceIndex];
+                
+                const choiceEntry = {
+                    type: 'choice', // 标记为选择
+                    text: selectedText
+                };
+                this.gameState.currentSave.dialogueHistory.push(choiceEntry);
+
                 const choice = onNext.choice[choiceIndex];
                 if (choice.loveValue) {
                     this.gameState.currentSave.LoveValue = (this.gameState.currentSave.LoveValue || 0) + choice.loveValue;

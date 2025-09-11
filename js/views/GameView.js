@@ -64,7 +64,6 @@ const GameView = {
                     pointer-events: none; /* 让鼠标事件穿透文字，触发父元素的悬停 */
                 }
 
-                /* --- ADD START --- */
                 /* 历史记录浮层样式 */
                 .history-overlay {
                     position: fixed;
@@ -112,7 +111,7 @@ const GameView = {
                 .history-speaker {
                     font-weight: bold;
                     font-size: 1.2em;
-                    color: #da86b2c8;
+                    color: #ffd700; /* 金色，用于突出说话人 */
                     margin-bottom: 8px;
                     font-family: 'lilyshow', sans-serif;
                 }
@@ -122,6 +121,18 @@ const GameView = {
                     white-space: pre-wrap; /* 保留换行 */
                     color: #f0f0f0;
                 }
+                
+                .history-choice {
+                    padding: 12px 20px;
+                    margin: 15px 0;
+                    text-align: center;
+                    background-color: rgba(128, 128, 128, 0.2);
+                    border-left: 4px solid #87CEEB; /* 天蓝色边框以示区分 */
+                    border-radius: 8px;
+                    font-style: italic;
+                    color: #E0FFFF; /* 淡青色文字 */
+                }
+
                 #history-close-btn {
                     position: absolute;
                     top: 20px;
@@ -137,7 +148,6 @@ const GameView = {
                 #history-content::-webkit-scrollbar-track { background: rgba(255,255,255,0.1); border-radius: 4px;}
                 #history-content::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.4); border-radius: 4px;}
                 #history-content::-webkit-scrollbar-thumb:hover { background: rgba(255,255,255,0.6); }
-                /* --- ADD END --- */
 
             </style>
             <div class="view game-view">
@@ -177,15 +187,12 @@ const GameView = {
                         <img src="./assets/img/button.png">
                         <span>菜单</span>
                     </button>
-                    <!-- --- ADD START --- -->
                     <button id="history-btn" class="ingame-menu-button">
                         <img src="./assets/img/button.png">
                         <span>历史</span>
                     </button>
-                    <!-- --- ADD END --- -->
                 </div>
 
-                <!-- --- ADD START --- -->
                 <!-- 历史记录浮层 -->
                 <div id="dialogue-history-overlay" class="history-overlay">
                     <div class="history-panel">
@@ -196,7 +203,6 @@ const GameView = {
                     </div>
                     <button id="history-close-btn">&times;</button>
                 </div>
-                <!-- --- ADD END --- -->
             </div>
         `;
         // 为此视图初始化打字机
@@ -223,10 +229,9 @@ const GameView = {
         document.getElementById('ingame-menu-btn').addEventListener('click', (e) => {
             e.stopPropagation();
             engine.audioManager.playSoundEffect('click');
-            engine.pauseGame(); // 调用暂停（即打开菜单）
+            engine.pauseGame(); // 调用暂停
         });
 
-        // --- ADD START ---
         // 历史记录按钮
         document.getElementById('history-btn').addEventListener('click', (e) => {
             e.stopPropagation();
@@ -240,7 +245,6 @@ const GameView = {
             engine.audioManager.playSoundEffect('click');
             engine.uiManager.toggleHistory(false); // 调用 UIManager 的方法来隐藏历史
         });
-        // --- ADD END ---
 
         // 空格键快捷键
         document.addEventListener('keydown', function onKeydown(e) {

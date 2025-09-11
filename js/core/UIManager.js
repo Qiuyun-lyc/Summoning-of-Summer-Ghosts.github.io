@@ -158,15 +158,21 @@ export default class UIManager {
             
             contentContainer.innerHTML = '';
             historyData.forEach(entry => {
-                const speakerName = this.engine.localization.get(`story.name.${entry.speaker}`);
-                
                 const entryElement = document.createElement('div');
-                entryElement.className = 'history-entry';
-                if (speakerName.trim()) {
-                    entryElement.innerHTML += `<div class="history-speaker">${speakerName}</div>`;
+
+                if (entry.type === 'choice') {
+                    // 选择
+                    entryElement.className = 'history-choice';
+                    entryElement.textContent = `> ${entry.text}`;
+                } else {
+                    // 对话
+                    entryElement.className = 'history-entry';
+                    const speakerName = this.engine.localization.get(`story.name.${entry.speaker}`);
+                    if (speakerName.trim()) {
+                        entryElement.innerHTML += `<div class="history-speaker">${speakerName}</div>`;
+                    }
+                    entryElement.innerHTML += `<p class="history-text">${entry.text}</p>`;
                 }
-                
-                entryElement.innerHTML += `<p class="history-text">${entry.text}</p>`;
                 
                 contentContainer.appendChild(entryElement);
             });
@@ -258,4 +264,4 @@ export default class UIManager {
             }, { once: true });
         }, 4000); // 毫秒
     }
-} 
+}
