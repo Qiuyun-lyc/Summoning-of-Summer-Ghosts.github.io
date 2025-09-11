@@ -15,22 +15,22 @@ const LoadView = {
 
                 <!-- 顶部导航栏 -->
                 <nav class="navbar">
-                    <span class="main-menu-button" style="top:-20px;left:-15px">
+                    <span class="main-menu-button">
                         <img class="button-img" src="./assets/img/button.png">
                         <a>存档系统</a>
                     </span>
-                    <div>
-                        <button id="back-to-menu" class="main-menu-button" style="top:-20px;right:-15px;background:none;border:none;font-family: 'lilyshow', 'FangSong', '仿宋', 'SimSun', sans-serif;">
+                    
+                    ${engine.gameState.currentSave ? `
+                        <button id="back-to-game" class="main-menu-button" style="background:none;border:none;font-family: 'lilyshow', 'FangSong', '仿宋', 'SimSun', sans-serif;">
                             <img class="button-img" src="./assets/img/button.png">
-                            <a>${L.get('ui.title')}</a>
+                            <a>${L.get('ui.continue')}</a>
                         </button>
-                        ${engine.gameState.currentSave ? `
-                            <button id="back-to-game" class="main-menu-button" style="top:-20px;right:800px;background:none;border:none;font-family: 'lilyshow', 'FangSong', '仿宋', 'SimSun', sans-serif;">
-                                <img class="button-img" src="./assets/img/button.png">
-                                <a>${L.get('ui.continue')}</a>
-                            </button>
-                        ` : ''}
-                    </div>
+                    ` : ''}
+
+                    <button id="back-to-menu" class="main-menu-button" style="background:none;border:none;font-family: 'lilyshow', 'FangSong', '仿宋', 'SimSun', sans-serif;">
+                        <img class="button-img" src="./assets/img/button.png">
+                        <a>${L.get('ui.title')}</a>
+                    </button>
                 </nav>
 
                 <!-- 存档槽容器 -->
