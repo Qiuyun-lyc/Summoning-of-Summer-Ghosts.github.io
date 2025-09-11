@@ -591,6 +591,7 @@
     "1066": {
       "type": "text",
       "voice": "null",
+      "rCharactor": "中年男士1",
       "name": "narrator",
       "inherit": 1058,
       "onNext": { "nextNode": true }
@@ -606,6 +607,7 @@
     "1068": {
       "type": "text",
       "voice": "null",
+      "rCharactor": "中年男士1",
       "name": "narrator",
       "inherit": 1058,
       "onNext": { "nextNode": true }
@@ -621,6 +623,7 @@
     "1070": {
       "type": "text",
       "voice": "null",
+      "rCharactor": "中年男士1",
       "name": "narrator",
       "inherit": 1058,
       "onNext": { "nextNode": true }
@@ -680,7 +683,7 @@
     "1078": {
       "type": "text",
       "name": "ryo",
-      "rCharactor": "凉_微笑",
+      "rCharactor": "凉_回忆",
       "voice": "1078",
       "inherit": 1058,
       "onNext": { "nextNode": true }
@@ -814,7 +817,7 @@
       "name": "narrator",
       "voice": "null",
       "inherit": 1101,
-      "onNext": { "nextNode": true }
+      "onNext": { "setNode": 1116 }
     },
     "1115": {
       "type": "text",
@@ -869,7 +872,7 @@
     "1122": {
       "type": "text",
       "name": "tomoya",
-      "lCharactor": "友也_平静",
+      "lCharactor": "友也_回忆",
       "voice": "1122",
       "inherit": 1101,
       "onNext": { "nextNode": true }
@@ -877,7 +880,7 @@
     "1123": {
       "type": "text",
       "name": "ryo",
-      "rCharactor": "凉_微笑",
+      "rCharactor": "凉_俏皮",
       "voice": "1123",
       "inherit": 1101,
       "onNext": { "nextNode": true }
@@ -954,9 +957,9 @@
     "1133": {
       "type": "text",
       "name": "tomoya",
-      "lCharactor": "友也_思考",
+      "lCharactor": "友也_回忆",
       "voice": "1133",
-      "inherit": 1031,
+      "inherit": 1131,
       "onNext": { "nextNode": true }
     },
     "1134": {
@@ -964,21 +967,21 @@
       "name": "tomoya",
       "lCharactor": "友也_平静",
       "voice": "1134",
-      "inherit": 1031,
+      "inherit": 1131,
       "onNext": { "nextNode": true }
     },
     "1135": {
       "type": "text",
       "name": "narrator",
       "voice": "null",
-      "inherit": 1031,
+      "inherit": 1131,
       "onNext": { "nextNode": true }
     },
     "1136": {
       "type": "animation",
       "name": "fadeInBlack",
       "voice": "null",
-      "inherit": 1031,
+      "inherit": 1131,
       "onNext": { "nextNode": true }
     },
 
@@ -995,7 +998,7 @@
       "voice": "null",
       "name": "ryo",
       "rCharactor": "凉_微笑",
-      "inherit": 1037,
+      "inherit": 1137,
       "onNext": { "nextNode": true }
     },
     "1139": {
@@ -1003,7 +1006,7 @@
       "voice": "null",
       "name": "aoi",
       "lCharactor": "葵_微笑",
-      "inherit": 1037,
+      "inherit": 1137,
       "onNext": { "nextNode": true }
     },
     "1140": {
@@ -1011,7 +1014,7 @@
       "voice": "null",
       "name": "tomoya",
       "lCharactor": "友也_平静",
-      "inherit": 1037,
+      "inherit": 1137,
       "onNext": { "nextNode": true }
     },
     "1141": {
@@ -1019,7 +1022,7 @@
       "voice": "null",
       "name": "aoi",
       "lCharactor": "葵_微笑",
-      "inherit": 1037,
+      "inherit": 1137,
       "onNext": { "nextNode": true }
     },
     "1142": {
@@ -1027,14 +1030,14 @@
       "voice": "null",
       "name": "tomoya",
       "lCharactor": "友也_平静",
-      "inherit": 1037,
+      "inherit": 1137,
       "onNext": { "nextNode": true }
     },
     "1143": {
       "type": "animation",
       "voice": "null",
       "name": "fadeInBlack",
-      "inherit": 1037,
+      "inherit": 1137,
       "onNext": { "nextNode": true }
     },
 
@@ -1245,7 +1248,7 @@
     "1171": {
       "type": "text",
       "name": "ryo",
-      "rCharactor": "凉_微笑",
+      "rCharactor": "凉_俏皮",
       "voice": "1171",
       "inherit": 1144,
       "onNext": { "nextNode": true }
@@ -1393,7 +1396,7 @@
     "1190": {
       "type": "text",
       "name": "ryo",
-      "rCharactor": "凉_微笑",
+      "rCharactor": "凉_回忆",
       "voice": "1190",
       "inherit": 1144,
       "onNext": { "nextNode": true }
@@ -1582,7 +1585,7 @@
       "rCharactor": "凉_微笑",
       "voice": "1214",
       "inherit": 1144,
-      "onNext": { "nextNode": true }
+      "onNext": { "setNode": 1216 }
     },
     "1215": {
       "type": "text",
