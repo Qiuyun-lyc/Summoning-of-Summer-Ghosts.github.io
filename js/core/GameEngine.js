@@ -29,6 +29,7 @@ export default class GameEngine {
             currentSave: null,
             isPaused: false,
             isInputDisabled: false,
+            isHistoryVisible: false,
         };
 
         this.views = {
@@ -141,7 +142,6 @@ export default class GameEngine {
             this.showView('Minigame', { nodeData: node });
             return;
         }
-
         if (node.type === 'text' || node.type === 'choices') {
             const textKey = `story.nodes.${nodeId}.text`;
             const textContent = this.localization.get(textKey);
@@ -150,9 +150,9 @@ export default class GameEngine {
                 text: textContent,
                 nodeId: nodeId
             };
+            
             this.gameState.currentSave.dialogueHistory.push(historyEntry);
         }
-
 
         await this.preloadAssetsForNode(node); 
         this.gameState.currentSave.nodeId = nodeId;
@@ -188,7 +188,7 @@ export default class GameEngine {
     }
 
     async handlePlayerInput(choiceIndex = null) {
-        if (this.gameState.isInputDisabled || this.gameState.isPaused) return;
+        if (this.gameState.isInputDisabled || this.gameState.isPaused || this.gameState.isHistoryVisible) return;
 
         this.audioManager.stopVoice();
 
