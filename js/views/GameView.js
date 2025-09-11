@@ -64,6 +64,91 @@ const GameView = {
                     pointer-events: none; /* 让鼠标事件穿透文字，触发父元素的悬停 */
                 }
 
+                /* 历史记录浮层样式 */
+                .history-overlay {
+                    position: fixed;
+                    top: 0; left: 0;
+                    width: 100vw; height: 100vh;
+                    background-color: rgba(0, 0, 0, 0.8);
+                    z-index: 1000;
+                    display: none; /* 默认隐藏 */
+                    justify-content: center;
+                    align-items: center;
+                    backdrop-filter: blur(5px);
+                    -webkit-backdrop-filter: blur(5px);
+                }
+                .history-panel {
+                    width: 90%;
+                    max-width: 800px;
+                    height: 80%;
+                    background-color: rgba(20, 20, 30, 0.9);
+                    border: 2px solid rgba(255, 255, 255, 0.2);
+                    border-radius: 15px;
+                    padding: 20px 30px;
+                    box-shadow: 0 0 25px rgba(0,0,0,0.5);
+                    display: flex;
+                    flex-direction: column;
+                }
+                .history-panel h2 {
+                    text-align: center;
+                    color: white;
+                    margin-top: 0;
+                    margin-bottom: 20px;
+                    font-family: 'lilyshow', sans-serif;
+                    font-size: 2em;
+                    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+                    padding-bottom: 15px;
+                }
+                #history-content {
+                    flex-grow: 1;
+                    overflow-y: auto;
+                    padding-right: 15px; /* 为滚动条留出空间 */
+                }
+                .history-entry {
+                    margin-bottom: 18px;
+                    color: white;
+                }
+                .history-speaker {
+                    font-weight: bold;
+                    font-size: 1.2em;
+                    color: #e1abd2ff; /* 粉色，用于突出说话人 */
+                    margin-bottom: 8px;
+                    font-family: 'lilyshow', sans-serif;
+                }
+                .history-text {
+                    font-size: 1.1em;
+                    line-height: 1.6;
+                    white-space: pre-wrap; /* 保留换行 */
+                    color: #f0f0f0;
+                }
+                
+                .history-choice {
+                    padding: 12px 20px;
+                    margin: 15px 0;
+                    text-align: center;
+                    background-color: rgba(128, 128, 128, 0.2);
+                    border-left: 4px solid #87CEEB; /* 天蓝色边框以示区分 */
+                    border-radius: 8px;
+                    font-style: italic;
+                    color: #E0FFFF; /* 淡青色文字 */
+                }
+
+                #history-close-btn {
+                    position: absolute;
+                    top: 20px;
+                    right: 20px;
+                    font-size: 2em;
+                    color: white;
+                    cursor: pointer;
+                    background: none;
+                    border: none;
+                }
+                /* 美化滚动条 */
+                #history-content::-webkit-scrollbar { width: 8px; }
+                #history-content::-webkit-scrollbar-track { background: rgba(255,255,255,0.1); border-radius: 4px;}
+                #history-content::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.4); border-radius: 4px;}
+                #history-content::-webkit-scrollbar-thumb:hover { background: rgba(255,255,255,0.6); }
+
             </style>
             <div class="view game-view">
                 <img class="game-bgr" id="game-bgr">
@@ -102,6 +187,21 @@ const GameView = {
                         <img src="./assets/img/button.png">
                         <span>菜单</span>
                     </button>
+                    <button id="history-btn" class="ingame-menu-button">
+                        <img src="./assets/img/button.png">
+                        <span>历史</span>
+                    </button>
+                </div>
+
+                <!-- 历史记录浮层 -->
+                <div id="dialogue-history-overlay" class="history-overlay">
+                    <div class="history-panel">
+                        <h2>对话历史</h2>
+                        <div id="history-content">
+                            <!-- 历史记录将动态插入这里 -->
+                        </div>
+                    </div>
+                    <button id="history-close-btn">&times;</button>
                 </div>
             </div>
         `;
@@ -112,7 +212,7 @@ const GameView = {
         const gameView = container.querySelector('.game-view');
         
         // 主点击/触摸处理器
-        gameView.addEventListener('click', () => engine.handlePlayerInput());
+        gameView.addEventListener('click', () => engine.requestPlayerInput());
         
         // 选项按钮
         container.querySelectorAll('.choice-line').forEach(button => {
@@ -121,7 +221,7 @@ const GameView = {
                 e.stopPropagation(); // 防止事件冒泡到game-view
                 engine.audioManager.playSoundEffect('click');
                 const choiceIndex = parseInt(e.currentTarget.dataset.choiceIndex);
-                engine.handlePlayerInput(choiceIndex);
+                engine.requestPlayerInput(choiceIndex);
             });
         });
 
@@ -129,12 +229,27 @@ const GameView = {
         document.getElementById('ingame-menu-btn').addEventListener('click', (e) => {
             e.stopPropagation();
             engine.audioManager.playSoundEffect('click');
-            engine.pauseGame(); // 调用暂停（即打开菜单）
+            engine.pauseGame(); // 调用暂停
         });
+
+        // 历史记录按钮
+        document.getElementById('history-btn').addEventListener('click', (e) => {
+            e.stopPropagation();
+            engine.audioManager.playSoundEffect('click');
+            engine.uiManager.toggleHistory(true); // 调用 UIManager 的方法来显示历史
+        });
+
+        // 关闭历史记录按钮
+        document.getElementById('history-close-btn').addEventListener('click', (e) => {
+            e.stopPropagation();
+            engine.audioManager.playSoundEffect('click');
+            engine.uiManager.toggleHistory(false); // 调用 UIManager 的方法来隐藏历史
+        });
+
         // 空格键快捷键
         document.addEventListener('keydown', function onKeydown(e) {
             if (e.key === ' ' && document.querySelector('.game-view')) {
-              engine.handlePlayerInput();
+              engine.requestPlayerInput();
             }
             // 当视图改变时，需移除这个监听器，避免在其他页面触发（下次一定）
         });
