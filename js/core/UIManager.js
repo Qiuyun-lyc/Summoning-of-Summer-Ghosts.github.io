@@ -191,6 +191,42 @@ export default class UIManager {
         }
     }
 
+    displayTooltip(message, duration = 0) {
+        const tooltip = document.getElementById('game-tooltip');
+        if (!tooltip) return;
+
+        // 清除上一个计时器（如果有）
+        if (this.tooltipTimeout) {
+            clearTimeout(this.tooltipTimeout);
+            this.tooltipTimeout = null;
+        }
+        
+        tooltip.innerHTML = message;
+        tooltip.classList.remove('hidden');
+        
+        // 使用 requestAnimationFrame 确保在下一帧应用 'visible' 类以触发过渡
+        requestAnimationFrame(() => {
+            tooltip.classList.add('visible');
+        });
+
+        if (duration > 0) {
+            this.tooltipTimeout = setTimeout(() => {
+                this.hideTooltip();
+            }, duration);
+        }
+    }
+
+    hideTooltip() {
+        const tooltip = document.getElementById('game-tooltip');
+        if (!tooltip) return;
+
+        tooltip.classList.remove('visible');
+        // 在过渡动画结束后再添加 hidden 类
+        setTimeout(() => {
+            tooltip.classList.add('hidden');
+        }, 500); // 500ms 匹配CSS中的过渡时间
+    }
+
     showAchievementPopup(achievementId) {
         const achievement = this.engine.dataManager.getAllAchievements().find(a => a.id === achievementId);
         if (!achievement) return;

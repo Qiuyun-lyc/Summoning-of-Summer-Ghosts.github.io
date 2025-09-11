@@ -54,8 +54,6 @@ export default class Animation {
         this._fadeToggle('./assets/img/bgr/test.png', 'show-title-icon', 1000, 2000, 1000, resolve);
     }
     
-    // *** 修改 fadeInBlack ***
-    // 它现在只负责淡入黑屏，并保持黑色。它会留下一个ID，以便fadeOutBlack可以找到它。
     fadeInBlack(resolve) {
         // 检查是否已经存在一个黑屏遮罩，如果存在就先移除
         const existingOverlay = document.getElementById('black-overlay-transition');
@@ -74,8 +72,6 @@ export default class Animation {
         });
     }
 
-    // *** 修改 fadeOutBlack ***
-    // 它现在负责找到由fadeInBlack创建的黑屏，并将其淡出后移除。
     fadeOutBlack(resolve) {
         const element = document.getElementById('black-overlay-transition');
         if (element) {

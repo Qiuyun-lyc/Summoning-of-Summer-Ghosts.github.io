@@ -209,9 +209,7 @@ export default class GameEngine {
 
     requestPlayerInput(choiceIndex = null) {
         if (this.gameState.isInputDisabled || this.gameState.isPaused || this.gameState.isHistoryVisible) return;
-        
         this.setInputDisabled(true);
-        
         this._handlePlayerInput(choiceIndex).finally(() => {
             this.setInputDisabled(false);
         });
