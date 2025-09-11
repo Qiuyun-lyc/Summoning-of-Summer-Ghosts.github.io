@@ -1,5 +1,3 @@
-//import SentencePrinter from '../modules/SentencePrinter.js';
-
 export default class UIManager {
     constructor(engine) {
         this.engine = engine;
@@ -12,7 +10,6 @@ export default class UIManager {
     }
     
     renderNode(node) {
-        // 确保游戏视图元素存在
         if (!document.querySelector('.game-view')) return;
 
         const bgr = document.getElementById('game-bgr');
@@ -22,18 +19,15 @@ export default class UIManager {
         const dialogueGroup = document.querySelector('.dialogue-group');
         const choiceGroup = document.querySelector('.choice-group');
 
-        // 背景
         if (node.bgr) {
             bgr.src = `./assets/img/bgr/${node.bgr}.png`;
         }
 
-        // 角色立绘
         lChar.src = node.lCharactor ? `./assets/img/character/${node.lCharactor}.png` : '';
         document.getElementById('l-char-box').style.display = node.lCharactor ? 'flex' : 'none';
         rChar.src = node.rCharactor ? `./assets/img/character/${node.rCharactor}.png` : '';
         document.getElementById('r-char-box').style.display = node.rCharactor ? 'flex' : 'none';
         
-        // 对话
         if (node.type === 'text' || node.type === 'choices') {
             dialogueGroup.style.display = 'block';
             nameBox.textContent = node.name ? this.engine.localization.get(`story.name.${node.name}`) : '';
@@ -44,7 +38,6 @@ export default class UIManager {
             dialogueGroup.style.display = 'none';
         }
 
-        // 选项
         if (node.type === 'choices') {
             choiceGroup.style.display = 'flex';
             const choiceButtons = choiceGroup.querySelectorAll('.choice-line');
@@ -82,8 +75,6 @@ export default class UIManager {
                 menu = document.createElement('div');
                 menu.id = 'ingame-menu-overlay';
                 menu.className = 'ingame-menu-overlay';
-    
-                // 创建菜单的 HTML 结构和样式
                 menu.innerHTML = `
                     <style>
                         .ingame-menu-overlay {
@@ -126,7 +117,6 @@ export default class UIManager {
                 
                 document.body.appendChild(menu);
     
-                // 绑定事件
                 menu.querySelector('[data-action="unpause"]').addEventListener('click', () => { this.engine.audioManager.playSoundEffect('click'); this.engine.unpauseGame(); });
                 menu.querySelector('[data-action="save_load"]').addEventListener('click', () => { this.engine.audioManager.playSoundEffect('click'); this.engine.unpauseGame(); this.engine.showView('Load'); });
                 menu.querySelector('[data-action="title"]').addEventListener('click', () => { this.engine.audioManager.playSoundEffect('click'); this.engine.unpauseGame(); this.engine.showView('MainMenu'); });
@@ -145,12 +135,47 @@ export default class UIManager {
             }
         }
     }
+
+    /**
+     * 控制对话历史浮层的显示与隐藏，并填充内容
+     * @param {boolean} show - true 为显示, false 为隐藏
+     */
+    toggleHistory(show) {
+        const overlay = document.getElementById('dialogue-history-overlay');
+        if (!overlay) return;
+
+        if (show) {
+            const contentContainer = document.getElementById('history-content');
+            const historyData = this.engine.gameState.currentSave.dialogueHistory;
+
+            contentContainer.innerHTML = '';
+            historyData.forEach(entry => {
+                const speakerName = this.engine.localization.get(`story.name.${entry.speaker}`);
+                
+                const entryElement = document.createElement('div');
+                entryElement.className = 'history-entry';
+                if (speakerName.trim()) {
+                    entryElement.innerHTML += `<div class="history-speaker">${speakerName}</div>`;
+                }
+                
+                entryElement.innerHTML += `<p class="history-text">${entry.text}</p>`;
+                
+                contentContainer.appendChild(entryElement);
+            });
+            
+            overlay.style.display = 'flex';
+            contentContainer.scrollTop = contentContainer.scrollHeight;
+        } else {
+
+            overlay.style.display = 'none';
+        }
+    }
+
     showAchievementPopup(achievementId) {
         const achievement = this.engine.dataManager.getAllAchievements().find(a => a.id === achievementId);
         if (!achievement) return;
 
-        // 播放解锁音效
-        this.engine.audioManager.playSoundEffect('sysYes'); //
+        this.engine.audioManager.playSoundEffect('sysYes');
 
         const popup = document.createElement('div');
         popup.className = 'achievement-popup';
@@ -202,20 +227,15 @@ export default class UIManager {
 
         document.body.appendChild(popup);
 
-        // 动画流程
-        // 滑入
         requestAnimationFrame(() => {
             popup.classList.add('show');
         });
 
-        // 停留 4 秒
         setTimeout(() => {
-            // 滑出
             popup.classList.remove('show');
-            // 动画结束后移除元素
             popup.addEventListener('transitionend', () => {
                 popup.remove();
             }, { once: true });
-        }, 4000); // 毫秒
+        }, 4000);
     }
 } 

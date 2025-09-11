@@ -142,6 +142,18 @@ export default class GameEngine {
             return;
         }
 
+        if (node.type === 'text' || node.type === 'choices') {
+            const textKey = `story.nodes.${nodeId}.text`;
+            const textContent = this.localization.get(textKey);
+            const historyEntry = {
+                speaker: node.name,
+                text: textContent,
+                nodeId: nodeId
+            };
+            this.gameState.currentSave.dialogueHistory.push(historyEntry);
+        }
+
+
         await this.preloadAssetsForNode(node); 
         this.gameState.currentSave.nodeId = nodeId;
         this.uiManager.renderNode(node);
@@ -155,7 +167,6 @@ export default class GameEngine {
         if (node.voice) {
             this.audioManager.playVoice(`./assets/voice/${node.voice}.mp3`);
         } else {
-            // 如果节点没有语音，确保停止上一句语音
             this.audioManager.stopVoice();
         }
         
