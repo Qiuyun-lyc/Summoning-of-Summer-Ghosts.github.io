@@ -81,7 +81,6 @@ export default class AudioManager {
     }
 
     playVoice(src) {
-        // 如果正在播放语音，先停止
         this.stopVoice();
 
         if (!src) return;
@@ -91,7 +90,6 @@ export default class AudioManager {
         this.voicePlayer.play().catch(e => console.warn("语音自动播放被浏览器阻止。"));
     }
 
-    // --- 新增：停止语音的方法 ---
     stopVoice() {
         if (this.voicePlayer && !this.voicePlayer.paused) {
             this.voicePlayer.pause();

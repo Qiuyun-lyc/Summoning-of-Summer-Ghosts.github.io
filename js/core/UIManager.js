@@ -1,5 +1,3 @@
-//import SentencePrinter from '../modules/SentencePrinter.js';
-
 export default class UIManager {
     constructor(engine) {
         this.engine = engine;
@@ -145,12 +143,96 @@ export default class UIManager {
             }
         }
     }
+
+    /**
+     * 控制对话历史浮层的显示与隐藏，并填充内容
+     * @param {boolean} show - true 为显示, false 为隐藏
+     */
+    toggleHistory(show) {
+        const overlay = document.getElementById('dialogue-history-overlay');
+        if (!overlay) return;
+
+        if (show) {
+            const contentContainer = document.getElementById('history-content');
+            const historyData = this.engine.gameState.currentSave.dialogueHistory;
+            
+            contentContainer.innerHTML = '';
+            historyData.forEach(entry => {
+                const entryElement = document.createElement('div');
+
+                if (entry.type === 'choice') {
+                    // 选择
+                    entryElement.className = 'history-choice';
+                    entryElement.textContent = `> ${entry.text}`;
+                } else {
+                    // 对话
+                    entryElement.className = 'history-entry';
+                    const speakerName = this.engine.localization.get(`story.name.${entry.speaker}`);
+                    if (speakerName.trim()) {
+                        entryElement.innerHTML += `<div class="history-speaker">${speakerName}</div>`;
+                    }
+                    entryElement.innerHTML += `<p class="history-text">${entry.text}</p>`;
+                }
+                
+                contentContainer.appendChild(entryElement);
+            });
+            
+            overlay.style.display = 'flex';
+            
+            contentContainer.scrollTop = contentContainer.scrollHeight;
+
+            this.engine.gameState.isHistoryVisible = true;
+
+        } else {
+            // 隐藏浮层
+            overlay.style.display = 'none';
+
+            this.engine.gameState.isHistoryVisible = false;
+        }
+    }
+
+    displayTooltip(message, duration = 0) {
+        const tooltip = document.getElementById('game-tooltip');
+        if (!tooltip) return;
+
+        // 清除上一个计时器（如果有）
+        if (this.tooltipTimeout) {
+            clearTimeout(this.tooltipTimeout);
+            this.tooltipTimeout = null;
+        }
+        
+        tooltip.innerHTML = message;
+        tooltip.classList.remove('hidden');
+        
+        // 使用 requestAnimationFrame 确保在下一帧应用 'visible' 类以触发过渡
+        requestAnimationFrame(() => {
+            tooltip.classList.add('visible');
+        });
+
+        if (duration > 0) {
+            this.tooltipTimeout = setTimeout(() => {
+                this.hideTooltip();
+            }, duration);
+        }
+    }
+
+    hideTooltip() {
+        const tooltip = document.getElementById('game-tooltip');
+        if (!tooltip) return;
+
+        tooltip.classList.remove('visible');
+        // 在过渡动画结束后再添加 hidden 类
+        setTimeout(() => {
+            tooltip.classList.add('hidden');
+        }, 500); // 500ms 匹配CSS中的过渡时间
+    }
+
     showAchievementPopup(achievementId) {
         const achievement = this.engine.dataManager.getAllAchievements().find(a => a.id === achievementId);
         if (!achievement) return;
 
         // 播放解锁音效
-        this.engine.audioManager.playSoundEffect('sysYes'); //
+        this.engine.audioManager.playSoundEffect('sysYes'); 
 
         const popup = document.createElement('div');
         popup.className = 'achievement-popup';
@@ -218,4 +300,4 @@ export default class UIManager {
             }, { once: true });
         }, 4000); // 毫秒
     }
-} 
+}

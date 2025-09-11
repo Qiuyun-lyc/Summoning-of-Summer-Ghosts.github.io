@@ -2,19 +2,19 @@ export default class DataManager {
     constructor() {
         this.story = null;
         this.languageData = null;
-        this.achievements = null; // 新增
+        this.achievements = null; 
     }
 
     async loadAllData() {
         try {
-            const [storyResponse, langResponse, achievementsResponse] = await Promise.all([ // 新增
+            const [storyResponse, langResponse, achievementsResponse] = await Promise.all([
                 fetch('./data/story.json'),
-                fetch('./data/lang/zh-cn.json'), // 默认中文
-                fetch('./data/achievements.json') // 新增：加载成就数据
+                fetch('./data/lang/zh-cn.json'), 
+                fetch('./data/achievements.json')
             ]);
             this.story = await storyResponse.json();
             this.languageData = await langResponse.json();
-            this.achievements = await achievementsResponse.json(); // 新增
+            this.achievements = await achievementsResponse.json();
             console.log("所有游戏数据已成功加载。");
         } catch (error) {
             console.error("加载游戏数据失败:", error);
