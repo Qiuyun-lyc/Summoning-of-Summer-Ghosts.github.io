@@ -10,9 +10,11 @@ class User {
 class Save {
     constructor(saveData = {}) {
         this.saveDate = saveData.saveDate || new Date().toISOString();
-        this.nodeId = saveData.nodeId || 101;
+        this.nodeId = saveData.nodeId || 101; // 初始节点
         this.LoveValue = saveData.LoveValue || 0;
-        this.choices = saveData.choices || {};
+        this.choices = saveData.choices || {}; // 使用对象存储选择历史
+        
+        // 新增：对话历史记录数组
         this.dialogueHistory = saveData.dialogueHistory || []; 
     }
 }
@@ -69,8 +71,12 @@ export default class SaveManager {
         if (!this.currentUser || slotIndex < 0 || slotIndex >= this.currentUser.saveArray.length) {
             return false;
         }
-        saveData.saveDate = new Date().toLocaleString('zh-CN');
-        this.currentUser.saveArray[slotIndex] = saveData;
+        // 关键修复：创建一个saveData的深拷贝，以断开与gameState.currentSave的引用
+        const saveCopy = JSON.parse(JSON.stringify(saveData));
+        
+        saveCopy.saveDate = new Date().toLocaleString('zh-CN');
+        this.currentUser.saveArray[slotIndex] = saveCopy;
+        
         this.persistCurrentUser();
         return true;
     }
@@ -96,9 +102,12 @@ export default class SaveManager {
             this.persistCurrentUser();
             console.log(`成就已解锁: ${achievementId}`);
 
+            // 创建一个自定义事件，并携带成就ID作为数据
             const event = new CustomEvent('achievementUnlocked', {
                 detail: { achievementId: achievementId }
             });
+            
+            // 在全局的 window 对象上分派这个事件
             window.dispatchEvent(event);
         }
     }
