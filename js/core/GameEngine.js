@@ -30,6 +30,7 @@ export default class GameEngine {
             isPaused: false,
             isInputDisabled: false,
             isHistoryVisible: false,
+            historyCheckpoint: -1,
         };
 
         this.views = {
@@ -86,19 +87,32 @@ export default class GameEngine {
     
     async startGame(saveData) {
         this.gameState.currentSave = saveData;
+
         this.showView('Game');
-        this.processNode(this.gameState.currentSave.nodeId);
+        await this.processNode(this.gameState.currentSave.nodeId);
     }
     
     startNewGame() {
         const newSave = this.saveManager.createNewSave();
         this.startGame(newSave);
     }
+
     async resumeGame() {
         this.showView('Game');
         
-        this.processNode(this.gameState.currentSave.nodeId);
+        await this.processNode(this.gameState.currentSave.nodeId);
     }
+
+    async returnToGame() {
+        if (this.gameState.historyCheckpoint !== -1) {
+            this.gameState.currentSave.dialogueHistory.length = this.gameState.historyCheckpoint;
+            this.gameState.historyCheckpoint = -1;
+        }
+
+        this.showView('Game');
+        await this.processNode(this.gameState.currentSave.nodeId);
+    }
+
     async preloadAssetsForNode(node) {
         const assetsToLoad = [];
 
@@ -138,6 +152,7 @@ export default class GameEngine {
         
         if (node.type === 'minigame') {
             console.log(`检测到小游戏节点 [${nodeId}]，正在启动...`);
+            this.gameState.historyCheckpoint = this.gameState.currentSave.dialogueHistory.length;
             this.audioManager.stopBgm();
             this.showView('Minigame', { nodeData: node });
             return;
@@ -153,7 +168,12 @@ export default class GameEngine {
                 nodeId: nodeId
             };
             
-            this.gameState.currentSave.dialogueHistory.push(historyEntry);
+            const history = this.gameState.currentSave.dialogueHistory;
+            const lastEntry = history.length > 0 ? history[history.length - 1] : null;
+
+            if (!lastEntry || lastEntry.nodeId !== historyEntry.nodeId || lastEntry.speaker !== historyEntry.speaker) {
+                history.push(historyEntry);
+            }
         }
 
         await this.preloadAssetsForNode(node); 
@@ -183,15 +203,21 @@ export default class GameEngine {
     }
     
     async handleAnimation(node) {
-        this.setInputDisabled(true);
         await this.animation.play(node.animation);
-        this.setInputDisabled(false);
-        this.handlePlayerInput();
+        this.requestPlayerInput(); 
     }
 
-    async handlePlayerInput(choiceIndex = null) {
+    requestPlayerInput(choiceIndex = null) {
         if (this.gameState.isInputDisabled || this.gameState.isPaused || this.gameState.isHistoryVisible) return;
+        
+        this.setInputDisabled(true);
+        
+        this._handlePlayerInput(choiceIndex).finally(() => {
+            this.setInputDisabled(false);
+        });
+    }
 
+    async _handlePlayerInput(choiceIndex = null) {
         this.audioManager.stopVoice();
 
         if (this.uiManager.isPrinting()) {
@@ -208,13 +234,12 @@ export default class GameEngine {
 
         if (onNext.choice) {
             if (choiceIndex !== null && onNext.choice[choiceIndex]) {
-                // 记录选择
                 const choiceTextKey = `story.nodes.${currentNodeId}.choices`;
                 const choiceTexts = this.localization.get(choiceTextKey);
                 const selectedText = choiceTexts[choiceIndex];
                 
                 const choiceEntry = {
-                    type: 'choice', // 标记为选择
+                    type: 'choice', 
                     text: selectedText
                 };
                 this.gameState.currentSave.dialogueHistory.push(choiceEntry);
@@ -238,7 +263,7 @@ export default class GameEngine {
         }
 
         if (nextNodeId !== null) {
-            this.processNode(nextNodeId);
+            await this.processNode(nextNodeId);
         }
     }
     

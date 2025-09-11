@@ -93,7 +93,6 @@ const MinigameView = {
             resultText.textContent = resultData.outroText;
             resultTitle.style.color = result.status === 'win' ? '#5b6ba9ff' : '#bd504fff';
             
-
             resultOverlay.style.display = 'flex';
 
             continueButton.addEventListener('click', async () => {
@@ -106,8 +105,12 @@ const MinigameView = {
                 
                 const nextNodeId = resultData.targetNode;
 
-                engine.showView('Game');
-                await engine.processNode(nextNodeId);
+                // 在存档状态中更新目标节点ID
+                engine.gameState.currentSave.nodeId = nextNodeId;
+
+                // 调用新的、安全的方法来返回游戏流程
+                await engine.returnToGame();
+
                 await engine.animation.play('fadeOutBlack');
 
             }, { once: true });

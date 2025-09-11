@@ -111,7 +111,7 @@ const GameView = {
                 .history-speaker {
                     font-weight: bold;
                     font-size: 1.2em;
-                    color: #ffd700; /* 金色，用于突出说话人 */
+                    color: #e1abd2ff; /* 粉色，用于突出说话人 */
                     margin-bottom: 8px;
                     font-family: 'lilyshow', sans-serif;
                 }
@@ -212,7 +212,7 @@ const GameView = {
         const gameView = container.querySelector('.game-view');
         
         // 主点击/触摸处理器
-        gameView.addEventListener('click', () => engine.handlePlayerInput());
+        gameView.addEventListener('click', () => engine.requestPlayerInput());
         
         // 选项按钮
         container.querySelectorAll('.choice-line').forEach(button => {
@@ -221,7 +221,7 @@ const GameView = {
                 e.stopPropagation(); // 防止事件冒泡到game-view
                 engine.audioManager.playSoundEffect('click');
                 const choiceIndex = parseInt(e.currentTarget.dataset.choiceIndex);
-                engine.handlePlayerInput(choiceIndex);
+                engine.requestPlayerInput(choiceIndex);
             });
         });
 
@@ -249,7 +249,7 @@ const GameView = {
         // 空格键快捷键
         document.addEventListener('keydown', function onKeydown(e) {
             if (e.key === ' ' && document.querySelector('.game-view')) {
-              engine.handlePlayerInput();
+              engine.requestPlayerInput();
             }
             // 当视图改变时，需移除这个监听器，避免在其他页面触发（下次一定）
         });
