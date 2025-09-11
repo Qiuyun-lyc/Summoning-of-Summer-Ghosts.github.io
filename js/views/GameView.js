@@ -183,13 +183,13 @@ const GameView = {
                 </div>
                 
                 <div class="game-hud">
+                    <button id="history-btn" class="ingame-menu-button">
+                        <img src="./assets/img/button.png">
+                        <span>对话录</span>
+                    </button>
                     <button id="ingame-menu-btn" class="ingame-menu-button">
                         <img src="./assets/img/button.png">
                         <span>菜单</span>
-                    </button>
-                    <button id="history-btn" class="ingame-menu-button">
-                        <img src="./assets/img/button.png">
-                        <span>历史</span>
                     </button>
                 </div>
 
