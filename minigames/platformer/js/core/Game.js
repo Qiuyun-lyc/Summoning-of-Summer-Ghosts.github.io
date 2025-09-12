@@ -1,5 +1,3 @@
-// minigames/platformer/js/core/Game.js
-
 import { AssetManager } from './AssetManager.js';
 import { InputHandler } from './InputHandler.js';
 import { RendererSystem } from '../systems/RendererSystem.js';
@@ -104,7 +102,6 @@ export class Game {
 
     async start() {
         this.renderer.handleResize();
-        await this.assetManager.loadAll();
         this.stateManager.addState('PLAY', new PlayState());
         
         this.boundOrbCollectedHandler = this._onOrbCollected.bind(this);
@@ -120,7 +117,28 @@ export class Game {
         requestAnimationFrame(this._gameLoop);
     }
     
-    stop() {
+    pause() {
+        if (!this.isRunning) return;
+        this.isRunning = false;
+        this.bgmPlayers.forEach(player => player?.pause());
+        console.log("Minigame paused.");
+    }
+
+    resume() {
+        if (this.isRunning) return;
+        this.isRunning = true;
+        this.lastTime = performance.now();
+        
+        if (this.renderer) {
+            this.renderer.resetRainEffect();
+        }
+
+        this.bgmPlayers[this.activeBgmIndex]?.play().catch(e => {});
+        requestAnimationFrame(this._gameLoop);
+        console.log("Minigame resumed.");
+    }
+
+    destroy() {
         this.isRunning = false;
         this.inputHandler.destroy();
         gameEvents.off('entityDied', this.boundEntityDiedHandler);
@@ -128,11 +146,12 @@ export class Game {
             gameEvents.off('lightOrbCollected', this.boundOrbCollectedHandler);
         }
         this.stopBgm();
+        console.log("Minigame instance destroyed.");
     }
 
     _endGame(result) {
         if (!this.isRunning) return;
-        this.stop();
+        this.destroy();
         if (this.onComplete) {
             this.onComplete(result);
         }

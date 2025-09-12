@@ -31,6 +31,11 @@ export class RendererSystem {
         this.rainInitialized = true;
     }
 
+    resetRainEffect() {
+        this.rainInitialized = false;
+        this.raindrops = [];
+    }
+
     _updateAndDrawRain(tilemap) {
         if (!tilemap) return;
         this._initRainEffect(tilemap);

@@ -214,6 +214,7 @@ export default class GameEngine {
         
         if (node.type === 'minigame') {
             console.log(`检测到小游戏节点 [${nodeId}]，正在启动...`);
+            this.cancelAutoAdvance(); 
             this.gameState.historyCheckpoint = this.gameState.currentSave.dialogueHistory.length;
             this.audioManager.stopBgm();
             this.showView('Minigame', { nodeData: node });
@@ -326,7 +327,6 @@ export default class GameEngine {
         if (nextNodeId !== null) {
             await this.processNode(nextNodeId);
         }
-        this.scheduleAutoAdvance();
     }
     
     setInputDisabled(isDisabled) {
