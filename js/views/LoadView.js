@@ -1,4 +1,3 @@
-// 存档/读档界面视图对象
 const LoadView = {
     totalSlots: 30, // 固定存档槽数量
 
