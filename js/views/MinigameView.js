@@ -2,6 +2,7 @@ import { Game as PlatformerGame } from '../../minigames/platformer/js/core/Game.
 
 const MinigameView = {
     gameInstance: null,
+    assetManager: null, 
 
     render: (container, engine, params) => {
         const node = params.nodeData;
@@ -18,11 +19,14 @@ const MinigameView = {
                     display: flex; justify-content: center; align-items: center;
                     text-align: center; z-index: 1001;
                     font-family: 'FangSong', '仿宋', sans-serif;
+                    backdrop-filter: blur(5px);
+                    -webkit-backdrop-filter: blur(5px);
                 }
                 .overlay-content {
                     max-width: 600px; padding: 40px;
                     border: 2px solid #aaa; background-color: rgba(10, 10, 10, 0.7);
                     border-radius: 10px;
+                    box-shadow: 0 5px 25px rgba(0,0,0,0.5);
                 }
                 .overlay-content h2 { font-size: 2.5em; margin-bottom: 20px; }
                 .overlay-content p { font-size: 1.2em; line-height: 1.6; margin-bottom: 30px; }
@@ -36,7 +40,57 @@ const MinigameView = {
                 
                 /* 特定样式 */
                 #minigame-intro-overlay .overlay-content h2 { color: #5b6ba9ff; }
-                #minigame-result-overlay { display: none; } /* 结果浮层默认隐藏 */
+                #minigame-result-overlay { display: none; }
+
+                /* 暂停按钮样式 */
+                #minigame-pause-btn {
+                    position: fixed;
+                    top: 20px;
+                    left: 20px;
+                    z-index: 1002;
+                    padding: 10px 20px;
+                    font-size: 1.2em;
+                    cursor: pointer;
+                    background-color: rgba(0, 0, 0, 0.7);
+                    color: white;
+                    border: 2px solid white;
+                    border-radius: 8px;
+                    font-family: 'lilyshow', 'FangSong', '仿宋', sans-serif;
+                    display: none; /* 游戏开始前隐藏 */
+                    transition: background-color 0.3s, color 0.3s;
+                }
+                #minigame-pause-btn:hover {
+                    background-color: rgba(255, 255, 255, 0.9);
+                    color: black;
+                }
+
+                /* 暂停菜单浮层样式 */
+                #minigame-pause-overlay {
+                    display: none; /* 默认隐藏 */
+                }
+                
+                .pause-menu-content {
+                    max-width: 750px;
+                    padding: 25px 50px;
+                    display: flex;
+                    flex-direction: column;
+                    gap: 30px;
+                    align-items: center;
+                }
+
+                .pause-menu-buttons {
+                    display: flex;
+                    justify-content: space-around;
+                    width: 100%;
+                    gap: 20px;
+                }
+
+                .pause-menu-content button {
+                    font-size: 1.3em;
+                    padding: 12px 0;
+                    width: 180px;
+                    flex-shrink: 0;
+                }
             </style>
             <div class="view minigame-view">
                 <!-- 介绍浮层 -->
@@ -57,9 +111,24 @@ const MinigameView = {
                         <button id="minigame-continue-btn">继续</button>
                     </div>
                 </div>
+                
+                <!-- 暂停按钮 -->
+                <button id="minigame-pause-btn">暂停</button>
+
+                <!-- 暂停菜单浮层 -->
+                <div id="minigame-pause-overlay" class="minigame-overlay">
+                    <div class="overlay-content pause-menu-content">
+                        <h2>游戏已暂停</h2>
+                        <div class="pause-menu-buttons">
+                            <button id="minigame-resume-btn">继续游戏</button>
+                            <button id="minigame-restart-btn">重新开始</button>
+                            <button id="minigame-load-view-btn">存档/读档</button>
+                        </div>
+                    </div>
+                </div>
 
                 <canvas id="minigame-canvas" class="minigame-canvas"></canvas>
-                <div id="minigame-loading-overlay" style="/* ... */">正在加载小游戏...</div>
+                <div id="minigame-loading-overlay" class="minigame-overlay">正在加载小游戏资源...</div>
             </div>
         `;
     },
@@ -76,12 +145,19 @@ const MinigameView = {
         const resultText = document.getElementById('result-text');
         const continueButton = document.getElementById('minigame-continue-btn');
         
+        const pauseButton = document.getElementById('minigame-pause-btn');
+        const pauseOverlay = document.getElementById('minigame-pause-overlay');
+        const resumeButton = document.getElementById('minigame-resume-btn');
+        const restartButton = document.getElementById('minigame-restart-btn');
+        const loadViewButton = document.getElementById('minigame-load-view-btn');
+
         canvas.width = window.innerWidth;
         canvas.height = window.innerHeight;
 
         const onGameComplete = (result) => {
             console.log("MinigameView 收到完成回调:", result);
-            
+            pauseButton.style.display = 'none';
+
             const resultData = node.onComplete[result.status];
             if (!resultData) {
                 console.error("未找到对应的游戏结果数据:", result.status);
@@ -99,16 +175,14 @@ const MinigameView = {
                 await engine.animation.play('fadeInBlack');
 
                 if (MinigameView.gameInstance) {
-                    MinigameView.gameInstance.stop();
+                    MinigameView.gameInstance.destroy();
                     MinigameView.gameInstance = null;
                 }
                 
                 const nextNodeId = resultData.targetNode;
 
-                // 在存档状态中更新目标节点ID
                 engine.gameState.currentSave.nodeId = nextNodeId;
 
-                // 调用新的、安全的方法来返回游戏流程
                 await engine.returnToGame();
 
                 await engine.animation.play('fadeOutBlack');
@@ -116,34 +190,74 @@ const MinigameView = {
             }, { once: true });
         };
 
-        const gameConfig = {
-            level: node.level,
-            winCondition: node.winCondition,
-            loseCondition: node.loseCondition,
-            timeLimit: node.timeLimit
-        };
-        const tempGameInstance = new PlatformerGame(canvas, gameConfig, onGameComplete);
-        try {
-            await tempGameInstance.assetManager.loadAll();
-            loadingOverlay.style.display = 'none';
-            introOverlay.style.display = 'flex';
-        } catch(err) {
-            console.error("小游戏资源加载失败:", err);
-            onGameComplete({ status: 'lose' });
-            return;
-        }
+        const startGame = async () => {
+            if (MinigameView.gameInstance) {
+                MinigameView.gameInstance.destroy();
+                MinigameView.gameInstance = null;
+            }
 
-        startButton.addEventListener('click', async () => {
-            introOverlay.style.display = 'none';
+            const gameConfig = {
+                level: node.level, winCondition: node.winCondition,
+                loseCondition: node.loseCondition, timeLimit: node.timeLimit
+            };
 
             MinigameView.gameInstance = new PlatformerGame(canvas, gameConfig, onGameComplete);
+            MinigameView.gameInstance.assetManager = MinigameView.assetManager; 
             
             try {
                 await MinigameView.gameInstance.start();
+                pauseButton.style.display = 'block';
             } catch (err) {
                 console.error("小游戏启动失败:", err);
                 onGameComplete({ status: 'lose' });
             }
+        };
+
+        if (!MinigameView.assetManager) {
+            const tempGame = new PlatformerGame(canvas, {}, () => {});
+            MinigameView.assetManager = tempGame.assetManager;
+            try {
+                 await MinigameView.assetManager.loadAll();
+            } catch(err) {
+                console.error("小游戏资源加载失败:", err);
+                loadingOverlay.textContent = '资源加载失败，请刷新重试。';
+                onGameComplete({ status: 'lose' });
+                return;
+            }
+        }
+        
+        loadingOverlay.style.display = 'none';
+        introOverlay.style.display = 'flex';
+
+        startButton.addEventListener('click', async () => {
+            introOverlay.style.display = 'none';
+            await startGame();
+        });
+
+        pauseButton.addEventListener('click', () => {
+            if (MinigameView.gameInstance) {
+                MinigameView.gameInstance.pause();
+            }
+            pauseOverlay.style.display = 'flex';
+        });
+
+        resumeButton.addEventListener('click', () => {
+            pauseOverlay.style.display = 'none';
+            if (MinigameView.gameInstance) {
+                MinigameView.gameInstance.resume();
+            }
+        });
+
+        restartButton.addEventListener('click', async () => {
+            pauseOverlay.style.display = 'none';
+            await startGame();
+        });
+
+        loadViewButton.addEventListener('click', () => {
+            if (MinigameView.gameInstance) {
+                MinigameView.gameInstance.pause();
+            }
+            engine.showView('Load');
         });
     }
 };
