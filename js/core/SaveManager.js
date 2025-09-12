@@ -2,7 +2,7 @@ class User {
     constructor(username, password, userData = {}) {
         this.username = username;
         this.password = password;
-        this.saveArray = userData.saveArray || new Array(10).fill(null);
+        this.saveArray = userData.saveArray || new Array(30).fill(null);
         this.achievementArray = userData.achievementArray || [];
     }
 }
