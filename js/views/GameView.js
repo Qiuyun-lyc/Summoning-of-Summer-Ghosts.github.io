@@ -179,6 +179,9 @@ const GameView = {
                     border-radius: 3px;
                     margin: 0 4px;
                 }
+                .ingame-menu-button.active img {
+                    filter: brightness(1.3) drop-shadow(0 0 5px #ffabf5); 
+                }
                 #basic-tooltip.hidden {
                     display: none;
                 }
@@ -219,6 +222,10 @@ const GameView = {
                     <button id="history-btn" class="ingame-menu-button">
                         <img src="./assets/img/button.png">
                         <span>对话录</span>
+                    </button>
+                    <button id="auto-play-btn" class="ingame-menu-button">
+                        <img src="./assets/img/button.png">
+                        <span>自动</span>
                     </button>
                     <button id="ingame-menu-btn" class="ingame-menu-button">
                         <img src="./assets/img/button.png">
@@ -280,6 +287,13 @@ const GameView = {
             e.stopPropagation();
             engine.audioManager.playSoundEffect('click');
             engine.uiManager.toggleHistory(false); // 调用 UIManager 的方法来隐藏历史
+        });
+
+        // 自动播放按钮
+        document.getElementById('auto-play-btn').addEventListener('click', (e) => {
+            e.stopPropagation();
+            engine.audioManager.playSoundEffect('click');
+            engine.toggleAutoPlay();
         });
 
         // 空格键快捷键

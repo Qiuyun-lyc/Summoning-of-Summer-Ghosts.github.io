@@ -227,6 +227,13 @@ export default class UIManager {
         }, 500); // 500ms 匹配CSS中的过渡时间
     }
 
+    updateAutoPlayButton(isActive) {
+        const button = document.getElementById('auto-play-btn');
+        if (button) {
+            button.classList.toggle('active', isActive);
+        }
+    }
+
     showAchievementPopup(achievementId) {
         const achievement = this.engine.dataManager.getAllAchievements().find(a => a.id === achievementId);
         if (!achievement) return;

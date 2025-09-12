@@ -31,6 +31,7 @@ export default class GameEngine {
             isInputDisabled: false,
             isHistoryVisible: false,
             historyCheckpoint: -1,
+            isAutoPlay: false,
         };
 
         this.views = {
@@ -44,6 +45,8 @@ export default class GameEngine {
             Minigame: MinigameView,
             Ending: EndingView,
         };
+         this.autoAdvanceTimer = null;
+        this.autoAdvanceAudioListener = null; 
     }
 
     async init() {
@@ -75,6 +78,7 @@ export default class GameEngine {
     }
 
     showView(viewName, params = {}) {
+        this.cancelAutoAdvance(); // <--- 核心修复：在切换任何视图之前，都取消自动播放定时器。
         this.uiManager.clearContainer();
         const view = this.views[viewName];
         if (view) {
@@ -88,6 +92,10 @@ export default class GameEngine {
     async startGame(saveData) {
         this.gameState.currentSave = saveData;
 
+        if (!saveData.saveDate) {
+            this.gameState.interactionCount = 0;
+            this.gameState.fastForwardTooltipShown = false;
+        }
         this.showView('Game');
         await this.processNode(this.gameState.currentSave.nodeId);
     }
@@ -95,6 +103,60 @@ export default class GameEngine {
     startNewGame() {
         const newSave = this.saveManager.createNewSave();
         this.startGame(newSave);
+    }
+
+    toggleAutoPlay() {
+        this.gameState.isAutoPlay = !this.gameState.isAutoPlay;
+        this.uiManager.updateAutoPlayButton(this.gameState.isAutoPlay);
+
+        if (this.gameState.isAutoPlay) {
+            this.scheduleAutoAdvance();
+        } else {
+            this.cancelAutoAdvance();
+        }
+    }
+
+    cancelAutoAdvance() {
+        if (this.autoAdvanceTimer) {
+            clearTimeout(this.autoAdvanceTimer);
+            clearInterval(this.autoAdvanceTimer);
+            this.autoAdvanceTimer = null;
+        }
+        if (this.autoAdvanceAudioListener) {
+            this.audioManager.voicePlayer.removeEventListener('ended', this.autoAdvanceAudioListener);
+            this.autoAdvanceAudioListener = null;
+        }
+    }
+
+    scheduleAutoAdvance() {
+        this.cancelAutoAdvance();
+        if (!this.gameState.isAutoPlay) return;
+        if (this.uiManager.isPrinting()) {
+            this.autoAdvanceTimer = setInterval(() => {
+                if (!this.uiManager.isPrinting()) {
+                    this.cancelAutoAdvance();
+                    this.scheduleAutoAdvance();
+                }
+            }, 100); // 每 100 毫秒检查一次
+            return;
+        }
+
+        const currentNode = this.dataManager.getNode(this.gameState.currentSave.nodeId);
+        
+        if (currentNode.type === 'choices') {
+            return;
+        }
+
+        if (currentNode.voice && currentNode.voice !== "null") {
+            this.autoAdvanceAudioListener = () => this.requestPlayerInput();
+            this.audioManager.voicePlayer.addEventListener('ended', this.autoAdvanceAudioListener, { once: true });
+        } else {
+            const textKey = `story.nodes.${this.gameState.currentSave.nodeId}.text`; 
+            const textContent = this.localization.get(textKey) || '';
+            // 基础延迟1.5秒 + 每8个字增加1秒
+            const delay = 1500 + (textContent.length / 8) * 1000;
+            this.autoAdvanceTimer = setTimeout(() => this.requestPlayerInput(), delay);
+        }
     }
 
     async resumeGame() {
@@ -197,9 +259,8 @@ export default class GameEngine {
         }
         
         if (node.onEnter) { }
-        if (node.type === 'animation') { 
-
-         }
+        if (node.type === 'animation') { }
+        this.scheduleAutoAdvance();
     }
     
     async handleAnimation(node) {
@@ -208,6 +269,7 @@ export default class GameEngine {
     }
 
     requestPlayerInput(choiceIndex = null) {
+        this.cancelAutoAdvance();
         if (this.gameState.isInputDisabled || this.gameState.isPaused || this.gameState.isHistoryVisible) return;
         this.setInputDisabled(true);
         this._handlePlayerInput(choiceIndex).finally(() => {
@@ -220,6 +282,7 @@ export default class GameEngine {
 
         if (this.uiManager.isPrinting()) {
             this.uiManager.skipPrinting();
+            this.scheduleAutoAdvance();
             return;
         }
         
@@ -263,6 +326,7 @@ export default class GameEngine {
         if (nextNodeId !== null) {
             await this.processNode(nextNodeId);
         }
+        this.scheduleAutoAdvance();
     }
     
     setInputDisabled(isDisabled) {
