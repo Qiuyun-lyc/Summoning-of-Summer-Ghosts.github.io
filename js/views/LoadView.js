@@ -46,13 +46,14 @@ const LoadView = {
             const thumbnail = nodeData && nodeData.bgr ? `./assets/img/bgr/${nodeData.bgr}.png` : './assets/img/bgr/test.png';
             const chapter = nodeData ? `章节 ${Math.floor(save.nodeId / 100)}` : '---';
             const saveDate = save ? save.saveDate : '空';
+            const saveName = save && save.name ? save.name : `存档 ${i + 1}`;
 
             const slot = document.createElement('div');
             slot.className = 'save-slot';
             slot.innerHTML = `
                 <img class="save-slot-bg" src="./assets/img/menuBox/paper2.png">
                 <div class="save-info">
-                    <h2>存档 ${i + 1}</h2>
+                    <h2>${saveName}</h2>
                     <p class="save-date">${saveDate}</p>
                     <div class="save-buttons">
                         <div class="action-button" data-action="load" data-slot="${i}">
@@ -109,26 +110,33 @@ const LoadView = {
                         }
                     } else if (action === 'save') {
                         if (engine.gameState.currentSave) {
-                            if (engine.saveManager.saveGame(slot, engine.gameState.currentSave)) {
-                                alert(`存档到栏位 ${slot + 1} 成功！`);
-                                LoadView.render(container, engine);
+                            const currentSave = engine.saveManager.currentUser.saveArray[slot];
+                            const defaultName = currentSave && currentSave.name ? currentSave.name : `章节 ${Math.floor(engine.gameState.currentSave.nodeId / 100)}`;
+                            const saveName = prompt('请输入存档名称：', defaultName);
+
+                            if (saveName && saveName.trim() !== "") {
+                                if (engine.saveManager.saveGame(slot, engine.gameState.currentSave, saveName.trim())) {
+                                    alert(`存档 "${saveName.trim()}" 已成功保存到栏位 ${slot + 1}！`);
+                                    LoadView.render(container, engine);
+                                }
+                            } else if (saveName !== null) {
+                                alert("存档名称不能为空。");
                             }
                         } else {
                             alert("没有正在进行的游戏可以存档。");
                         }
-                    }
-                    else if (action === 'delete') {
-                    if (engine.saveManager.currentUser.saveArray[slot]) {
-                        if (confirm(`您确定要删除 存档 ${slot + 1} 吗？此操作不可恢复。`)) {
-                            if (engine.saveManager.deleteSave(slot)) {
-                                alert(`存档 ${slot + 1} 已被删除。`);
-                                LoadView.render(container, engine); // 重新渲染界面以更新显示
+                    } else if (action === 'delete') {
+                        if (engine.saveManager.currentUser.saveArray[slot]) {
+                            if (confirm(`您确定要删除 存档 ${slot + 1} 吗？此操作不可恢复。`)) {
+                                if (engine.saveManager.deleteSave(slot)) {
+                                    alert(`存档 ${slot + 1} 已被删除。`);
+                                    LoadView.render(container, engine);
+                                }
                             }
+                        } else {
+                            alert("这是一个空存档，无需删除。");
                         }
-                    } else {
-                        alert("这是一个空存档，无需删除。");
                     }
-                }
                 });
             }
         });

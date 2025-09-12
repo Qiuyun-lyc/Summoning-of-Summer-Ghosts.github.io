@@ -13,6 +13,7 @@ class Save {
         this.nodeId = saveData.nodeId || 101; 
         this.LoveValue = saveData.LoveValue || 0;
         this.choices = saveData.choices || {}; 
+        this.name = saveData.name || ''; 
         
         this.dialogueHistory = saveData.dialogueHistory || []; 
     }
@@ -66,25 +67,26 @@ export default class SaveManager {
         return new Save();
     }
 
-    saveGame(slotIndex, saveData) {
-        if (!this.currentUser || slotIndex < 0 || slotIndex >= this.currentUser.saveArray.length) {
-            return false;
-        }
-        const saveCopy = JSON.parse(JSON.stringify(saveData));
-        
-        saveCopy.saveDate = new Date().toLocaleString('zh-CN');
-        this.currentUser.saveArray[slotIndex] = saveCopy;
-        
-        this.persistCurrentUser();
-        return true;
-    }
-
     deleteSave(slotIndex) {
         if (!this.currentUser || slotIndex < 0 || slotIndex >= this.currentUser.saveArray.length) {
             return false;
         }
 
         this.currentUser.saveArray[slotIndex] = null;
+        this.persistCurrentUser();
+        return true;
+    }
+
+    saveGame(slotIndex, saveData, saveName) {
+        if (!this.currentUser || slotIndex < 0 || slotIndex >= this.currentUser.saveArray.length) {
+            return false;
+        }
+        const saveCopy = JSON.parse(JSON.stringify(saveData));
+        
+        saveCopy.saveDate = new Date().toLocaleString('zh-CN');
+        saveCopy.name = saveName;
+        this.currentUser.saveArray[slotIndex] = saveCopy;
+        
         this.persistCurrentUser();
         return true;
     }
