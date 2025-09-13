@@ -112,20 +112,20 @@
       "name": "narrator",
       "bgr": "原野1",
       "bgm": "雨后夏日",
-      "voice": "null",
+      "voice": "1001",
       "onNext": { "nextNode": true }
     },
     "1002": {
       "type": "animation",
       "name": "fadeInBlack",
       "inherit": 1001,
-      "voice": "null",
+      "voice": "1002",
       "onNext": { "setNode": 1004 }
     },
     "1003": {
       "type": "text",
       "name": "narrator",
-      "voice": "null",
+      "voice": "1003",
       "inherit": 1001,
       "onNext": { "nextNode": true }
     },
@@ -146,7 +146,7 @@
     "1006": {
       "type": "animation",
       "name": "fadeInBlack",
-      "voice": "null",
+      "voice": "1006",
       "inherit": 1001,
       "onNext": { "nextNode": true }
     },
@@ -170,14 +170,15 @@
       "type": "text",
       "name": "tomoya",
       "lCharactor": "友也_平静",
-      "voice": "null",
+      "voice": "1009",
       "inherit": 1007,
       "onNext": { "nextNode": true }
     },
     "1010": {
       "type": "text",
       "name": "tomoya",
-      "lCharactor": "友也_不知道",
+      "rCharactor": "友也_不知道",
+      "bgr": "友也的画作1",
       "inherit": 1007,
       "voice": "1010",
       "onNext": { "nextNode": true }
@@ -185,7 +186,8 @@
     "1011": {
       "type": "text",
       "name": "tomoya",
-      "lCharactor": "友也_平静",
+      "rCharactor": "友也_平静",
+      "bgr": "友也的画作1",
       "inherit": 1007,
       "voice": "1011",
       "onNext": { "nextNode": true }
@@ -193,7 +195,8 @@
     "1012": {
       "type": "text",
       "name": "tomoya",
-      "lCharactor": "友也_无奈",
+      "rCharactor": "友也_无奈",
+      "bgr": "友也的画作1",
       "voice": "1012",
       "inherit": 1007,
       "onNext": { "nextNode": true }
@@ -209,7 +212,7 @@
       "type": "text",
       "name": "studentA",
       "lCharactor": "男生1",
-      "voice": "null",
+      "voice": "1014",
       "inherit": 1007,
       "onNext": { "nextNode": true }
     },
@@ -217,7 +220,7 @@
       "type": "text",
       "name": "studentB",
       "rCharactor": "女生2",
-      "voice": "null",
+      "voice": "1015",
       "inherit": 1007,
       "onNext": { "nextNode": true }
     },
@@ -225,7 +228,7 @@
       "type": "text",
       "name": "studentA",
       "lCharactor": "男生1",
-      "voice": "null",
+      "voice": "1016",
       "inherit": 1007,
       "onNext": { "nextNode": true }
     },
@@ -233,7 +236,7 @@
       "type": "text",
       "name": "studentC",
       "lCharactor": "男生2",
-      "voice": "null",
+      "voice": "1017",
       "inherit": 1007,
       "onNext": { "nextNode": true }
     },
@@ -241,7 +244,7 @@
       "type": "text",
       "name": "studentA",
       "lCharactor": "男生1",
-      "voice": "null",
+      "voice": "1018",
       "inherit": 1007,
       "onNext": { "nextNode": true }
     },
@@ -249,7 +252,7 @@
       "type": "text",
       "name": "studentB",
       "rCharactor": "女生2",
-      "voice": "null",
+      "voice": "1019",
       "inherit": 1007,
       "onNext": { "nextNode": true }
     },
@@ -257,7 +260,7 @@
       "type": "text",
       "name": "studentC",
       "lCharactor": "男生2",
-      "voice": "null",
+      "voice": "1020",
       "inherit": 1007,
       "onNext": { "nextNode": true }
     },
@@ -280,7 +283,7 @@
       "type": "text",
       "name": "tomoya",
       "lCharactor": "友也_平静",
-      "voice": "null",
+      "voice": "1023",
       "inherit": 1007,
       "onNext": { "nextNode": true }
     },
@@ -303,7 +306,7 @@
       "type": "text",
       "name": "studentA",
       "lCharactor": "男生1",
-      "voice": "null",
+      "voice": "1026",
       "inherit": 1007,
       "onNext": { "nextNode": true }
     },
@@ -311,7 +314,7 @@
       "type": "text",
       "name": "studentB",
       "rCharactor": "女生2",
-      "voice": "null",
+      "voice": "1027",
       "inherit": 1007,
       "onNext": { "nextNode": true }
     },
@@ -319,7 +322,7 @@
       "type": "text",
       "name": "studentC",
       "lCharactor": "男生2",
-      "voice": "null",
+      "voice": "1028",
       "inherit": 1007,
       "onNext": { "nextNode": true }
     },
@@ -342,13 +345,14 @@
       "type": "animation",
       "name": "fadeInBlack",
       "inherit": 1007,
+      "voice": "1031",
       "onNext": { "nextNode": true }
     },
 
     "1032": {
       "type": "text",
       "name": "narrator",
-      "voice": "null",
+      "voice": "1032",
       "bgr": "公园3",
       "bgm": "雨后夏日",
       "onNext": { "nextNode": true }
@@ -410,7 +414,7 @@
     },
     "1040": {
       "type": "text",
-      "voice": "null",
+      "voice": "1040",
       "name": "studentD",
       "lCharactor": "女生1",
       "inherit": 1032,
@@ -418,15 +422,15 @@
     },
     "1041": {
       "type": "text",
-      "voice": "null",
+      "voice": "1041",
       "name": "studentB",
-      "rCharactor": "女生2",
+      "rCharactor": "女生3",
       "inherit": 1032,
       "onNext": { "nextNode": true }
     },
     "1042": {
       "type": "text",
-      "voice": "null",
+      "voice": "1042",
       "name": "studentD",
       "lCharactor": "女生1",
       "inherit": 1032,
@@ -434,15 +438,15 @@
     },
     "1043": {
       "type": "text",
-      "voice": "null",
+      "voice": "1043",
       "name": "studentB",
-      "rCharactor": "女生2",
+      "rCharactor": "女生3",
       "inherit": 1032,
       "onNext": { "nextNode": true }
     },
     "1044": {
       "type": "text",
-      "voice": "null",
+      "voice": "1044",
       "name": "studentD",
       "lCharactor": "女生1",
       "inherit": 1032,
@@ -450,15 +454,15 @@
     },
     "1045": {
       "type": "text",
-      "voice": "null",
+      "voice": "1045",
       "name": "studentB",
-      "rCharactor": "女生2",
+      "rCharactor": "女生3",
       "inherit": 1032,
       "onNext": { "nextNode": true }
     },
     "1046": {
       "type": "text",
-      "voice": "null",
+      "voice": "1046",
       "name": "narrator",
       "inherit": 1032,
       "onNext": { "nextNode": true }
@@ -504,7 +508,7 @@
 
     "1052": {
       "type": "text",
-      "voice": "null",
+      "voice": "1052",
       "name": "narrator",
       "bgr": "公园2",
       "bgm": "雨后夏日",
@@ -512,7 +516,7 @@
     },
     "1053": {
       "type": "text",
-      "voice": "null",
+      "voice": "1053",
       "name": "narrator",
       "inherit": 1052,
       "onNext": { "nextNode": true }
@@ -550,10 +554,10 @@
 
     "1058": {
       "type": "text",
-      "voice": "null",
+      "voice": "1058",
       "name": "narrator",
       "bgr": "病房",
-      "bgm": "雨后夏日",
+      "bgm": "陌生的河",
       "onNext": { "setNode": 1060 }
     },
     "1059": {
@@ -598,14 +602,14 @@
     },
     "1064": {
       "type": "text",
-      "voice": "null",
+      "voice": "1064",
       "name": "narrator",
       "inherit": 1058,
       "onNext": { "nextNode": true }
     },
     "1065": {
       "type": "text",
-      "voice": "null",
+      "voice": "1065",
       "name": "patient",
       "lCharactor": "病人大叔",
       "inherit": 1058,
@@ -613,7 +617,7 @@
     },
     "1066": {
       "type": "text",
-      "voice": "null",
+      "voice": "1066",
       "rCharactor": "中年男士1",
       "name": "narrator",
       "inherit": 1058,
@@ -621,7 +625,7 @@
     },
     "1067": {
       "type": "text",
-      "voice": "null",
+      "voice": "1067",
       "name": "patient",
       "lCharactor": "病人大叔",
       "inherit": 1058,
@@ -629,7 +633,7 @@
     },
     "1068": {
       "type": "text",
-      "voice": "null",
+      "voice": "1068",
       "rCharactor": "中年男士1",
       "name": "narrator",
       "inherit": 1058,
@@ -637,7 +641,7 @@
     },
     "1069": {
       "type": "text",
-      "voice": "null",
+      "voice": "1069",
       "name": "patient",
       "lCharactor": "病人大叔",
       "inherit": 1058,
@@ -645,7 +649,7 @@
     },
     "1070": {
       "type": "text",
-      "voice": "null",
+      "voice": "1070",
       "rCharactor": "中年男士1",
       "name": "narrator",
       "inherit": 1058,
@@ -653,7 +657,7 @@
     },
     "1071": {
       "type": "text",
-      "voice": "null",
+      "voice": "1071",
       "name": "patient",
       "lCharactor": "病人大叔",
       "inherit": 1058,
@@ -667,7 +671,7 @@
     },
     "1073": {
       "type": "text",
-      "voice": "null",
+      "voice": "1073",
       "name": "narrator",
       "inherit": 1058,
       "onNext": { "nextNode": true }
@@ -698,7 +702,7 @@
     },
     "1077": {
       "type": "text",
-      "voice": "null",
+      "voice": "1077",
       "name": "narrator",
       "inherit": 1058,
       "onNext": { "nextNode": true }
@@ -721,21 +725,21 @@
     "1080": {
       "type": "text",
       "name": "narrator",
-      "voice": "null",
+      "voice": "1080",
       "bgr": "城市落日",
-      "bgm": "夏夜低语",
+      "bgm": "陌生的河",
       "onNext": { "nextNode": true }
     },
     "1081": {
       "type": "text",
-      "voice": "null",
+      "voice": "1081",
       "name": "narrator",
       "inherit": 1080,
       "onNext": { "nextNode": true }
     },
     "1082": {
       "type": "text",
-      "voice": "null",
+      "voice": "1082",
       "name": "narrator",
       "inherit": 1080,
       "onNext": { "setNode": 1101 }
@@ -744,28 +748,28 @@
     "1101": {
       "type": "animation",
       "name": "fadeInBlack",
-      "voice": "null",
+      "voice": "1101",
       "bgr": "电脑",
       "bgm": "夏夜低语",
       "onNext": { "setNode": 1103 }
     },
     "1102": {
       "type": "text",
-      "voice": "null",
+      "voice": "1102",
       "name": "narrator",
       "inherit": 1101,
       "onNext": { "nextNode": true }
     },
     "1103": {
       "type": "text",
-      "voice": "null",
+      "voice": "1103",
       "name": "narrator",
       "inherit": 1101,
       "onNext": { "nextNode": true }
     },
     "1104": {
       "type": "animation",
-      "voice": "null",
+      "voice": "1104",
       "name": "fadeInBlack",
       "inherit": 1101,
       "onNext": { "nextNode": true }
@@ -780,7 +784,7 @@
     },
     "1106": {
       "type": "text",
-      "voice": "null",
+      "voice": "1106",
       "name": "narrator",
       "inherit": 1101,
       "onNext": { "nextNode": true }
@@ -795,7 +799,7 @@
     },
     "1108": {
       "type": "text",
-      "voice": "null",
+      "voice": "1108",
       "name": "narrator",
       "inherit": 1101,
       "onNext": { "nextNode": true }
@@ -810,7 +814,7 @@
     },
     "1110": {
       "type": "text",
-      "voice": "null",
+      "voice": "1110",
       "name": "narrator",
       "inherit": 1101,
       "onNext": { "nextNode": true }
@@ -823,7 +827,7 @@
     },
     "1112": {
       "type": "text",
-      "voice": "null",
+      "voice": "1112",
       "name": "narrator",
       "inherit": 1101,
       "onNext": { "nextNode": true }
@@ -831,21 +835,21 @@
     "1113": {
       "type": "text",
       "name": "narrator",
-      "voice": "null",
+      "voice": "1113",
       "inherit": 1101,
       "onNext": { "nextNode": true }
     },
     "1114": {
       "type": "text",
       "name": "narrator",
-      "voice": "null",
+      "voice": "1114",
       "inherit": 1101,
       "onNext": { "setNode": 1116 }
     },
     "1115": {
       "type": "text",
       "name": "narrator",
-      "voice": "null",
+      "voice": "1114",
       "inherit": 1101,
       "onNext": { "nextNode": true }
     },
@@ -873,13 +877,13 @@
     "1119": {
       "type": "animation",
       "name": "fadeInBlack",
-      "voice": "null",
+      "voice": "1119",
       "inherit": 1101,
       "onNext": { "nextNode": true }
     },
     "1120": {
       "type": "text",
-      "voice": "null",
+      "voice": "1120",
       "name": "narrator",
       "inherit": 1101,
       "onNext": { "nextNode": true }
@@ -911,13 +915,13 @@
     "1124": {
       "type": "animation",
       "name": "fadeInBlack",
-      "voice": "null",
+      "voice": "1124",
       "inherit": 1101,
       "onNext": { "nextNode": true }
     },
     "1125": {
       "type": "text",
-      "voice": "null",
+      "voice": "1125",
       "name": "narrator",
       "inherit": 1101,
       "onNext": { "nextNode": true }
@@ -948,14 +952,14 @@
     },
     "1129": {
       "type": "text",
-      "voice": "null",
+      "voice": "1129",
       "name": "narrator",
       "inherit": 1101,
       "onNext": { "nextNode": true }
     },
     "1130": {
       "type": "animation",
-      "voice": "null",
+      "voice": "1130",
       "name": "fadeInBlack",
       "inherit": 1101,
       "onNext": { "nextNode": true }
@@ -965,7 +969,7 @@
       "type": "text",
       "name": "narrator",
       "bgr": "俯瞰城市",
-      "voice": "null",
+      "voice": "1131",
       "bgm": "夏夜低语",
       "onNext": { "nextNode": true }
     },
@@ -996,14 +1000,14 @@
     "1135": {
       "type": "text",
       "name": "narrator",
-      "voice": "null",
+      "voice": "1135",
       "inherit": 1131,
       "onNext": { "nextNode": true }
     },
     "1136": {
       "type": "animation",
       "name": "fadeInBlack",
-      "voice": "null",
+      "voice": "1136",
       "inherit": 1131,
       "onNext": { "nextNode": true }
     },
@@ -1011,14 +1015,14 @@
     "1137": {
       "type": "text",
       "name": "narrator",
-      "voice": "null",
+      "voice": "1137",
       "bgr": "俯瞰城市",
       "bgm": "夏夜低语",
       "onNext": { "nextNode": true }
     },
     "1138": {
       "type": "text",
-      "voice": "null",
+      "voice": "1138",
       "name": "ryo",
       "rCharactor": "凉_微笑",
       "inherit": 1137,
@@ -1026,7 +1030,7 @@
     },
     "1139": {
       "type": "text",
-      "voice": "null",
+      "voice": "1139",
       "name": "aoi",
       "lCharactor": "葵_微笑",
       "inherit": 1137,
@@ -1034,7 +1038,7 @@
     },
     "1140": {
       "type": "text",
-      "voice": "null",
+      "voice": "1140",
       "name": "tomoya",
       "lCharactor": "友也_平静",
       "inherit": 1137,
@@ -1042,7 +1046,7 @@
     },
     "1141": {
       "type": "text",
-      "voice": "null",
+      "voice": "1141",
       "name": "aoi",
       "lCharactor": "葵_微笑",
       "inherit": 1137,
@@ -1050,7 +1054,7 @@
     },
     "1142": {
       "type": "text",
-      "voice": "null",
+      "voice": "1142",
       "name": "tomoya",
       "lCharactor": "友也_平静",
       "inherit": 1137,
@@ -1058,7 +1062,7 @@
     },
     "1143": {
       "type": "animation",
-      "voice": "null",
+      "voice": "1143",
       "name": "fadeInBlack",
       "inherit": 1137,
       "onNext": { "nextNode": true }
@@ -1067,7 +1071,7 @@
     "1144": {
       "type": "text",
       "name": "narrator",
-      "voice": "null",
+      "voice": "1144",
       "bgr": "咖啡馆3",
       "bgm": "日落橘风",
       "onNext": { "nextNode": true }
@@ -1076,19 +1080,19 @@
       "type": "text",
       "name": "narrator",
       "inherit": 1144,
-      "voice": "null",
+      "voice": "1145",
       "onNext": { "nextNode": true }
     },
     "1146": {
       "type": "text",
       "name": "narrator",
-      "voice": "null",
+      "voice": "1146",
       "inherit": 1144,
       "onNext": { "nextNode": true }
     },
     "1147": {
       "type": "animation",
-      "voice": "null",
+      "voice": "1147",
       "name": "fadeInBlack",
       "inherit": 1144,
       "onNext": { "nextNode": true }
@@ -1096,7 +1100,7 @@
     "1148": {
       "type": "text",
       "name": "narrator",
-      "voice": "null",
+      "voice": "1148",
       "inherit": 1144,
       "onNext": { "nextNode": true }
     },
@@ -1143,21 +1147,21 @@
     "1154": {
       "type": "text",
       "name": "narrator",
-      "voice": "null",
+      "voice": "1154",
       "inherit": 1144,
       "onNext": { "nextNode": true }
     },
     "1155": {
       "type": "text",
       "name": "narrator",
-      "voice": "null",
+      "voice": "1155",
       "inherit": 1144,
       "onNext": { "nextNode": true }
     },
     "1156": {
       "type": "text",
       "name": "narrator",
-      "voice": "null",
+      "voice": "1156",
       "inherit": 1144,
       "onNext": { "nextNode": true }
     },
@@ -1187,14 +1191,14 @@
     },
     "1160": {
       "type": "text",
-      "voice": "null",
+      "voice": "1160",
       "name": "narrator",
       "inherit": 1144,
       "onNext": { "nextNode": true }
     },
     "1161": {
       "type": "animation",
-      "voice": "null",
+      "voice": "1161",
       "name": "fadeInBlack",
       "inherit": 1144,
       "onNext": { "nextNode": true }
@@ -1202,13 +1206,13 @@
     "1162": {
       "type": "text",
       "name": "narrator",
-      "voice": "null",
+      "voice": "1162",
       "inherit": 1144,
       "onNext": { "nextNode": true }
     },
     "1163": {
       "type": "animation",
-      "voice": "null",
+      "voice": "1163",
       "name": "fadeInBlack",
       "inherit": 1144,
       "onNext": { "nextNode": true }
@@ -1223,7 +1227,7 @@
     },
     "1165": {
       "type": "animation",
-      "voice": "null",
+      "voice": "1165",
       "name": "fadeInBlack",
       "inherit": 1144,
       "onNext": { "nextNode": true }
@@ -1312,6 +1316,7 @@
       "type": "text",
       "name": "tomoya",
       "lCharactor": "友也_平静",
+      "bgr":"绚音画像",
       "voice": "1176",
       "inherit": 1144,
       "onNext": { "nextNode": true }
@@ -1320,6 +1325,7 @@
       "type": "text",
       "name": "aoi",
       "lCharactor": "葵_惊讶",
+      "bgr":"绚音画像",
       "voice": "1177",
       "inherit": 1144,
       "onNext": { "nextNode": true }
@@ -1328,6 +1334,7 @@
       "type": "text",
       "name": "tomoya",
       "lCharactor": "友也_平静",
+      "bgr":"绚音画像",
       "voice": "1178",
       "inherit": 1144,
       "onNext": { "nextNode": true }
@@ -1342,14 +1349,14 @@
     },
     "1180": {
       "type": "animation",
-      "voice": "null",
+      "voice": "1180",
       "name": "fadeInBlack",
       "inherit": 1144,
       "onNext": { "nextNode": true }
     },
     "1181": {
       "type": "choices",
-      "voice": "null",
+      "voice": "1181",
       "name": "tomoya",
       "lCharactor": "友也_平静",
       "inherit": 1144,
@@ -1358,13 +1365,13 @@
     "1182": {
       "type": "text",
       "name": "narrator",
-      "voice": "null",
+      "voice": "1182",
       "inherit": 1144,
       "onNext": { "nextNode": true }
     },
     "1183": {
       "type": "text",
-      "voice": "null",
+      "voice": "1183",
       "name": "narrator",
       "inherit": 1144,
       "onNext": { "nextNode": true }
@@ -1372,14 +1379,14 @@
     "1184": {
       "type": "text",
       "name": "narrator",
-      "voice": "null",
+      "voice": "1184",
       "inherit": 1144,
       "onNext": { "nextNode": true }
     },
     "1185": {
       "type": "animation",
       "name": "fadeInBlack",
-      "voice": "null",
+      "voice": "1185",
       "inherit": 1144,
       "onNext": { "nextNode": true }
     },
@@ -1389,6 +1396,7 @@
       "name": "aoi",
       "lCharactor": "葵_疑惑",
       "voice": "1186",
+      "bgm":"夏天花散了",
       "inherit": 1144,
       "onNext": { "nextNode": true }
     },
@@ -1397,6 +1405,7 @@
       "name": "tomoya",
       "lCharactor": "友也_思考",
       "voice": "1187",
+      "bgm":"夏天花散了",
       "inherit": 1144,
       "onNext": { "nextNode": true }
     },
@@ -1405,6 +1414,7 @@
       "name": "ryo",
       "rCharactor": "凉_微笑",
       "voice": "1188",
+      "bgm":"夏天花散了",
       "inherit": 1144,
       "onNext": { "nextNode": true }
     },
@@ -1413,6 +1423,7 @@
       "name": "aoi",
       "lCharactor": "葵_可爱",
       "voice": "1189",
+      "bgm":"夏天花散了",
       "inherit": 1144,
       "onNext": { "nextNode": true }
     },
@@ -1421,6 +1432,7 @@
       "name": "ryo",
       "rCharactor": "凉_回忆",
       "voice": "1190",
+      "bgm":"夏天花散了",
       "inherit": 1144,
       "onNext": { "nextNode": true }
     },
@@ -1429,26 +1441,30 @@
       "name": "tomoya",
       "lCharactor": "友也_平静",
       "voice": "1191",
+      "bgm":"夏天花散了",
       "inherit": 1144,
       "onNext": { "nextNode": true }
     },
     "1192": {
       "type": "animation",
-      "voice": "null",
+      "voice": "1192",
       "name": "fadeInBlack",
+      "bgm":"夏天花散了",
       "inherit": 1144,
       "onNext": { "nextNode": true }
     },
     "1193": {
       "type": "text",
       "name": "narrator",
-      "voice": "null",
+      "bgm":"夏天花散了",
+      "voice": "1193",
       "inherit": 1144,
       "onNext": { "nextNode": true }
     },
     "1194": {
       "type": "text",
       "name": "tomoya",
+      "bgm":"夏天花散了",
       "lCharactor": "友也_平静",
       "voice": "1194",
       "inherit": 1144,
@@ -1459,6 +1475,7 @@
       "name": "ryo",
       "rCharactor": "凉_悠闲",
       "voice": "1195",
+      "bgm":"夏天花散了",
       "inherit": 1144,
       "onNext": { "nextNode": true }
     },
@@ -1467,6 +1484,7 @@
       "name": "tomoya",
       "lCharactor": "友也_无奈",
       "voice": "1196",
+      "bgm":"夏天花散了",
       "inherit": 1144,
       "onNext": { "nextNode": true }
     },
@@ -1475,6 +1493,7 @@
       "name": "aoi",
       "lCharactor": "葵_微笑",
       "voice": "1197",
+      "bgm":"夏天花散了",
       "inherit": 1144,
       "onNext": { "nextNode": true }
     },
@@ -1482,6 +1501,7 @@
       "type": "text",
       "name": "ryo",
       "rCharactor": "凉_难过",
+      "bgm":"夏天花散了",
       "inherit": 1144,
       "voice": "1198",
       "onNext": { "nextNode": true }
@@ -1490,6 +1510,7 @@
       "type": "text",
       "name": "ryo",
       "rCharactor": "凉_微笑",
+      "bgm":"夏天花散了",
       "voice": "1199",
       "inherit": 1144,
       "onNext": { "nextNode": true }
@@ -1498,6 +1519,7 @@
       "type": "text",
       "name": "ryo",
       "rCharactor": "凉_微笑",
+      "bgm":"夏天花散了",
       "voice": "1200",
       "inherit": 1144,
       "onNext": { "nextNode": true }
@@ -1507,6 +1529,7 @@
       "name": "tomoya",
       "lCharactor": "友也_平静",
       "inherit": 1144,
+      "bgm":"夏天花散了",
       "voice": "1201",
       "onNext": { "nextNode": true }
     },
@@ -1515,13 +1538,15 @@
       "name": "ryo",
       "rCharactor": "凉_微笑",
       "voice": "1202",
+      "bgm":"夏天花散了",
       "inherit": 1144,
       "onNext": { "nextNode": true }
     },
     "1203": {
       "type": "text",
       "name": "narrator",
-      "voice": "null",
+      "voice": "1203",
+      "bgm":"夏天花散了",
       "inherit": 1144,
       "onNext": { "nextNode": true }
     },
@@ -1530,6 +1555,7 @@
       "name": "tomoya",
       "lCharactor": "友也_平静",
       "voice": "1204",
+      "bgm":"夏天花散了",
       "inherit": 1144,
       "onNext": { "nextNode": true }
     },
@@ -1538,12 +1564,14 @@
       "name": "aoi",
       "lCharactor": "葵_畅想",
       "inherit": 1144,
+      "bgm":"夏天花散了",
       "voice": "1205",
       "onNext": { "nextNode": true }
     },
     "1206": {
       "type": "text",
       "name": "ryo",
+      "bgm":"夏天花散了",
       "rCharactor": "凉_思考",
       "voice": "1206",
       "inherit": 1144,
@@ -1551,15 +1579,17 @@
     },
     "1207": {
       "type": "text",
-      "voice": "null",
+      "voice": "1207",
+      "bgm":"夏天花散了",
       "name": "narrator",
       "inherit": 1144,
       "onNext": { "nextNode": true }
     },
     "1208": {
       "type": "animation",
-      "voice": "null",
+      "voice": "1208",
       "name": "fadeInBlack",
+      "bgm":"夏天花散了",
       "inherit": 1144,
       "onNext": { "nextNode": true }
     },
@@ -1568,6 +1598,7 @@
       "name": "tomoya",
       "lCharactor": "友也_平静",
       "voice": "1209",
+      "bgm":"夏天花散了",
       "inherit": 1144,
       "onNext": { "nextNode": true }
     },
@@ -1576,6 +1607,7 @@
       "name": "aoi",
       "lCharactor": "葵_微笑",
       "voice": "1210",
+      "bgm":"夏天花散了",
       "inherit": 1144,
       "onNext": { "nextNode": true }
     },
@@ -1584,13 +1616,15 @@
       "name": "ryo",
       "rCharactor": "凉_微笑",
       "inherit": 1144,
+      "bgm":"夏天花散了",
       "voice": "1211",
       "onNext": { "nextNode": true }
     },
     "1212": {
       "type": "animation",
-      "voice": "null",
+      "voice": "1212",
       "name": "fadeInBlack",
+      "bgm":"夏天花散了",
       "inherit": 1144,
       "onNext": { "nextNode": true }
     },
@@ -1598,6 +1632,7 @@
       "type": "text",
       "name": "ryo",
       "rCharactor": "凉_微笑",
+      "bgm":"夏天花散了",
       "voice": "1213",
       "inherit": 1144,
       "onNext": { "nextNode": true }
@@ -1606,6 +1641,7 @@
       "type": "text",
       "name": "ryo",
       "rCharactor": "凉_微笑",
+      "bgm":"夏天花散了",
       "voice": "1214",
       "inherit": 1144,
       "onNext": { "setNode": 1216 }
@@ -1613,63 +1649,72 @@
     "1215": {
       "type": "text",
       "name": "narrator",
-      "voice": "null",
+      "bgm":"夏天花散了",
+      "voice": "1215",
       "inherit": 1144,
       "onNext": { "nextNode": true }
     },
     "1216": {
       "type": "text",
-      "voice": "null",
+      "voice": "1216",
+      "bgm":"夏天花散了",
       "name": "narrator",
       "inherit": 1144,
       "onNext": { "nextNode": true }
     },
     "1217": {
       "type": "animation",
-      "voice": "null",
+      "voice": "1217",
+      "bgm":"夏天花散了",
       "name": "fadeInBlack",
       "inherit": 1144,
       "onNext": { "nextNode": true }
     },
     "1218": {
       "type": "text",
-      "voice": "null",
+      "voice": "1218",
       "name": "narrator",
+      "bgm":"夏天花散了",
       "inherit": 1144,
       "onNext": { "nextNode": true }
     },
     "1219": {
       "type": "text",
-      "voice": "null",
+      "voice": "1219",
       "name": "narrator",
+      "bgm":"夏天花散了",
       "inherit": 1144,
       "onNext": { "nextNode": true }
     },
     "1220": {
       "type": "text",
-      "voice": "null",
+      "voice": "1220",
       "name": "narrator",
+      "bgm":"夏天花散了",
       "inherit": 1144,
       "onNext": { "nextNode": true }
     },
     "1221": {
       "type": "text",
-      "voice": "null",
+      "voice": "1221",
       "name": "narrator",
+      "bgm":"夏天花散了",
       "inherit": 1144,
       "onNext": { "nextNode": true }
     },
     "1222": {
       "type": "animation",
-      "voice": "null",
+      "voice": "1222",
+      "bgm":"夏天花散了",
       "name": "fadeInBlack",
       "inherit": 1144,
       "onNext": { "setNode": 1302 }
     },
 
+
     "1301": {
       "type": "text",
-      "voice": "null",
+      "voice": "1301",
       "name": "narrator",
       "bgr": "机场跑道1",
       "bgm": "云村的风",
@@ -1677,7 +1722,7 @@
     },
     "1302": {
       "type": "text",
-      "voice": "null",
+      "voice": "1302",
       "name": "narrator",
       "inherit": 1301,
       "onNext": { "nextNode": true }
@@ -1692,7 +1737,7 @@
     },
     "1304": {
       "type": "choices",
-      "voice": "null",
+      "voice": "1304",
       "name": "ryo",
       "rCharactor": "凉_微笑",
       "inherit": 1301,
@@ -1700,14 +1745,14 @@
     },
     "1305": {
       "type": "text",
-      "voice": "null",
+      "voice": "1305",
       "name": "narrator",
       "inherit": 1301,
       "onNext": { "nextNode": true }
     },
     "1306": {
       "type": "text",
-      "voice": "null",
+      "voice": "1306",
       "name": "narrator",
       "inherit": 1301,
       "onNext": { "nextNode": true }
@@ -1754,14 +1799,14 @@
     },
     "1312": {
       "type": "text",
-      "voice": "null",
+      "voice": "1312",
       "name": "narrator",
       "inherit": 1301,
       "onNext": { "nextNode": true }
     },
     "1313": {
       "type": "text",
-      "voice": "null",
+      "voice": "1313",
       "name": "narrator",
       "inherit": 1301,
       "onNext": { "nextNode": true }
@@ -1769,7 +1814,7 @@
     "1314": {
       "type": "animation",
       "name": "fadeInBlack",
-      "voice": "null",
+      "voice": "1314",
       "inherit": 1301,
       "onNext": { "nextNode": true }
     },
@@ -1777,7 +1822,7 @@
     "1315": {
       "type": "text",
       "name": "narrator",
-      "voice": "null",
+      "voice": "1315",
       "bgr": "原画三人与夕阳",
       "bgm": "云村的风",
       "onNext": { "nextNode": true }
@@ -1808,28 +1853,28 @@
     },
     "1319": {
       "type": "text",
-      "voice": "null",
+      "voice": "1319",
       "name": "narrator",
       "inherit": 1315,
       "onNext": { "nextNode": true }
     },
     "1320": {
       "type": "animation",
-      "voice": "null",
+      "voice": "1320",
       "name": "fadeInBlack",
       "inherit": 1315,
       "onNext": { "nextNode": true }
     },
     "1321": {
       "type": "text",
-      "voice": "null",
+      "voice": "1321",
       "name": "narrator",
       "inherit": 1315,
       "onNext": { "nextNode": true }
     },
     "1322": {
       "type": "text",
-      "voice": "null",
+      "voice": "1322",
       "name": "narrator",
       "inherit": 1315,
       "onNext": { "nextNode": true }
@@ -1837,7 +1882,7 @@
     "1323": {
       "type": "text",
       "name": "narrator",
-      "voice": "null",
+      "voice": "1323",
       "inherit": 1315,
       "onNext": { "nextNode": true }
     },
@@ -1852,13 +1897,13 @@
     "1325": {
       "type": "text",
       "name": "narrator",
-      "voice": "null",
+      "voice": "1325",
       "inherit": 1315,
       "onNext": { "nextNode": true }
     },
     "1326": {
       "type": "choices",
-      "voice": "null",
+      "voice": "1326",
       "name": "aoi",
       "lCharactor": "葵_疑惑",
       "inherit": 1315,
@@ -1866,14 +1911,14 @@
     },
     "1327": {
       "type": "text",
-      "voice": "null",
+      "voice": "1327",
       "name": "narrator",
       "inherit": 1315,
       "onNext": { "nextNode": true }
     },
     "1328": {
       "type": "text",
-      "voice": "null",
+      "voice": "1328",
       "name": "narrator",
       "inherit": 1315,
       "onNext": { "nextNode": true }
@@ -1912,7 +1957,7 @@
     },
     "1333": {
       "type": "animation",
-      "voice": "null",
+      "voice": "1333",
       "name": "fadeInBlack",
       "inherit": 1332,
       "onNext": { "nextNode": true }
@@ -1920,41 +1965,41 @@
     "1334": {
       "type": "text",
       "name": "narrator",
-      "voice": "null",
+      "voice": "1334",
       "inherit": 1332,
       "onNext": { "nextNode": true }
     },
     "1335": {
       "type": "text",
       "name": "narrator",
-      "voice": "null",
+      "voice": "1335",
       "inherit": 1332,
       "onNext": { "nextNode": true }
     },
     "1336": {
       "type": "text",
       "name": "narrator",
-      "voice": "null",
+      "voice": "1336",
       "inherit": 1332,
       "onNext": { "nextNode": true }
     },
     "1337": {
       "type": "text",
       "name": "narrator",
-      "voice": "null",
+      "voice": "1337",
       "inherit": 1332,
       "onNext": { "nextNode": true }
     },
     "1338": {
       "type": "text",
       "name": "narrator",
-      "voice": "null",
+      "voice": "1338",
       "inherit": 1332,
       "onNext": { "nextNode": true }
     },
     "1339": {
       "type": "animation",
-      "voice": "null",
+      "voice": "1339",
       "name": "fadeInBlack",
       "inherit": 1332,
       "onNext": { "nextNode": true }
@@ -1963,7 +2008,7 @@
       "type": "text",
       "name": "aoi",
       "lCharactor": "葵_疑惑",
-      "voice": "null",
+      "voice": "1340",
       "inherit": 1332,
       "onNext": { "nextNode": true }
     },
@@ -1971,7 +2016,7 @@
       "type": "text",
       "name": "ryo",
       "rCharactor": "凉_思考",
-      "voice": "null",
+      "voice": "1341",
       "inherit": 1332,
       "onNext": { "nextNode": true }
     },
@@ -1980,20 +2025,20 @@
       "name": "tomoya",
       "lCharactor": "友也_思考",
       "inherit": 1332,
-      "voice": "null",
+      "voice": "1342",
       "onNext": { "nextNode": true }
     },
     "1343": {
       "type": "text",
       "name": "narrator",
-      "voice": "null",
+      "voice": "1343",
       "inherit": 1332,
       "onNext": { "nextNode": true }
     },
     "1344": {
       "type": "animation",
       "name": "fadeInBlack",
-      "voice": "null",
+      "voice": "1344",
       "inherit": 1332,
       "onNext": { "nextNode": true }
     },
@@ -2002,7 +2047,7 @@
       "name": "tomoya",
       "lCharactor": "友也_思考",
       "inherit": 1332,
-      "voice": "null",
+      "voice": "1345",
       "onNext": { "nextNode": true }
     },
     "1346": {
@@ -2010,13 +2055,13 @@
       "name": "tomoya",
       "lCharactor": "友也_平静",
       "inherit": 1332,
-      "voice": "null",
+      "voice": "1346",
       "onNext": { "nextNode": true }
     },
     "1347": {
       "type": "animation",
       "name": "fadeInBlack",
-      "voice": "null",
+      "voice": "1347",
       "inherit": 1332,
       "onNext": { "nextNode": true }
     },
@@ -2024,14 +2069,14 @@
     "1348": {
       "type": "text",
       "name": "narrator",
-      "voice": "null",
+      "voice": "1348",
       "bgr": "原画三人烟火",
       "bgm": "绚音的独白",
       "onNext": { "nextNode": true }
     },
     "1349": {
       "type": "text",
-      "voice": "null",
+      "voice": "1349",
       "name": "tomoya",
       "lCharactor": "友也_平静",
       "inherit": 1348,
@@ -2065,20 +2110,20 @@
       "type": "text",
       "name": "narrator",
       "inherit": 1348,
-      "voice": "null",
+      "voice": "1353",
       "onNext": { "nextNode": true }
     },
     "1354": {
       "type": "text",
       "name": "narrator",
       "inherit": 1348,
-      "voice": "null",
+      "voice": "1354",
       "onNext": { "nextNode": true }
     },
     "1355": {
       "type": "animation",
       "name": "fadeInBlack",
-      "voice": "null",
+      "voice": "1355",
       "inherit": 1348,
       "onNext": { "nextNode": true }
     },
@@ -2118,7 +2163,7 @@
       "type": "text",
       "name": "narrator",
       "inherit": 1348,
-      "voice": "null",
+      "voice": "1360",
       "onNext": { "nextNode": true }
     },
     "1361": {
@@ -2141,7 +2186,7 @@
       "type": "animation",
       "name": "fadeInBlack",
       "inherit": 1348,
-      "voice": "null",
+      "voice": "1363",
       "onNext": { "nextNode": true }
     },
     "1364": {
@@ -2171,34 +2216,34 @@
     "1367": {
       "type": "animation",
       "name": "fadeInBlack",
-      "voice": "null",
+      "voice": "1367",
       "inherit": 1348,
       "onNext": { "setNode": 1372 }
     },
     "1368": {
       "type": "text",
       "name": "narrator",
-      "voice": "null",
+      "voice": "1368",
       "inherit": 1348,
       "onNext": { "nextNode": true }
     },
     "1369": {
       "type": "text",
-      "voice": "null",
+      "voice": "1369",
       "name": "narrator",
       "inherit": 1348,
       "onNext": { "nextNode": true }
     },
     "1370": {
       "type": "text",
-      "voice": "null",
+      "voice": "1370",
       "name": "narrator",
       "inherit": 1348,
       "onNext": { "nextNode": true }
     },
     "1371": {
       "type": "text",
-      "voice": "null",
+      "voice": "1371",
       "name": "narrator",
       "inherit": 1348,
       "onNext": { "nextNode": true }
@@ -2278,7 +2323,7 @@
     "1381": {
       "type": "text",
       "name": "narrator",
-      "voice": "null",
+      "voice": "1381",
       "inherit": 1348,
       "onNext": { "nextNode": true }
     },
@@ -2293,13 +2338,13 @@
     "1383": {
       "type": "animation",
       "name": "fadeInBlack",
-      "voice": "null",
+      "voice": "1383",
       "inherit": 1348,
       "onNext": { "nextNode": true }
     },
     "1384": {
       "type": "text",
-      "voice": "null",
+      "voice": "1384",
       "name": "narrator",
       "inherit": 1348,
       "onNext": { "nextNode": true }
@@ -2339,7 +2384,7 @@
     "1389": {
       "type": "text",
       "name": "narrator",
-      "voice": "null",
+      "voice": "1389",
       "inherit": 1348,
       "onNext": { "nextNode": true }
     },
@@ -2347,7 +2392,7 @@
     "1390": {
       "type": "text",
       "name": "narrator",
-      "voice": "null",
+      "voice": "1390",
       "bgr": "原画三人仰望",
       "bgm": "跳跃的思念",
       "onNext": { "nextNode": true }
@@ -2355,14 +2400,14 @@
     "1391": {
       "type": "text",
       "name": "narrator",
-      "voice": "null",
+      "voice": "1391",
       "inherit": 1390,
       "onNext": { "nextNode": true }
     },
     "1392": {
       "type": "text",
       "name": "narrator",
-      "voice": "null",
+      "voice": "1392",
       "inherit": 1390,
       "onNext": { "nextNode": true }
     },
@@ -2401,13 +2446,13 @@
     "1397": {
       "type": "text",
       "name": "narrator",
-      "voice": "null",
+      "voice": "1397",
       "inherit": 1390,
       "onNext": { "nextNode": true }
     },
     "1398": {
       "type": "text",
-      "voice": "null",
+      "voice": "1398",
       "name": "narrator",
       "inherit": 1390,
       "onNext": { "nextNode": true }
@@ -2415,28 +2460,28 @@
     "1399": {
       "type": "animation",
       "name": "fadeInBlack",
-      "voice": "null",
+      "voice": "1399",
       "inherit": 1390,
       "onNext": { "nextNode": true }
     },
     "1400": {
       "type": "text",
       "name": "narrator",
-      "voice": "null",
+      "voice": "1400",
       "inherit": 1390,
       "onNext": { "nextNode": true }
     },
     "1401": {
       "type": "text",
       "name": "narrator",
-      "voice": "null",
+      "voice": "1401",
       "inherit": 1390,
       "onNext": { "setNode": 1 }
     },
 
     "20001": {
       "type": "text",
-      "voice": "null",
+      "voice": "20001",
       "name": "narrator",
       "bgr": "卧室2",
       "bgm": "四月维夏",
@@ -2444,14 +2489,16 @@
     },
     "20002": {
       "type": "text",
-      "voice": "null",
+      "voice": "20002",
+      "bgr": "原画友也与衣柜画板",
       "name": "narrator",
       "inherit": 20001,
       "onNext": { "nextNode": true }
     },
     "20003": {
       "type": "text",
-      "voice": "null",
+      "voice": "20003",
+      "bgr": "原画友也与衣柜画板",
       "name": "tomoya",
       "rCharactor": "友也_思考",
       "inherit": 20001,
@@ -2459,14 +2506,14 @@
     },
     "20004": {
       "type": "text",
-      "voice": "null",
+      "voice": "20004",
       "name": "narrator",
       "inherit": 20001,
       "onNext": { "nextNode": true }
     },
     "20005": {
       "type": "text",
-      "voice": "null",
+      "voice": "20005",
       "name": "tomoya",
       "lCharactor": "友也_平静",
       "inherit": 20001,
@@ -2474,7 +2521,7 @@
     },
     "20006": {
       "type": "text",
-      "voice": "null",
+      "voice": "20006",
       "name": "tomoya",
       "rCharactor": "友也_平静",
       "inherit": 20001,
@@ -2482,14 +2529,14 @@
     },
     "20007": {
       "type": "text",
-      "voice": "null",
+      "voice": "20007",
       "name": "narrator",
       "inherit": 20001,
       "onNext": { "nextNode": true }
     },
     "20008": {
       "type": "text",
-      "voice": "null",
+      "voice": "20008",
       "name": "tomoya",
       "lCharactor": "友也_思考",
       "inherit": 20001,
@@ -2497,28 +2544,28 @@
     },
     "20009": {
       "type": "text",
-      "voice": "null",
+      "voice": "20009",
       "name": "narrator",
       "inherit": 20001,
       "onNext": { "nextNode": true }
     },
     "20010": {
       "type": "text",
-      "voice": "null",
+      "voice": "20010",
       "name": "narrator",
       "inherit": 20001,
       "onNext": { "nextNode": true }
     },
     "20011": {
       "type": "text",
-      "voice": "null",
+      "voice": "20011",
       "name": "narrator",
       "inherit": 20001,
       "onNext": { "nextNode": true }
     },
     "20012": {
       "type": "text",
-      "voice": "null",
+      "voice": "20012",
       "name": "tomoya",
       "lCharactor": "友也_思考",
       "inherit": 20001,
@@ -2527,7 +2574,7 @@
 
     "20013": {
       "type": "text",
-      "voice": "null",
+      "voice": "20013",
       "name": "narrator",
       "bgr": "公园",
       "bgm": "四月维夏",
@@ -2535,7 +2582,7 @@
     },
     "20014": {
       "type": "text",
-      "voice": "null",
+      "voice": "20014",
       "name": "aoi",
       "rCharactor": "葵_可爱",
       "inherit": 20013,
@@ -2543,14 +2590,14 @@
     },
     "20015": {
       "type": "text",
-      "voice": "null",
+      "voice": "20015",
       "name": "narrator",
       "inherit": 20013,
       "onNext": { "nextNode": true }
     },
     "20016": {
       "type": "text",
-      "voice": "null",
+      "voice": "20016",
       "name": "aoi",
       "lCharactor": "葵_畅想",
       "inherit": 20013,
@@ -2558,14 +2605,14 @@
     },
     "20017": {
       "type": "text",
-      "voice": "null",
+      "voice": "20017",
       "name": "narrator",
       "inherit": 20013,
       "onNext": { "nextNode": true }
     },
     "20018": {
       "type": "text",
-      "voice": "null",
+      "voice": "20018",
       "name": "aoi",
       "lCharactor": "葵_微笑",
       "inherit": 20013,
@@ -2573,14 +2620,14 @@
     },
     "20019": {
       "type": "text",
-      "voice": "null",
+      "voice": "20019",
       "name": "narrator",
       "inherit": 20013,
       "onNext": { "nextNode": true }
     },
     "20020": {
       "type": "text",
-      "voice": "null",
+      "voice": "20020",
       "name": "aoi",
       "rCharactor": "葵_微笑",
       "inherit": 20013,
@@ -2588,7 +2635,7 @@
     },
     "20021": {
       "type": "text",
-      "voice": "null",
+      "voice": "20021",
       "name": "narrator",
       "inherit": 20013,
       "onNext": { "nextNode": true }
@@ -2602,7 +2649,7 @@
     },
     "20023": {
       "type": "text",
-      "voice": "null",
+      "voice": "20023",
       "name": "aoi",
       "lCharactor": "葵_畅想",
       "inherit": 20013,
@@ -2610,7 +2657,7 @@
     },
     "20024": {
       "type": "text",
-      "voice": "null",
+      "voice": "20024",
       "name": "narrator",
       "inherit": 20013,
       "onNext": { "setNode": 20025 }
@@ -2618,7 +2665,7 @@
 
     "20025": {
       "type": "text",
-      "voice": "null",
+      "voice": "20025",
       "name": "narrator",
       "bgr": "体育器材室",
       "bgm": "四月维夏",
@@ -2626,7 +2673,7 @@
     },
     "20026": {
       "type": "text",
-      "voice": "null",
+      "voice": "20026",
       "name": "studentA",
       "rCharactor": "男生4",
       "inherit": 20025,
@@ -2688,7 +2735,7 @@
     },
     "20034": {
       "type": "text",
-      "voice": "null",
+      "voice": "20034",
       "name": "tomoya",
       "lCharactor": "友也_平静",
       "inherit": 20031,
@@ -2704,7 +2751,7 @@
     },
     "20036": {
       "type": "text",
-      "voice": "null",
+      "voice": "20036",
       "name": "narrator",
       "inherit": 20031,
       "onNext": { "nextNode": true }
@@ -2726,7 +2773,7 @@
     },
     "20039": {
       "type": "text",
-      "voice": "null",
+      "voice": "20039",
       "name": "tomoya",
       "lCharactor": "友也_平静",
       "inherit": 20031,
@@ -2734,14 +2781,14 @@
     },
     "20040": {
       "type": "text",
-      "voice": "null",
+      "voice": "20040",
       "name": "narrator",
       "inherit": 20031,
       "onNext": { "nextNode": true }
     },
     "20041": {
       "type": "text",
-      "voice": "null",
+      "voice": "20041",
       "name": "tomoya",
       "rCharactor": "友也_平静",
       "inherit": 20031,
@@ -2750,7 +2797,7 @@
 
     "20042": {
       "type": "text",
-      "voice": "null",
+      "voice": "20042",
       "name": "narrator",
       "bgr": "游乐场",
       "bgm": "四月维夏",
@@ -2758,7 +2805,7 @@
     },
     "20043": {
       "type": "text",
-      "voice": "null",
+      "voice": "20043",
       "name": "aoi",
       "lCharactor": "葵_微笑",
       "inherit": 20042,
@@ -2766,7 +2813,7 @@
     },
     "20044": {
       "type": "text",
-      "voice": "null",
+      "voice": "20044",
       "name": "narrator",
       "rCharactor": "小男孩",
       "inherit": 20042,
@@ -2774,7 +2821,7 @@
     },
     "20045": {
       "type": "text",
-      "voice": "null",
+      "voice": "20045",
       "name": "aoi",
       "lCharactor": "葵_微笑",
       "inherit": 20042,
@@ -2782,7 +2829,7 @@
     },
     "20046": {
       "type": "text",
-      "voice": "null",
+      "voice": "20046",
       "name": "narrator",
       "lCharactor": "女生3",
       "rCharactor": "男生3",
@@ -2864,6 +2911,7 @@
       "type": "text",
       "voice": "null",
       "name": "narrator",
+      "rCharactor": "女售票员",
       "inherit": 20042,
       "onNext": { "nextNode": true }
     },
@@ -3618,6 +3666,7 @@
       "voice": "null",
       "name": "narrator",
       "rCharactor": "旁白",
+      "bgr":"夜空1",
       "inherit": 30063,
       "onNext": { "nextNode": true }
     },
@@ -3658,6 +3707,7 @@
       "voice": "null",
       "name": "aoi_father",
       "rCharactor": "葵父亲",
+      "bgr": "客厅4",
       "inherit": 30078,
       "onNext": { "nextNode": true }
     },
@@ -3666,6 +3716,7 @@
       "voice": "null",
       "name": "aoi_father",
       "rCharactor": "葵父亲",
+      "bgr": "客厅4",
       "inherit": 30078,
       "onNext": { "nextNode": true }
     },
@@ -3673,6 +3724,7 @@
       "type": "text",
       "voice": "null",
       "name": "narrator",
+      "bgr": "客厅4",
       "inherit": 30078,
       "onNext": { "nextNode": true }
     },
@@ -3680,6 +3732,7 @@
       "type": "text",
       "voice": "null",
       "name": "aoi_mother",
+      "bgr": "客厅4",
       "lCharactor": "葵母亲",
       "inherit": 30078,
       "onNext": { "nextNode": true }
@@ -3688,6 +3741,7 @@
       "type": "text",
       "voice": "null",
       "name": "aoi_father",
+      "bgr": "客厅4",
       "rCharactor": "葵父亲",
       "inherit": 30078,
       "onNext": { "nextNode": true }
@@ -3696,6 +3750,7 @@
       "type": "text",
       "voice": "null",
       "name": "aoi_father",
+      "bgr": "客厅4",
       "rCharactor": "葵父亲",
       "inherit": 30078,
       "onNext": { "nextNode": true }
@@ -3703,6 +3758,7 @@
     "30085": {
       "type": "text",
       "voice": "null",
+      "bgr": "客厅4",
       "name": "aoi_mother",
       "lCharactor": "葵母亲",
       "inherit": 30078,
@@ -3712,6 +3768,7 @@
       "type": "text",
       "voice": "null",
       "name": "aoi",
+      "bgr": "客厅4",
       "lCharactor": "葵_伤心",
       "inherit": 30078,
       "onNext": { "nextNode": true }
@@ -3719,6 +3776,7 @@
     "30087": {
       "type": "text",
       "voice": "null",
+      "bgr": "客厅4",
       "name": "narrator",
       "inherit": 30078,
       "onNext": { "nextNode": true }
@@ -3726,6 +3784,7 @@
     "30088": {
       "type": "text",
       "voice": "null",
+      "bgr": "客厅4",
       "name": "aoi",
       "rCharactor": "葵_可爱",
       "inherit": 30078,
@@ -3735,6 +3794,7 @@
       "type": "text",
       "voice": "null",
       "name": "aoi_mother",
+      "bgr": "客厅4",
       "rCharactor": "葵母亲",
       "inherit": 30078,
       "onNext": { "nextNode": true }
@@ -3743,14 +3803,16 @@
       "type": "text",
       "voice": "null",
       "name": "narrator",
+      "bgr": "客厅4",
       "inherit": 30078,
       "onNext": { "nextNode": true }
     },
+
     "30091": {
       "type": "text",
       "voice": "null",
       "name": "narrator",
-      "bgr": "大门1",
+      "bgr": "楼梯3",
       "bgm": "舞之花",
       "onNext": { "nextNode": true }
     },
@@ -3780,6 +3842,7 @@
     "30095": {
       "type": "text",
       "voice": "null",
+      "bgr": "夜晚街道2",
       "name": "narrator",
       "inherit": 30091,
       "onNext": { "nextNode": true }
@@ -3788,6 +3851,7 @@
       "type": "text",
       "voice": "null",
       "name": "narrator",
+      "bgr": "夜晚街道2",
       "inherit": 30091,
       "onNext": { "nextNode": true }
     },
@@ -3795,6 +3859,7 @@
       "type": "text",
       "voice": "null",
       "name": "aoi",
+      "bgr": "夜晚街道2",
       "rCharactor": "葵_思考",
       "inherit": 30091,
       "onNext": { "nextNode": true }
@@ -3802,6 +3867,7 @@
     "30098": {
       "type": "text",
       "voice": "null",
+      "bgr": "夜晚街道2",
       "name": "narrator",
       "inherit": 30091,
       "onNext": { "nextNode": true }
@@ -3810,6 +3876,7 @@
       "type": "text",
       "voice": "null",
       "name": "aoi",
+      "bgr": "夜晚街道2",
       "lCharactor": "葵_思考",
       "inherit": 30091,
       "onNext": { "nextNode": true }
@@ -3818,6 +3885,7 @@
       "type": "text",
       "voice": "null",
       "name": "aoi",
+      "bgr": "夜晚街道2",
       "lCharactor": "葵_思考",
       "inherit": 30091,
       "onNext": { "setNode": 301000 }
@@ -3827,6 +3895,7 @@
       "type": "choices",
       "name": "aoi",
       "lCharactor": "葵_思考",
+      "bgr": "夜晚街道2",
       "inherit": 30091,
       "onNext": {
         "choice": [
@@ -3842,7 +3911,7 @@
       "voice": "null",
       "name": "aoi",
       "rCharactor": "葵_思考",
-      "bgr": "城市树荫",
+      "bgr": "夜晚街道2",
       "bgm": "舞之花",
       "onNext": { "nextNode": true }
     },
@@ -4084,6 +4153,7 @@
       "type": "text",
       "voice": "40010",
       "name": "narrator",
+      "bgr": "图书馆3",
       "inherit": 40001,
       "onNext": { "nextNode": true }
     },
@@ -4091,6 +4161,7 @@
       "type": "text",
       "voice": "40011",
       "name": "tomoya",
+      "bgr": "图书馆3",
       "lCharactor": "友也_平静",
       "inherit": 40001,
       "onNext": { "nextNode": true }
@@ -4099,6 +4170,7 @@
       "type": "text",
       "voice": "40012",
       "name": "aoi",
+      "bgr": "图书馆3",
       "rCharactor": "葵_畅想",
       "inherit": 40001,
       "onNext": { "nextNode": true }
@@ -4106,6 +4178,7 @@
     "40013": {
       "type": "text",
       "voice": "40013",
+      "bgr": "图书馆3",
       "name": "narrator",
       "inherit": 40001,
       "onNext": { "nextNode": true }
@@ -4113,6 +4186,7 @@
     "40014": {
       "type": "text",
       "voice": "40014",
+      "bgr": "图书馆3",
       "name": "narrator",
       "inherit": 40001,
       "onNext": { "nextNode": true }
@@ -4120,6 +4194,7 @@
     "40015": {
       "type": "text",
       "voice": "40015",
+      "bgr": "图书馆3",
       "name": "aoi",
       "rCharactor": "葵_思考",
       "inherit": 40001,
@@ -4129,6 +4204,7 @@
       "type": "text",
       "voice": "40016",
       "name": "tomoya",
+      "bgr": "图书馆3",
       "lCharactor": "友也_思考",
       "inherit": 40001,
       "onNext": { "nextNode": true }
@@ -4136,6 +4212,7 @@
     "40017": {
       "type": "text",
       "voice": "40017",
+      "bgr": "图书馆3",
       "name": "narrator",
       "inherit": 40001,
       "onNext": { "nextNode": true }
@@ -4143,6 +4220,7 @@
     "40018": {
       "type": "text",
       "voice": "40018",
+      "bgr": "图书馆3",
       "name": "narrator",
       "inherit": 40001,
       "onNext": { "nextNode": true }
@@ -4151,6 +4229,7 @@
       "type": "text",
       "voice": "40019",
       "name": "librarian",
+      "bgr": "图书馆3",
       "rCharactor": "图书管理员",
       "inherit": 40001,
       "onNext": { "nextNode": true }
@@ -4159,6 +4238,7 @@
       "type": "text",
       "voice": "40020",
       "name": "aoi",
+      "bgr": "图书馆3",
       "rCharactor": "葵_微笑",
       "inherit": 40001,
       "onNext": { "nextNode": true }
@@ -4167,6 +4247,7 @@
       "type": "text",
       "voice": "40021",
       "name": "librarian",
+      "bgr": "图书馆3",
       "lCharactor": "图书管理员",
       "inherit": 40001,
       "onNext": { "nextNode": true }
@@ -4176,7 +4257,7 @@
       "type": "text",
       "voice": "40022",
       "name": "narrator",
-      "bgr": "图书馆3",
+      "bgr": "图书馆2",
       "bgm": "流水",
       "onNext": { "nextNode": true }
     },
@@ -4276,7 +4357,7 @@
       "type": "text",
       "voice": "40035",
       "name": "narrator",
-      "bgr": "郊区",
+      "bgr": "图书馆4",
       "bgm": "流水",
       "onNext": { "nextNode": true }
     },
@@ -4341,6 +4422,7 @@
       "type": "text",
       "voice": "40044",
       "name": "narrator",
+      "bgr":"大厅",
       "inherit": 40035,
       "onNext": { "nextNode": true }
     },
@@ -4763,7 +4845,7 @@
     "40096": {
       "type": "text",
       "name": "narrator",
-      "bgr": "教室2",
+      "bgr": "教室3",
       "voice": "40096",
       "bgm": "走马灯",
       "onNext": { "nextNode": true }
@@ -4833,7 +4915,7 @@
       "type": "text",
       "name": "narrator",
       "voice": "40105",
-      "bgr": "卧室2",
+      "bgr": "走廊3",
       "bgm": "走马灯",
       "onNext": { "nextNode": true }
     },
