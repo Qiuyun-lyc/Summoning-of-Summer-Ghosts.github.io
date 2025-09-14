@@ -2,6 +2,8 @@ export default class UIManager {
     constructor(engine) {
         this.engine = engine;
         this.sentencePrinter = null;
+        this.tooltipTimeout = null;
+        this._fsChangeHandlerBound = null; // 记录绑定，用于清理
     }
 
     clearContainer() {
@@ -37,7 +39,7 @@ export default class UIManager {
             nameBox.textContent = node.name ? this.engine.localization.get(`story.name.${node.name}`) : '';
             const textKey = `story.nodes.${this.engine.gameState.currentSave.nodeId}.text`;
             const textContent = this.engine.localization.get(textKey);
-            this.sentencePrinter.print(textContent);
+            this.sentencePrinter?.print(textContent);
         } else {
             dialogueGroup.style.display = 'none';
         }
@@ -67,9 +69,7 @@ export default class UIManager {
     }
 
     skipPrinting() {
-        if (this.sentencePrinter) {
-            this.sentencePrinter.skip();
-        }
+        this.sentencePrinter?.skip();
     }
     
     togglePauseMenu(show) {
@@ -81,7 +81,7 @@ export default class UIManager {
                 menu.id = 'ingame-menu-overlay';
                 menu.className = 'ingame-menu-overlay';
     
-                // 创建菜单的 HTML 结构和样式
+                // 创建菜单的 HTML 结构和样式（新增：全屏按钮）
                 menu.innerHTML = `
                     <style>
                         .ingame-menu-overlay {
@@ -115,6 +115,13 @@ export default class UIManager {
                             <img src="./assets/img/button.png">
                             <span>${this.engine.localization.get('ui.save_load')}</span>
                         </div>
+
+                        <!-- 新增：全屏按钮（与其他按钮一致的样式） -->
+                        <div class="ingame-menu-item" data-action="fullscreen" id="pause-fs-btn">
+                            <img src="./assets/img/button.png">
+                            <span class="fs-label"></span>
+                        </div>
+
                         <div class="ingame-menu-item" data-action="title">
                             <img src="./assets/img/button.png">
                             <span>${this.engine.localization.get('ui.title')}</span>
@@ -125,12 +132,58 @@ export default class UIManager {
                 document.body.appendChild(menu);
     
                 // 绑定事件
-                menu.querySelector('[data-action="unpause"]').addEventListener('click', () => { this.engine.audioManager.playSoundEffect('click'); this.engine.unpauseGame(); });
-                menu.querySelector('[data-action="save_load"]').addEventListener('click', () => { this.engine.audioManager.playSoundEffect('click'); this.engine.unpauseGame(); this.engine.showView('Load'); });
-                menu.querySelector('[data-action="title"]').addEventListener('click', () => { this.engine.audioManager.playSoundEffect('click'); this.engine.unpauseGame(); this.engine.showView('MainMenu'); });
-                menu.querySelectorAll('.ingame-menu-item').forEach(item => { item.addEventListener('mouseover', () => this.engine.audioManager.playSoundEffect('hover')); });
+                menu.querySelector('[data-action="unpause"]')
+                    .addEventListener('click', () => { 
+                        this.engine.audioManager.playSoundEffect('click'); 
+                        this.engine.unpauseGame(); 
+                    });
+
+                menu.querySelector('[data-action="save_load"]')
+                    .addEventListener('click', () => { 
+                        this.engine.audioManager.playSoundEffect('click'); 
+                        this.engine.unpauseGame(); 
+                        this.engine.showView('Load'); 
+                    });
+
+                // 全屏按钮点击
+                menu.querySelector('[data-action="fullscreen"]')
+                    .addEventListener('click', async () => {
+                        this.engine.audioManager.playSoundEffect('click');
+                        try {
+                            if (this.engine.toggleFullscreen) {
+                                await this.engine.toggleFullscreen();
+                            } else {
+                                const el = document.documentElement;
+                                if (!document.fullscreenElement) {
+                                    await el.requestFullscreen?.();
+                                } else {
+                                    await document.exitFullscreen?.();
+                                }
+                            }
+                        } catch (err) {
+                            console.warn('Fullscreen toggle failed:', err);
+                        }
+                        // 切换后刷新标签（双保险）
+                        this._updatePauseMenuFullscreenLabel(menu);
+                    });
+
+                menu.querySelector('[data-action="title"]')
+                    .addEventListener('click', () => { 
+                        this.engine.audioManager.playSoundEffect('click'); 
+                        this.engine.unpauseGame(); 
+                        this.engine.showView('MainMenu'); 
+                    });
+
+                menu.querySelectorAll('.ingame-menu-item')
+                    .forEach(item => item.addEventListener('mouseover', () => this.engine.audioManager.playSoundEffect('hover')));
+
+                // 监听全屏变化：菜单存在时同步更新文案
+                this._bindFullscreenChangeForPauseMenu(menu);
             }
             
+            // 每次打开菜单都刷新一次全屏按钮的文案
+            this._updatePauseMenuFullscreenLabel(menu);
+
             menu.style.display = 'flex';
             requestAnimationFrame(() => { menu.classList.add('visible'); });
     
@@ -142,6 +195,28 @@ export default class UIManager {
                 }, { once: true });
             }
         }
+    }
+
+    // 绑定 fullscreenchange（只绑定一次）
+    _bindFullscreenChangeForPauseMenu(menu) {
+        if (this._fsChangeHandlerBound) return;
+
+        this._fsChangeHandlerBound = () => {
+            this._updatePauseMenuFullscreenLabel(menu);
+        };
+        document.addEventListener('fullscreenchange', this._fsChangeHandlerBound);
+    }
+
+    // 更新暂停菜单里的全屏按钮文字
+    _updatePauseMenuFullscreenLabel(menu) {
+        if (!menu) return;
+        const labelEl = menu.querySelector('#pause-fs-btn .fs-label');
+        if (!labelEl) return;
+        const L = this.engine.localization;
+        const isFs = !!document.fullscreenElement;
+        labelEl.textContent = isFs
+            ? (L.get('关闭全屏') || '关闭全屏')
+            : (L.get('全屏模式') || '全屏模式');
     }
 
     /**
