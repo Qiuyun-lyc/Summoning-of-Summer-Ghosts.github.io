@@ -45,8 +45,8 @@ export class AssetManager {
         const bp = this.basePath;
         const [
             idleData, walkData, jumpData, fallData, landData, attackData,
-            slashImg, tilesetImg, lightOrbImg,floor1Img,
-            mapLevel1Data, mapLevel2Data, mapLevel3Data
+            slashImg, tilesetImg, lightOrbImg,floor1Img,lightImg,light1Img,wall1Img,wall2Img,wall3Img,base1Img,base2Img,base3Img,base4Img,
+            mapLevel1Data, mapLevel2Data, mapLevel3Data,mapLevel4Data, mapLevel5Data
         ] = await Promise.all([
             loadSpriteSheet(`${bp}assets/sprites/player/idle.png`, 9),
             loadSpriteSheet(`${bp}assets/sprites/player/walk.png`, 8),
@@ -58,9 +58,20 @@ export class AssetManager {
             loadImage(`${bp}assets/sprites/tileset.png`),
             loadImage(`${bp}assets/sprites/light_orb.png`),
             loadImage(`${bp}assets/sprites/floor1.png`),
+            loadImage(`${bp}assets/sprites/light.png`),
+            loadImage(`${bp}assets/sprites/light1.png`),
+            loadImage(`${bp}assets/sprites/wall1.png`),
+            loadImage(`${bp}assets/sprites/wall2.png`),
+            loadImage(`${bp}assets/sprites/wall3.png`),
+            loadImage(`${bp}assets/sprites/base1.png`),
+            loadImage(`${bp}assets/sprites/base2.png`),
+            loadImage(`${bp}assets/sprites/base3.png`),
+            loadImage(`${bp}assets/sprites/base4.png`),
             loadJSON(`${bp}assets/maps/level1.json`),
             loadJSON(`${bp}assets/maps/level2.json`),
             loadJSON(`${bp}assets/maps/level3.json`),
+            loadJSON(`${bp}assets/maps/level4.json`),
+            loadJSON(`${bp}assets/maps/level5.json`),
             this.loadAudios(),
         ]);
 
@@ -75,10 +86,21 @@ export class AssetManager {
         this.images.set('tileset', tilesetImg);
         this.images.set('light_orb', lightOrbImg);
         this.images.set('floor1', floor1Img);
+        this.images.set('light', lightImg);
+        this.images.set('light1', light1Img);
+        this.images.set('wall1', wall1Img);
+        this.images.set('wall2', wall2Img);
+        this.images.set('wall3', wall3Img);
+        this.images.set('base1', base1Img);
+        this.images.set('base2', base2Img);
+        this.images.set('base3', base3Img);
+        this.images.set('base4', base4Img);
 
         this.jsons.set('level1.json', mapLevel1Data);
         this.jsons.set('level2.json', mapLevel2Data);
         this.jsons.set('level3.json', mapLevel3Data);
+        this.jsons.set('level4.json', mapLevel4Data);
+        this.jsons.set('level5.json', mapLevel5Data);
     }
 
     getSpriteSheet(name) { return this.spriteSheets.get(name); }
