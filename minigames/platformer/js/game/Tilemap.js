@@ -29,7 +29,7 @@ export default class Tilemap {
 
         // 过滤出所有可见、需要绘制的图层块
         this.drawableLayers = this.mapData.layers.filter(
-            layer => layer.type === 'tilelayer' && layer.visible
+            layer => layer.type === 'tilelayer' //&& layer.visible
         );
         // 找到名为Collision的图层块，用于物理检测碰撞
         this.collisionLayer = this.mapData.layers.find(

@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tileset version="1.10" tiledversion="1.11.2" name="lamp_01" tilewidth="30" tileheight="30" tilecount="60" columns="6">
+ <image source="../../../../../maps/lamp_01.png" width="182" height="312"/>
+</tileset>
