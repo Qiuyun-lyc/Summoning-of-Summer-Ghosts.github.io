@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tileset version="1.10" tiledversion="1.11.2" name="base2" tilewidth="30" tileheight="30" tilecount="10" columns="5">
+ <image source="../sprites/base2.png" width="150" height="60"/>
+</tileset>

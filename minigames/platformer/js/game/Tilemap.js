@@ -1,34 +1,56 @@
 //负责解析从Tiled地图编辑器导出的JSON数据，并将其绘制到屏幕上
 export default class Tilemap {
-    constructor(mapData, tilesetImg) {
-        this.mapData = mapData;    //地图的JSON数据
-        this.tileset = tilesetImg; //地图使用的图块资源图片
-        //地图数据中读取基本信息
+    constructor(mapData, assetManager) {
+        this.mapData = mapData;
         this.tileWidth = mapData.tilewidth;
         this.tileHeight = mapData.tileheight;
-        this.mapWidth = mapData.width;  //地图宽度（以图块为单位）
-        this.mapHeight = mapData.height;//地图高度
-        //获取图块集信息，用于计算每个图块在资源图片中的位置
-        const ts0 = mapData.tilesets?.[0] ?? {};
-        this.firstgid = ts0.firstgid ?? 1;
-        this.columns = ts0.columns ?? Math.floor(this.tileset.width / this.tileWidth);//图块集每行有多少的图块
-        //过滤出所有可见、需要绘制的图层块
+        this.mapWidth = mapData.width;
+        this.mapHeight = mapData.height;
+
+        this.tilesets = []; // 创建一个数组来存储所有图块集信息
+        for (const tsData of mapData.tilesets) {
+            // 从 source 路径中提取文件名作为图像在 AssetManager 中的键名
+            const imageName = tsData.source.split('/').pop().replace('.xml', '').replace('.tsx', '');
+            const image = assetManager.getImage(imageName);
+            
+            if (image) {
+                this.tilesets.push({
+                    firstgid: tsData.firstgid,
+                    image: image,
+                    columns: Math.floor(image.width / this.tileWidth)
+                });
+            } else {
+                console.error(`错误: 在 AssetManager 中未找到图块集图像 "${imageName}"`);
+            }
+        }
+
+        // 按 firstgid 降序排序，这使得查找图块集变得非常高效
+        this.tilesets.sort((a, b) => b.firstgid - a.firstgid);
+
+        // 过滤出所有可见、需要绘制的图层块
         this.drawableLayers = this.mapData.layers.filter(
-            layer => layer.type === 'tilelayer' && layer.visible
+            layer => layer.type === 'tilelayer' //&& layer.visible
         );
-        //找到名为Collision的图层块，用于物理检测碰撞
+        // 找到名为Collision的图层块，用于物理检测碰撞
         this.collisionLayer = this.mapData.layers.find(
             layer => layer.name.toLowerCase() === 'collision'
         );
     }
 
-    //根据图块的全局ID（gid）计算其在图块集图片中的坐标
-    getTileCoords(gid) {
-        if (!gid || gid < this.firstgid) return null;
-        const id = gid - this.firstgid;
-        const sx = (id % this.columns) * this.tileWidth;
-        const sy = Math.floor(id / this.columns) * this.tileHeight;
-        return { sx, sy };
+    //根据 gid 查找正确的图块集和坐标
+    getTileInfo(gid) {
+        if (!gid || gid === 0) return null;
+
+        // 因为已经按 firstgid 降序排序，第一个匹配的就是正确的图块集
+        for (const tileset of this.tilesets) {
+            if (gid >= tileset.firstgid) {
+                const localId = gid - tileset.firstgid;
+                const sx = (localId % tileset.columns) * this.tileWidth;
+                const sy = Math.floor(localId / tileset.columns) * this.tileHeight;
+                return { image: tileset.image, sx, sy };
+            }
+        }
+        return null; // 没有找到对应的图块集
     }
 
     //绘制整个地图
@@ -45,12 +67,13 @@ export default class Tilemap {
                     const gid = layer.data[r * this.mapWidth + c] || 0;
                     if (gid === 0) continue;//表示该位置没有图块
 
-                    const coords = this.getTileCoords(gid);
-                    if (!coords) continue;
-                    //从图块集图片中裁剪出对应图块，并绘制到canvas的指定位置
+                    const tileInfo = this.getTileInfo(gid);
+                    if (!tileInfo) continue;
+                    
+                    //从正确的图块集图片中裁剪出对应图块，并绘制到canvas的指定位置
                     ctx.drawImage(
-                        this.tileset,
-                        coords.sx, coords.sy, this.tileWidth, this.tileHeight,
+                        tileInfo.image,
+                        tileInfo.sx, tileInfo.sy, this.tileWidth, this.tileHeight,
                         c * this.tileWidth, r * this.tileHeight, this.tileWidth, this.tileHeight
                     );
                 }

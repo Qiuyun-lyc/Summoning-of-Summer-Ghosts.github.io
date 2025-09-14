@@ -2,6 +2,39 @@ export default class UIManager {
     constructor(engine) {
         this.engine = engine;
         this.sentencePrinter = null;
+        this.tooltipTimeout = null;
+        this._fsChangeHandlerBound = null;
+
+        // 自动播放
+        this.isAutoPlay = false;
+        this.autoDelayAfterTypingMs = 1000; // 没有动画时，打字结束后的延迟
+        this.autoDelayAfterAnimMs  = 0; // 【关键】动画结束后的延迟（需求：动画结束就自动播放，设为 0）
+        this._autoWatcher = null;
+        this._autoBtnBound = false;
+
+        // 记录当前节点情况
+        this._animSeenThisNode = false; // 本节点是否出现过动画
+        this._nodeHasText = false;      // 本节点是否有文字
+
+        // 快捷键：A 切换自动播放
+        document.addEventListener('keydown', (e) => {
+            const tag = (e.target && e.target.tagName) ? e.target.tagName.toLowerCase() : '';
+            if (tag === 'input' || tag === 'textarea' || (e.target && e.target.isContentEditable)) return;
+            if (e.key.toLowerCase() === 'a') this.toggleAutoPlay();
+        });
+
+        // 绑定原位置按钮
+        document.addEventListener('DOMContentLoaded', () => this._bindAutoPlayButtonIfAny());
+        setTimeout(() => this._bindAutoPlayButtonIfAny(), 0);
+    }
+
+    _bindAutoPlayButtonIfAny() {
+        if (this._autoBtnBound) return;
+        const btn = document.getElementById('auto-play-btn');
+        if (!btn) return;
+        btn.addEventListener('click', () => this.toggleAutoPlay());
+        this._autoBtnBound = true;
+        this.updateAutoPlayButton(this.isAutoPlay);
     }
 
     clearContainer() {
@@ -10,8 +43,13 @@ export default class UIManager {
     }
     
     renderNode(node) {
-        // 确保游戏视图元素存在
         if (!document.querySelector('.game-view')) return;
+
+        // 新节点开始：重置标记
+        this._animSeenThisNode = false;
+        this._nodeHasText = false;
+
+        this._bindAutoPlayButtonIfAny();
 
         const bgr = document.getElementById('game-bgr');
         const lChar = document.getElementById('l-char');
@@ -37,9 +75,22 @@ export default class UIManager {
             nameBox.textContent = node.name ? this.engine.localization.get(`story.name.${node.name}`) : '';
             const textKey = `story.nodes.${this.engine.gameState.currentSave.nodeId}.text`;
             const textContent = this.engine.localization.get(textKey);
-            this.sentencePrinter.print(textContent);
+
+            // 本节点是否真的有文字
+            this._nodeHasText = !!(textContent && String(textContent).trim().length > 0);
+
+            if (!this.sentencePrinter || typeof this.sentencePrinter.print !== 'function') {
+                this.sentencePrinter = this.engine.sentencePrinter || this.sentencePrinter;
+            }
+            if (this._nodeHasText) {
+                this.sentencePrinter?.print?.(textContent);
+            } else {
+                // 无文字：避免打印器阻塞
+                try { this.sentencePrinter?.skip?.(); } catch(e){}
+            }
         } else {
             dialogueGroup.style.display = 'none';
+            this._nodeHasText = false;
         }
 
         // 选项
@@ -60,16 +111,106 @@ export default class UIManager {
         } else {
             choiceGroup.style.display = 'none';
         }
+
+        // 自动播放观察（如果开启）
+        this._armAutoAdvanceWatcher(node);
     }
+
+    // === 自动播放：核心 ===
+    toggleAutoPlay(forceState) {
+        this.isAutoPlay = (typeof forceState === 'boolean') ? forceState : !this.isAutoPlay;
+
+        this.engine.setAutoPlay?.(this.isAutoPlay);
+        this.updateAutoPlayButton(this.isAutoPlay);
+
+        const node = this.engine?.gameState?.currentNode || this.engine?.getCurrentNode?.();
+        if (node) this._armAutoAdvanceWatcher(node, { immediateTick: this.isAutoPlay });
+    }
+
+    _armAutoAdvanceWatcher(node, opts = {}) {
+        if (this._autoWatcher) {
+            cancelAnimationFrame(this._autoWatcher);
+            this._autoWatcher = null;
+        }
+        if (!this.isAutoPlay) return;
+
+        const { immediateTick = false } = opts;
+
+        const watch = () => {
+            // 记录：本节点期间是否出现过动画
+            if (this._isAnimationRunning()) {
+                this._animSeenThisNode = true;
+            }
+
+            const isChoices = node.type === 'choices';
+            // 无文字则不等待打印
+            const typingFinished = this._nodeHasText ? !this.isPrinting() : true;
+            const animFinished  = !this._isAnimationRunning();
+
+            // 规则：必须动画结束后再推进；
+            // 若本节点从未出现过动画，则等打字结束即可推进。
+            const readyToAdvance =
+                !isChoices &&
+                typingFinished &&
+                (this._animSeenThisNode ? animFinished : true);
+
+            if (readyToAdvance) {
+                const delay = this._animSeenThisNode
+                    ? this.autoDelayAfterAnimMs       // 动画结束 → 使用动画后的延迟（此处为 0）
+                    : this.autoDelayAfterTypingMs;    // 无动画 → 用打字后的延迟
+
+                setTimeout(() => this._advanceOneStep(), delay);
+                this._autoWatcher = null;
+                return;
+            }
+
+            this._autoWatcher = requestAnimationFrame(watch);
+        };
+
+        if (immediateTick) {
+            watch();
+        } else {
+            this._autoWatcher = requestAnimationFrame(watch);
+        }
+    }
+
+    _advanceOneStep() {
+        const e = this.engine || {};
+        try {
+            if (typeof e.advance === 'function') return e.advance();
+            if (typeof e.goNext === 'function') return e.goNext();
+            if (typeof e.next === 'function') return e.next();
+            if (typeof e.onUserNext === 'function') return e.onUserNext();
+            if (e.story && typeof e.story.next === 'function') return e.story.next();
+            document.dispatchEvent(new CustomEvent('ui:auto-next'));
+            document.querySelector('.dialogue-group')?.click?.();
+        } catch (err) {
+            console.warn('Auto advance failed:', err);
+        }
+    }
+
+    // 判定“是否有动画在播放”
+    _isAnimationRunning() {
+        const anim = this.engine?.animation;
+        try {
+            if (!anim) return false;
+            if (typeof anim.isPlaying === 'function') return !!anim.isPlaying();
+            if (typeof anim.isAnyPlaying === 'function') return !!anim.isAnyPlaying();
+            if (typeof anim.isBusy === 'function') return !!anim.isBusy();
+            if (typeof anim.isRunning === 'function') return !!anim.isRunning();
+            if (typeof anim.isPlaying === 'boolean') return anim.isPlaying;
+            if (typeof anim.running === 'boolean') return anim.running;
+        } catch (e) {}
+        return false;
+    }
+    // === 自动播放：核心结束 ===
 
     isPrinting() {
         return this.sentencePrinter && !this.sentencePrinter.hasFinished();
     }
 
     skipPrinting() {
-        if (this.sentencePrinter) {
-            this.sentencePrinter.skip();
-        }
+        this.sentencePrinter?.skip();
     }
     
     togglePauseMenu(show) {
@@ -81,7 +222,7 @@ export default class UIManager {
                 menu.id = 'ingame-menu-overlay';
                 menu.className = 'ingame-menu-overlay';
     
-                // 创建菜单的 HTML 结构和样式
+                // 创建菜单的 HTML 结构和样式（含全屏按钮）
                 menu.innerHTML = `
                     <style>
                         .ingame-menu-overlay {
@@ -115,6 +256,10 @@ export default class UIManager {
                             <img src="./assets/img/button.png">
                             <span>${this.engine.localization.get('ui.save_load')}</span>
                         </div>
+                        <div class="ingame-menu-item" data-action="fullscreen" id="pause-fs-btn">
+                            <img src="./assets/img/button.png">
+                            <span class="fs-label"></span>
+                        </div>
                         <div class="ingame-menu-item" data-action="title">
                             <img src="./assets/img/button.png">
                             <span>${this.engine.localization.get('ui.title')}</span>
@@ -125,12 +270,54 @@ export default class UIManager {
                 document.body.appendChild(menu);
     
                 // 绑定事件
-                menu.querySelector('[data-action="unpause"]').addEventListener('click', () => { this.engine.audioManager.playSoundEffect('click'); this.engine.unpauseGame(); });
-                menu.querySelector('[data-action="save_load"]').addEventListener('click', () => { this.engine.audioManager.playSoundEffect('click'); this.engine.unpauseGame(); this.engine.showView('Load'); });
-                menu.querySelector('[data-action="title"]').addEventListener('click', () => { this.engine.audioManager.playSoundEffect('click'); this.engine.unpauseGame(); this.engine.showView('MainMenu'); });
-                menu.querySelectorAll('.ingame-menu-item').forEach(item => { item.addEventListener('mouseover', () => this.engine.audioManager.playSoundEffect('hover')); });
+                menu.querySelector('[data-action="unpause"]')
+                    .addEventListener('click', () => { 
+                        this.engine.audioManager.playSoundEffect('click'); 
+                        this.engine.unpauseGame(); 
+                    });
+
+                menu.querySelector('[data-action="save_load"]')
+                    .addEventListener('click', () => { 
+                        this.engine.audioManager.playSoundEffect('click'); 
+                        this.engine.unpauseGame(); 
+                        this.engine.showView('Load'); 
+                    });
+
+                menu.querySelector('[data-action="fullscreen"]')
+                    .addEventListener('click', async () => {
+                        this.engine.audioManager.playSoundEffect('click');
+                        try {
+                            if (this.engine.toggleFullscreen) {
+                                await this.engine.toggleFullscreen();
+                            } else {
+                                const el = document.documentElement;
+                                if (!document.fullscreenElement) {
+                                    await el.requestFullscreen?.();
+                                } else {
+                                    await document.exitFullscreen?.();
+                                }
+                            }
+                        } catch (err) {
+                            console.warn('Fullscreen toggle failed:', err);
+                        }
+                        this._updatePauseMenuFullscreenLabel(menu);
+                    });
+
+                menu.querySelector('[data-action="title"]')
+                    .addEventListener('click', () => { 
+                        this.engine.audioManager.playSoundEffect('click'); 
+                        this.engine.unpauseGame(); 
+                        this.engine.showView('MainMenu'); 
+                    });
+
+                menu.querySelectorAll('.ingame-menu-item')
+                    .forEach(item => item.addEventListener('mouseover', () => this.engine.audioManager.playSoundEffect('hover')));
+
+                this._bindFullscreenChangeForPauseMenu(menu);
             }
             
+            this._updatePauseMenuFullscreenLabel(menu);
+
             menu.style.display = 'flex';
             requestAnimationFrame(() => { menu.classList.add('visible'); });
     
@@ -144,10 +331,23 @@ export default class UIManager {
         }
     }
 
-    /**
-     * 控制对话历史浮层的显示与隐藏，并填充内容
-     * @param {boolean} show - true 为显示, false 为隐藏
-     */
+    _bindFullscreenChangeForPauseMenu(menu) {
+        if (this._fsChangeHandlerBound) return;
+        this._fsChangeHandlerBound = () => this._updatePauseMenuFullscreenLabel(menu);
+        document.addEventListener('fullscreenchange', this._fsChangeHandlerBound);
+    }
+
+    _updatePauseMenuFullscreenLabel(menu) {
+        if (!menu) return;
+        const labelEl = menu.querySelector('#pause-fs-btn .fs-label');
+        if (!labelEl) return;
+        const L = this.engine.localization;
+        const isFs = !!document.fullscreenElement;
+        labelEl.textContent = isFs
+            ? (L.get('关闭全屏') || '关闭全屏')
+            : (L.get('全屏模式') || '全屏模式');
+    }
+
     toggleHistory(show) {
         const overlay = document.getElementById('dialogue-history-overlay');
         if (!overlay) return;
@@ -161,11 +361,9 @@ export default class UIManager {
                 const entryElement = document.createElement('div');
 
                 if (entry.type === 'choice') {
-                    // 选择
                     entryElement.className = 'history-choice';
                     entryElement.textContent = `> ${entry.text}`;
                 } else {
-                    // 对话
                     entryElement.className = 'history-entry';
                     const speakerName = this.engine.localization.get(`story.name.${entry.speaker}`);
                     if (speakerName.trim()) {
@@ -178,15 +376,11 @@ export default class UIManager {
             });
             
             overlay.style.display = 'flex';
-            
             contentContainer.scrollTop = contentContainer.scrollHeight;
-
             this.engine.gameState.isHistoryVisible = true;
 
         } else {
-            // 隐藏浮层
             overlay.style.display = 'none';
-
             this.engine.gameState.isHistoryVisible = false;
         }
     }
@@ -195,7 +389,6 @@ export default class UIManager {
         const tooltip = document.getElementById('game-tooltip');
         if (!tooltip) return;
 
-        // 清除上一个计时器（如果有）
         if (this.tooltipTimeout) {
             clearTimeout(this.tooltipTimeout);
             this.tooltipTimeout = null;
@@ -203,33 +396,24 @@ export default class UIManager {
         
         tooltip.innerHTML = message;
         tooltip.classList.remove('hidden');
-        
-        // 使用 requestAnimationFrame 确保在下一帧应用 'visible' 类以触发过渡
-        requestAnimationFrame(() => {
-            tooltip.classList.add('visible');
-        });
+        requestAnimationFrame(() => tooltip.classList.add('visible'));
 
         if (duration > 0) {
-            this.tooltipTimeout = setTimeout(() => {
-                this.hideTooltip();
-            }, duration);
+            this.tooltipTimeout = setTimeout(() => this.hideTooltip(), duration);
         }
     }
 
     hideTooltip() {
         const tooltip = document.getElementById('game-tooltip');
         if (!tooltip) return;
-
         tooltip.classList.remove('visible');
-        // 在过渡动画结束后再添加 hidden 类
-        setTimeout(() => {
-            tooltip.classList.add('hidden');
-        }, 500); // 500ms 匹配CSS中的过渡时间
+        setTimeout(() => tooltip.classList.add('hidden'), 500);
     }
 
     updateAutoPlayButton(isActive) {
         const button = document.getElementById('auto-play-btn');
         if (button) {
+            // 仅切换样式，不改变原文案
             button.classList.toggle('active', isActive);
         }
     }
@@ -238,7 +422,6 @@ export default class UIManager {
         const achievement = this.engine.dataManager.getAllAchievements().find(a => a.id === achievementId);
         if (!achievement) return;
 
-        // 播放解锁音效
         this.engine.audioManager.playSoundEffect('sysYes'); 
 
         const popup = document.createElement('div');
@@ -249,7 +432,7 @@ export default class UIManager {
                 .achievement-popup {
                     position: fixed;
                     bottom: 20px;
-                    right: -400px; /* 初始位置在屏幕外 */
+                    right: -400px;
                     width: 350px;
                     background-color: rgba(0, 0, 0, 0.85);
                     border-left: 5px solid #ffd700;
@@ -258,29 +441,17 @@ export default class UIManager {
                     display: flex;
                     align-items: center;
                     gap: 15px;
-                    z-index: 1001; /* 确保在最顶层 */
+                    z-index: 1001;
                     color: white;
                     transition: right 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
                     box-shadow: 0 0 20px rgba(0,0,0,0.5);
                 }
-                .achievement-popup.show {
-                    right: 20px; /* 滑入到屏幕内 */
-                }
+                .achievement-popup.show { right: 20px; }
                 .popup-icon {
-                    width: 60px;
-                    height: 60px;
-                    border-radius: 50%;
-                    object-fit: cover;
+                    width: 60px; height: 60px; border-radius: 50%; object-fit: cover;
                 }
-                .popup-text h4 {
-                    margin: 0 0 5px 0;
-                    color: #ffd700;
-                    font-size: 1.1em;
-                }
-                .popup-text p {
-                    margin: 0;
-                    font-size: 0.9em;
-                }
+                .popup-text h4 { margin: 0 0 5px 0; color: #ffd700; font-size: 1.1em; }
+                .popup-text p { margin: 0; font-size: 0.9em; }
             </style>
             <img class="popup-icon" src="${achievement.icon}" alt="成就">
             <div class="popup-text">
@@ -290,21 +461,10 @@ export default class UIManager {
         `;
 
         document.body.appendChild(popup);
-
-        // 动画流程
-        // 滑入
-        requestAnimationFrame(() => {
-            popup.classList.add('show');
-        });
-
-        // 停留 4 秒
+        requestAnimationFrame(() => popup.classList.add('show'));
         setTimeout(() => {
-            // 滑出
             popup.classList.remove('show');
-            // 动画结束后移除元素
-            popup.addEventListener('transitionend', () => {
-                popup.remove();
-            }, { once: true });
-        }, 4000); // 毫秒
+            popup.addEventListener('transitionend', () => popup.remove(), { once: true });
+        }, 4000);
     }
 }

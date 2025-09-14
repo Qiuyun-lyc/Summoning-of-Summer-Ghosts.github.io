@@ -18,17 +18,8 @@ export class Scene {
     _initialize() {
         const mapData = this.assetManager.getJson(this.mapFileName);
         
-        const tilesetSource = mapData.tilesets[0].source;
-        
-        const tilesetImageName = tilesetSource.split('/').pop().replace('.xml', '');
-        const tilesetImg = this.assetManager.getImage(tilesetImageName);
-
-        if (!tilesetImg) {
-            console.error(`错误：在 AssetManager 中未找到名为 "${tilesetImageName}" 的图块集图片！`);
-            return;
-        }
-
-        this.tilemap = new Tilemap(mapData, tilesetImg);
+        // 将 mapData 和 assetManager 传递给 Tilemap，
+        this.tilemap = new Tilemap(mapData, this.assetManager);
 
         this.player = createPlayer(this.assetManager);
         this.addGameObject(this.player);
