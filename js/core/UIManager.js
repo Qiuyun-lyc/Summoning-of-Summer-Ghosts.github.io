@@ -7,22 +7,23 @@ export default class UIManager {
 
         // 自动播放
         this.isAutoPlay = false;
-        this.autoDelayAfterTypingMs = 600; // 没有动画时的延迟
-        this.autoDelayAfterAnimMs  = 2000; // 动画结束后的额外等待
+        this.autoDelayAfterTypingMs = 1000; // 没有动画时，打字结束后的延迟
+        this.autoDelayAfterAnimMs  = 0; // 【关键】动画结束后的延迟（需求：动画结束就自动播放，设为 0）
         this._autoWatcher = null;
         this._autoBtnBound = false;
 
-        // 记录当前节点是否“出现过动画”
-        this._animSeenThisNode = false;
+        // 记录当前节点情况
+        this._animSeenThisNode = false; // 本节点是否出现过动画
+        this._nodeHasText = false;      // 本节点是否有文字
 
-        // 快捷键：A 切换自动播放（不改 DOM 结构）
+        // 快捷键：A 切换自动播放
         document.addEventListener('keydown', (e) => {
             const tag = (e.target && e.target.tagName) ? e.target.tagName.toLowerCase() : '';
             if (tag === 'input' || tag === 'textarea' || (e.target && e.target.isContentEditable)) return;
             if (e.key.toLowerCase() === 'a') this.toggleAutoPlay();
         });
 
-        // 尝试绑定原位置按钮
+        // 绑定原位置按钮
         document.addEventListener('DOMContentLoaded', () => this._bindAutoPlayButtonIfAny());
         setTimeout(() => this._bindAutoPlayButtonIfAny(), 0);
     }
@@ -42,13 +43,12 @@ export default class UIManager {
     }
     
     renderNode(node) {
-        // 确保游戏视图元素存在
         if (!document.querySelector('.game-view')) return;
 
-        // 新节点渲染时，重置“本节点是否出现过动画”的标记
+        // 新节点开始：重置标记
         this._animSeenThisNode = false;
+        this._nodeHasText = false;
 
-        // 再尝试一次绑定原位置按钮
         this._bindAutoPlayButtonIfAny();
 
         const bgr = document.getElementById('game-bgr');
@@ -75,12 +75,22 @@ export default class UIManager {
             nameBox.textContent = node.name ? this.engine.localization.get(`story.name.${node.name}`) : '';
             const textKey = `story.nodes.${this.engine.gameState.currentSave.nodeId}.text`;
             const textContent = this.engine.localization.get(textKey);
+
+            // 本节点是否真的有文字
+            this._nodeHasText = !!(textContent && String(textContent).trim().length > 0);
+
             if (!this.sentencePrinter || typeof this.sentencePrinter.print !== 'function') {
                 this.sentencePrinter = this.engine.sentencePrinter || this.sentencePrinter;
             }
-            this.sentencePrinter?.print?.(textContent);
+            if (this._nodeHasText) {
+                this.sentencePrinter?.print?.(textContent);
+            } else {
+                // 无文字：避免打印器阻塞
+                try { this.sentencePrinter?.skip?.(); } catch(e){}
+            }
         } else {
             dialogueGroup.style.display = 'none';
+            this._nodeHasText = false;
         }
 
         // 选项
@@ -110,13 +120,9 @@ export default class UIManager {
     toggleAutoPlay(forceState) {
         this.isAutoPlay = (typeof forceState === 'boolean') ? forceState : !this.isAutoPlay;
 
-        // 同步给引擎（若有）
         this.engine.setAutoPlay?.(this.isAutoPlay);
-
-        // 更新原按钮外观（只切 class，保留原格式与文案）
         this.updateAutoPlayButton(this.isAutoPlay);
 
-        // 立即对当前节点生效
         const node = this.engine?.gameState?.currentNode || this.engine?.getCurrentNode?.();
         if (node) this._armAutoAdvanceWatcher(node, { immediateTick: this.isAutoPlay });
     }
@@ -131,27 +137,33 @@ export default class UIManager {
         const { immediateTick = false } = opts;
 
         const watch = () => {
-            // 若当前存在动画在播放，记录“本节点出现过动画”
+            // 记录：本节点期间是否出现过动画
             if (this._isAnimationRunning()) {
                 this._animSeenThisNode = true;
             }
 
             const isChoices = node.type === 'choices';
-            const typingFinished = !this.isPrinting();
+            // 无文字则不等待打印
+            const typingFinished = this._nodeHasText ? !this.isPrinting() : true;
             const animFinished  = !this._isAnimationRunning();
 
-            // 条件：不是选项 + 打字结束 + 动画结束
-            if (!isChoices && typingFinished && animFinished) {
+            // 规则：必须动画结束后再推进；
+            // 若本节点从未出现过动画，则等打字结束即可推进。
+            const readyToAdvance =
+                !isChoices &&
+                typingFinished &&
+                (this._animSeenThisNode ? animFinished : true);
+
+            if (readyToAdvance) {
                 const delay = this._animSeenThisNode
-                    ? this.autoDelayAfterAnimMs
-                    : this.autoDelayAfterTypingMs;
+                    ? this.autoDelayAfterAnimMs       // 动画结束 → 使用动画后的延迟（此处为 0）
+                    : this.autoDelayAfterTypingMs;    // 无动画 → 用打字后的延迟
 
                 setTimeout(() => this._advanceOneStep(), delay);
                 this._autoWatcher = null;
                 return;
             }
 
-            // 继续监听
             this._autoWatcher = requestAnimationFrame(watch);
         };
 
@@ -170,7 +182,6 @@ export default class UIManager {
             if (typeof e.next === 'function') return e.next();
             if (typeof e.onUserNext === 'function') return e.onUserNext();
             if (e.story && typeof e.story.next === 'function') return e.story.next();
-            // 兜底：触发事件或模拟点击
             document.dispatchEvent(new CustomEvent('ui:auto-next'));
             document.querySelector('.dialogue-group')?.click?.();
         } catch (err) {
@@ -187,10 +198,9 @@ export default class UIManager {
             if (typeof anim.isAnyPlaying === 'function') return !!anim.isAnyPlaying();
             if (typeof anim.isBusy === 'function') return !!anim.isBusy();
             if (typeof anim.isRunning === 'function') return !!anim.isRunning();
-            // 常见的布尔位兜底
             if (typeof anim.isPlaying === 'boolean') return anim.isPlaying;
             if (typeof anim.running === 'boolean') return anim.running;
-        } catch (e) { /* 安全兜底 */ }
+        } catch (e) {}
         return false;
     }
     // === 自动播放：核心结束 ===
@@ -403,7 +413,7 @@ export default class UIManager {
     updateAutoPlayButton(isActive) {
         const button = document.getElementById('auto-play-btn');
         if (button) {
-            // 仅切换样式，不改变你原有的按钮文案与结构
+            // 仅切换样式，不改变原文案
             button.classList.toggle('active', isActive);
         }
     }
