@@ -1,3 +1,5 @@
+// FILE: js/core/GameEngine.js
+
 import UIManager from './UIManager.js';
 import DataManager from './DataManager.js';
 import SaveManager from './SaveManager.js';
@@ -32,6 +34,7 @@ export default class GameEngine {
             isHistoryVisible: false,
             historyCheckpoint: -1,
             isAutoPlay: false,
+            isVoicePlaying: false, // 新增状态标志，用于明确告知是否有有效语音在播放
         };
 
         this.views = {
@@ -78,7 +81,7 @@ export default class GameEngine {
     }
 
     showView(viewName, params = {}) {
-        this.cancelAutoAdvance(); // <--- 核心修复：在切换任何视图之前，都取消自动播放定时器。
+        this.cancelAutoAdvance(); 
         this.uiManager.clearContainer();
         const view = this.views[viewName];
         if (view) {
@@ -110,7 +113,10 @@ export default class GameEngine {
         this.uiManager.updateAutoPlayButton(this.gameState.isAutoPlay);
 
         if (this.gameState.isAutoPlay) {
-            this.scheduleAutoAdvance();
+            // 如果当前没有在播放语音，则立即调度，否则等待语音结束
+            if (!this.gameState.isVoicePlaying || this.audioManager.voicePlayer.ended) {
+                 this.scheduleAutoAdvance();
+            }
         } else {
             this.cancelAutoAdvance();
         }
@@ -127,6 +133,22 @@ export default class GameEngine {
             this.autoAdvanceAudioListener = null;
         }
     }
+    
+    /**
+     * 使用HEAD请求异步检查一个文件是否存在。
+     * @param {string} url 文件的URL
+     * @returns {Promise<boolean>} 文件存在则返回true，否则返回false。
+     */
+    async _checkFileExists(url) {
+        try {
+            const response = await fetch(url, { method: 'HEAD', cache: 'no-cache' });
+            return response.ok; // response.ok 为 true 表示状态码在 200-299 之间
+        } catch (error) {
+            // 网络错误等也视为文件不存在
+            return false;
+        }
+    }
+
 
     scheduleAutoAdvance() {
         this.cancelAutoAdvance();
@@ -137,31 +159,32 @@ export default class GameEngine {
                     this.cancelAutoAdvance();
                     this.scheduleAutoAdvance();
                 }
-            }, 100); // 每 100 毫秒检查一次
+            }, 100);
             return;
         }
 
         const currentNode = this.dataManager.getNode(this.gameState.currentSave.nodeId);
-        
         if (currentNode.type === 'choices') {
             return;
         }
 
-        if (currentNode.voice && currentNode.voice !== "null") {
+        // 逻辑完全依赖于 processNode 中设置的 isVoicePlaying 标志
+        if (this.gameState.isVoicePlaying) {
+            // 如果确认了语音正在播放（或即将播放），则监听'ended'事件
             this.autoAdvanceAudioListener = () => this.requestPlayerInput();
             this.audioManager.voicePlayer.addEventListener('ended', this.autoAdvanceAudioListener, { once: true });
         } else {
-            const textKey = `story.nodes.${this.gameState.currentSave.nodeId}.text`; 
+            // 否则（无语音或语音文件不存在），直接使用文本计时器
+            const textKey = `story.nodes.${this.gameState.currentSave.nodeId}.text`;
             const textContent = this.localization.get(textKey) || '';
-            // 基础延迟1.5秒 + 每8个字增加1秒
             const delay = 1500 + (textContent.length / 8) * 1000;
             this.autoAdvanceTimer = setTimeout(() => this.requestPlayerInput(), delay);
         }
     }
 
+
     async resumeGame() {
         this.showView('Game');
-        
         await this.processNode(this.gameState.currentSave.nodeId);
     }
 
@@ -239,6 +262,28 @@ export default class GameEngine {
             }
         }
 
+        // 核心决策逻辑：在处理节点时就确定语音策略
+        this.gameState.isVoicePlaying = false; // 默认重置
+
+        if (node.voice && node.voice !== "null") {
+            const voicePath = `./assets/voice/${node.voice}.mp3`;
+            const voiceExists = await this._checkFileExists(voicePath);
+
+            if (voiceExists) {
+                // 文件存在，才播放，并设置标志位
+                this.audioManager.playVoice(voicePath);
+                this.gameState.isVoicePlaying = true;
+            } else {
+                // 文件不存在，不播放，确保标志位为false，并停止任何可能残留的播放
+                console.warn(`语音文件不存在: ${voicePath}. 将使用文本计时器。`);
+                this.audioManager.stopVoice();
+                this.gameState.isVoicePlaying = false;
+            }
+        } else {
+            this.audioManager.stopVoice();
+            this.gameState.isVoicePlaying = false;
+        }
+
         await this.preloadAssetsForNode(node); 
         this.gameState.currentSave.nodeId = nodeId;
         this.uiManager.renderNode(node);
@@ -248,12 +293,6 @@ export default class GameEngine {
         } else if (node.bgm === null) {
             this.audioManager.stopBgm();
         }
-
-        if (node.voice) {
-            this.audioManager.playVoice(`./assets/voice/${node.voice}.mp3`);
-        } else {
-            this.audioManager.stopVoice();
-        }
         
         if (node.unlockAchievement) {
             this.saveManager.unlockAchievement(node.unlockAchievement);
@@ -261,7 +300,7 @@ export default class GameEngine {
         
         if (node.onEnter) { }
         if (node.type === 'animation') { }
-        this.scheduleAutoAdvance();
+        this.scheduleAutoAdvance(); // 在所有设置完成后，调用调度器
     }
     
     async handleAnimation(node) {
