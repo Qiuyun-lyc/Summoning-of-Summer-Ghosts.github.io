@@ -16,6 +16,7 @@ import AchievementView from '../views/AchievementView.js';
 import AboutView from '../views/AboutView.js';
 import MinigameView from '../views/MinigameView.js';
 import EndingView from '../views/EndingView.js';
+import OpeningView from '../views/OpeningView.js';
 
 export default class GameEngine {
     constructor(container) {
@@ -38,6 +39,7 @@ export default class GameEngine {
         };
 
         this.views = {
+            Opening: OpeningView,
             Login: LoginView,
             Register: RegisterView,
             MainMenu: MainMenuView,
@@ -105,7 +107,7 @@ export default class GameEngine {
     
     startNewGame() {
         const newSave = this.saveManager.createNewSave();
-        this.startGame(newSave);
+        this.showView('Opening', { newGameSave: newSave });
     }
 
     toggleAutoPlay() {
