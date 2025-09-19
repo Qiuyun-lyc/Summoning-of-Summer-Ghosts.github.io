@@ -170,6 +170,9 @@ const GameView = {
                 .tooltip.visible {
                     opacity: 1;
                 }
+                .tooltip.hidden {
+                    display: none;
+                }
                 .tooltip kbd {
                     display: inline-block;
                     padding: 2px 6px;

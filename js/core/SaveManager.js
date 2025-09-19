@@ -9,7 +9,7 @@ class User {
 
 class Save {
     constructor(saveData = {}) {
-        this.saveDate = saveData.saveDate || new Date().toISOString();
+        this.saveDate = (saveData.saveDate ?? null);
         this.nodeId = saveData.nodeId || 101; 
         this.LoveValue = saveData.LoveValue || 0;
         this.choices = saveData.choices || {}; 

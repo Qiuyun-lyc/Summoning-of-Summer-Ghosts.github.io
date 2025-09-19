@@ -1,5 +1,3 @@
-// FILE: js/core/GameEngine.js
-
 import UIManager from './UIManager.js';
 import DataManager from './DataManager.js';
 import SaveManager from './SaveManager.js';
@@ -97,12 +95,27 @@ export default class GameEngine {
     async startGame(saveData) {
         this.gameState.currentSave = saveData;
 
+        let isNewGame = false; // 标记是否为新游戏
         if (!saveData.saveDate) {
             this.gameState.interactionCount = 0;
             this.gameState.fastForwardTooltipShown = false;
+            isNewGame = true;
         }
+        
         this.showView('Game');
         await this.processNode(this.gameState.currentSave.nodeId);
+
+        // 关键修复：在处理完第一个节点后，再执行淡出动画
+        // 这个fadeOutBlack会移除OpeningView留下的黑色遮罩
+        await this.animation.play('fadeOutBlack');
+
+        // 关键修复：在屏幕完全可见后，再显示提示框
+        if (isNewGame) {
+            this.uiManager.displayTooltip(
+                `点击屏幕或按 <kbd>空格键</kbd> 继续`, 
+                0 
+            );
+        }
     }
     
     startNewGame() {
@@ -136,17 +149,11 @@ export default class GameEngine {
         }
     }
     
-    /**
-     * 使用HEAD请求异步检查一个文件是否存在。
-     * @param {string} url 文件的URL
-     * @returns {Promise<boolean>} 文件存在则返回true，否则返回false。
-     */
     async _checkFileExists(url) {
         try {
             const response = await fetch(url, { method: 'HEAD', cache: 'no-cache' });
-            return response.ok; // response.ok 为 true 表示状态码在 200-299 之间
+            return response.ok;
         } catch (error) {
-            // 网络错误等也视为文件不存在
             return false;
         }
     }
@@ -170,13 +177,10 @@ export default class GameEngine {
             return;
         }
 
-        // 逻辑完全依赖于 processNode 中设置的 isVoicePlaying 标志
         if (this.gameState.isVoicePlaying) {
-            // 如果确认了语音正在播放（或即将播放），则监听'ended'事件
             this.autoAdvanceAudioListener = () => this.requestPlayerInput();
             this.audioManager.voicePlayer.addEventListener('ended', this.autoAdvanceAudioListener, { once: true });
         } else {
-            // 否则（无语音或语音文件不存在），直接使用文本计时器
             const textKey = `story.nodes.${this.gameState.currentSave.nodeId}.text`;
             const textContent = this.localization.get(textKey) || '';
             const delay = 1500 + (textContent.length / 8) * 1000;
@@ -264,19 +268,16 @@ export default class GameEngine {
             }
         }
 
-        // 核心决策逻辑：在处理节点时就确定语音策略
-        this.gameState.isVoicePlaying = false; // 默认重置
+        this.gameState.isVoicePlaying = false; 
 
         if (node.voice && node.voice !== "null") {
             const voicePath = `./assets/voice/${node.voice}.mp3`;
             const voiceExists = await this._checkFileExists(voicePath);
 
             if (voiceExists) {
-                // 文件存在，才播放，并设置标志位
                 this.audioManager.playVoice(voicePath);
                 this.gameState.isVoicePlaying = true;
             } else {
-                // 文件不存在，不播放，确保标志位为false，并停止任何可能残留的播放
                 console.warn(`语音文件不存在: ${voicePath}. 将使用文本计时器。`);
                 this.audioManager.stopVoice();
                 this.gameState.isVoicePlaying = false;
@@ -302,7 +303,7 @@ export default class GameEngine {
         
         if (node.onEnter) { }
         if (node.type === 'animation') { }
-        this.scheduleAutoAdvance(); // 在所有设置完成后，调用调度器
+        this.scheduleAutoAdvance(); 
     }
     
     async handleAnimation(node) {
@@ -311,6 +312,13 @@ export default class GameEngine {
     }
 
     requestPlayerInput(choiceIndex = null) {
+        if (this.gameState.interactionCount !== undefined && this.gameState.interactionCount < 4) {
+            this.gameState.interactionCount++;
+            if (this.gameState.interactionCount === 4) {
+                this.uiManager.hideTooltip();
+            }
+        }
+        
         this.cancelAutoAdvance();
         if (this.gameState.isInputDisabled || this.gameState.isPaused || this.gameState.isHistoryVisible) return;
         this.setInputDisabled(true);
