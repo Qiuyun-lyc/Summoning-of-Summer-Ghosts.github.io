@@ -112,7 +112,7 @@
       "gameId": "platformer",
       "level": "level5.json",
       "timeLimit": 30,
-      "introText": "5.",
+      "introText": "这是一处不稳定的空间，需要在有限的时间内收集足够的记忆碎片",
       "resultTitle": "任务结果",
       "winCondition": {
         "type": "collect",
@@ -120,11 +120,11 @@
       },
       "onComplete": {
         "win": {
-          "targetNode": 30108,
-          "outroText": "你成功收集了所有记忆碎片。生活的意义往往来源于每一个不经意的瞬间."
+          "targetNode": 1389,
+          "outroText": "你成功收集了所有记忆碎片。所有的光芒汇集在一起，似乎指引着下一个方向."
         },
         "lose": {
-          "targetNode": 3,
+          "targetNode": 5,
           "outroText": "光芒消散了。你回到了原点，也许可以再试一次。"
         }
       }
@@ -2433,7 +2433,7 @@
       "rCharactor": "绚音_回忆",
       "voice": "1388",
       "inherit": 1348,
-      "onNext": { "setNode": 1390 }
+      "onNext": { "setNode": 5 }
     },
     "1389": {
       "type": "text",
