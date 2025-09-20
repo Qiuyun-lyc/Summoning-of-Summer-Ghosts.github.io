@@ -1,5 +1,3 @@
-// FILE: js/core/GameEngine.js
-
 import UIManager from './UIManager.js';
 import DataManager from './DataManager.js';
 import SaveManager from './SaveManager.js';
@@ -17,6 +15,7 @@ import AboutView from '../views/AboutView.js';
 import MinigameView from '../views/MinigameView.js';
 import EndingView from '../views/EndingView.js';
 import OpeningView from '../views/OpeningView.js';
+import SettingsView from '../views/SettingsView.js';
 
 export default class GameEngine {
     constructor(container) {
@@ -35,7 +34,7 @@ export default class GameEngine {
             isHistoryVisible: false,
             historyCheckpoint: -1,
             isAutoPlay: false,
-            isVoicePlaying: false, // 新增状态标志，用于明确告知是否有有效语音在播放
+            isVoicePlaying: false,
         };
 
         this.views = {
@@ -43,6 +42,7 @@ export default class GameEngine {
             Login: LoginView,
             Register: RegisterView,
             MainMenu: MainMenuView,
+            Settings: SettingsView,
             Game: GameView,
             Load: LoadView,
             Achievement: AchievementView, 
@@ -83,6 +83,7 @@ export default class GameEngine {
     }
 
     showView(viewName, params = {}) {
+        this.audioManager.stopVoice();
         this.cancelAutoAdvance(); 
         this.uiManager.clearContainer();
         const view = this.views[viewName];
@@ -97,12 +98,24 @@ export default class GameEngine {
     async startGame(saveData) {
         this.gameState.currentSave = saveData;
 
+        let isNewGame = false;
         if (!saveData.saveDate) {
             this.gameState.interactionCount = 0;
             this.gameState.fastForwardTooltipShown = false;
+            isNewGame = true;
         }
+        
         this.showView('Game');
         await this.processNode(this.gameState.currentSave.nodeId);
+        
+        await this.animation.play('fadeOutBlack');
+
+        if (isNewGame) {
+            this.uiManager.displayTooltip(
+                `点击屏幕或按 <kbd>空格键</kbd> 继续`, 
+                0 
+            );
+        }
     }
     
     startNewGame() {
@@ -115,7 +128,6 @@ export default class GameEngine {
         this.uiManager.updateAutoPlayButton(this.gameState.isAutoPlay);
 
         if (this.gameState.isAutoPlay) {
-            // 如果当前没有在播放语音，则立即调度，否则等待语音结束
             if (!this.gameState.isVoicePlaying || this.audioManager.voicePlayer.ended) {
                  this.scheduleAutoAdvance();
             }
@@ -136,21 +148,14 @@ export default class GameEngine {
         }
     }
     
-    /**
-     * 使用HEAD请求异步检查一个文件是否存在。
-     * @param {string} url 文件的URL
-     * @returns {Promise<boolean>} 文件存在则返回true，否则返回false。
-     */
     async _checkFileExists(url) {
         try {
             const response = await fetch(url, { method: 'HEAD', cache: 'no-cache' });
-            return response.ok; // response.ok 为 true 表示状态码在 200-299 之间
+            return response.ok;
         } catch (error) {
-            // 网络错误等也视为文件不存在
             return false;
         }
     }
-
 
     scheduleAutoAdvance() {
         this.cancelAutoAdvance();
@@ -170,20 +175,16 @@ export default class GameEngine {
             return;
         }
 
-        // 逻辑完全依赖于 processNode 中设置的 isVoicePlaying 标志
         if (this.gameState.isVoicePlaying) {
-            // 如果确认了语音正在播放（或即将播放），则监听'ended'事件
             this.autoAdvanceAudioListener = () => this.requestPlayerInput();
             this.audioManager.voicePlayer.addEventListener('ended', this.autoAdvanceAudioListener, { once: true });
         } else {
-            // 否则（无语音或语音文件不存在），直接使用文本计时器
             const textKey = `story.nodes.${this.gameState.currentSave.nodeId}.text`;
             const textContent = this.localization.get(textKey) || '';
             const delay = 1500 + (textContent.length / 8) * 1000;
             this.autoAdvanceTimer = setTimeout(() => this.requestPlayerInput(), delay);
         }
     }
-
 
     async resumeGame() {
         this.showView('Game');
@@ -264,19 +265,16 @@ export default class GameEngine {
             }
         }
 
-        // 核心决策逻辑：在处理节点时就确定语音策略
-        this.gameState.isVoicePlaying = false; // 默认重置
+        this.gameState.isVoicePlaying = false; 
 
         if (node.voice && node.voice !== "null") {
             const voicePath = `./assets/voice/${node.voice}.mp3`;
             const voiceExists = await this._checkFileExists(voicePath);
 
             if (voiceExists) {
-                // 文件存在，才播放，并设置标志位
                 this.audioManager.playVoice(voicePath);
                 this.gameState.isVoicePlaying = true;
             } else {
-                // 文件不存在，不播放，确保标志位为false，并停止任何可能残留的播放
                 console.warn(`语音文件不存在: ${voicePath}. 将使用文本计时器。`);
                 this.audioManager.stopVoice();
                 this.gameState.isVoicePlaying = false;
@@ -302,7 +300,7 @@ export default class GameEngine {
         
         if (node.onEnter) { }
         if (node.type === 'animation') { }
-        this.scheduleAutoAdvance(); // 在所有设置完成后，调用调度器
+        this.scheduleAutoAdvance(); 
     }
     
     async handleAnimation(node) {
@@ -311,6 +309,28 @@ export default class GameEngine {
     }
 
     requestPlayerInput(choiceIndex = null) {
+        if (this.gameState.interactionCount !== undefined) {
+            this.gameState.interactionCount++; // 每次交互都增加计数
+            switch (this.gameState.interactionCount) {
+                case 2:
+                    this.uiManager.displayTooltip(
+                        `点击的 <kbd>自动播放</kbd> 按钮可自动播放剧情`,
+                        0
+                    );
+                    break;
+                case 4:
+                    this.uiManager.displayTooltip(
+                        `长按 <kbd>空格键</kbd> 可以快进对话`,
+                        0
+                    );
+                    break;
+                case 6:
+                    this.uiManager.hideTooltip();
+                    this.gameState.interactionCount = undefined; 
+                    break;
+            }
+        }
+        
         this.cancelAutoAdvance();
         if (this.gameState.isInputDisabled || this.gameState.isPaused || this.gameState.isHistoryVisible) return;
         this.setInputDisabled(true);
@@ -384,5 +404,13 @@ export default class GameEngine {
         if (!this.gameState.isPaused) return;
         this.gameState.isPaused = false;
         this.uiManager.togglePauseMenu(false);
+    }
+
+    async logout() {
+        await this.animation.play('fadeInBlack');
+        this.saveManager.logout();
+        this.audioManager.stopBgm();
+        this.showView('Login');
+        await this.animation.play('fadeOutBlack');
     }
 }
