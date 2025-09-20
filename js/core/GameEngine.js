@@ -1,5 +1,3 @@
-// FILE: js/core/GameEngine.js
-
 import UIManager from './UIManager.js';
 import DataManager from './DataManager.js';
 import SaveManager from './SaveManager.js';
@@ -17,6 +15,7 @@ import AboutView from '../views/AboutView.js';
 import MinigameView from '../views/MinigameView.js';
 import EndingView from '../views/EndingView.js';
 import OpeningView from '../views/OpeningView.js';
+import SettingsView from '../views/SettingsView.js';
 
 export default class GameEngine {
     constructor(container) {
@@ -43,6 +42,7 @@ export default class GameEngine {
             Login: LoginView,
             Register: RegisterView,
             MainMenu: MainMenuView,
+            Settings: SettingsView,
             Game: GameView,
             Load: LoadView,
             Achievement: AchievementView, 
@@ -111,7 +111,6 @@ export default class GameEngine {
         await this.animation.play('fadeOutBlack');
 
         if (isNewGame) {
-            // 初始时，显示第一条提示
             this.uiManager.displayTooltip(
                 `点击屏幕或按 <kbd>空格键</kbd> 继续`, 
                 0 
@@ -312,24 +311,21 @@ export default class GameEngine {
     requestPlayerInput(choiceIndex = null) {
         if (this.gameState.interactionCount !== undefined) {
             this.gameState.interactionCount++; // 每次交互都增加计数
-
-            // 根据交互次数，切换或隐藏提示
             switch (this.gameState.interactionCount) {
-                case 2: // 第二次交互后，显示第二条提示
+                case 2:
                     this.uiManager.displayTooltip(
                         `点击的 <kbd>自动播放</kbd> 按钮可自动播放剧情`,
                         0
                     );
                     break;
-                case 4: // 第四次交互后，显示第三条提示
+                case 4:
                     this.uiManager.displayTooltip(
                         `长按 <kbd>空格键</kbd> 可以快进对话`,
                         0
                     );
                     break;
-                case 6: // 第六次交互后，隐藏提示框
+                case 6:
                     this.uiManager.hideTooltip();
-                    // 将 interactionCount 设为 undefined，表示提示阶段已结束
                     this.gameState.interactionCount = undefined; 
                     break;
             }
@@ -408,5 +404,13 @@ export default class GameEngine {
         if (!this.gameState.isPaused) return;
         this.gameState.isPaused = false;
         this.uiManager.togglePauseMenu(false);
+    }
+
+    async logout() {
+        await this.animation.play('fadeInBlack');
+        this.saveManager.logout();
+        this.audioManager.stopBgm();
+        this.showView('Login');
+        await this.animation.play('fadeOutBlack');
     }
 }

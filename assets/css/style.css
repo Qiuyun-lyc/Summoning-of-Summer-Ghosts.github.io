@@ -193,7 +193,7 @@ a {
     position: relative;
     margin: clamp(8px, 2vh, 20px) 0;
     cursor: pointer;
-    width: clamp(10px, 25vw, 300px);
+    width: clamp(10px, 25vw, 310px);
 }
 
 .main-menu-button .button-img {
