@@ -25,6 +25,10 @@ const MainMenuView = {
                         <img class="button-img" src="./assets/img/button.png">
                         <a>${L.get('ui.achievement')}</a>
                     </div>
+                    <div class="main-menu-button" data-action="settings">
+                        <img class="button-img" src="./assets/img/button.png">
+                        <a>设置</a>
+                    </div>
                     <div class="main-menu-button" data-action="about">
                         <img class="button-img" src="./assets/img/button.png">
                         <a>${L.get('ui.about')}</a>
@@ -54,6 +58,9 @@ const MainMenuView = {
                         break;
                     case 'load':
                         engine.showView('Load');
+                        break;
+                    case 'settings':
+                        engine.showView('Settings');
                         break;
                     case 'achievement':
                         engine.showView('Achievement');

@@ -17,7 +17,7 @@ export default class AudioManager {
             gameBgm: 0.5,
             sfx: 0.5,
             indexBgm: 0.5,
-            voice: 2.0,
+            voice: 1.0, 
         };
     }
 
@@ -48,6 +48,8 @@ export default class AudioManager {
     
     setVolume(type, value) {
         const volume = parseFloat(value);
+        if (isNaN(volume)) return; // 防止无效值
+
         if (type === 'gameBgm') {
             this.volumes.gameBgm = volume;
             localStorage.setItem('gameBgmVolume', volume);
@@ -57,8 +59,7 @@ export default class AudioManager {
         } else if (type === 'sfx') {
             this.volumes.sfx = volume;
             localStorage.setItem('sfxVolume', volume);
-        } 
-        if (type === 'voice') {
+        } else if (type === 'voice') {
             this.volumes.voice = volume;
             localStorage.setItem('voiceVolume', volume);
         }

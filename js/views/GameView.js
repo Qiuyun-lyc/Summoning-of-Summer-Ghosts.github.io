@@ -170,6 +170,9 @@ const GameView = {
                 .tooltip.visible {
                     opacity: 1;
                 }
+                .tooltip.hidden {
+                    display: none;
+                }
                 .tooltip kbd {
                     display: inline-block;
                     padding: 2px 6px;
@@ -252,6 +255,11 @@ const GameView = {
         engine.uiManager.sentencePrinter = new SentencePrinter(document.getElementById('dialogue-text'));
     },
     attachEventListeners: (container, engine) => {
+        // [新增代码]
+        // 当视图被重新渲染时，立即根据当前的 gameState 更新自动播放按钮的视觉状态。
+        // 这是解决从存档页返回后按钮状态不正确问题的关键。
+        engine.uiManager.updateAutoPlayButton(engine.gameState.isAutoPlay);
+
         const gameView = container.querySelector('.game-view');
         
         // 主点击/触摸处理器
@@ -294,15 +302,17 @@ const GameView = {
             e.stopPropagation();
             engine.audioManager.playSoundEffect('click');
             engine.toggleAutoPlay();
+            e.currentTarget.blur();
         });
 
         // 空格键快捷键
         document.addEventListener('keydown', function onKeydown(e) {
             if (e.key === ' ' && document.querySelector('.game-view')) {
-              engine.requestPlayerInput();
+                e.preventDefault();
+                engine.requestPlayerInput();
             }
             // 当视图改变时，需移除这个监听器，避免在其他页面触发（下次一定）
-        });
+        },{passive: false});
     }
 };
 export default GameView;
