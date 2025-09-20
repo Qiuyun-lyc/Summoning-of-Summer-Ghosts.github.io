@@ -1,3 +1,5 @@
+// FILE: js/core/GameEngine.js
+
 import UIManager from './UIManager.js';
 import DataManager from './DataManager.js';
 import SaveManager from './SaveManager.js';
@@ -33,7 +35,7 @@ export default class GameEngine {
             isHistoryVisible: false,
             historyCheckpoint: -1,
             isAutoPlay: false,
-            isVoicePlaying: false, // 新增状态标志，用于明确告知是否有有效语音在播放
+            isVoicePlaying: false,
         };
 
         this.views = {
@@ -95,7 +97,7 @@ export default class GameEngine {
     async startGame(saveData) {
         this.gameState.currentSave = saveData;
 
-        let isNewGame = false; // 标记是否为新游戏
+        let isNewGame = false;
         if (!saveData.saveDate) {
             this.gameState.interactionCount = 0;
             this.gameState.fastForwardTooltipShown = false;
@@ -104,13 +106,11 @@ export default class GameEngine {
         
         this.showView('Game');
         await this.processNode(this.gameState.currentSave.nodeId);
-
-        // 关键修复：在处理完第一个节点后，再执行淡出动画
-        // 这个fadeOutBlack会移除OpeningView留下的黑色遮罩
+        
         await this.animation.play('fadeOutBlack');
 
-        // 关键修复：在屏幕完全可见后，再显示提示框
         if (isNewGame) {
+            // 初始时，显示第一条提示
             this.uiManager.displayTooltip(
                 `点击屏幕或按 <kbd>空格键</kbd> 继续`, 
                 0 
@@ -128,7 +128,6 @@ export default class GameEngine {
         this.uiManager.updateAutoPlayButton(this.gameState.isAutoPlay);
 
         if (this.gameState.isAutoPlay) {
-            // 如果当前没有在播放语音，则立即调度，否则等待语音结束
             if (!this.gameState.isVoicePlaying || this.audioManager.voicePlayer.ended) {
                  this.scheduleAutoAdvance();
             }
@@ -158,7 +157,6 @@ export default class GameEngine {
         }
     }
 
-
     scheduleAutoAdvance() {
         this.cancelAutoAdvance();
         if (!this.gameState.isAutoPlay) return;
@@ -187,7 +185,6 @@ export default class GameEngine {
             this.autoAdvanceTimer = setTimeout(() => this.requestPlayerInput(), delay);
         }
     }
-
 
     async resumeGame() {
         this.showView('Game');
@@ -312,10 +309,28 @@ export default class GameEngine {
     }
 
     requestPlayerInput(choiceIndex = null) {
-        if (this.gameState.interactionCount !== undefined && this.gameState.interactionCount < 4) {
-            this.gameState.interactionCount++;
-            if (this.gameState.interactionCount === 4) {
-                this.uiManager.hideTooltip();
+        if (this.gameState.interactionCount !== undefined) {
+            this.gameState.interactionCount++; // 每次交互都增加计数
+
+            // 根据交互次数，切换或隐藏提示
+            switch (this.gameState.interactionCount) {
+                case 2: // 第二次交互后，显示第二条提示
+                    this.uiManager.displayTooltip(
+                        `点击的 <kbd>自动播放</kbd> 按钮可自动播放剧情`,
+                        0
+                    );
+                    break;
+                case 4: // 第四次交互后，显示第三条提示
+                    this.uiManager.displayTooltip(
+                        `长按 <kbd>空格键</kbd> 可以快进对话`,
+                        0
+                    );
+                    break;
+                case 6: // 第六次交互后，隐藏提示框
+                    this.uiManager.hideTooltip();
+                    // 将 interactionCount 设为 undefined，表示提示阶段已结束
+                    this.gameState.interactionCount = undefined; 
+                    break;
             }
         }
         
