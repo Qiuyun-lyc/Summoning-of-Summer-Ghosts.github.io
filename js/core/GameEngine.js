@@ -83,6 +83,7 @@ export default class GameEngine {
     }
 
     showView(viewName, params = {}) {
+        this.audioManager.stopVoice();
         this.cancelAutoAdvance(); 
         this.uiManager.clearContainer();
         const view = this.views[viewName];

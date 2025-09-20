@@ -255,6 +255,11 @@ const GameView = {
         engine.uiManager.sentencePrinter = new SentencePrinter(document.getElementById('dialogue-text'));
     },
     attachEventListeners: (container, engine) => {
+        // [新增代码]
+        // 当视图被重新渲染时，立即根据当前的 gameState 更新自动播放按钮的视觉状态。
+        // 这是解决从存档页返回后按钮状态不正确问题的关键。
+        engine.uiManager.updateAutoPlayButton(engine.gameState.isAutoPlay);
+
         const gameView = container.querySelector('.game-view');
         
         // 主点击/触摸处理器
