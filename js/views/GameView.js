@@ -297,15 +297,17 @@ const GameView = {
             e.stopPropagation();
             engine.audioManager.playSoundEffect('click');
             engine.toggleAutoPlay();
+            e.currentTarget.blur();
         });
 
         // 空格键快捷键
         document.addEventListener('keydown', function onKeydown(e) {
             if (e.key === ' ' && document.querySelector('.game-view')) {
-              engine.requestPlayerInput();
+                e.preventDefault();
+                engine.requestPlayerInput();
             }
             // 当视图改变时，需移除这个监听器，避免在其他页面触发（下次一定）
-        });
+        },{passive: false});
     }
 };
 export default GameView;
