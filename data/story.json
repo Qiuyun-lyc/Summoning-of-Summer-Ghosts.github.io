@@ -2488,7 +2488,7 @@
       "rCharactor": "绚音_回忆",
       "voice": "1388",
       "inherit": 1348,
-      "onNext": { "nextNode": true }
+      "onNext": { "setNode": 5 }
     },
     "1389": {
       "type": "animation",
