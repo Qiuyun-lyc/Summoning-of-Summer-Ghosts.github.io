@@ -115,6 +115,13 @@ export default class UIManager {
                             <img src="./assets/img/button.png">
                             <span>${this.engine.localization.get('ui.save_load')}</span>
                         </div>
+                        <!-- 新增全屏按钮 -->
+                        <div class="ingame-menu-item" data-action="fullscreen">
+                            <img src="./assets/img/button.png">
+                            <span id="fullscreen-label">
+                                ${document.fullscreenElement ? this.engine.localization.get('退出全屏') : this.engine.localization.get('全屏模式')}
+                            </span>
+                        </div>
                         <div class="ingame-menu-item" data-action="title">
                             <img src="./assets/img/button.png">
                             <span>${this.engine.localization.get('ui.title')}</span>
@@ -125,10 +132,42 @@ export default class UIManager {
                 document.body.appendChild(menu);
     
                 // 绑定事件
-                menu.querySelector('[data-action="unpause"]').addEventListener('click', () => { this.engine.audioManager.playSoundEffect('click'); this.engine.unpauseGame(); });
-                menu.querySelector('[data-action="save_load"]').addEventListener('click', () => { this.engine.audioManager.playSoundEffect('click'); this.engine.unpauseGame(); this.engine.showView('Load'); });
-                menu.querySelector('[data-action="title"]').addEventListener('click', () => { this.engine.audioManager.playSoundEffect('click'); this.engine.unpauseGame(); this.engine.showView('MainMenu'); });
-                menu.querySelectorAll('.ingame-menu-item').forEach(item => { item.addEventListener('mouseover', () => this.engine.audioManager.playSoundEffect('hover')); });
+                menu.querySelector('[data-action="unpause"]').addEventListener('click', () => { 
+                    this.engine.audioManager.playSoundEffect('click'); 
+                    this.engine.unpauseGame(); 
+                });
+                menu.querySelector('[data-action="save_load"]').addEventListener('click', () => { 
+                    this.engine.audioManager.playSoundEffect('click'); 
+                    this.engine.unpauseGame(); 
+                    this.engine.showView('Load'); 
+                });
+                menu.querySelector('[data-action="fullscreen"]').addEventListener('click', () => { 
+                    this.engine.audioManager.playSoundEffect('click'); 
+                    if (!document.fullscreenElement) {
+                        document.documentElement.requestFullscreen();
+                    } else {
+                        document.exitFullscreen();
+                    }
+                });
+                menu.querySelector('[data-action="title"]').addEventListener('click', () => { 
+                    this.engine.audioManager.playSoundEffect('click'); 
+                    this.engine.unpauseGame(); 
+                    this.engine.showView('MainMenu'); 
+                });
+    
+                menu.querySelectorAll('.ingame-menu-item').forEach(item => { 
+                    item.addEventListener('mouseover', () => this.engine.audioManager.playSoundEffect('hover')); 
+                });
+    
+                // 监听全屏切换事件，动态更新文字
+                document.addEventListener('fullscreenchange', () => {
+                    const label = document.getElementById('fullscreen-label');
+                    if (label) {
+                        label.textContent = document.fullscreenElement 
+                            ? this.engine.localization.get('退出全屏') 
+                            : this.engine.localization.get('全屏模式');
+                    }
+                });
             }
             
             menu.style.display = 'flex';
@@ -292,19 +331,15 @@ export default class UIManager {
         document.body.appendChild(popup);
 
         // 动画流程
-        // 滑入
         requestAnimationFrame(() => {
             popup.classList.add('show');
         });
 
-        // 停留 4 秒
         setTimeout(() => {
-            // 滑出
             popup.classList.remove('show');
-            // 动画结束后移除元素
             popup.addEventListener('transitionend', () => {
                 popup.remove();
             }, { once: true });
-        }, 4000); // 毫秒
+        }, 4000);
     }
 }

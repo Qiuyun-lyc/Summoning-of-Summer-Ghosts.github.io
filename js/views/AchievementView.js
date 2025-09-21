@@ -1,8 +1,6 @@
 // 成就界面视图对象
 const AchievementView = {
-    totalSlots: 16, // 固定成就槽数量（4组 * 每组4个）
-    slotsPerGroup: 4, // 每组显示 4 个
-    categories: ["友也", "葵", "凉", "绚音"],
+    totalSlots: 16, // 固定成就槽数量
 
     render: (container, engine) => {
         const L = engine.localization;
@@ -10,52 +8,30 @@ const AchievementView = {
         const unlockedIds = engine.saveManager.currentUser.achievementArray;
         const lockedIcon = engine.dataManager.getLockedAchievementIcon();
 
-        const traitByIndex = ["warm", "brave", "cool", "mystic"];
-
+        // 获取要显示的成就（最多 totalSlots 个）
         const achievementsToRender = allAchievements.slice(0, AchievementView.totalSlots);
         while (achievementsToRender.length < AchievementView.totalSlots) achievementsToRender.push(null);
 
-        // 分组
-        const groups = [];
-        for (let i = 0; i < achievementsToRender.length; i += AchievementView.slotsPerGroup) {
-            groups.push(achievementsToRender.slice(i, i + AchievementView.slotsPerGroup));
-        }
-
-        // 每组生成 HTML
-        const groupsHTML = groups.map((group, groupIndex) => {
-            const rowCategory = AchievementView.categories[groupIndex] || `类别 ${groupIndex + 1}`;
-            const traitKey = traitByIndex[groupIndex] || "warm";
-
-            const itemsHTML = group.map((ach) => {
-                if (ach) {
-                    const isUnlocked = unlockedIds.includes(ach.id);
-                    const statusClass = isUnlocked ? 'unlocked' : 'locked';
-                    const iconSrc = isUnlocked ? ach.icon : lockedIcon;
-                    const name = isUnlocked ? `<h3>${ach.name}</h3>` : '<h3>？？？</h3>';
-                    const description = isUnlocked ? `<p>${ach.description}</p>` : '<p>解锁条件未达成</p>';
-                    return `
-                        <div class="achievement-item ${statusClass}" title="${isUnlocked ? ach.name : '未解锁'}">
-                            <img class="achievement-icon" src="${iconSrc}" alt="${isUnlocked ? ach.name : '未解锁'}">
-                            <div class="achievement-info">
-                                ${name}
-                                ${description}
-                            </div>
+        // 生成 HTML
+        const itemsHTML = achievementsToRender.map((ach) => {
+            if (ach) {
+                const isUnlocked = unlockedIds.includes(ach.id);
+                const statusClass = isUnlocked ? 'unlocked' : 'locked';
+                const iconSrc = isUnlocked ? ach.icon : lockedIcon;
+                const name = isUnlocked ? `<h3>${ach.name}</h3>` : '<h3>？？？</h3>';
+                const description = isUnlocked ? `<p>${ach.description}</p>` : '<p>解锁条件未达成</p>';
+                return `
+                    <div class="achievement-item ${statusClass}" title="${isUnlocked ? ach.name : '未解锁'}">
+                        <img class="achievement-icon" src="${iconSrc}" alt="${isUnlocked ? ach.name : '未解锁'}">
+                        <div class="achievement-info">
+                            ${name}
+                            ${description}
                         </div>
-                    `;
-                } else {
-                    return `<div class="achievement-item empty"></div>`;
-                }
-            }).join('');
-
-            return `
-                <div class="achievement-group">
-                    <!-- 给分类标题打上 data-trait 以套用对应性格配色 -->
-                    <h2 class="row-category" data-trait="${traitKey}">${rowCategory}</h2>
-                    <div class="achievement-group-items">
-                        ${itemsHTML}
                     </div>
-                </div>
-            `;
+                `;
+            } else {
+                return `<div class="achievement-item empty"></div>`;
+            }
         }).join('');
 
         container.innerHTML = `
@@ -105,67 +81,16 @@ const AchievementView = {
                 .achievement-grid-container {
                     flex: 1;
                     overflow-y: auto;
-                    padding: 0 40px 20px; /* 去掉顶部内边距，避免与导航产生缝隙 */
+                    padding: 20px 40px;
                     box-sizing: border-box;
+                    display: grid;
+                    grid-template-columns: repeat(4, 1fr); /* 每行固定 4 个格子 */
+                    gap: 25px;
+                    justify-items: center;
                     -ms-overflow-style: none;
                     scrollbar-width: none;
                 }
                 .achievement-grid-container::-webkit-scrollbar { display: none; }
-
-                .achievement-group {
-                    margin-bottom: 50px;
-                    position: relative; /* sticky 需要父容器 */
-                }
-
-                /* —— 固定类别标题（分类栏） —— */
-                .row-category{
-                    position: sticky;
-                    top: 0;
-                    z-index: 15;
-
-                    text-align: center;
-                    font-size: 1.6em;
-                    color: #ffd700;
-                    margin: 0 0 10px;
-
-                    /* 毛玻璃底色 */
-                    background-color: rgba(15,15,25,0.85);
-                    backdrop-filter: blur(8px);
-                    -webkit-backdrop-filter: blur(8px);
-
-                    padding: 20px;
-
-                    /* 圆角与投影 */
-                    border-radius: 12px;
-                    overflow: hidden;
-                    border: 1px solid rgba(255,255,255,0.12);
-                    box-shadow: 0 6px 18px rgba(0,0,0,.35);
-                }
-
-                /* —— 性格主题着色（轻度覆盖层，保证文本可读） —— */
-                .row-category::before{
-                    content:"";
-                    position:absolute; inset:0;
-                    background: var(--cat-tint, transparent);
-                    opacity:.25;            /* 透明度可按需微调 */
-                    pointer-events:none;
-                }
-                /* 温柔/治愈（友也） */
-                .row-category[data-trait="warm"]   { --cat-tint: linear-gradient(135deg,#ff9a9e 0%, #57babae2 100%); }
-                /* 阳光/热情（葵） */
-                .row-category[data-trait="brave"]  { --cat-tint: linear-gradient(135deg,#ff512f 0%, #f09819 100%); }
-                /* 冷静/理智（凉） */
-                .row-category[data-trait="cool"]   { --cat-tint: linear-gradient(135deg,#36d1dc 0%, #5a00c762 100%); }
-                /* 神秘/文艺（绚音） */
-                .row-category[data-trait="mystic"] { --cat-tint: linear-gradient(135deg,#6a11cb 0%, #fecfef 100%); }
-
-                /* 成就槽布局 */
-                .achievement-group-items {
-                    display: grid;
-                    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-                    gap: 25px;
-                    justify-items: center;
-                }
 
                 .achievement-item {
                     background-color: rgba(0, 0, 0, 0.4);
@@ -205,7 +130,6 @@ const AchievementView = {
                     border-radius: 50%;
                     object-fit: cover;
                     border: 3px solid #fff;
-                    flex-shrink: 0;
                     margin-bottom: 10px;
                 }
 
@@ -253,7 +177,7 @@ const AchievementView = {
                 </nav>
 
                 <div class="achievement-grid-container">
-                    ${groupsHTML}
+                    ${itemsHTML}
                 </div>
             </div>
         `;
