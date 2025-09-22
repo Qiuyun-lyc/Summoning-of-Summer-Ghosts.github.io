@@ -8,7 +8,6 @@ const MainMenuView = {
             <style>
                 :root {
                     --title-font-size: clamp(24px, 4vw, 48px);
-                    --subtitle-font-size: clamp(20px, 2.5vw, 36px);
                 }
 
                 .view.main-menu-view {
@@ -41,27 +40,24 @@ const MainMenuView = {
                 .header {
                     display: flex;
                     flex-direction: column;
-                    align-items: flex-end; /* 主标题靠右 */
-                    margin-bottom: 65vh; /* 按钮整体下移 */
+                    align-items: flex-end;
+                    margin-bottom: 65vh; /* 整体下移 */
                     width: 100%;
                 }
 
                 .header-title {
                     font-size: var(--title-font-size);
                     color: #fff;
-                    display: block;
                 }
 
                 .header-subtitle {
-                    font-size: calc(var(--title-font-size) * 1.1); /* 放大 */
+                    font-size: calc(var(--title-font-size) * 1.1);
                     color: #fff;
-                    display: block;
-                    margin-top: 0.1em; /* 紧贴主标题 */
                     opacity: 0.8;
-                    width: 100%;
-                    text-align: center;
-                    align-self: flex-end; /* 在右侧容器内靠右 */
-                    margin-right: -2.6em; /* 向右微调，可根据需求修改 */
+                    margin-top: 0.1em;
+                    align-self: flex-end;
+                    text-align: right;
+                    margin-right: -2em;
                 }
 
                 .main-menu-button-group {
@@ -77,6 +73,7 @@ const MainMenuView = {
                     justify-content: center;
                     position: relative;
                     cursor: pointer;
+                    transition: transform 0.2s ease-in-out;
                 }
 
                 .main-menu-button img.button-img {
@@ -95,7 +92,6 @@ const MainMenuView = {
 
                 .main-menu-button:hover img.button-img {
                     transform: scale(1.05);
-                    transition: transform 0.2s ease-in-out;
                 }
             </style>
 
@@ -143,7 +139,10 @@ const MainMenuView = {
     attachEventListeners: (container, engine) => {
         const buttons = container.querySelectorAll('.main-menu-button');
         buttons.forEach(button => {
-            button.addEventListener('mouseover', () => engine.audioManager.playSoundEffect('titleHover'));
+            // 第一版的音效逻辑
+            button.addEventListener('mouseover', () => {
+                engine.audioManager.playSoundEffect('titleHover');
+            });
             button.addEventListener('click', async (e) => {
                 engine.audioManager.playSoundEffect('titleClick');
                 const action = e.currentTarget.dataset.action;
