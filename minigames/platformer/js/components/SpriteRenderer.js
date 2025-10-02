@@ -1,4 +1,4 @@
-import { TARGET_H } from '../constants.js';
+import { TARGET_H, states} from '../constants.js';
 import { Transform } from './Transform.js';
 import { Animator } from './Animator.js';
 import { StateMachine } from './StateMachine.js';
@@ -17,7 +17,6 @@ export class SpriteRenderer {
     }
 
     getDrawSize() {
-        // *** 核心修正 1: 升级静态图片的尺寸计算逻辑 ***
         if (this.isStatic && this.staticImage) {
             // 定义光芒的目标高度为主角的一半
             const targetHeight = TARGET_H / 2; 
@@ -41,14 +40,12 @@ export class SpriteRenderer {
     }
 
     draw(ctx) {
-        // *** 核心修正 2: 在绘制静态图片时使用计算出的新尺寸 ***
         if (this.isStatic && this.staticImage) {
             const { w: drawW, h: drawH } = this.getDrawSize();
             ctx.drawImage(this.staticImage, this.transform.x, this.transform.y, drawW, drawH);
             return;
         }
 
-        // --- 原有的动画绘制逻辑 (保持不变) ---
         if (!this.animator) return;
         const frameCanvas = this.animator.getCurrentFrame();
         if (!frameCanvas) return;
@@ -69,15 +66,15 @@ export class SpriteRenderer {
     }
     
     _drawSlash(ctx, playerW, playerH) {
-        if (this.stateMachine && this.stateMachine.currentState.state === 'ATTACK') {
+        if (this.stateMachine && this.stateMachine.currentState.state === states.ATTACK) {
             const slashW = this.slashFrame.width;
             const slashH = this.slashFrame.height;
             const scale = playerH / slashH;
             const newW = slashW * scale;
             const newH = playerH;
             
-            const offsetY = 0.5;
-            const offsetX = 0.8;
+            const offsetY = 0.2;
+            const offsetX = 0.3;
             
             let slashX, slashY;
             

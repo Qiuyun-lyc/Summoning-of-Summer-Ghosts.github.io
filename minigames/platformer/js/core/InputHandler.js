@@ -29,7 +29,7 @@ export class InputHandler {
             case 'KeyA': this.keys.ArrowLeft = value; break;
             case 'KeyD': this.keys.ArrowRight = value; break;
             case 'KeyW': this.keys.Space = value; break;
-            case 'KeyX': this.keys.Attack = value; break;
+            case 'KeyJ': this.keys.Attack = value; break;
         }
     }
 

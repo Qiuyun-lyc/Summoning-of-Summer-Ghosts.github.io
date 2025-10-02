@@ -28,11 +28,12 @@ export function createPlayer(assetManager) {
     };
     player.addComponent(new Animator(animations));//动画组件
     //创建渲染组件，并传入攻击特效的图片
+    const stateMachine = player.addComponent(new StateMachine());
     const slashFrame = assetManager.getImage('slash');
     player.addComponent(new SpriteRenderer(slashFrame));
     player.addComponent(new Physics());//物理组件
     //创建并配置玩家的行为状态机
-    const stateMachine = player.addComponent(new StateMachine());
+
     stateMachine.addState(states.IDLE, new IdleState(player));
     stateMachine.addState(states.WALK, new WalkState(player));
     stateMachine.addState(states.JUMP, new JumpState(player));
