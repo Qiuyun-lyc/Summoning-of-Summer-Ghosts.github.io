@@ -1,10 +1,9 @@
-// minigames/platformer/js/components/Animator.js
-
 import { frameDelayByState, WALK_PRE_COUNT } from '../constants.js';
 
 export class Animator {
-    constructor(animations) {
+    constructor(animations, frameDelays = {}) {
         this.animations = animations;
+        this.frameDelays = frameDelays;
         this.currentAnimationName = null;
         this.currentAnimation = null;
         this.currentFrameIndex = 0;
@@ -24,7 +23,8 @@ export class Animator {
         if (!this.currentAnimation) return;
 
         this.frameTimer++;
-        const delay = frameDelayByState[this.currentAnimationName];
+        const delay = this.frameDelays[this.currentAnimationName] || frameDelayByState[this.currentAnimationName] || 10;
+        
         if (this.frameTimer >= delay) {
             this.frameTimer = 0;
             this.currentFrameIndex++;
@@ -34,7 +34,8 @@ export class Animator {
     getCurrentFrame() {
         const anim = this.currentAnimation;
         if (!anim) return null;
-        if (this.currentAnimationName === 'walk') {
+
+        if (this.currentAnimationName === 'walk' && anim.frames.length > WALK_PRE_COUNT) {
             const total = anim.frames.length;
             const pre = WALK_PRE_COUNT;
             const loop = total - pre;
@@ -42,6 +43,11 @@ export class Animator {
             const loopIdx = (this.currentFrameIndex - pre) % loop;
             return anim.frames[pre + loopIdx];
         } else {
+            const isNonLooping = ['death', 'turn', 'land', 'attack'].includes(this.currentAnimationName);
+            if (isNonLooping) {
+                const frameIndex = Math.min(this.currentFrameIndex, anim.frames.length - 1);
+                return anim.frames[frameIndex];
+            }
             return anim.frames[this.currentFrameIndex % anim.frames.length];
         }
     }
@@ -54,6 +60,6 @@ export class Animator {
 
     isAnimationFinished() {
         if (!this.currentAnimation) return true;
-        return this.currentFrameIndex >= this.currentAnimation.frames.length - 1;
+        return this.currentFrameIndex >= this.currentAnimation.frames.length;
     }
 }
