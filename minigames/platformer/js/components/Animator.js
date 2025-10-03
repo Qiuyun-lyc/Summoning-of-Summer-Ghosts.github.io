@@ -35,7 +35,7 @@ export class Animator {
         const anim = this.currentAnimation;
         if (!anim) return null;
 
-        if (this.currentAnimationName === 'walk' && anim.frames.length > WALK_PRE_COUNT) {
+        if (this.gameObject.name === 'Player' && this.currentAnimationName === 'walk' && anim.frames.length > WALK_PRE_COUNT) {
             const total = anim.frames.length;
             const pre = WALK_PRE_COUNT;
             const loop = total - pre;

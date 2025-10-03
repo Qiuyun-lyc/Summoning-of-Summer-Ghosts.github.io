@@ -8,13 +8,13 @@ import { EnemyAIController } from '../components/EnemyAIController.js';
 
 export function createGarpede(assetManager, x, y) {
     const config = {
-        speed: 0.8,
+        speed: 1,
         patrolDistance: 520,
         health: 50,
     };
 
     const frameDelays = {
-        walk: 8, 
+        walk: 12, 
         turn: 10,
         death: 12,
     };
