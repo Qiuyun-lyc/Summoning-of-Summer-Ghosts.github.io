@@ -7,6 +7,7 @@ const states = {
     PATROL: 0,
     TURN: 1,
     DEATH: 2,
+    HIT_STUN: 3,
 };
 
 export class EnemyAIController {
@@ -18,6 +19,8 @@ export class EnemyAIController {
         this.direction = -1;
         
         this.state = states.PATROL;
+        this.stunTimer = 0;
+        this.stunDuration = 200;
     }
 
     init() {
@@ -30,17 +33,21 @@ export class EnemyAIController {
         this.transform.facingRight = false;
     }
 
+    onHit(direction) {
+        if (this.state === states.DEATH) return;
+
+        this.state = states.HIT_STUN;
+        this.stunTimer = this.stunDuration;
+        this.physics.velocityX = direction * 3;
+        this.physics.velocityY = -2;
+    }
+
     update(deltaTime) {
-        if (this.state === states.DEATH) {
-            this.deathUpdate();
-            return;
-        }
-        if (this.health.currentHealth <= 0) {
+        if (this.health.currentHealth <= 0 && this.state !== states.DEATH) {
             this.state = states.DEATH;
             this.physics.velocityX = 0;
             this.physics.gravity = 0;
             this.animator.play('death');
-            return;
         }
 
         switch(this.state) {
@@ -49,6 +56,12 @@ export class EnemyAIController {
                 break;
             case states.TURN:
                 this.turnUpdate();
+                break;
+            case states.HIT_STUN:
+                this.hitStunUpdate(deltaTime);
+                break;
+            case states.DEATH:
+                this.deathUpdate();
                 break;
         }
     }
@@ -75,6 +88,13 @@ export class EnemyAIController {
         if (this.animator.isAnimationFinished()) {
             this.direction *= -1;
             this.transform.facingRight = !this.transform.facingRight;
+            this.state = states.PATROL;
+        }
+    }
+
+    hitStunUpdate(deltaTime) {
+        this.stunTimer -= deltaTime;
+        if (this.stunTimer <= 0) {
             this.state = states.PATROL;
         }
     }
