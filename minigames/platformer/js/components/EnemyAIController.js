@@ -1,50 +1,107 @@
 import { Transform } from './Transform.js';
 import { Physics } from './Physics.js';
 import { Animator } from './Animator.js';
+import { HealthComponent } from './HealthComponent.js';
 
-//定义了敌人的行为逻辑
+const states = {
+    PATROL: 0,
+    TURN: 1,
+    DEATH: 2,
+    HIT_STUN: 3,
+};
+
 export class EnemyAIController {
     constructor(config) {
-        this.type = config.type || 'patrol';                //AI类型，默认为巡逻
-        this.speed = config.speed || 1;                     //移动速度
-        this.patrolDistance = config.patrolDistance || 100; //巡逻距离
-        this.startPatrolX = 0;                              //巡逻起始点X坐标
-        this.direction = 1;                                 //移动方向（1为右，-1为左）
+        this.speed = config.speed || 1;
+        this.patrolDistance = config.patrolDistance || 100;
+        this.startPatrolX = 0;
+        this.patrolEndX = 0;
+        this.direction = -1;
+        
+        this.state = states.PATROL;
+        this.stunTimer = 0;
+        this.stunDuration = 200;
     }
 
-    //初始化，获取对其他组件的引用
     init() {
         this.transform = this.gameObject.getComponent(Transform);
         this.physics = this.gameObject.getComponent(Physics);
         this.animator = this.gameObject.getComponent(Animator);
-        this.startPatrolX = this.transform.x;
+        this.health = this.gameObject.getComponent(HealthComponent);
+        this.startPatrolX = this.transform.x - this.patrolDistance / 2;
+        this.patrolEndX = this.transform.x + this.patrolDistance / 2;
+        this.transform.facingRight = false;
     }
 
-    //每帧更新AI逻辑
+    onHit(direction) {
+        if (this.state === states.DEATH) return;
+
+        this.state = states.HIT_STUN;
+        this.stunTimer = this.stunDuration;
+        this.physics.velocityX = direction * 3;
+        this.physics.velocityY = -2;
+    }
+
     update(deltaTime) {
-        if (this.type === 'patrol') {
-            this.patrol();
+        if (this.health.currentHealth <= 0 && this.state !== states.DEATH) {
+            this.state = states.DEATH;
+            this.physics.velocityX = 0;
+            this.physics.gravity = 0;
+            this.animator.play('death');
+        }
+
+        switch(this.state) {
+            case states.PATROL:
+                this.patrolUpdate();
+                break;
+            case states.TURN:
+                this.turnUpdate();
+                break;
+            case states.HIT_STUN:
+                this.hitStunUpdate(deltaTime);
+                break;
+            case states.DEATH:
+                this.deathUpdate();
+                break;
         }
     }
     
-    //巡逻行为
-    patrol() {
-        //设置物理组件的速度
+    patrolUpdate() {
+        this.animator.play('walk');
         this.physics.velocityX = this.speed * this.direction;
-        //到达巡逻中点时反向
-        if (this.direction === 1 && this.transform.x >= this.startPatrolX + this.patrolDistance) {
-            this.direction = -1;
-            this.transform.facingRight = false;
-        } else if (this.direction === -1 && this.transform.x <= this.startPatrolX) {
-            //到达巡逻起点时反向
-            this.direction = 1;
-            this.transform.facingRight = true;
+        
+        if (this.direction === 1 && this.transform.x >= this.patrolEndX) {
+            this.transform.x = this.patrolEndX;
+            this.physics.velocityX = 0;
+            this.state = states.TURN;
+            this.animator.play('turn');
+        } 
+        else if (this.direction === -1 && this.transform.x <= this.startPatrolX) {
+            this.transform.x = this.startPatrolX;
+            this.physics.velocityX = 0;
+            this.state = states.TURN;
+            this.animator.play('turn');
         }
-        //根据速度播放相应的动画
-        if (this.physics.velocityX !== 0) {
-            this.animator.play('walk');
-        } else {
-            this.animator.play('idle');
+    }
+
+    turnUpdate() {
+        if (this.animator.isAnimationFinished()) {
+            this.direction *= -1;
+            this.transform.facingRight = !this.transform.facingRight;
+            this.state = states.PATROL;
+        }
+    }
+
+    hitStunUpdate(deltaTime) {
+        this.stunTimer -= deltaTime;
+        if (this.stunTimer <= 0) {
+            this.state = states.PATROL;
+        }
+    }
+
+    deathUpdate() {
+        if (this.animator.isAnimationFinished()) {
+            this.gameObject.active = false;
         }
     }
 }

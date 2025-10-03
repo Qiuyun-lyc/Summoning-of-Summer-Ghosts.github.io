@@ -1,4 +1,3 @@
-//引入创建实体所需的各种模块和组件
 import { GameObject } from '../core/GameObject.js';
 import { Transform } from '../components/Transform.js';
 import { Physics } from '../components/Physics.js';
@@ -7,26 +6,37 @@ import { SpriteRenderer } from '../components/SpriteRenderer.js';
 import { HealthComponent } from '../components/HealthComponent.js';
 import { EnemyAIController } from '../components/EnemyAIController.js';
 
-// 工厂函数，用于创建特定类型的敌人
-export function createSlime(assetManager, x, y) {
-    const enemy = new GameObject('Enemy');
-    enemy.addComponent(new Transform(x, y));
-    const animations = {
-        idle: assetManager.getSpriteSheet('idle'),
-        walk: assetManager.getSpriteSheet('walk'),
+export function createGarpede(assetManager, x, y) {
+    const config = {
+        speed: 1,
+        patrolDistance: 520,
+        health: 50,
     };
-    const animator = enemy.addComponent(new Animator(animations));
-    animator.play('walk');
 
+    const frameDelays = {
+        walk: 12, 
+        turn: 10,
+        death: 12,
+    };
+
+    const enemy = new GameObject('Enemy');
+    
+    enemy.addComponent(new Transform(x, y));
+    
+    const animations = {
+        walk: assetManager.getSpriteSheet('garpede_walk'),
+        turn: assetManager.getSpriteSheet('garpede_turn'),
+        death: assetManager.getSpriteSheet('garpede_death'),
+    };
+    enemy.addComponent(new Animator(animations, frameDelays));
     enemy.addComponent(new SpriteRenderer());
     enemy.addComponent(new Physics());
-    enemy.addComponent(new HealthComponent(50));
-    enemy.addComponent(new EnemyAIController({ type: 'patrol', speed: 1, patrolDistance: 100 }));
+    enemy.addComponent(new HealthComponent(config.health));
+    enemy.addComponent(new EnemyAIController(config));
     
     return enemy;
 }
 
-// 创建光芒实体的工厂函数
 export function createLightOrb(assetManager, x, y) {
     const orb = new GameObject('LightOrb');
 

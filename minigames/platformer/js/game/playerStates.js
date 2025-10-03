@@ -5,6 +5,7 @@ import { StateMachine } from '../components/StateMachine.js';
 import { Transform } from '../components/Transform.js';
 import { SpriteRenderer } from '../components/SpriteRenderer.js';
 import { HealthComponent } from '../components/HealthComponent.js';
+import { EnemyAIController } from '../components/EnemyAIController.js';
 
 class PlayerState {
     constructor(state, gameObject) {
@@ -143,11 +144,17 @@ export class AttackState extends PlayerState {
                     hitboxX + attackRange > enemyTransform.x &&
                     hitboxY < enemyTransform.y + enemyH &&
                     hitboxY + attackHeight > enemyTransform.y) {
-                    
+
                     console.log("击中敌人!");
                     const enemyHealth = other.getComponent(HealthComponent);
                     if (enemyHealth) {
-                        enemyHealth.takeDamage(25); 
+                        enemyHealth.takeDamage(25);
+                        
+                        const aiController = other.getComponent(EnemyAIController);
+                        if (aiController) {
+                            const knockbackDirection = transform.facingRight ? 1 : -1;
+                            aiController.onHit(knockbackDirection);
+                        }
                     }
                 }
             }

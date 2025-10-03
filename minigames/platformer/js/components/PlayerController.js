@@ -1,30 +1,37 @@
-import { MOVE_SPEED } from '../constants.js';
+import { MOVE_SPEED, states } from '../constants.js';
 import { Physics } from './Physics.js';
 import { Transform } from './Transform.js';
 import { StateMachine } from './StateMachine.js';
 import { SpriteRenderer } from './SpriteRenderer.js';
 import { gameEvents } from '../core/EventBus.js';
+import { HealthComponent } from './HealthComponent.js';
 
 export class PlayerController {
+    constructor() {
+        this.invincibilityDuration = 1000;
+        this.lastDamageTime = 0;
+        this.isKnockedBack = false;
+        this.knockbackFriction = 0.85;
+    }
+
     init() {
-        // 在 init 中，我们只获取对自身 GameObject 上的其他组件的引用。
-        // 这是安全的，因为它们在 init 被调用时都已存在。
         this.physics = this.gameObject.getComponent(Physics);
         this.transform = this.gameObject.getComponent(Transform);
         this.stateMachine = this.gameObject.getComponent(StateMachine);
+        this.health = this.gameObject.getComponent(HealthComponent);
     }
 
     update(deltaTime, input) {
-        // 在 update 循环中，我们可以安全地访问 this.gameObject.scene，
-        // 因为 update 只会在游戏对象被完全添加到场景后才开始被调用。
+        if (this.isKnockedBack) {
+            this.physics.velocityX *= this.knockbackFriction;
+            if (Math.abs(this.physics.velocityX) < 0.5) {
+                this.isKnockedBack = false;
+            }
+        } else {
+            this._handleMovement(input);
+        }
         
-        // 1. 处理移动
-        this._handleMovement(input);
-        
-        // 2. 更新状态机
         this.stateMachine.currentState.handleInput(input);
-        
-        // 3. 检查碰撞
         this._checkCollisions();
     }
 
@@ -41,29 +48,70 @@ export class PlayerController {
     }
 
     _checkCollisions() {
-        // 现在在这里调用是安全的，因为 this.gameObject.scene 已经有值了。
         const playerTransform = this.transform;
         const playerRenderer = this.gameObject.getComponent(SpriteRenderer);
         const { w: playerW, h: playerH } = playerRenderer.getDrawSize();
 
         for (const other of this.gameObject.scene.gameObjects) {
-            if (other.name === 'LightOrb' && other.active) {
+            if (!other.active) continue;
+
+            if (other.name === 'LightOrb') {
                 const orbTransform = other.getComponent(Transform);
-                const orbRenderer = other.getComponent(SpriteRenderer);
-                const orbImage = orbRenderer.staticImage;
+                const { w: orbW, h: orbH } = other.getComponent(SpriteRenderer).getDrawSize();
 
-                const { w: orbW, h: orbH } = orbRenderer.getDrawSize(); // <--- 关键修改点
-
-                // 使用获取到的缩放尺寸进行碰撞检测
                 if (
-                    playerTransform.x < orbTransform.x + orbW && // <--- 使用缩放后的宽度
+                    playerTransform.x < orbTransform.x + orbW &&
                     playerTransform.x + playerW > orbTransform.x &&
-                    playerTransform.y < orbTransform.y + orbH && // <--- 使用缩放后的高度
+                    playerTransform.y < orbTransform.y + orbH &&
                     playerTransform.y + playerH > orbTransform.y
                 ) {
-                    
                     other.active = false;
                     gameEvents.emit('lightOrbCollected');
+                }
+            } else if (other.name === 'Enemy') {
+                const now = Date.now();
+                if (now - this.lastDamageTime < this.invincibilityDuration) {
+                    continue;
+                }
+
+                const enemyTransform = other.getComponent(Transform);
+                const { w: enemyW, h: enemyH } = other.getComponent(SpriteRenderer).getDrawSize();
+                
+                const currentState = this.stateMachine.currentState.state;
+                const hitboxPaddingX = playerW * 0.3;
+
+                const hitboxPaddingY = (currentState === states.JUMP || currentState === states.FALL)
+                    ? playerH * 0.4 
+                    : playerH * 0.1; 
+
+                const playerHitbox = {
+                    x: playerTransform.x + hitboxPaddingX,
+                    y: playerTransform.y + hitboxPaddingY,
+                    w: playerW - 2 * hitboxPaddingX,
+                    h: playerH - 2 * hitboxPaddingY
+                };
+
+                const enemyHitbox = {
+                    x: enemyTransform.x + hitboxPaddingX,
+                    y: enemyTransform.y + hitboxPaddingY,
+                    w: enemyW - 2 * hitboxPaddingX,
+                    h: enemyH - 2 * hitboxPaddingY
+                };
+
+                if (
+                    playerHitbox.x < enemyHitbox.x + enemyHitbox.w &&
+                    playerHitbox.x + playerHitbox.w > enemyHitbox.x &&
+                    playerHitbox.y < enemyHitbox.y + enemyHitbox.h &&
+                    playerHitbox.y + playerHitbox.h > enemyHitbox.y
+                ) {
+                    console.log("玩家与敌人发生碰撞！");
+                    this.health.takeDamage(10);
+                    this.lastDamageTime = now;
+                    this.isKnockedBack = true;
+
+                    const knockbackDirection = playerTransform.x + playerW / 2 < enemyTransform.x + enemyW / 2 ? -1 : 1;
+                    this.physics.velocityX = knockbackDirection * 5;
+                    this.physics.velocityY = -4;
                 }
             }
         }

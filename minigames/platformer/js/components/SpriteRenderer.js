@@ -1,7 +1,8 @@
-import { TARGET_H, states} from '../constants.js';
+import { TARGET_H, states } from '../constants.js';
 import { Transform } from './Transform.js';
 import { Animator } from './Animator.js';
 import { StateMachine } from './StateMachine.js';
+import { PlayerController } from './PlayerController.js';
 
 export class SpriteRenderer {
     constructor(slashFrame) {
@@ -14,17 +15,17 @@ export class SpriteRenderer {
         this.transform = this.gameObject.getComponent(Transform);
         this.animator = this.gameObject.getComponent(Animator);
         this.stateMachine = this.gameObject.getComponent(StateMachine);
+        if (this.gameObject.name === 'Player') {
+            this.playerController = this.gameObject.getComponent(PlayerController);
+        }
     }
 
     getDrawSize() {
         if (this.isStatic && this.staticImage) {
-            // 定义光芒的目标高度为主角的一半
             const targetHeight = TARGET_H / 2; 
             if (this.staticImage.height === 0) return { w: 0, h: 0 };
             
-            // 计算缩放比例
             const scale = targetHeight / this.staticImage.height;
-            // 根据比例计算新的宽度
             const targetWidth = this.staticImage.width * scale;
             
             return { w: targetWidth, h: targetHeight };
@@ -53,6 +54,13 @@ export class SpriteRenderer {
         const { w: drawW, h: drawH } = this.getDrawSize();
 
         ctx.save();
+        if (this.playerController) {
+            const now = Date.now();
+            if (now - this.playerController.lastDamageTime < this.playerController.invincibilityDuration) {
+                ctx.globalAlpha = (Math.floor(now / 100) % 2 === 0) ? 0.4 : 1.0;
+            }
+        }
+
         if (this.transform.facingRight) { 
             ctx.translate(this.transform.x + drawW, this.transform.y);
             ctx.scale(-1, 1);
