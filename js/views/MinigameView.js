@@ -45,7 +45,7 @@ const MinigameView = {
                 /* 暂停按钮样式 */
                 #minigame-pause-btn {
                     position: fixed;
-                    top: 20px;
+                    top: 80px;
                     left: 20px;
                     z-index: 1002;
                     padding: 10px 20px;

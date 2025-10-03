@@ -45,7 +45,8 @@ export class AssetManager {
         const [
             idleData, walkData, jumpData, fallData, landData, attackData,
             garpedeWalkData, garpedeTurnData, garpedeDeathData,
-            slashImg, tilesetImg, lightOrbImg,floor1Img,lightImg,light1Img,wall1Img,wall2Img,wall3Img,base1Img,base2Img,base3Img,base4Img,
+            slashImg, tilesetImg, lightOrbImg, healthMaskImg,
+            floor1Img,lightImg,light1Img,wall1Img,wall2Img,wall3Img,base1Img,base2Img,base3Img,base4Img,
             mapLevel1Data, mapLevel2Data, mapLevel3Data,mapLevel4Data, mapLevel5Data
         ] = await Promise.all([
             loadSpriteSheet(`${bp}assets/sprites/player/idle.png`, 9),
@@ -62,6 +63,7 @@ export class AssetManager {
             loadImage(`${bp}assets/sprites/player/lr1.png`),
             loadImage(`${bp}assets/sprites/tileset.png`),
             loadImage(`${bp}assets/sprites/light_orb.png`),
+            loadImage(`${bp}assets/sprites/health_mask.png`),
             loadImage(`${bp}assets/sprites/floor1.png`),
             loadImage(`${bp}assets/sprites/light.png`),
             loadImage(`${bp}assets/sprites/light1.png`),
@@ -96,6 +98,7 @@ export class AssetManager {
         this.images.set('slash', slashImg);
         this.images.set('tileset', tilesetImg);
         this.images.set('light_orb', lightOrbImg);
+        this.images.set('health_mask', healthMaskImg);
         this.images.set('floor1', floor1Img);
         this.images.set('light', lightImg);
         this.images.set('light1', light1Img);
