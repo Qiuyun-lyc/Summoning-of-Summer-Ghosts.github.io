@@ -94,6 +94,10 @@ export class Game {
         this.playSoundEffect(`collect_${sfxIndex}`);
     }
 
+    _onEnemyHit() {
+        this.playSoundEffect('hit_0');
+    }
+
     _onEntityDied(payload) {
         if (payload.gameObject.name === 'Player') {
             this._endGame({ status: 'lose' });
@@ -106,6 +110,9 @@ export class Game {
         
         this.boundOrbCollectedHandler = this._onOrbCollected.bind(this);
         gameEvents.on('lightOrbCollected', this.boundOrbCollectedHandler);
+
+        this.boundEnemyHitHandler = this._onEnemyHit.bind(this);
+        gameEvents.on('enemyHit', this.boundEnemyHitHandler);
 
         this.isRunning = true;
         this.lastTime = performance.now();
@@ -144,6 +151,9 @@ export class Game {
         gameEvents.off('entityDied', this.boundEntityDiedHandler);
         if (this.boundOrbCollectedHandler) {
             gameEvents.off('lightOrbCollected', this.boundOrbCollectedHandler);
+        }
+        if (this.boundEnemyHitHandler) {
+            gameEvents.off('enemyHit', this.boundEnemyHitHandler);
         }
         this.stopBgm();
         console.log("Minigame instance destroyed.");

@@ -1,5 +1,3 @@
-// minigames/platformer/js/components/Physics.js
-
 import { GRAVITY } from '../constants.js';
 import { Transform } from './Transform.js';
 import { SpriteRenderer } from './SpriteRenderer.js';

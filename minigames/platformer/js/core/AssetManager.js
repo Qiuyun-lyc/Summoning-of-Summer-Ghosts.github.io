@@ -22,7 +22,8 @@ export class AssetManager {
         const bp = this.basePath;
         const sfxNames = [
             'collect_0', 'collect_1', 'collect_2', 'collect_3', 
-            'collect_4', 'collect_5', 'collect_6'
+            'collect_4', 'collect_5', 'collect_6',
+            'hit_0'
         ];
         
         const bgmName = 'rain_bgm';

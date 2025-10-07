@@ -106,7 +106,7 @@ export class UIManager {
     }
 
     drawControlsHint() {
-        const hintText = "A / D : 移动  |  W : 跳跃";
+        const hintText = "A / D : 移动  |  W : 跳跃  |  J : 攻击";
         
         const x = this.canvas.width / 2;
         const y = this.canvas.height - 30;

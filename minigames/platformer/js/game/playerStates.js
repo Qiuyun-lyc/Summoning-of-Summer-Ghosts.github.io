@@ -6,6 +6,7 @@ import { Transform } from '../components/Transform.js';
 import { SpriteRenderer } from '../components/SpriteRenderer.js';
 import { HealthComponent } from '../components/HealthComponent.js';
 import { EnemyAIController } from '../components/EnemyAIController.js';
+import { gameEvents } from '../core/EventBus.js';
 
 class PlayerState {
     constructor(state, gameObject) {
@@ -127,12 +128,16 @@ export class AttackState extends PlayerState {
         
         const attackRange = 80;
         const attackHeight = 60;
-        const attackOffsetX = 20;
-        
-        let hitboxX = transform.facingRight 
-            ? transform.x + playerW - attackOffsetX
-            : transform.x + attackOffsetX - attackRange;
-        let hitboxY = transform.y + (playerH - attackHeight) / 2;
+
+        let hitboxX, hitboxY;
+        hitboxY = transform.y + (playerH - attackHeight) / 2;
+        const playerCenterX = transform.x + playerW / 2;
+
+        if (transform.facingRight) {
+            hitboxX = playerCenterX;
+        } else {
+            hitboxX = playerCenterX - attackRange;
+        }
         
         for (const other of this.gameObject.scene.gameObjects) {
             if (other.name === 'Enemy' && other.active) {
@@ -146,6 +151,7 @@ export class AttackState extends PlayerState {
                     hitboxY + attackHeight > enemyTransform.y) {
 
                     console.log("击中敌人!");
+                    gameEvents.emit('enemyHit'); 
                     const enemyHealth = other.getComponent(HealthComponent);
                     if (enemyHealth) {
                         enemyHealth.takeDamage(25);
