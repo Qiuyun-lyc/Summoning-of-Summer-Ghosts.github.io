@@ -60,6 +60,25 @@ export default class UIManager {
         } else {
             choiceGroup.style.display = 'none';
         }
+        
+        // 特殊图片仅在节点 30483 时显示，否则隐藏
+        try {
+            const specialImg = document.getElementById('special-click-img');
+            if (specialImg) {
+                const currentNodeId = this.engine && this.engine.gameState && this.engine.gameState.currentSave
+                    ? this.engine.gameState.currentSave.nodeId
+                    : null;
+                // 兼容字符串/数字类型
+                if (String(currentNodeId) === '30483') {
+                    specialImg.style.display = 'inline-block';
+                } else {
+                    specialImg.style.display = 'none';
+                }
+            }
+        } catch (e) {
+            // 不影响渲染主流程
+            console.warn('设置 special-click-img 可见性时出错:', e);
+        }
     }
 
     isPrinting() {
@@ -341,5 +360,74 @@ export default class UIManager {
                 popup.remove();
             }, { once: true });
         }, 4000);
+    }
+    
+    /**
+     * 显示一个简单的确认模态框，返回一个 Promise，用户点击确认后 resolve。
+     * message 默认为 '恭喜你解锁隐藏剧情!'
+     */
+    showUnlockModal(message = '恭喜你解锁隐藏剧情!') {
+        return new Promise((resolve) => {
+            const overlay = document.createElement('div');
+            overlay.className = 'unlock-modal-overlay';
+
+            overlay.innerHTML = `
+                <style>
+                    .unlock-modal-overlay {
+                        position: fixed; inset: 0; display: flex; align-items: center; justify-content: center;
+                        background: rgba(0,0,0,0.6); z-index: 2000;
+                    }
+                    .unlock-modal {
+                        background: rgba(10,10,10,0.95); color: #fff; padding: 22px; border-radius: 10px;
+                        width: 420px; max-width: 92%; box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+                        font-family: 'lilyshow', 'Arial', sans-serif; text-align: center;
+                    }
+                    .unlock-modal h3 { margin: 0 0 8px 0; color: #ffd700; }
+                    .unlock-modal p { margin: 0 0 16px 0; font-size: 16px; }
+                    .unlock-modal .actions { display:flex; justify-content:center; gap:12px; }
+                    .unlock-modal .btn { padding: 10px 18px; border-radius: 6px; cursor: pointer; border: none; font-size: 14px; }
+                    .unlock-modal .btn.confirm { background: linear-gradient(90deg,#ffb347,#ffcc33); color:#111; }
+                </style>
+                <div class="unlock-modal" role="dialog" aria-modal="true">
+                    <h3>隐藏剧情已解锁</h3>
+                    <p>${message}</p>
+                    <div class="actions">
+                        <button class="btn confirm" id="unlock-confirm">确定</button>
+                    </div>
+                </div>
+            `;
+
+            document.body.appendChild(overlay);
+
+            const confirmBtn = overlay.querySelector('#unlock-confirm');
+            const cleanup = () => {
+                overlay.remove();
+            };
+
+            const onConfirm = () => {
+                cleanup();
+                resolve(true);
+            };
+
+            confirmBtn.addEventListener('click', onConfirm);
+
+            // 支持回车确认
+            const onKey = (e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    onConfirm();
+                }
+            };
+            document.addEventListener('keydown', onKey);
+
+            // 在清理时移除键盘事件
+            const originalResolve = resolve;
+            // wrap resolve to clean listeners just in case
+            const wrappedResolve = (v) => {
+                document.removeEventListener('keydown', onKey);
+                originalResolve(v);
+            };
+            // replace resolve in closure
+            resolve = wrappedResolve;
+        });
     }
 }
