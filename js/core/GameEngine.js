@@ -75,6 +75,32 @@ export default class GameEngine {
         await this.dataManager.loadAllData();
         this.audioManager.init();
         
+        // 调试用全局函数：可从控制台快速跳转到任意节点（便于测试）
+        try {
+            window.debugJumpToNode = async (nodeId) => {
+                try {
+                    // 确保有 currentSave
+                    if (!this.gameState.currentSave) {
+                        // 尝试从 saveManager 获取或创建临时存档
+                        if (this.saveManager && typeof this.saveManager.createNewSave === 'function') {
+                            this.gameState.currentSave = this.saveManager.createNewSave();
+                        } else {
+                            this.gameState.currentSave = { nodeId: null, dialogueHistory: [] };
+                        }
+                    }
+                    // 设置节点并打开游戏视图
+                    this.gameState.currentSave.nodeId = nodeId;
+                    this.showView('Game');
+                    await this.processNode(nodeId);
+                } catch (err) {
+                    console.error('debugJumpToNode error:', err);
+                }
+            };
+            window.debugJumpTo30483 = async () => window.debugJumpToNode(30483);
+        } catch (e) {
+            console.warn('无法注册调试函数:', e);
+        }
+
         if (this.saveManager.isLoggedIn()) {
             this.showView('MainMenu');
         } else {
@@ -306,6 +332,58 @@ export default class GameEngine {
     async handleAnimation(node) {
         await this.animation.play(node.animation);
         this.requestPlayerInput(); 
+    }
+
+    /**
+     * 公共方法：通过 UI（例如图片按钮）跳转到指定节点。
+     * 该方法会尽量复用现有流程：取消自动推进、停止语音、可选记录选择历史、并调用 processNode。
+     * options 可选字段：
+     * - asChoice: 如果为 true，会把这次跳转记录为一个选择项（history 中 type: 'choice'）
+     * - choiceText: 记录到 history 的文本（可留空）
+     * - loveValue: 如为数字，会加到 currentSave.LoveValue 上
+     */
+    async goToNode(targetNodeId, options = {}) {
+        if (this.gameState.isInputDisabled || this.gameState.isPaused || this.gameState.isHistoryVisible) return;
+
+        // 可选：展示解锁提示框（默认开启），点击确认后继续
+        if (options.showUnlockAlert !== false) {
+            try {
+                // 使用 UIManager 提供的自定义模态并等待用户确认
+                if (this.uiManager && typeof this.uiManager.showUnlockModal === 'function') {
+                    await this.uiManager.showUnlockModal('恭喜你解锁隐藏剧情!');
+                } else {
+                    window.alert('恭喜你解锁隐藏剧情!');
+                }
+            } catch (e) {
+                console.warn('显示自定义模态时发生错误，回退到 alert:', e);
+                try { window.alert('恭喜你解锁隐藏剧情!'); } catch (err) { /* ignore */ }
+            }
+        }
+
+        // 统一行为：取消自动推进并停止语音
+        this.cancelAutoAdvance();
+        this.audioManager.stopVoice();
+
+        this.setInputDisabled(true);
+        try {
+            // 记录为选择（可选）以便回看历史
+            if (options.asChoice) {
+                const choiceEntry = {
+                    type: 'choice',
+                    text: options.choiceText || ''
+                };
+                if (!this.gameState.currentSave.dialogueHistory) this.gameState.currentSave.dialogueHistory = [];
+                this.gameState.currentSave.dialogueHistory.push(choiceEntry);
+
+                if (typeof options.loveValue === 'number') {
+                    this.gameState.currentSave.LoveValue = (this.gameState.currentSave.LoveValue || 0) + options.loveValue;
+                }
+            }
+
+            await this.processNode(targetNodeId);
+        } finally {
+            this.setInputDisabled(false);
+        }
     }
 
     requestPlayerInput(choiceIndex = null) {

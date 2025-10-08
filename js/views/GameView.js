@@ -173,6 +173,62 @@ const GameView = {
                 .tooltip.hidden {
                     display: none;
                 }
+               /* 特殊图片的微弱脉动与黄光效果 */
+                .special-image {
+                    transition: transform 0.2s ease;
+                    /* 可调参数（可以在元素上覆写这些变量）：
+                       --pulse-duration: 动画周期
+                       --pulse-min: 最小不透明度
+                       --pulse-max: 最大不透明度
+                       --glow-color: 泛光颜色
+                       --glow-size: 泛光扩散大小
+                    */
+                    --pulse-duration: 6s;
+                    --pulse-min: 0.82;
+                    --pulse-max: 1.0;
+                    --glow-color: rgba(255,220,120,0.55);
+                    --glow-size: 14px;
+                    animation: pulseOpacity var(--pulse-duration) ease-in-out infinite, glowPulse var(--pulse-duration) ease-in-out infinite;
+                    will-change: opacity, box-shadow;
+                    filter: drop-shadow(0 0 0 rgba(0,0,0,0));
+                    /* 悬停可调参数 */
+                    --hover-scale: 1.06;
+                    --hover-glow-intensity: 0.32;
+                    transition: transform 250ms cubic-bezier(.2,.8,.2,1), box-shadow 250ms cubic-bezier(.2,.8,.2,1), opacity 300ms ease;
+                }
+
+                @keyframes pulseOpacity {
+                    0% { opacity: var(--pulse-max); }
+                    50% { opacity: var(--pulse-min); }
+                    100% { opacity: var(--pulse-max); }
+                }
+
+                @keyframes glowPulse {
+                    0% {
+                        box-shadow: 0 0 0px rgba(0,0,0,0);
+                    }
+                    40% {
+                        box-shadow: 0 0 calc(var(--glow-size) / 2) rgba(255,220,120,0.18), 0 0 var(--glow-size) var(--glow-color);
+                    }
+                    100% {
+                        box-shadow: 0 0 0px rgba(0,0,0,0);
+                    }
+                }    
+                
+                /* 悬停时微放大并增强泛光；按下时轻微缩小以模拟按压感 */
+                .special-image:hover {
+                    transform: scale(var(--hover-scale));
+                    box-shadow: 0 0 calc(var(--glow-size) / 2) rgba(255,220,120,calc(var(--hover-glow-intensity) * 0.56)), 0 0 calc(var(--glow-size) * 1.2) rgba(255,220,120, calc(var(--hover-glow-intensity)));
+                }
+
+                .special-image:active {
+                    transform: scale(calc(var(--hover-scale) - 0.06));
+                }
+
+                /* 尊重用户减少动画偏好 */
+                @media (prefers-reduced-motion: reduce) {
+                    .special-image { animation: none !important; transition: none !important; }
+                } 
                 .tooltip kbd {
                     display: inline-block;
                     padding: 2px 6px;
@@ -234,6 +290,10 @@ const GameView = {
                         <img src="./assets/img/button.png">
                         <span>菜单</span>
                     </button>
+                    <!-- 特殊跳转图片（可放在 ./assets/img/ 下，文件名 1.png） -->
+                    <div id="special-image-container" style="display:inline-block; margin-left:12px;">
+                        <img id="special-click-img" class="special-image" src="./assets/img/1.png" data-seq="30483" alt="special" style="width:48px; height:48px; cursor:pointer; /* 可覆盖变量: --pulse-duration, --pulse-min, --pulse-max, --glow-color, --glow-size */">
+                    </div>
                 </div>
 
                 <!-- 历史记录浮层 -->
@@ -305,6 +365,22 @@ const GameView = {
             e.currentTarget.blur();
         });
 
+        // 特殊图片点击绑定：当 data-seq 为 30483 时跳转到节点 50000
+        const specialImg = document.getElementById('special-click-img');
+        if (specialImg) {
+            specialImg.addEventListener('click', (e) => {
+                e.stopPropagation();
+                engine.audioManager.playSoundEffect('click');
+                const seq = specialImg.getAttribute('data-seq');
+                if (seq === '30483') {
+                    // 立即隐藏图片，防止跳转后再次出现
+                    try { specialImg.style.display = 'none'; } catch (er) { /* ignore */ }
+                    // 可选：在保存数据上打标，避免未来重现（如需要可启用）
+                    // if (engine.gameState.currentSave) engine.gameState.currentSave._specialImageUsed = true;
+                    engine.goToNode(50000).catch(err => console.error('goToNode error:', err));
+                }
+            });
+        }
         // 空格键快捷键
         document.addEventListener('keydown', function onKeydown(e) {
             if (e.key === ' ' && document.querySelector('.game-view')) {
