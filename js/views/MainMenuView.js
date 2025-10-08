@@ -90,7 +90,7 @@ const MainMenuView = {
         <div class="menu-container">
           <div class="header fade-in">
             <a class="header-title">夏日幻魂</a>
-            <a class="header-subtitle">git sゆうれいのしょうかん</a>
+            <a class="header-subtitle">ゆうれいのしょうかん</a>
           </div>
 
           <div class="main-menu-button-group">
