@@ -379,7 +379,7 @@
       "name": "narrator",
       "voice": "1032",
       "bgr": "公园3",
-      "bgm": "雨后夏日",
+      "bgm": "荆棘",
       "onNext": { "nextNode": true }
     },
     "1033": {
@@ -537,7 +537,7 @@
       "voice": "1052",
       "name": "narrator",
       "bgr": "公园2",
-      "bgm": "雨后夏日",
+      "bgm": "荆棘",
       "onNext": { "nextNode": true }
     },
     "1053": {
@@ -15055,7 +15055,7 @@
       "type": "text",
       "name": "narrator",
       "lCharactor": "",
-      "bgr": "",
+      "bgr": "烟花7",
       "bgm": "你也没睡吗",
       "voice": "30493",
       "onNext": { "nextNode": true }
@@ -15064,7 +15064,8 @@
       "type": "text",
       "name": "ayane",
       "lCharactor": "绚音_平静",
-      "inherit": 30493,
+      "bgr": "烟花7",
+      "bgm": "你也没睡吗",
       "voice": "30494",
       "onNext": { "nextNode": true }
     },
@@ -15072,7 +15073,8 @@
       "type": "text",
       "name": "narrator",
       "lCharactor": "",
-      "inherit": 30493,
+      "bgr": "烟花7",
+      "bgm": "你也没睡吗",
       "voice": "30495",
       "onNext": { "nextNode": true }
     },
@@ -15080,7 +15082,8 @@
       "type": "text",
       "name": "ryo",
       "lCharactor": "凉_微笑",
-      "inherit": 30493,
+      "bgr": "烟花7",
+      "bgm": "你也没睡吗",
       "voice": "30496",
       "onNext": { "nextNode": true }
     },
@@ -15088,7 +15091,8 @@
       "type": "text",
       "name": "ayane",
       "rCharactor": "绚音_平静",
-      "inherit": 30493,
+      "bgr": "烟花7",
+      "bgm": "你也没睡吗",
       "voice": "30497",
       "onNext": { "nextNode": true }
     },
@@ -15096,7 +15100,8 @@
       "type": "text",
       "name": "narrator",
       "rCharactor": "",
-      "inherit": 30493,
+      "bgr": "烟花7",
+      "bgm": "你也没睡吗",
       "voice": "30498",
       "onNext": { "nextNode": true }
     },
@@ -15104,7 +15109,8 @@
       "type": "text",
       "name": "tomoya",
       "lCharactor": "友也_抹眼泪",
-      "inherit": 30493,
+      "bgr": "烟花7",
+      "bgm": "你也没睡吗",
       "voice": "30499",
       "onNext": { "nextNode": true }
     },
@@ -15112,7 +15118,8 @@
       "type": "text",
       "name": "aoi",
       "lCharactor": "葵_畅想",
-      "inherit": 30493,
+      "bgr": "烟花7",
+      "bgm": "你也没睡吗",
       "voice": "30500",
       "onNext": { "nextNode": true }
     },
@@ -15188,7 +15195,8 @@
       "type": "text",
       "name": "ayane",
       "rCharactor": "绚音_微笑",
-      "inherit": 30508,
+      "bgr": "女孩与花火",
+      "bgm": "烟花闪烁的夜晚",
       "voice": "30509",
       "onNext": { "nextNode": true }
     },
@@ -15196,7 +15204,8 @@
       "type": "text",
       "name": "narrator",
       "rCharactor": "",
-      "inherit": 30508,
+      "bgr": "女孩与花火",
+      "bgm": "烟花闪烁的夜晚",
       "voice": "30510",
       "onNext": { "nextNode": true }
     },
@@ -15204,7 +15213,8 @@
       "type": "text",
       "name": "narrator",
       "lCharactor": "",
-      "inherit": 30508,
+      "bgr": "女孩与花火",
+      "bgm": "烟花闪烁的夜晚",
       "voice": "30511",
       "onNext": { "nextNode": true }
     },
@@ -15212,7 +15222,8 @@
       "type": "text",
       "name": "tomoya",
       "lCharactor": "友也_微笑",
-      "inherit": 30508,
+      "bgr": "女孩与花火",
+      "bgm": "烟花闪烁的夜晚",
       "voice": "30512",
       "onNext": { "nextNode": true }
     },
@@ -15220,7 +15231,8 @@
       "type": "text",
       "name": "narrator",
       "rCharactor": "",
-      "inherit": 30508,
+      "bgr": "女孩与花火",
+      "bgm": "烟花闪烁的夜晚",
       "voice": "30513",
       "onNext": { "nextNode": true }
     },
@@ -15228,7 +15240,8 @@
       "type": "text",
       "name": "narrator",
       "lCharactor": "",
-      "inherit": 30508,
+      "bgr": "女孩与花火",
+      "bgm": "烟花闪烁的夜晚",
       "voice": "30514",
       "onNext": { "nextNode": true }
     },
@@ -15236,7 +15249,8 @@
       "type": "text",
       "name": "aoi",
       "lCharactor": "葵_可爱",
-      "inherit": 30508,
+      "bgr": "女孩与花火",
+      "bgm": "烟花闪烁的夜晚",
       "voice": "30515",
       "onNext": { "nextNode": true }
     },
@@ -15244,7 +15258,8 @@
       "type": "text",
       "name": "narrator",
       "rCharactor": "",
-      "inherit": 30508,
+      "bgr": "女孩与花火",
+      "bgm": "烟花闪烁的夜晚",
       "voice": "30516",
       "onNext": { "nextNode": true }
     },
@@ -15252,7 +15267,8 @@
       "type": "text",
       "name": "ryo",
       "lCharactor": "凉_微笑",
-      "inherit": 30508,
+      "bgr": "女孩与花火",
+      "bgm": "烟花闪烁的夜晚",
       "voice": "30517",
       "onNext": { "nextNode": true }
     },
@@ -15260,7 +15276,8 @@
       "type": "text",
       "name": "narrator",
       "lCharactor": "",
-      "inherit": 30508,
+      "bgr": "女孩与花火",
+      "bgm": "烟花闪烁的夜晚",
       "voice": "30518",
       "onNext": { "nextNode": true }
     },
@@ -15268,7 +15285,8 @@
       "type": "text",
       "name": "aoi",
       "lCharactor": "葵_可爱",
-      "inherit": 30508,
+      "bgr": "烟花6",
+      "bgm": "烟花闪烁的夜晚",
       "voice": "30519",
       "onNext": { "nextNode": true }
     },
@@ -15276,7 +15294,8 @@
       "type": "text",
       "name": "tomoya",
       "lCharactor": "友也_微笑",
-      "inherit": 30508,
+      "bgr": "烟花6",
+      "bgm": "烟花闪烁的夜晚",
       "voice": "30520",
       "onNext": { "nextNode": true }
     },
@@ -15284,7 +15303,8 @@
       "type": "text",
       "name": "ryo",
       "rCharactor": "凉_悠闲",
-      "inherit": 30508,
+      "bgr": "烟花6",
+      "bgm": "烟花闪烁的夜晚",
       "voice": "30521",
       "onNext": { "nextNode": true }
     },
@@ -15292,7 +15312,8 @@
       "type": "text",
       "name": "narrator",
       "rCharactor": "",
-      "inherit": 30508,
+      "bgr": "烟花6",
+      "bgm": "烟花闪烁的夜晚",
       "voice": "30522",
       "onNext": { "nextNode": true }
     },
@@ -15364,8 +15385,8 @@
       "type": "animation",
       "name": "fadeInBlack",
       "voice": "50000",
-      "bgr":"test",
-      "bgm":"test",
+      "bgr": "白色",
+      "bgm": "null",
       "lCharactor":"",
       "onNext": { "nextNode": true }
     },
@@ -15374,16 +15395,16 @@
       "voice": "50001",
       "name": "narrator",
       "lCharactor": "",
-      "bgr": "",
-      "bgm": "",
+      "bgr": "白色",
+      "bgm": "null",
       "onNext": { "nextNode": true }
     },
     "50002": {
       "type": "animation",
       "name": "fadeInBlack",
       "voice": "50002",
-      "bgr":"",
-      "bgm":"",
+      "bgr": "烟花1",
+      "bgm": "null",
       "lCharactor":"",
       "onNext": { "nextNode": true }
     },
@@ -15392,8 +15413,8 @@
       "voice": "50003",
       "name": "narrator",
       "lCharactor": "",
-      "bgr": "",
-      "bgm": "",
+      "bgr": "烟花1",
+      "bgm": "null",
       "onNext": { "nextNode": true }
     },
     "50004": {
@@ -15401,16 +15422,16 @@
       "voice": "50004",
       "name": "narrator",
       "lCharactor": "",
-      "bgr": "",
-      "bgm": "",
+      "bgr": "烟花1",
+      "bgm": "null",
       "onNext": { "nextNode": true }
     },
     "50005": {
       "type": "animation",
       "name": "fadeInBlack",
       "voice": "50005",
-      "bgr":"",
-      "bgm":"",
+      "bgr": "烟花1",
+      "bgm": "null",
       "lCharactor":"",
       "onNext": { "nextNode": true }
     },
@@ -15419,16 +15440,16 @@
       "voice": "50006",
       "name": "narrator",
       "rCharactor": "",
-      "bgr": "",
-      "bgm": "",
+      "bgr": "烟花2",
+      "bgm": "卡农",
       "onNext": { "nextNode": true }
     },
     "50007": {
       "type": "animation",
       "name": "fadeInBlack",
       "voice": "50007",
-      "bgr":"",
-      "bgm":"",
+      "bgr": "烟花2",
+      "bgm": "卡农",
       "rCharactor":"",
       "onNext": { "nextNode": true }
     },
@@ -15437,8 +15458,8 @@
       "voice": "50008",
       "name": "narrator",
       "rCharactor": "",
-      "bgr": "",
-      "bgm": "",
+      "bgr": "烟花2",
+      "bgm": "卡农",
       "onNext": { "nextNode": true }
     },
     "50009": {
@@ -15446,16 +15467,16 @@
       "voice": "50009",
       "name": "narrator",
       "lCharactor": "",
-      "bgr": "",
-      "bgm": "",
+      "bgr": "烟花2",
+      "bgm": "卡农",
       "onNext": { "nextNode": true }
     },
     "50010": {
       "type": "animation",
       "name": "fadeInBlack",
       "voice": "50010",
-      "bgr":"",
-      "bgm":"",
+      "bgr": "烟花2",
+      "bgm": "卡农",
       "rCharactor":"",
       "onNext": { "nextNode": true }
     },
@@ -15464,8 +15485,8 @@
       "voice": "50011",
       "name": "ayane",
       "rCharactor": "绚音_梦境",
-      "bgr": "",
-      "bgm": "",
+      "bgr": "烟花2",
+      "bgm": "卡农",
       "onNext": { "nextNode": true }
     },
     "50012": {
@@ -15473,8 +15494,8 @@
       "voice": "50012",
       "name": "tomoya",
       "rCharactor": "友也_梦境",
-      "bgr": "",
-      "bgm": "",
+      "bgr": "烟花3",
+      "bgm": "卡农",
       "onNext": { "nextNode": true }
     },
     "50013": {
@@ -15482,8 +15503,8 @@
       "voice": "50013",
       "name": "aoi",
       "lCharactor": "葵_梦境",
-      "bgr": "",
-      "bgm": "",
+      "bgr": "烟花3",
+      "bgm": "卡农",
       "onNext": { "nextNode": true }
     },
     "50014": {
@@ -15491,8 +15512,8 @@
       "voice": "50014",
       "name": "ryo",
       "lCharactor": "凉_梦境",
-      "bgr": "",
-      "bgm": "",
+      "bgr": "烟花3",
+      "bgm": "卡农",
       "onNext": { "nextNode": true }
     },
     "50015": {
@@ -15500,8 +15521,8 @@
       "voice": "50015",
       "name": "ayane",
       "rCharactor": "绚音_梦境",
-      "bgr": "",
-      "bgm": "",
+      "bgr": "烟花3",
+      "bgm": "卡农",
       "onNext": { "nextNode": true }
     },
     "50016": {
@@ -15509,16 +15530,16 @@
       "voice": "50016",
       "name": "narrator",
       "lCharactor": "",
-      "bgr": "",
-      "bgm": "",
+      "bgr": "烟花3",
+      "bgm": "卡农",
       "onNext": { "nextNode": true }
     },
     "50017": {
       "type": "animation",
       "name": "fadeInBlack",
       "voice": "50017",
-      "bgr":"",
-      "bgm":"",
+      "bgr": "烟花3",
+      "bgm": "卡农",
       "lCharactor":"",
       "onNext": { "nextNode": true }
     },
@@ -15527,8 +15548,8 @@
       "voice": "50018",
       "name": "narrator",
       "rCharactor": "",
-      "bgr": "",
-      "bgm": "",
+      "bgr": "烟花4",
+      "bgm": "卡农",
       "onNext": { "nextNode": true }
     },
     "50019": {
@@ -15536,16 +15557,16 @@
       "voice": "50019",
       "name": "narrator",
       "rCharactor": "",
-      "bgr": "",
-      "bgm": "",
+      "bgr": "烟花4",
+      "bgm": "卡农",
       "onNext": { "nextNode": true }
     },
     "50020": {
       "type": "animation",
       "name": "fadeInBlack",
       "voice": "50020",
-      "bgr":"",
-      "bgm":"",
+      "bgr": "烟花4",
+      "bgm": "卡农",
       "rCharactor":"",
       "onNext": { "nextNode": true }
     },
@@ -15554,8 +15575,8 @@
       "voice": "50021",
       "name": "tomoya",
       "rCharactor": "友也_梦境",
-      "bgr": "",
-      "bgm": "",
+      "bgr": "烟花4",
+      "bgm": "卡农",
       "onNext": { "nextNode": true }
     },
     "50022": {
@@ -15563,8 +15584,8 @@
       "voice": "50022",
       "name": "aoi",
       "lCharactor": "葵_梦境",
-      "bgr": "",
-      "bgm": "",
+      "bgr": "烟花4",
+      "bgm": "卡农",
       "onNext": { "nextNode": true }
     },
     "50023": {
@@ -15572,8 +15593,8 @@
       "voice": "50023",
       "name": "ryo",
       "rCharactor": "凉_梦境",
-      "bgr": "",
-      "bgm": "",
+      "bgr": "烟花4",
+      "bgm": "卡农",
       "onNext": { "nextNode": true }
     },
     "50024": {
@@ -15581,8 +15602,8 @@
       "voice": "50024",
       "name": "ayane",
       "lCharactor": "绚音_梦境",
-      "bgr": "",
-      "bgm": "",
+      "bgr": "烟花4",
+      "bgm": "卡农",
       "onNext": { "nextNode": true }
     },
     "50025": {
@@ -15590,8 +15611,8 @@
       "voice": "50025",
       "name": "ryo",
       "lCharactor": "凉_梦境",
-      "bgr": "",
-      "bgm": "",
+      "bgr": "烟花4",
+      "bgm": "卡农",
       "onNext": { "nextNode": true }
     },
     "50026": {
@@ -15599,8 +15620,8 @@
       "voice": "50026",
       "name": "ayane",
       "lCharactor": "绚音_梦境",
-      "bgr": "",
-      "bgm": "",
+      "bgr": "烟花4",
+      "bgm": "卡农",
       "onNext": { "nextNode": true }
     },
     "50027": {
@@ -15608,8 +15629,8 @@
       "voice": "50027",
       "name": "aoi",
       "rCharactor": "葵_梦境",
-      "bgr": "",
-      "bgm": "",
+      "bgr": "烟花4",
+      "bgm": "卡农",
       "onNext": { "nextNode": true }
     },
     "50028": {
@@ -15617,17 +15638,17 @@
       "voice": "50028",
       "name": "tomoya",
       "lCharactor": "友也_梦境",
-      "bgr": "",
-      "bgm": "",
+      "bgr": "烟花4",
+      "bgm": "卡农",
       "onNext": { "nextNode": true }
     },
     "50029": {
-      "type": "text",
+      "type": "animation",
       "voice": "50029",
-      "name": "narrator",
+      "name": "fadeInBlack",
       "lCharactor": "",
-      "bgr": "",
-      "bgm": "",
+      "bgr": "烟花4",
+      "bgm": "卡农",
       "onNext": { "nextNode": true }
     },
     "50030": {
@@ -15635,8 +15656,8 @@
       "voice": "50030",
       "name": "narrator",
       "lCharactor": "",
-      "bgr": "",
-      "bgm": "",
+      "bgr": "烟花5",
+      "bgm": "卡农",
       "onNext": { "nextNode": true }
     },
     "50031": {
@@ -15644,8 +15665,8 @@
       "voice": "50031",
       "name": "tomoya",
       "rCharactor": "友也_梦境",
-      "bgr": "",
-      "bgm": "",
+      "bgr": "烟花5",
+      "bgm": "卡农",
       "onNext": { "nextNode": true }
     },
     "50032": {
@@ -15653,8 +15674,8 @@
       "voice": "50032",
       "name": "ayane",
       "lCharactor": "绚音_梦境",
-      "bgr": "",
-      "bgm": "",
+      "bgr": "烟花5",
+      "bgm": "卡农",
       "onNext": { "nextNode": true }
     },
     "50033": {
@@ -15662,8 +15683,8 @@
       "voice": "50033",
       "name": "aoi",
       "lCharactor": "葵_梦境",
-      "bgr": "",
-      "bgm": "",
+      "bgr": "烟花5",
+      "bgm": "卡农",
       "onNext": { "nextNode": true }
     },
     "50034": {
@@ -15671,8 +15692,8 @@
       "voice": "50034",
       "name": "ryo",
       "lCharactor": "凉_梦境",
-      "bgr": "",
-      "bgm": "",
+      "bgr": "烟花5",
+      "bgm": "卡农",
       "onNext": { "nextNode": true }
     },
     "50035": {
@@ -15680,16 +15701,16 @@
       "voice": "50035",
       "name": "narrator",
       "lCharactor": "",
-      "bgr": "",
-      "bgm": "",
+      "bgr": "烟花5",
+      "bgm": "卡农",
       "onNext": { "nextNode": true }
     },
     "50036": {
       "type": "animation",
       "name": "fadeInBlack",
       "voice": "50036",
-      "bgr":"",
-      "bgm":"",
+      "bgr": "烟花5",
+      "bgm": "卡农",
       "rCharactor":"",
       "onNext": { "nextNode": true }
     },
@@ -15698,8 +15719,8 @@
       "voice": "50037",
       "name": "narrator",
       "rCharactor": "",
-      "bgr": "",
-      "bgm": "",
+      "bgr": "烟花5",
+      "bgm": "卡农",
       "onNext": { "nextNode": true }
     },
     "50038": {
@@ -15707,17 +15728,17 @@
       "voice": "50038",
       "name": "narrator",
       "rCharactor": "",
-      "bgr": "",
-      "bgm": "",
+      "bgr": "烟花5",
+      "bgm": "卡农",
       "onNext": { "nextNode": true }
     },
     "50039": {
       "type": "text",
       "voice": "50039",
-      "name": "narrator",
-      "lCharactor": "",
-      "bgr": "",
-      "bgm": "",
+      "name": "tomoya",
+      "lCharactor": "友也_梦境",
+      "bgr": "烟花5",
+      "bgm": "卡农",
       "onNext": { "nextNode": true }
     },
     "50040": {
@@ -15725,16 +15746,16 @@
       "voice": "50040",
       "name": "narrator",
       "lCharactor": "",
-      "bgr": "",
-      "bgm": "",
+      "bgr": "烟花5",
+      "bgm": "卡农",
       "onNext": { "nextNode": true }
     },
     "50041": {
       "type": "animation",
       "name": "fadeInBlack",
       "voice": "50041",
-      "bgr":"",
-      "bgm":"",
+      "bgr": "烟花5",
+      "bgm": "卡农",
       "lCharactor":"",
       "onNext": { "nextNode": true }
     },
@@ -15743,8 +15764,8 @@
       "voice": "50042",
       "name": "narrator",
       "rCharactor": "",
-      "bgr": "",
-      "bgm": "",
+      "bgr": "图书馆5",
+      "bgm": "青藤色仲夏",
       "onNext": { "nextNode": true }
     },
     "50043": {
@@ -15752,8 +15773,8 @@
       "voice": "50043",
       "name": "tomoya",
       "lCharactor": "友也_梦境",
-      "bgr": "",
-      "bgm": "",
+      "bgr": "图书馆5",
+      "bgm": "青藤色仲夏",
       "onNext": { "nextNode": true }
     },
     "50044": {
@@ -15761,8 +15782,8 @@
       "voice": "50044",
       "name": "aoi",
       "rCharactor": "葵_梦境",
-      "bgr": "",
-      "bgm": "",
+      "bgr": "图书馆5",
+      "bgm": "青藤色仲夏",
       "onNext": { "nextNode": true }
     },
     "50045": {
@@ -15770,8 +15791,8 @@
       "voice": "50045",
       "name": "narrator",
       "lCharactor": "",
-      "bgr": "",
-      "bgm": "",
+      "bgr": "图书馆5",
+      "bgm": "青藤色仲夏",
       "onNext": { "nextNode": true }
     },
     "50046": {
@@ -15779,8 +15800,8 @@
       "voice": "50046",
       "name": "ryo",
       "lCharactor": "凉_梦境",
-      "bgr": "",
-      "bgm": "",
+      "bgr": "图书馆5",
+      "bgm": "青藤色仲夏",
       "onNext": { "nextNode": true }
     },
     "50047": {
@@ -15788,8 +15809,8 @@
       "voice": "50047",
       "name": "aoi",
       "rCharactor": "葵_梦境",
-      "bgr": "",
-      "bgm": "",
+      "bgr": "图书馆5",
+      "bgm": "青藤色仲夏",
       "onNext": { "nextNode": true }
     },
     "50048": {
@@ -15797,8 +15818,8 @@
       "voice": "50048",
       "name": "ryo",
       "rCharactor": "凉_梦境",
-      "bgr": "",
-      "bgm": "",
+      "bgr": "图书馆5",
+      "bgm": "青藤色仲夏",
       "onNext": { "nextNode": true }
     },
     "50049": {
@@ -15806,8 +15827,8 @@
       "voice": "50049",
       "name": "narrator",
       "rCharactor": "",
-      "bgr": "",
-      "bgm": "",
+      "bgr": "图书馆5",
+      "bgm": "青藤色仲夏",
       "onNext": { "nextNode": true }
     },
     "50050": {
@@ -15815,8 +15836,8 @@
       "voice": "50050",
       "name": "aoi",
       "lCharactor": "葵_梦境",
-      "bgr": "",
-      "bgm": "",
+      "bgr": "图书馆5",
+      "bgm": "青藤色仲夏",
       "onNext": { "nextNode": true }
     },
     "50051": {
@@ -15824,8 +15845,8 @@
       "voice": "50051",
       "name": "ryo",
       "lCharactor": "凉_梦境",
-      "bgr": "",
-      "bgm": "",
+      "bgr": "图书馆5",
+      "bgm": "青藤色仲夏",
       "onNext": { "nextNode": true }
     },
     "50052": {
@@ -15833,8 +15854,8 @@
       "voice": "50052",
       "name": "narrator",
       "rCharactor": "",
-      "bgr": "",
-      "bgm": "",
+      "bgr": "图书馆5",
+      "bgm": "青藤色仲夏",
       "onNext": { "nextNode": true }
     },
     "50053": {
@@ -15842,16 +15863,16 @@
       "voice": "50053",
       "name": "narrator",
       "rCharactor": "",
-      "bgr": "",
-      "bgm": "",
+      "bgr": "图书馆5",
+      "bgm": "青藤色仲夏",
       "onNext": { "nextNode": true }
     },
     "50054": {
       "type": "animation",
       "name": "fadeInBlack",
       "voice": "50054",
-      "bgr":"",
-      "bgm":"",
+      "bgr": "图书馆5",
+      "bgm": "青藤色仲夏",
       "rCharactor":"",
       "onNext": { "nextNode": true }
     },
@@ -15859,8 +15880,8 @@
       "type": "animation",
       "name": "fadeInBlack",
       "voice": "50055",
-      "bgr":"",
-      "bgm":"",
+      "bgr": "工作室",
+      "bgm": "青藤色仲夏",
       "lCharactor":"",
       "onNext": { "nextNode": true }
     },
@@ -15869,8 +15890,8 @@
       "voice": "50056",
       "name": "narrator",
       "lCharactor": "",
-      "bgr": "",
-      "bgm": "",
+      "bgr": "工作室",
+      "bgm": "青藤色仲夏",
       "onNext": { "nextNode": true }
     },
     "50057": {
@@ -15878,8 +15899,8 @@
       "voice": "50057",
       "name": "narrator",
       "rCharactor": "",
-      "bgr": "",
-      "bgm": "",
+      "bgr": "工作室",
+      "bgm": "青藤色仲夏",
       "onNext": { "nextNode": true }
     },
     "50058": {
@@ -15887,8 +15908,8 @@
       "voice": "50058",
       "name": "tomoya",
       "lCharactor": "友也_梦境",
-      "bgr": "",
-      "bgm": "",
+      "bgr": "工作室",
+      "bgm": "青藤色仲夏",
       "onNext": { "nextNode": true }
     },
     "50059": {
@@ -15896,8 +15917,8 @@
       "voice": "50059",
       "name": "ayane",
       "rCharactor": "绚音_梦境",
-      "bgr": "",
-      "bgm": "",
+      "bgr": "工作室",
+      "bgm": "青藤色仲夏",
       "onNext": { "nextNode": true }
     },
     "50060": {
@@ -15905,8 +15926,8 @@
       "voice": "50060",
       "name": "aoi",
       "rCharactor": "葵_梦境",
-      "bgr": "",
-      "bgm": "",
+      "bgr": "工作室",
+      "bgm": "青藤色仲夏",
       "onNext": { "nextNode": true }
     },
     "50061": {
@@ -15914,8 +15935,8 @@
       "voice": "50061",
       "name": "tomoya",
       "rCharactor": "友也_梦境",
-      "bgr": "",
-      "bgm": "",
+      "bgr": "工作室",
+      "bgm": "青藤色仲夏",
       "onNext": { "nextNode": true }
     },
     "50062": {
@@ -15923,8 +15944,8 @@
       "voice": "50062",
       "name": "ryo",
       "lCharactor": "凉_梦境",
-      "bgr": "",
-      "bgm": "",
+      "bgr": "工作室",
+      "bgm": "青藤色仲夏",
       "onNext": { "nextNode": true }
     },
     "50063": {
@@ -15932,16 +15953,16 @@
       "voice": "50063",
       "name": "narrator",
       "rCharactor": "",
-      "bgr": "",
-      "bgm": "",
+      "bgr": "工作室",
+      "bgm": "青藤色仲夏",
       "onNext": { "nextNode": true }
     },
     "50064": {
       "type": "animation",
       "name": "fadeInBlack",
       "voice": "50064",
-      "bgr":"",
-      "bgm":"",
+      "bgr": "饰品店",
+      "bgm": "青藤色仲夏",
       "lCharactor":"",
       "onNext": { "nextNode": true }
     },
@@ -15950,26 +15971,26 @@
       "voice": "50065",
       "name": "narrator",
       "lCharactor": "",
-      "bgr": "",
-      "bgm": "",
+      "bgr": "饰品店",
+      "bgm": "青藤色仲夏",
       "onNext": { "nextNode": true }
     },
     "50066": {
       "type": "text",
       "voice": "50066",
       "name": "aoi",
-      "lCharactor": "葵_梦境",
-      "bgr": "",
-      "bgm": "",
+      "lCharactor": "葵_冬日",
+      "bgr": "饰品店",
+      "bgm": "青藤色仲夏",
       "onNext": { "nextNode": true }
     },
     "50067": {
       "type": "text",
       "voice": "50067",
       "name": "ayane",
-      "rCharactor": "绚音_梦境",
-      "bgr": "",
-      "bgm": "",
+      "rCharactor": "绚音_冬日",
+      "bgr": "饰品店",
+      "bgm": "青藤色仲夏",
       "onNext": { "nextNode": true }
     },
     "50068": {
@@ -15977,17 +15998,17 @@
       "voice": "50068",
       "name": "narrator",
       "lCharactor": "",
-      "bgr": "",
-      "bgm": "",
+      "bgr": "饰品店",
+      "bgm": "青藤色仲夏",
       "onNext": { "nextNode": true }
     },
     "50069": {
       "type": "text",
       "voice": "50069",
       "name": "aoi",
-      "rCharactor": "葵_梦境",
-      "bgr": "",
-      "bgm": "",
+      "rCharactor": "葵_冬日",
+      "bgr": "饰品店",
+      "bgm": "青藤色仲夏",
       "onNext": { "nextNode": true }
     },
     "50070": {
@@ -15995,16 +16016,16 @@
       "voice": "50070",
       "name": "narrator",
       "rCharactor": "",
-      "bgr": "",
-      "bgm": "",
+      "bgr": "饰品店",
+      "bgm": "青藤色仲夏",
       "onNext": { "nextNode": true }
     },
     "50071": {
       "type": "animation",
       "name": "fadeInBlack",
       "voice": "50071",
-      "bgr":"",
-      "bgm":"",
+      "bgr": "饰品店",
+      "bgm": "青藤色仲夏",
       "rCharactor":"",
       "onNext": { "nextNode": true }
     },
@@ -16013,8 +16034,8 @@
       "voice": "50072",
       "name": "narrator",
       "lCharactor": "",
-      "bgr": "",
-      "bgm": "",
+      "bgr": "厨房2",
+      "bgm": "溺悬",
       "onNext": { "nextNode": true }
     },
     "50073": {
@@ -16022,8 +16043,8 @@
       "voice": "50073",
       "name": "ayane",
       "lCharactor": "绚音_梦境",
-      "bgr": "",
-      "bgm": "",
+      "bgr": "厨房2",
+      "bgm": "溺悬",
       "onNext": { "nextNode": true }
     },
     "50074": {
@@ -16031,8 +16052,8 @@
       "voice": "50074",
       "name": "tomoya",
       "lCharactor": "友也_梦境",
-      "bgr": "",
-      "bgm": "",
+      "bgr": "厨房2",
+      "bgm": "溺悬",
       "onNext": { "nextNode": true }
     },
     "50075": {
@@ -16040,8 +16061,8 @@
       "voice": "50075",
       "name": "aoi",
       "lCharactor": "葵_梦境",
-      "bgr": "",
-      "bgm": "",
+      "bgr": "厨房2",
+      "bgm": "溺悬",
       "onNext": { "nextNode": true }
     },
     "50076": {
@@ -16049,8 +16070,8 @@
       "voice": "50076",
       "name": "ryo",
       "lCharactor": "凉_梦境",
-      "bgr": "",
-      "bgm": "",
+      "bgr": "厨房2",
+      "bgm": "溺悬",
       "onNext": { "nextNode": true }
     },
     "50077": {
@@ -16058,8 +16079,8 @@
       "voice": "50077",
       "name": "tomoya",
       "rCharactor": "友也_梦境",
-      "bgr": "",
-      "bgm": "",
+      "bgr": "厨房2",
+      "bgm": "溺悬",
       "onNext": { "nextNode": true }
     },
     "50078": {
@@ -16067,8 +16088,8 @@
       "voice": "50078",
       "name": "narrator",
       "lCharactor": "",
-      "bgr": "",
-      "bgm": "",
+      "bgr": "厨房2",
+      "bgm": "溺悬",
       "onNext": { "nextNode": true }
     },
     "50079": {
@@ -16076,8 +16097,8 @@
       "voice": "50079",
       "name": "ayane",
       "lCharactor": "绚音_梦境",
-      "bgr": "",
-      "bgm": "",
+      "bgr": "厨房2",
+      "bgm": "溺悬",
       "onNext": { "nextNode": true }
     },
     "50080": {
@@ -16085,8 +16106,8 @@
       "voice": "50080",
       "name": "narrator",
       "rCharactor": "",
-      "bgr": "",
-      "bgm": "",
+      "bgr": "厨房2",
+      "bgm": "溺悬",
       "onNext": { "nextNode": true }
     },
     "50081": {
@@ -16094,16 +16115,16 @@
       "voice": "50081",
       "name": "narrator",
       "rCharactor": "",
-      "bgr": "",
-      "bgm": "",
+      "bgr": "厨房2",
+      "bgm": "溺悬",
       "onNext": { "nextNode": true }
     },
     "50082": {
       "type": "animation",
       "name": "fadeInBlack",
       "voice": "50082",
-      "bgr":"",
-      "bgm":"",
+      "bgr": "厨房2",
+      "bgm": "溺悬",
       "rCharactor":"",
       "onNext": { "nextNode": true }
     },
@@ -16112,8 +16133,8 @@
       "voice": "50083",
       "name": "narrator",
       "rCharactor": "",
-      "bgr": "",
-      "bgm": "",
+      "bgr": "城市1",
+      "bgm": "溺悬",
       "onNext": { "nextNode": true }
     },
     "50084": {
@@ -16121,8 +16142,8 @@
       "voice": "50084",
       "name": "tomoya",
       "rCharactor": "友也_梦境",
-      "bgr": "",
-      "bgm": "",
+      "bgr": "城市1",
+      "bgm": "溺悬",
       "onNext": { "nextNode": true }
     },
     "50085": {
@@ -16130,8 +16151,8 @@
       "voice": "50085",
       "name": "ayane",
       "rCharactor": "绚音_梦境",
-      "bgr": "",
-      "bgm": "",
+      "bgr": "城市1",
+      "bgm": "溺悬",
       "onNext": { "nextNode": true }
     },
     "50086": {
@@ -16139,8 +16160,8 @@
       "voice": "50086",
       "name": "aoi",
       "lCharactor": "葵_梦境",
-      "bgr": "",
-      "bgm": "",
+      "bgr": "城市1",
+      "bgm": "溺悬",
       "onNext": { "nextNode": true }
     },
     "50087": {
@@ -16148,8 +16169,8 @@
       "voice": "50087",
       "name": "ryo",
       "rCharactor": "凉_梦境",
-      "bgr": "",
-      "bgm": "",
+      "bgr": "城市1",
+      "bgm": "溺悬",
       "onNext": { "nextNode": true }
     },
     "50088": {
@@ -16157,8 +16178,8 @@
       "voice": "50088",
       "name": "ayane",
       "lCharactor": "绚音_梦境",
-      "bgr": "",
-      "bgm": "",
+      "bgr": "城市1",
+      "bgm": "溺悬",
       "onNext": { "nextNode": true }
     },
     "50089": {
@@ -16166,16 +16187,16 @@
       "voice": "50089",
       "name": "narrator",
       "rCharactor": "",
-      "bgr": "",
-      "bgm": "",
+      "bgr": "城市1",
+      "bgm": "溺悬",
       "onNext": { "nextNode": true }
     },
     "50090": {
       "type": "animation",
       "name": "fadeInBlack",
       "voice": "50090",
-      "bgr":"",
-      "bgm":"",
+      "bgr": "城市1",
+      "bgm": "溺悬",
       "lCharactor":"",
       "onNext": { "nextNode": true }
     },
@@ -16184,16 +16205,16 @@
       "voice": "50091",
       "name": "narrator",
       "rCharactor": "",
-      "bgr": "",
-      "bgm": "",
+      "bgr": "城市1",
+      "bgm": "溺悬",
       "onNext": { "nextNode": true }
     },
     "50092": {
       "type": "animation",
       "name": "fadeInBlack",
       "voice": "50092",
-      "bgr":"",
-      "bgm":"",
+      "bgr": "城市1",
+      "bgm": "溺悬",
       "rCharactor":"",
       "onNext": { "nextNode": true }
     },
@@ -16202,80 +16223,83 @@
       "voice": "50093",
       "name": "narrator",
       "rCharactor": "",
-      "bgr": "",
-      "bgm": "",
+      "bgr": "小巷1",
+      "bgm": "溺悬",
       "onNext": { "nextNode": true }
     },
     "50094": {
       "type": "text",
       "voice": "50094",
       "name": "narrator",
-      "rCharactor": "",
-      "bgr": "",
-      "bgm": "",
+      "rCharactor": "猫猫",
+      "bgr": "小巷1",
+      "bgm": "溺悬",
       "onNext": { "nextNode": true }
     },
     "50095": {
       "type": "text",
       "voice": "50095",
       "name": "narrator",
-      "rCharactor": "",
-      "bgr": "",
-      "bgm": "",
+      "rCharactor": "猫猫",
+      "bgr": "小巷1",
+      "bgm": "溺悬",
       "onNext": { "nextNode": true }
     },
     "50096": {
       "type": "text",
       "voice": "50096",
       "name": "ayane",
-      "rCharactor": "绚音_梦境",
-      "bgr": "",
-      "bgm": "",
+      "rCharactor": "绚音_冬日",
+      "lCharactor": "猫猫",
+      "bgr": "小巷1",
+      "bgm": "溺悬",
       "onNext": { "nextNode": true }
     },
     "50097": {
       "type": "text",
       "voice": "50097",
       "name": "tomoya",
-      "lCharactor": "友也_梦境",
-      "bgr": "",
-      "bgm": "",
+      "lCharactor": "友也_冬日",
+      "bgr": "小巷1",
+      "bgm": "溺悬",
       "onNext": { "nextNode": true }
     },
     "50098": {
       "type": "text",
       "voice": "50098",
       "name": "aoi",
-      "rCharactor": "葵_梦境",
-      "bgr": "",
-      "bgm": "",
+      "rCharactor": "葵_冬日",
+      "lCharactor": "猫猫",
+      "bgr": "小巷1",
+      "bgm": "溺悬",
       "onNext": { "nextNode": true }
     },
     "50099": {
       "type": "text",
       "voice": "50099",
       "name": "narrator",
-      "lCharactor": "",
-      "bgr": "",
-      "bgm": "",
+      "lCharactor": "猫猫",
+      "bgr": "小巷1",
+      "bgm": "溺悬",
       "onNext": { "nextNode": true }
     },
     "50100": {
       "type": "text",
       "voice": "50100",
       "name": "ryo",
-      "lCharactor": "凉_梦境",
-      "bgr": "",
-      "bgm": "",
+      "lCharactor": "凉_冬日",
+      "rCharactor": "猫猫",
+      "bgr": "小巷1",
+      "bgm": "溺悬",
       "onNext": { "nextNode": true }
     },
     "50101": {
       "type": "text",
       "voice": "50101",
       "name": "tomoya",
-      "lCharactor": "友也_梦境",
-      "bgr": "",
-      "bgm": "",
+      "lCharactor": "友也_冬日",
+      "bgr": "小巷1",
+      "bgm": "溺悬",
       "onNext": { "nextNode": true }
     },
     "50102": {
@@ -16283,17 +16307,17 @@
       "voice": "50102",
       "name": "narrator",
       "lCharactor": "",
-      "bgr": "",
-      "bgm": "",
+      "bgr": "小巷1",
+      "bgm": "溺悬",
       "onNext": { "nextNode": true }
     },
     "50103": {
       "type": "text",
       "voice": "50103",
       "name": "aoi",
-      "rCharactor": "葵_梦境",
-      "bgr": "",
-      "bgm": "",
+      "rCharactor": "葵_冬日",
+      "bgr": "小巷1",
+      "bgm": "溺悬",
       "onNext": { "nextNode": true }
     },
     "50104": {
@@ -16301,25 +16325,25 @@
       "voice": "50104",
       "name": "narrator",
       "lCharactor": "",
-      "bgr": "",
-      "bgm": "",
+      "bgr": "小巷1",
+      "bgm": "溺悬",
       "onNext": { "nextNode": true }
     },
     "50105": {
       "type": "animation",
       "name": "fadeInBlack",
       "voice": "50105",
-      "bgr":"",
-      "bgm":"",
-      "rCharactor":"",
+      "bgr": "小巷1",
+      "bgm": "溺悬",
+      "rCharactor": "猫猫",
       "onNext": { "nextNode": true }
     },
     "50106": {
       "type": "animation",
       "name": "fadeInBlack",
       "voice": "50106",
-      "bgr":"",
-      "bgm":"",
+      "bgr": "教室1",
+      "bgm": "溺悬",
       "rCharactor":"",
       "onNext": { "nextNode": true }
     },
@@ -16327,9 +16351,8 @@
       "type": "text",
       "voice": "50107",
       "name": "narrator",
-      "rCharactor": "",
-      "bgr": "",
-      "bgm": "",
+      "bgr": "教室1",
+      "bgm": "溺悬",
       "onNext": { "nextNode": true }
     },
     "50108": {
@@ -16337,8 +16360,8 @@
       "voice": "50108",
       "name": "ryo",
       "rCharactor": "凉_梦境",
-      "bgr": "",
-      "bgm": "",
+      "bgr": "教室1",
+      "bgm": "溺悬",
       "onNext": { "nextNode": true }
     },
     "50109": {
@@ -16346,8 +16369,8 @@
       "voice": "50109",
       "name": "tomoya",
       "lCharactor": "友也_梦境",
-      "bgr": "",
-      "bgm": "",
+      "bgr": "教室1",
+      "bgm": "溺悬",
       "onNext": { "nextNode": true }
     },
     "50110": {
@@ -16355,8 +16378,8 @@
       "voice": "50110",
       "name": "aoi",
       "lCharactor": "葵_梦境",
-      "bgr": "",
-      "bgm": "",
+      "bgr": "教室1",
+      "bgm": "溺悬",
       "onNext": { "nextNode": true }
     },
     "50111": {
@@ -16364,16 +16387,16 @@
       "voice": "50111",
       "name": "ayane",
       "rCharactor": "绚音_梦境",
-      "bgr": "",
-      "bgm": "",
+      "bgr": "教室1",
+      "bgm": "溺悬",
       "onNext": { "nextNode": true }
     },
     "50112": {
       "type": "animation",
       "name": "fadeInBlack",
       "voice": "50112",
-      "bgr":"",
-      "bgm":"",
+      "bgr": "教室1",
+      "bgm": "溺悬",
       "lCharactor":"",
       "onNext": { "nextNode": true }
     },
@@ -16382,16 +16405,16 @@
       "voice": "50113",
       "name": "narrator",
       "rCharactor": "",
-      "bgr": "",
-      "bgm": "",
+      "bgr": "教室1",
+      "bgm": "溺悬",
       "onNext": { "nextNode": true }
     },
     "50114": {
       "type": "animation",
       "name": "fadeInBlack",
       "voice": "50114",
-      "bgr":"",
-      "bgm":"",
+      "bgr": "教室1",
+      "bgm": "结束",
       "rCharactor":"",
       "onNext": { "nextNode": true }
     },
@@ -16400,16 +16423,16 @@
       "voice": "50115",
       "name": "narrator",
       "lCharactor": "",
-      "bgr": "",
-      "bgm": "",
+      "bgr": "咖啡馆",
+      "bgm": "结束",
       "onNext": { "nextNode": true }
     },
     "50116": {
       "type": "animation",
       "name": "fadeInBlack",
       "voice": "50116",
-      "bgr":"",
-      "bgm":"",
+      "bgr": "咖啡馆",
+      "bgm": "结束",
       "rCharactor":"",
       "onNext": { "nextNode": true }
     },
@@ -16418,17 +16441,17 @@
       "voice": "50117",
       "name": "narrator",
       "rCharactor": "",
-      "bgr": "",
-      "bgm": "",
+      "bgr": "咖啡馆",
+      "bgm": "结束",
       "onNext": { "nextNode": true }
     },
     "50118": {
       "type": "text",
       "voice": "50118",
       "name": "ayane",
-      "rCharactor": "绚音_梦境",
-      "bgr": "",
-      "bgm": "",
+      "lCharactor": "绚音_梦境",
+      "bgr": "咖啡馆",
+      "bgm": "结束",
       "onNext": { "nextNode": true }
     },
     "50119": {
@@ -16436,8 +16459,8 @@
       "voice": "50119",
       "name": "tomoya",
       "rCharactor": "友也_梦境",
-      "bgr": "",
-      "bgm": "",
+      "bgr": "咖啡馆",
+      "bgm": "结束",
       "onNext": { "nextNode": true }
     },
     "50120": {
@@ -16445,17 +16468,17 @@
       "voice": "50120",
       "name": "ayane",
       "rCharactor": "绚音_梦境",
-      "bgr": "",
-      "bgm": "",
+      "bgr": "咖啡馆",
+      "bgm": "结束",
       "onNext": { "nextNode": true }
     },
     "50121": {
       "type": "text",
       "voice": "50121",
       "name": "tomoya",
-      "rCharactor": "友也_梦境",
-      "bgr": "",
-      "bgm": "",
+      "lCharactor": "友也_梦境",
+      "bgr": "咖啡馆",
+      "bgm": "结束",
       "onNext": { "nextNode": true }
     },
     "50122": {
@@ -16463,16 +16486,16 @@
       "voice": "50122",
       "name": "narrator",
       "lCharactor": "",
-      "bgr": "",
-      "bgm": "",
+      "bgr": "咖啡馆",
+      "bgm": "结束",
       "onNext": { "nextNode": true }
     },
     "50123": {
       "type": "animation",
       "name": "fadeInBlack",
       "voice": "50123",
-      "bgr":"",
-      "bgm":"",
+      "bgr": "咖啡馆",
+      "bgm": "结束",
       "rCharactor":"",
       "onNext": { "nextNode": true }
     },
@@ -16481,8 +16504,8 @@
       "voice": "50124",
       "name": "ayane",
       "rCharactor": "绚音_梦境",
-      "bgr": "",
-      "bgm": "",
+      "bgr": "咖啡馆",
+      "bgm": "结束",
       "onNext": { "nextNode": true }
     },
     "50125": {
@@ -16490,8 +16513,8 @@
       "voice": "50125",
       "name": "tomoya",
       "rCharactor": "友也_梦境",
-      "bgr": "",
-      "bgm": "",
+      "bgr": "咖啡馆",
+      "bgm": "结束",
       "onNext": { "nextNode": true }
     },
     "50126": {
@@ -16499,16 +16522,16 @@
       "voice": "50126",
       "name": "narrator",
       "rCharactor": "",
-      "bgr": "",
-      "bgm": "",
+      "bgr": "咖啡馆",
+      "bgm": "结束",
       "onNext": { "nextNode": true }
     },
     "50127": {
       "type": "animation",
       "name": "fadeInBlack",
       "voice": "50127",
-      "bgr":"",
-      "bgm":"",
+      "bgr": "咖啡馆",
+      "bgm": "结束",
       "rCharactor":"",
       "onNext": { "nextNode": true }
     },
@@ -16517,8 +16540,8 @@
       "voice": "50128",
       "name": "narrator",
       "lCharactor": "",
-      "bgr": "",
-      "bgm": "",
+      "bgr": "公园4",
+      "bgm": "结束",
       "onNext": { "nextNode": true }
     },
     "50129": {
@@ -16526,8 +16549,8 @@
       "voice": "50129",
       "name": "tomoya",
       "rCharactor": "友也_梦境",
-      "bgr": "",
-      "bgm": "",
+      "bgr": "公园4",
+      "bgm": "结束",
       "onNext": { "nextNode": true }
     },
     "50130": {
@@ -16535,8 +16558,8 @@
       "voice": "50130",
       "name": "ayane",
       "rCharactor": "绚音_梦境",
-      "bgr": "",
-      "bgm": "",
+      "bgr": "公园4",
+      "bgm": "结束",
       "onNext": { "nextNode": true }
     },
     "50131": {
@@ -16544,8 +16567,8 @@
       "voice": "50131",
       "name": "narrator",
       "rCharactor": "",
-      "bgr": "",
-      "bgm": "",
+      "bgr": "公园4",
+      "bgm": "结束",
       "onNext": { "nextNode": true }
     },
     "50132": {
@@ -16553,8 +16576,8 @@
       "voice": "50132",
       "name": "narrator",
       "lCharactor": "",
-      "bgr": "",
-      "bgm": "",
+      "bgr": "公园4",
+      "bgm": "结束",
       "onNext": { "nextNode": true }
     },
     "50133": {
@@ -16562,16 +16585,16 @@
       "voice": "50133",
       "name": "narrator",
       "lCharactor": "",
-      "bgr": "",
-      "bgm": "",
+      "bgr": "公园4",
+      "bgm": "结束",
       "onNext": { "nextNode": true }
     },
     "50134": {
       "type": "animation",
       "name": "fadeInBlack",
       "voice": "50134",
-      "bgr":"",
-      "bgm":"",
+      "bgr": "公园4",
+      "bgm": "结束",
       "rCharactor":"",
       "onNext": { "nextNode": true }
     },
@@ -16580,16 +16603,16 @@
       "voice": "50135",
       "name": "narrator",
       "rCharactor": "",
-      "bgr": "",
-      "bgm": "",
+      "bgr": "客厅1",
+      "bgm": "结束",
       "onNext": { "nextNode": true }
     },
     "50136": {
       "type": "animation",
       "name": "fadeInBlack",
       "voice": "50136",
-      "bgr":"",
-      "bgm":"",
+      "bgr": "客厅1",
+      "bgm": "结束",
       "rCharactor":"",
       "onNext": { "nextNode": true }
     },
@@ -16598,8 +16621,8 @@
       "voice": "50137",
       "name": "narrator",
       "lCharactor": "",
-      "bgr": "",
-      "bgm": "",
+      "bgr": "客厅1",
+      "bgm": "结束",
       "onNext": { "nextNode": true }
     },
     "50138": {
@@ -16607,8 +16630,8 @@
       "voice": "50138",
       "name": "narrator",
       "rCharactor": "",
-      "bgr": "",
-      "bgm": "",
+      "bgr": "客厅1",
+      "bgm": "结束",
       "onNext": { "nextNode": true }
     },
     "50139": {
@@ -16616,8 +16639,8 @@
       "voice": "50139",
       "name": "tomoya",
       "lCharactor": "友也_梦境",
-      "bgr": "",
-      "bgm": "",
+      "bgr": "客厅1",
+      "bgm": "结束",
       "onNext": { "nextNode": true }
     },
     "50140": {
@@ -16625,8 +16648,8 @@
       "voice": "50140",
       "name": "narrator",
       "lCharactor": "",
-      "bgr": "",
-      "bgm": "",
+      "bgr": "客厅1",
+      "bgm": "结束",
       "onNext": { "nextNode": true }
     },
     "50141": {
@@ -16634,8 +16657,8 @@
       "voice": "50141",
       "name": "ayane",
       "lCharactor": "绚音_梦境",
-      "bgr": "",
-      "bgm": "",
+      "bgr": "客厅1",
+      "bgm": "结束",
       "onNext": { "nextNode": true }
     },
     "50142": {
@@ -16643,8 +16666,8 @@
       "voice": "50142",
       "name": "tomoya",
       "rCharactor": "友也_梦境",
-      "bgr": "",
-      "bgm": "",
+      "bgr": "客厅1",
+      "bgm": "结束",
       "onNext": { "nextNode": true }
     },
     "50143": {
@@ -16652,16 +16675,16 @@
       "voice": "50143",
       "name": "narrator",
       "lCharactor": "",
-      "bgr": "",
-      "bgm": "",
+      "bgr": "客厅1",
+      "bgm": "结束",
       "onNext": { "nextNode": true }
     },
     "50144": {
       "type": "animation",
       "name": "fadeInBlack",
       "voice": "50144",
-      "bgr":"",
-      "bgm":"",
+      "bgr": "客厅1",
+      "bgm": "结束",
       "rCharactor":"",
       "onNext": { "nextNode": true }
     },
@@ -16670,16 +16693,16 @@
       "voice": "50145",
       "name": "narrator",
       "rCharactor": "",
-      "bgr": "",
-      "bgm": "",
+      "bgr": "客厅1",
+      "bgm": "结束",
       "onNext": { "nextNode": true }
     },
     "50146": {
       "type": "animation",
       "name": "fadeInBlack",
       "voice": "50146",
-      "bgr":"",
-      "bgm":"",
+      "bgr": "客厅1",
+      "bgm": "结束",
       "lCharactor":"",
       "onNext": { "nextNode": true }
     },
@@ -16688,8 +16711,8 @@
       "voice": "50147",
       "name": "ayane",
       "rCharactor": "绚音_梦境",
-      "bgr": "",
-      "bgm": "",
+      "bgr": "客厅1",
+      "bgm": "结束",
       "onNext": { "nextNode": true }
     },
     "50148": {
@@ -16697,8 +16720,8 @@
       "voice": "50148",
       "name": "tomoya",
       "rCharactor": "友也_梦境",
-      "bgr": "",
-      "bgm": "",
+      "bgr": "客厅1",
+      "bgm": "结束",
       "onNext": { "nextNode": true }
     },
     "50149": {
@@ -16706,8 +16729,8 @@
       "voice": "50149",
       "name": "narrator",
       "lCharactor": "",
-      "bgr": "",
-      "bgm": "",
+      "bgr": "卧室5",
+      "bgm": "结束",
       "onNext": { "nextNode": true }
     },
     "50150": {
@@ -16715,8 +16738,8 @@
       "voice": "50150",
       "name": "ayane",
       "lCharactor": "绚音_梦境",
-      "bgr": "",
-      "bgm": "",
+      "bgr": "卧室5",
+      "bgm": "结束",
       "onNext": { "nextNode": true }
     },
     "50151": {
@@ -16724,16 +16747,16 @@
       "voice": "50151",
       "name": "tomoya",
       "lCharactor": "友也_梦境",
-      "bgr": "",
-      "bgm": "",
+      "bgr": "卧室5",
+      "bgm": "结束",
       "onNext": { "nextNode": true }
     },
     "50152": {
       "type": "animation",
       "name": "fadeInBlack",
       "voice": "50152",
-      "bgr":"",
-      "bgm":"",
+      "bgr": "卧室5",
+      "bgm": "结束",
       "lCharactor":"",
       "onNext": { "nextNode": true }
     },
@@ -16742,8 +16765,8 @@
       "voice": "50153",
       "name": "narrator",
       "rCharactor": "",
-      "bgr": "",
-      "bgm": "",
+      "bgr": "卧室5",
+      "bgm": "结束",
       "onNext": { "nextNode": true }
     },
     "50154": {
@@ -16751,8 +16774,8 @@
       "voice": "50154",
       "name": "ayane",
       "lCharactor": "绚音_梦境",
-      "bgr": "",
-      "bgm": "",
+      "bgr": "卧室5",
+      "bgm": "结束",
       "onNext": { "nextNode": true }
     },
     "50155": {
@@ -16760,8 +16783,8 @@
       "voice": "50155",
       "name": "tomoya",
       "lCharactor": "友也_梦境",
-      "bgr": "",
-      "bgm": "",
+      "bgr": "卧室5",
+      "bgm": "结束",
       "onNext": { "nextNode": true }
     },
     "50156": {
@@ -16769,16 +16792,16 @@
       "voice": "50156",
       "name": "narrator",
       "rCharactor": "",
-      "bgr": "",
-      "bgm": "",
+      "bgr": "卧室5",
+      "bgm": "结束",
       "onNext": { "nextNode": true }
     },
     "50157": {
       "type": "animation",
       "name": "fadeInBlack",
       "voice": "50157",
-      "bgr":"",
-      "bgm":"",
+      "bgr": "卧室5",
+      "bgm": "落樱谷",
       "rCharactor":"",
       "onNext": { "nextNode": true }
     },
@@ -16787,16 +16810,16 @@
       "voice": "50158",
       "name": "narrator",
       "rCharactor": "",
-      "bgr": "",
-      "bgm": "",
+      "bgr": "卧室5",
+      "bgm": "落樱谷",
       "onNext": { "nextNode": true }
     },
     "50159": {
       "type": "animation",
       "name": "fadeInBlack",
       "voice": "50159",
-      "bgr":"",
-      "bgm":"",
+      "bgr": "卧室11",
+      "bgm": "落樱谷",
       "rCharactor":"",
       "onNext": { "nextNode": true }
     },
@@ -16805,8 +16828,8 @@
       "voice": "50160",
       "name": "narrator",
       "rCharactor": "",
-      "bgr": "",
-      "bgm": "",
+      "bgr": "卧室11",
+      "bgm": "落樱谷",
       "onNext": { "nextNode": true }
     },
     "50161": {
@@ -16814,8 +16837,8 @@
       "voice": "50161",
       "name": "ayane",
       "rCharactor": "绚音_梦境",
-      "bgr": "",
-      "bgm": "",
+      "bgr": "卧室11",
+      "bgm": "落樱谷",
       "onNext": { "nextNode": true }
     },
     "50162": {
@@ -16823,8 +16846,8 @@
       "voice": "50162",
       "name": "tomoya",
       "lCharactor": "友也_梦境",
-      "bgr": "",
-      "bgm": "",
+      "bgr": "卧室11",
+      "bgm": "落樱谷",
       "onNext": { "nextNode": true }
     },
     "50163": {
@@ -16832,8 +16855,8 @@
       "voice": "50163",
       "name": "narrator",
       "lCharactor": "",
-      "bgr": "",
-      "bgm": "",
+      "bgr": "卧室11",
+      "bgm": "落樱谷",
       "onNext": { "nextNode": true }
     },
     "50164": {
@@ -16841,8 +16864,8 @@
       "voice": "50164",
       "name": "tomoya",
       "lCharactor": "友也_梦境",
-      "bgr": "",
-      "bgm": "",
+      "bgr": "卧室11",
+      "bgm": "落樱谷",
       "onNext": { "nextNode": true }
     },
     "50165": {
@@ -16850,8 +16873,8 @@
       "voice": "50165",
       "name": "narrator",
       "rCharactor": "",
-      "bgr": "",
-      "bgm": "",
+      "bgr": "卧室11",
+      "bgm": "落樱谷",
       "onNext": { "nextNode": true }
     },
     "50166": {
@@ -16859,8 +16882,8 @@
       "voice": "50166",
       "name": "ayane",
       "lCharactor": "绚音_梦境",
-      "bgr": "",
-      "bgm": "",
+      "bgr": "卧室11",
+      "bgm": "落樱谷",
       "onNext": { "nextNode": true }
     },
     "50167": {
@@ -16868,8 +16891,8 @@
       "voice": "50167",
       "name": "tomoya",
       "rCharactor": "友也_梦境",
-      "bgr": "",
-      "bgm": "",
+      "bgr": "卧室11",
+      "bgm": "落樱谷",
       "onNext": { "nextNode": true }
     },
     "50168": {
@@ -16877,16 +16900,16 @@
       "voice": "50168",
       "name": "ayane",
       "lCharactor": "绚音_梦境",
-      "bgr": "",
-      "bgm": "",
+      "bgr": "卧室11",
+      "bgm": "落樱谷",
       "onNext": { "nextNode": true }
     },
     "50169": {
       "type": "animation",
       "name": "fadeInBlack",
       "voice": "50169",
-      "bgr":"",
-      "bgm":"",
+      "bgr": "卧室11",
+      "bgm": "落樱谷",
       "rCharactor":"",
       "onNext": { "nextNode": true }
     },
@@ -16895,8 +16918,8 @@
       "voice": "50170",
       "name": "narrator",
       "lCharactor": "",
-      "bgr": "",
-      "bgm": "",
+      "bgr": "卧室11",
+      "bgm": "落樱谷",
       "onNext": { "nextNode": true }
     },
     "50171": {
@@ -16904,8 +16927,8 @@
       "voice": "50171",
       "name": "narrator",
       "lCharactor": "",
-      "bgr": "",
-      "bgm": "",
+      "bgr": "卧室5",
+      "bgm": "落樱谷",
       "onNext": { "nextNode": true }
     },
     "50172": {
@@ -16913,8 +16936,8 @@
       "voice": "50172",
       "name": "ayane",
       "lCharactor": "绚音_梦境",
-      "bgr": "",
-      "bgm": "",
+      "bgr": "卧室5",
+      "bgm": "落樱谷",
       "onNext": { "nextNode": true }
     },
     "50173": {
@@ -16922,8 +16945,8 @@
       "voice": "50173",
       "name": "tomoya",
       "lCharactor": "友也_梦境",
-      "bgr": "",
-      "bgm": "",
+      "bgr": "卧室5",
+      "bgm": "落樱谷",
       "onNext": { "nextNode": true }
     },
     "50174": {
@@ -16931,16 +16954,16 @@
       "voice": "50174",
       "name": "narrator",
       "lCharactor": "",
-      "bgr": "",
-      "bgm": "",
+      "bgr": "卧室5",
+      "bgm": "落樱谷",
       "onNext": { "nextNode": true }
     },
     "50175": {
       "type": "animation",
       "name": "fadeInBlack",
       "voice": "50175",
-      "bgr":"",
-      "bgm":"",
+      "bgr": "卧室5",
+      "bgm": "落樱谷",
       "rCharactor":"",
       "onNext": { "nextNode": true }
     },
@@ -16949,8 +16972,8 @@
       "voice": "50176",
       "name": "narrator",
       "lCharactor": "",
-      "bgr": "",
-      "bgm": "",
+      "bgr": "雨夜城市1",
+      "bgm": "落樱谷",
       "onNext": { "nextNode": true }
     },
     "50177": {
@@ -16958,8 +16981,8 @@
       "voice": "50177",
       "name": "ryo",
       "lCharactor": "凉_梦境",
-      "bgr": "",
-      "bgm": "",
+      "bgr": "雨夜城市1",
+      "bgm": "落樱谷",
       "onNext": { "nextNode": true }
     },
     "50178": {
@@ -16967,8 +16990,8 @@
       "voice": "50178",
       "name": "aoi",
       "lCharactor": "葵_梦境",
-      "bgr": "",
-      "bgm": "",
+      "bgr": "雨夜城市1",
+      "bgm": "落樱谷",
       "onNext": { "nextNode": true }
     },
     "50179": {
@@ -16976,16 +16999,16 @@
       "voice": "50179",
       "name": "ryo",
       "rCharactor": "凉_梦境",
-      "bgr": "",
-      "bgm": "",
+      "bgr": "雨夜城市1",
+      "bgm": "落樱谷",
       "onNext": { "nextNode": true }
     },
     "50180": {
       "type": "animation",
       "name": "fadeInBlack",
       "voice": "50180",
-      "bgr":"",
-      "bgm":"",
+      "bgr": "雨夜城市1",
+      "bgm": "落樱谷",
       "lCharactor":"",
       "onNext": { "nextNode": true }
     },
@@ -16994,8 +17017,8 @@
       "voice": "50181",
       "name": "narrator",
       "lCharactor": "",
-      "bgr": "",
-      "bgm": "",
+      "bgr": "雨夜城市1",
+      "bgm": "落樱谷",
       "onNext": { "nextNode": true }
     },
     "50182": {
@@ -17003,8 +17026,8 @@
       "voice": "50182",
       "name": "aoi",
       "lCharactor": "葵_梦境",
-      "bgr": "",
-      "bgm": "",
+      "bgr": "雨夜城市1",
+      "bgm": "落樱谷",
       "onNext": { "nextNode": true }
     },
     "50183": {
@@ -17012,8 +17035,8 @@
       "voice": "50183",
       "name": "ryo",
       "rCharactor": "凉_梦境",
-      "bgr": "",
-      "bgm": "",
+      "bgr": "雨夜城市1",
+      "bgm": "落樱谷",
       "onNext": { "nextNode": true }
     },
     "50184": {
@@ -17021,8 +17044,8 @@
       "voice": "50184",
       "name": "aoi",
       "lCharactor": "葵_梦境",
-      "bgr": "",
-      "bgm": "",
+      "bgr": "雨夜城市1",
+      "bgm": "落樱谷",
       "onNext": { "nextNode": true }
     },
     "50185": {
@@ -17030,8 +17053,8 @@
       "voice": "50185",
       "name": "narrator",
       "lCharactor": "",
-      "bgr": "",
-      "bgm": "",
+      "bgr": "楼梯1",
+      "bgm": "落樱谷",
       "onNext": { "nextNode": true }
     },
     "50186": {
@@ -17039,8 +17062,8 @@
       "voice": "50186",
       "name": "ryo",
       "rCharactor": "凉_梦境",
-      "bgr": "",
-      "bgm": "",
+      "bgr": "公寓1",
+      "bgm": "落樱谷",
       "onNext": { "nextNode": true }
     },
     "50187": {
@@ -17048,8 +17071,8 @@
       "voice": "50187",
       "name": "aoi",
       "rCharactor": "葵_梦境",
-      "bgr": "",
-      "bgm": "",
+      "bgr": "公寓1",
+      "bgm": "落樱谷",
       "onNext": { "nextNode": true }
     },
     "50188": {
@@ -17057,17 +17080,16 @@
       "voice": "50188",
       "name": "ryo",
       "lCharactor": "凉_梦境",
-      "bgr": "",
-      "bgm": "",
+      "bgr": "公寓1",
+      "bgm": "落樱谷",
       "onNext": { "nextNode": true }
     },
     "50189": {
-      "type": "text",
-      "voice": "50189",
-      "name": "narrator",
+      "type": "animation",
+      "name": "fadeInBlack",
       "lCharactor": "",
-      "bgr": "",
-      "bgm": "",
+      "bgr": "公寓1",
+      "bgm": "落樱谷",
       "onNext": { "nextNode": true }
     },
     "50190": {
@@ -17075,8 +17097,8 @@
       "voice": "50190",
       "name": "ryo",
       "rCharactor": "凉_梦境",
-      "bgr": "",
-      "bgm": "",
+      "bgr": "公寓1",
+      "bgm": "落樱谷",
       "onNext": { "nextNode": true }
     },
     "50191": {
@@ -17084,8 +17106,8 @@
       "voice": "50191",
       "name": "narrator",
       "rCharactor": "",
-      "bgr": "",
-      "bgm": "",
+      "bgr": "窗前1",
+      "bgm": "落樱谷",
       "onNext": { "nextNode": true }
     },
     "50192": {
@@ -17093,8 +17115,8 @@
       "voice": "50192",
       "name": "ryo",
       "rCharactor": "凉_梦境",
-      "bgr": "",
-      "bgm": "",
+      "bgr": "窗前1",
+      "bgm": "落樱谷",
       "onNext": { "nextNode": true }
     },
     "50193": {
@@ -17102,8 +17124,8 @@
       "voice": "50193",
       "name": "aoi",
       "rCharactor": "葵_梦境",
-      "bgr": "",
-      "bgm": "",
+      "bgr": "窗前1",
+      "bgm": "落樱谷",
       "onNext": { "nextNode": true }
     },
     "50194": {
@@ -17111,16 +17133,16 @@
       "voice": "50194",
       "name": "narrator",
       "lCharactor": "",
-      "bgr": "",
-      "bgm": "",
+      "bgr": "窗前1",
+      "bgm": "落樱谷",
       "onNext": { "nextNode": true }
     },
     "50195": {
       "type": "animation",
       "name": "fadeInBlack",
       "voice": "50195",
-      "bgr":"",
-      "bgm":"",
+      "bgr": "窗前1",
+      "bgm": "落樱谷",
       "lCharactor":"",
       "onNext": { "nextNode": true }
     },
@@ -17128,8 +17150,8 @@
       "type": "animation",
       "name": "fadeInBlack",
       "voice": "50196",
-      "bgr":"",
-      "bgm":"",
+      "bgr": "沙滩1",
+      "bgm": "海鸣",
       "lCharactor":"",
       "onNext": { "nextNode": true }
     },
@@ -17138,8 +17160,8 @@
       "voice": "50197",
       "name": "narrator",
       "lCharactor": "",
-      "bgr": "",
-      "bgm": "",
+      "bgr": "沙滩1",
+      "bgm": "海鸣",
       "onNext": { "nextNode": true }
     },
     "50198": {
@@ -17147,16 +17169,16 @@
       "voice": "50198",
       "name": "narrator",
       "lCharactor": "",
-      "bgr": "",
-      "bgm": "",
+      "bgr": "沙滩1",
+      "bgm": "海鸣",
       "onNext": { "nextNode": true }
     },
     "50199": {
       "type": "animation",
       "name": "fadeInBlack",
       "voice": "50199",
-      "bgr":"",
-      "bgm":"",
+      "bgr": "沙滩1",
+      "bgm": "海鸣",
       "lCharactor":"",
       "onNext": { "nextNode": true }
     },
@@ -17165,8 +17187,8 @@
       "voice": "50200",
       "name": "narrator",
       "rCharactor": "",
-      "bgr": "",
-      "bgm": "",
+      "bgr": "沙滩1",
+      "bgm": "海鸣",
       "onNext": { "nextNode": true }
     },
     "50201": {
@@ -17174,8 +17196,8 @@
       "voice": "50201",
       "name": "aoi",
       "lCharactor": "葵_梦境",
-      "bgr": "",
-      "bgm": "",
+      "bgr": "沙滩1",
+      "bgm": "海鸣",
       "onNext": { "nextNode": true }
     },
     "50202": {
@@ -17183,8 +17205,8 @@
       "voice": "50202",
       "name": "ryo",
       "rCharactor": "凉_梦境",
-      "bgr": "",
-      "bgm": "",
+      "bgr": "沙滩1",
+      "bgm": "海鸣",
       "onNext": { "nextNode": true }
     },
     "50203": {
@@ -17192,16 +17214,16 @@
       "voice": "50203",
       "name": "narrator",
       "rCharactor": "",
-      "bgr": "",
-      "bgm": "",
+      "bgr": "沙滩1",
+      "bgm": "海鸣",
       "onNext": { "nextNode": true }
     },
     "50204": {
       "type": "animation",
       "name": "fadeInBlack",
       "voice": "50204",
-      "bgr":"",
-      "bgm":"",
+      "bgr": "沙滩1",
+      "bgm": "海鸣",
       "lCharactor":"",
       "onNext": { "nextNode": true }
     },
@@ -17210,8 +17232,8 @@
       "voice": "50205",
       "name": "narrator",
       "rCharactor": "",
-      "bgr": "",
-      "bgm": "",
+      "bgr": "沙滩1",
+      "bgm": "海鸣",
       "onNext": { "nextNode": true }
     },
     "50206": {
@@ -17219,8 +17241,8 @@
       "voice": "50206",
       "name": "ryo",
       "rCharactor": "凉_梦境",
-      "bgr": "",
-      "bgm": "",
+      "bgr": "沙滩1",
+      "bgm": "海鸣",
       "onNext": { "nextNode": true }
     },
     "50207": {
@@ -17228,8 +17250,8 @@
       "voice": "50207",
       "name": "aoi",
       "rCharactor": "葵_梦境",
-      "bgr": "",
-      "bgm": "",
+      "bgr": "沙滩1",
+      "bgm": "海鸣",
       "onNext": { "nextNode": true }
     },
     "50208": {
@@ -17237,8 +17259,8 @@
       "voice": "50208",
       "name": "ryo",
       "lCharactor": "凉_梦境",
-      "bgr": "",
-      "bgm": "",
+      "bgr": "沙滩1",
+      "bgm": "海鸣",
       "onNext": { "nextNode": true }
     },
     "50209": {
@@ -17246,16 +17268,16 @@
       "voice": "50209",
       "name": "aoi",
       "lCharactor": "葵_梦境",
-      "bgr": "",
-      "bgm": "",
+      "bgr": "沙滩1",
+      "bgm": "海鸣",
       "onNext": { "nextNode": true }
     },
     "50210": {
       "type": "animation",
       "name": "fadeInBlack",
       "voice": "50210",
-      "bgr":"",
-      "bgm":"",
+      "bgr": "沙滩1",
+      "bgm": "海鸣",
       "lCharactor":"",
       "onNext": { "nextNode": true }
     },
@@ -17264,8 +17286,8 @@
       "voice": "50211",
       "name": "narrator",
       "lCharactor": "",
-      "bgr": "",
-      "bgm": "",
+      "bgr": "沙滩1",
+      "bgm": "海鸣",
       "onNext": { "nextNode": true }
     },
     "50212": {
@@ -17273,8 +17295,8 @@
       "voice": "50212",
       "name": "aoi",
       "lCharactor": "葵_梦境",
-      "bgr": "",
-      "bgm": "",
+      "bgr": "沙滩1",
+      "bgm": "海鸣",
       "onNext": { "nextNode": true }
     },
     "50213": {
@@ -17282,8 +17304,8 @@
       "voice": "50213",
       "name": "ryo",
       "lCharactor": "凉_梦境",
-      "bgr": "",
-      "bgm": "",
+      "bgr": "沙滩1",
+      "bgm": "海鸣",
       "onNext": { "nextNode": true }
     },
     "50214": {
@@ -17291,8 +17313,8 @@
       "voice": "50214",
       "name": "narrator",
       "lCharactor": "",
-      "bgr": "",
-      "bgm": "",
+      "bgr": "沙滩2",
+      "bgm": "海鸣",
       "onNext": { "nextNode": true }
     },
     "50215": {
@@ -17300,8 +17322,8 @@
       "voice": "50215",
       "name": "ryo",
       "lCharactor": "凉_梦境",
-      "bgr": "",
-      "bgm": "",
+      "bgr": "沙滩2",
+      "bgm": "海鸣",
       "onNext": { "nextNode": true }
     },
     "50216": {
@@ -17309,8 +17331,8 @@
       "voice": "50216",
       "name": "aoi",
       "rCharactor": "葵_梦境",
-      "bgr": "",
-      "bgm": "",
+      "bgr": "沙滩2",
+      "bgm": "海鸣",
       "onNext": { "nextNode": true }
     },
     "50217": {
@@ -17318,8 +17340,8 @@
       "voice": "50217",
       "name": "aoi",
       "lCharactor": "葵_梦境",
-      "bgr": "",
-      "bgm": "",
+      "bgr": "沙滩2",
+      "bgm": "海鸣",
       "onNext": { "nextNode": true }
     },
     "50218": {
@@ -17327,8 +17349,8 @@
       "voice": "50218",
       "name": "narrator",
       "lCharactor": "",
-      "bgr": "",
-      "bgm": "",
+      "bgr": "沙滩2",
+      "bgm": "海鸣",
       "onNext": { "nextNode": true }
     },
     "50219": {
@@ -17336,8 +17358,8 @@
       "voice": "50219",
       "name": "aoi",
       "lCharactor": "葵_梦境",
-      "bgr": "",
-      "bgm": "",
+      "bgr": "沙滩2",
+      "bgm": "海鸣",
       "onNext": { "nextNode": true }
     },
     "50220": {
@@ -17345,8 +17367,8 @@
       "voice": "50220",
       "name": "ryo",
       "lCharactor": "凉_梦境",
-      "bgr": "",
-      "bgm": "",
+      "bgr": "沙滩2",
+      "bgm": "海鸣",
       "onNext": { "nextNode": true }
     },
     "50221": {
@@ -17354,16 +17376,16 @@
       "voice": "50221",
       "name": "narrator",
       "rCharactor": "",
-      "bgr": "",
-      "bgm": "",
+      "bgr": "沙滩2",
+      "bgm": "海鸣",
       "onNext": { "nextNode": true }
     },
     "50222": {
       "type": "animation",
       "name": "fadeInBlack",
       "voice": "50222",
-      "bgr":"",
-      "bgm":"",
+      "bgr": "沙滩2",
+      "bgm": "海鸣",
       "rCharactor":"",
       "onNext": { "nextNode": true }
     },
@@ -17372,8 +17394,8 @@
       "voice": "50223",
       "name": "narrator",
       "lCharactor": "",
-      "bgr": "",
-      "bgm": "",
+      "bgr": "沙滩2",
+      "bgm": "海鸣",
       "onNext": { "nextNode": true }
     },
     "50224": {
@@ -17381,16 +17403,16 @@
       "voice": "50224",
       "name": "narrator",
       "lCharactor": "",
-      "bgr": "",
-      "bgm": "",
+      "bgr": "沙滩2",
+      "bgm": "海鸣",
       "onNext": { "nextNode": true }
     },
     "50225": {
       "type": "animation",
       "name": "fadeInBlack",
       "voice": "50225",
-      "bgr":"",
-      "bgm":"",
+      "bgr": "咖啡馆4",
+      "bgm": "海鸣",
       "rCharactor":"",
       "onNext": { "nextNode": true }
     },
@@ -17399,8 +17421,8 @@
       "voice": "50226",
       "name": "narrator",
       "rCharactor": "",
-      "bgr": "",
-      "bgm": "",
+      "bgr": "咖啡馆4",
+      "bgm": "寂静列车",
       "onNext": { "nextNode": true }
     },
     "50227": {
@@ -17408,8 +17430,8 @@
       "voice": "50227",
       "name": "narrator",
       "rCharactor": "",
-      "bgr": "",
-      "bgm": "",
+      "bgr": "咖啡馆4",
+      "bgm": "寂静列车",
       "onNext": { "nextNode": true }
     },
     "50228": {
@@ -17417,8 +17439,8 @@
       "voice": "50228",
       "name": "ayane",
       "lCharactor": "绚音_梦境",
-      "bgr": "",
-      "bgm": "",
+      "bgr": "咖啡馆4",
+      "bgm": "寂静列车",
       "onNext": { "nextNode": true }
     },
     "50229": {
@@ -17426,8 +17448,8 @@
       "voice": "50229",
       "name": "tomoya",
       "rCharactor": "友也_梦境",
-      "bgr": "",
-      "bgm": "",
+      "bgr": "咖啡馆4",
+      "bgm": "寂静列车",
       "onNext": { "nextNode": true }
     },
     "50230": {
@@ -17435,8 +17457,8 @@
       "voice": "50230",
       "name": "narrator",
       "rCharactor": "",
-      "bgr": "",
-      "bgm": "",
+      "bgr": "咖啡馆4",
+      "bgm": "寂静列车",
       "onNext": { "nextNode": true }
     },
     "50231": {
@@ -17444,8 +17466,8 @@
       "voice": "50231",
       "name": "tomoya",
       "rCharactor": "友也_梦境",
-      "bgr": "",
-      "bgm": "",
+      "bgr": "咖啡馆4",
+      "bgm": "寂静列车",
       "onNext": { "nextNode": true }
     },
     "50232": {
@@ -17453,16 +17475,16 @@
       "voice": "50232",
       "name": "ayane",
       "lCharactor": "绚音_梦境",
-      "bgr": "",
-      "bgm": "",
+      "bgr": "咖啡馆4",
+      "bgm": "寂静列车",
       "onNext": { "nextNode": true }
     },
     "50233": {
       "type": "animation",
       "name": "fadeInBlack",
       "voice": "50233",
-      "bgr":"",
-      "bgm":"",
+      "bgr": "咖啡馆4",
+      "bgm": "寂静列车",
       "rCharactor":"",
       "onNext": { "nextNode": true }
     },
@@ -17471,8 +17493,8 @@
       "voice": "50234",
       "name": "narrator",
       "rCharactor": "",
-      "bgr": "",
-      "bgm": "",
+      "bgr": "咖啡馆4",
+      "bgm": "寂静列车",
       "onNext": { "nextNode": true }
     },
     "50235": {
@@ -17480,8 +17502,8 @@
       "voice": "50235",
       "name": "ayane",
       "lCharactor": "绚音_梦境",
-      "bgr": "",
-      "bgm": "",
+      "bgr": "咖啡馆4",
+      "bgm": "寂静列车",
       "onNext": { "nextNode": true }
     },
     "50236": {
@@ -17489,8 +17511,8 @@
       "voice": "50236",
       "name": "tomoya",
       "rCharactor": "友也_梦境",
-      "bgr": "",
-      "bgm": "",
+      "bgr": "咖啡馆4",
+      "bgm": "寂静列车",
       "onNext": { "nextNode": true }
     },
     "50237": {
@@ -17498,8 +17520,8 @@
       "voice": "50237",
       "name": "narrator",
       "lCharactor": "",
-      "bgr": "",
-      "bgm": "",
+      "bgr": "雨夜城市2",
+      "bgm": "寂静列车",
       "onNext": { "nextNode": true }
     },
     "50238": {
@@ -17507,8 +17529,8 @@
       "voice": "50238",
       "name": "ayane",
       "rCharactor": "绚音_梦境",
-      "bgr": "",
-      "bgm": "",
+      "bgr": "雨夜城市2",
+      "bgm": "寂静列车",
       "onNext": { "nextNode": true }
     },
     "50239": {
@@ -17516,16 +17538,16 @@
       "voice": "50239",
       "name": "tomoya",
       "lCharactor": "友也_梦境",
-      "bgr": "",
-      "bgm": "",
+      "bgr": "雨夜城市2",
+      "bgm": "寂静列车",
       "onNext": { "nextNode": true }
     },
     "50240": {
       "type": "animation",
       "name": "fadeInBlack",
       "voice": "50240",
-      "bgr":"",
-      "bgm":"",
+      "bgr": "雨夜城市2",
+      "bgm": "寂静列车",
       "lCharactor":"",
       "onNext": { "nextNode": true }
     },
@@ -17534,8 +17556,8 @@
       "voice": "50241",
       "name": "narrator",
       "lCharactor": "",
-      "bgr": "",
-      "bgm": "",
+      "bgr": "雨夜城市2",
+      "bgm": "寂静列车",
       "onNext": { "nextNode": true }
     },
     "50242": {
@@ -17543,8 +17565,8 @@
       "voice": "50242",
       "name": "ayane",
       "lCharactor": "绚音_梦境",
-      "bgr": "",
-      "bgm": "",
+      "bgr": "雨夜城市2",
+      "bgm": "寂静列车",
       "onNext": { "nextNode": true }
     },
     "50243": {
@@ -17552,16 +17574,16 @@
       "voice": "50243",
       "name": "tomoya",
       "lCharactor": "友也_梦境",
-      "bgr": "",
-      "bgm": "",
+      "bgr": "雨夜城市2",
+      "bgm": "寂静列车",
       "onNext": { "nextNode": true }
     },
     "50244": {
       "type": "animation",
       "name": "fadeInBlack",
       "voice": "50244",
-      "bgr":"",
-      "bgm":"",
+      "bgr": "雨夜城市2",
+      "bgm": "寂静列车",
       "lCharactor":"",
       "onNext": { "nextNode": true }
     },
@@ -17570,16 +17592,16 @@
       "voice": "50245",
       "name": "narrator",
       "lCharactor": "",
-      "bgr": "",
-      "bgm": "",
+      "bgr": "雨夜城市2",
+      "bgm": "寂静列车",
       "onNext": { "nextNode": true }
     },
     "50246": {
       "type": "animation",
       "name": "fadeInBlack",
       "voice": "50246",
-      "bgr":"",
-      "bgm":"",
+      "bgr": "雨夜城市2",
+      "bgm": "寂静列车",
       "lCharactor":"",
       "onNext": { "nextNode": true }
     },
@@ -17587,8 +17609,8 @@
       "type": "animation",
       "name": "fadeInBlack",
       "voice": "50247",
-      "bgr":"",
-      "bgm":"",
+      "bgr": "地铁",
+      "bgm": "寂静列车",
       "rCharactor":"",
       "onNext": { "nextNode": true }
     },
@@ -17597,8 +17619,8 @@
       "voice": "50248",
       "name": "narrator",
       "rCharactor": "",
-      "bgr": "",
-      "bgm": "",
+      "bgr": "地铁",
+      "bgm": "寂静列车",
       "onNext": { "nextNode": true }
     },
     "50249": {
@@ -17606,8 +17628,8 @@
       "voice": "50249",
       "name": "ayane",
       "lCharactor": "绚音_梦境",
-      "bgr": "",
-      "bgm": "",
+      "bgr": "地铁",
+      "bgm": "寂静列车",
       "onNext": { "nextNode": true }
     },
     "50250": {
@@ -17615,8 +17637,8 @@
       "voice": "50250",
       "name": "tomoya",
       "rCharactor": "友也_梦境",
-      "bgr": "",
-      "bgm": "",
+      "bgr": "地铁",
+      "bgm": "寂静列车",
       "onNext": { "nextNode": true }
     },
     "50251": {
@@ -17624,16 +17646,16 @@
       "voice": "50251",
       "name": "ayane",
       "rCharactor": "绚音_梦境",
-      "bgr": "",
-      "bgm": "",
+      "bgr": "地铁",
+      "bgm": "寂静列车",
       "onNext": { "nextNode": true }
     },
     "50252": {
       "type": "animation",
       "name": "fadeInBlack",
       "voice": "50252",
-      "bgr":"",
-      "bgm":"",
+      "bgr": "地铁",
+      "bgm": "寂静列车",
       "rCharactor":"",
       "onNext": { "nextNode": true }
     },
@@ -17642,8 +17664,8 @@
       "voice": "50253",
       "name": "narrator",
       "lCharactor": "",
-      "bgr": "",
-      "bgm": "",
+      "bgr": "地铁",
+      "bgm": "寂静列车",
       "onNext": { "nextNode": true }
     },
     "50254": {
@@ -17651,8 +17673,8 @@
       "voice": "50254",
       "name": "tomoya",
       "lCharactor": "友也_梦境",
-      "bgr": "",
-      "bgm": "",
+      "bgr": "地铁",
+      "bgm": "寂静列车",
       "onNext": { "nextNode": true }
     },
     "50255": {
@@ -17660,8 +17682,8 @@
       "voice": "50255",
       "name": "ayane",
       "lCharactor": "绚音_梦境",
-      "bgr": "",
-      "bgm": "",
+      "bgr": "地铁",
+      "bgm": "寂静列车",
       "onNext": { "nextNode": true }
     },
     "50256": {
@@ -17669,8 +17691,8 @@
       "voice": "50256",
       "name": "narrator",
       "rCharactor": "",
-      "bgr": "",
-      "bgm": "",
+      "bgr": "地铁站",
+      "bgm": "寂静列车",
       "onNext": { "nextNode": true }
     },
     "50257": {
@@ -17678,8 +17700,8 @@
       "voice": "50257",
       "name": "ayane",
       "rCharactor": "绚音_梦境",
-      "bgr": "",
-      "bgm": "",
+      "bgr": "地铁站",
+      "bgm": "寂静列车",
       "onNext": { "nextNode": true }
     },
     "50258": {
@@ -17687,8 +17709,8 @@
       "voice": "50258",
       "name": "tomoya",
       "rCharactor": "友也_梦境",
-      "bgr": "",
-      "bgm": "",
+      "bgr": "地铁站",
+      "bgm": "寂静列车",
       "onNext": { "nextNode": true }
     },
     "50259": {
@@ -17696,8 +17718,8 @@
       "voice": "50259",
       "name": "tomoya",
       "rCharactor": "友也_梦境",
-      "bgr": "",
-      "bgm": "",
+      "bgr": "地铁站",
+      "bgm": "寂静列车",
       "onNext": { "nextNode": true }
     },
     "50260": {
@@ -17705,8 +17727,8 @@
       "voice": "50260",
       "name": "ayane",
       "rCharactor": "绚音_梦境",
-      "bgr": "",
-      "bgm": "",
+      "bgr": "地铁站",
+      "bgm": "寂静列车",
       "onNext": { "nextNode": true }
     },
     "50261": {
@@ -17714,16 +17736,16 @@
       "voice": "50261",
       "name": "narrator",
       "lCharactor": "",
-      "bgr": "",
-      "bgm": "",
+      "bgr": "地铁站",
+      "bgm": "寂静列车",
       "onNext": { "nextNode": true }
     },
     "50262": {
       "type": "animation",
       "name": "fadeInBlack",
       "voice": "50262",
-      "bgr":"",
-      "bgm":"",
+      "bgr": "地铁站",
+      "bgm": "告白之夜",
       "rCharactor":"",
       "onNext": { "nextNode": true }
     },
@@ -17732,8 +17754,8 @@
       "voice": "50263",
       "name": "narrator",
       "lCharactor": "",
-      "bgr": "",
-      "bgm": "",
+      "bgr": "报刊亭",
+      "bgm": "告白之夜",
       "onNext": { "nextNode": true }
     },
     "50264": {
@@ -17741,8 +17763,8 @@
       "voice": "50264",
       "name": "aoi",
       "rCharactor": "葵_梦境",
-      "bgr": "",
-      "bgm": "",
+      "bgr": "报刊亭",
+      "bgm": "告白之夜",
       "onNext": { "nextNode": true }
     },
     "50265": {
@@ -17750,8 +17772,8 @@
       "voice": "50265",
       "name": "ryo",
       "lCharactor": "凉_梦境",
-      "bgr": "",
-      "bgm": "",
+      "bgr": "报刊亭",
+      "bgm": "告白之夜",
       "onNext": { "nextNode": true }
     },
     "50266": {
@@ -17759,16 +17781,16 @@
       "voice": "50266",
       "name": "narrator",
       "lCharactor": "",
-      "bgr": "",
-      "bgm": "",
+      "bgr": "报刊亭",
+      "bgm": "告白之夜",
       "onNext": { "nextNode": true }
     },
     "50267": {
       "type": "animation",
       "name": "fadeInBlack",
       "voice": "50267",
-      "bgr":"",
-      "bgm":"",
+      "bgr": "报刊亭",
+      "bgm": "告白之夜",
       "rCharactor":"",
       "onNext": { "nextNode": true }
     },
@@ -17777,8 +17799,8 @@
       "voice": "50268",
       "name": "narrator",
       "lCharactor": "",
-      "bgr": "",
-      "bgm": "",
+      "bgr": "报刊亭",
+      "bgm": "告白之夜",
       "onNext": { "nextNode": true }
     },
     "50269": {
@@ -17786,8 +17808,8 @@
       "voice": "50269",
       "name": "aoi",
       "rCharactor": "葵_梦境",
-      "bgr": "",
-      "bgm": "",
+      "bgr": "报刊亭",
+      "bgm": "告白之夜",
       "onNext": { "nextNode": true }
     },
     "50270": {
@@ -17795,8 +17817,8 @@
       "voice": "50270",
       "name": "ryo",
       "lCharactor": "凉_梦境",
-      "bgr": "",
-      "bgm": "",
+      "bgr": "报刊亭",
+      "bgm": "告白之夜",
       "onNext": { "nextNode": true }
     },
     "50271": {
@@ -17804,16 +17826,16 @@
       "voice": "50271",
       "name": "narrator",
       "rCharactor": "",
-      "bgr": "",
-      "bgm": "",
+      "bgr": "报刊亭",
+      "bgm": "告白之夜",
       "onNext": { "nextNode": true }
     },
     "50272": {
       "type": "animation",
       "name": "fadeInBlack",
       "voice": "50272",
-      "bgr":"",
-      "bgm":"",
+      "bgr": "报刊亭",
+      "bgm": "青石巷",
       "rCharactor":"",
       "onNext": { "nextNode": true }
     },
@@ -17822,8 +17844,8 @@
       "voice": "50273",
       "name": "narrator",
       "rCharactor": "",
-      "bgr": "",
-      "bgm": "",
+      "bgr": "城市郊区2",
+      "bgm": "青石巷",
       "onNext": { "nextNode": true }
     },
     "50274": {
@@ -17831,8 +17853,8 @@
       "voice": "50274",
       "name": "tomoya",
       "rCharactor": "友也_梦境",
-      "bgr": "",
-      "bgm": "",
+      "bgr": "城市郊区2",
+      "bgm": "青石巷",
       "onNext": { "nextNode": true }
     },
     "50275": {
@@ -17840,16 +17862,16 @@
       "voice": "50275",
       "name": "ayane",
       "rCharactor": "绚音_梦境",
-      "bgr": "",
-      "bgm": "",
+      "bgr": "城市郊区2",
+      "bgm": "青石巷",
       "onNext": { "nextNode": true }
     },
     "50276": {
       "type": "animation",
       "name": "fadeInBlack",
       "voice": "50276",
-      "bgr":"",
-      "bgm":"",
+      "bgr": "城市郊区2",
+      "bgm": "青石巷",
       "lCharactor":"",
       "onNext": { "nextNode": true }
     },
@@ -17858,8 +17880,8 @@
       "voice": "50277",
       "name": "narrator",
       "rCharactor": "",
-      "bgr": "",
-      "bgm": "",
+      "bgr": "城市郊区2",
+      "bgm": "青石巷",
       "onNext": { "nextNode": true }
     },
     "50278": {
@@ -17867,8 +17889,8 @@
       "voice": "50278",
       "name": "aoi",
       "lCharactor": "葵_梦境",
-      "bgr": "",
-      "bgm": "",
+      "bgr": "城市郊区2",
+      "bgm": "青石巷",
       "onNext": { "nextNode": true }
     },
     "50279": {
@@ -17876,8 +17898,8 @@
       "voice": "50279",
       "name": "ryo",
       "lCharactor": "凉_梦境",
-      "bgr": "",
-      "bgm": "",
+      "bgr": "城市郊区2",
+      "bgm": "青石巷",
       "onNext": { "nextNode": true }
     },
     "50280": {
@@ -17885,8 +17907,8 @@
       "voice": "50280",
       "name": "narrator",
       "lCharactor": "",
-      "bgr": "",
-      "bgm": "",
+      "bgr": "城市郊区2",
+      "bgm": "青石巷",
       "onNext": { "nextNode": true }
     },
     "50281": {
@@ -17894,8 +17916,8 @@
       "voice": "50281",
       "name": "narrator",
       "rCharactor": "",
-      "bgr": "",
-      "bgm": "",
+      "bgr": "城市郊区2",
+      "bgm": "青石巷",
       "onNext": { "nextNode": true }
     },
     "50282": {
@@ -17903,8 +17925,8 @@
       "voice": "50282",
       "name": "aoi",
       "rCharactor": "葵_梦境",
-      "bgr": "",
-      "bgm": "",
+      "bgr": "城市郊区2",
+      "bgm": "青石巷",
       "onNext": { "nextNode": true }
     },
     "50283": {
@@ -17912,16 +17934,16 @@
       "voice": "50283",
       "name": "ryo",
       "lCharactor": "凉_梦境",
-      "bgr": "",
-      "bgm": "",
+      "bgr": "城市郊区2",
+      "bgm": "青石巷",
       "onNext": { "nextNode": true }
     },
     "50284": {
       "type": "animation",
       "name": "fadeInBlack",
       "voice": "50284",
-      "bgr":"",
-      "bgm":"",
+      "bgr": "城市郊区2",
+      "bgm": "青石巷",
       "lCharactor":"",
       "onNext": { "nextNode": true }
     },
@@ -17930,8 +17952,8 @@
       "voice": "50285",
       "name": "narrator",
       "lCharactor": "",
-      "bgr": "",
-      "bgm": "",
+      "bgr": "城市郊区2",
+      "bgm": "青石巷",
       "onNext": { "nextNode": true }
     },
     "50286": {
@@ -17939,8 +17961,8 @@
       "voice": "50286",
       "name": "tomoya",
       "rCharactor": "友也_梦境",
-      "bgr": "",
-      "bgm": "",
+      "bgr": "城市郊区2",
+      "bgm": "青石巷",
       "onNext": { "nextNode": true }
     },
     "50287": {
@@ -17948,8 +17970,8 @@
       "voice": "50287",
       "name": "ayane",
       "rCharactor": "绚音_梦境",
-      "bgr": "",
-      "bgm": "",
+      "bgr": "城市郊区2",
+      "bgm": "青石巷",
       "onNext": { "nextNode": true }
     },
     "50288": {
@@ -17957,8 +17979,8 @@
       "voice": "50288",
       "name": "aoi",
       "lCharactor": "葵_梦境",
-      "bgr": "",
-      "bgm": "",
+      "bgr": "城市郊区2",
+      "bgm": "青石巷",
       "onNext": { "nextNode": true }
     },
     "50289": {
@@ -17966,8 +17988,8 @@
       "voice": "50289",
       "name": "ryo",
       "rCharactor": "凉_梦境",
-      "bgr": "",
-      "bgm": "",
+      "bgr": "城市郊区2",
+      "bgm": "青石巷",
       "onNext": { "nextNode": true }
     },
     "50290": {
@@ -17975,8 +17997,8 @@
       "voice": "50290",
       "name": "narrator",
       "rCharactor": "",
-      "bgr": "",
-      "bgm": "",
+      "bgr": "城市郊区2",
+      "bgm": "青石巷",
       "onNext": { "nextNode": true }
     },
     "50291": {
@@ -17984,8 +18006,8 @@
       "voice": "50291",
       "name": "narrator",
       "rCharactor": "",
-      "bgr": "",
-      "bgm": "",
+      "bgr": "城市郊区2",
+      "bgm": "青石巷",
       "onNext": { "nextNode": true }
     },
     "50292": {
@@ -17993,8 +18015,8 @@
       "voice": "50292",
       "name": "ayane",
       "lCharactor": "绚音_梦境",
-      "bgr": "",
-      "bgm": "",
+      "bgr": "城市郊区2",
+      "bgm": "青石巷",
       "onNext": { "nextNode": true }
     },
     "50293": {
@@ -18002,8 +18024,8 @@
       "voice": "50293",
       "name": "narrator",
       "rCharactor": "",
-      "bgr": "",
-      "bgm": "",
+      "bgr": "城市郊区2",
+      "bgm": "青石巷",
       "onNext": { "nextNode": true }
     },
     "50294": {
@@ -18011,8 +18033,8 @@
       "voice": "50294",
       "name": "narrator",
       "rCharactor": "",
-      "bgr": "",
-      "bgm": "",
+      "bgr": "城市郊区2",
+      "bgm": "青石巷",
       "onNext": { "nextNode": true }
     },
     "50295": {
@@ -18020,8 +18042,8 @@
       "voice": "50295",
       "name": "narrator",
       "rCharactor": "",
-      "bgr": "",
-      "bgm": "",
+      "bgr": "城市郊区3",
+      "bgm": "青石巷",
       "onNext": { "nextNode": true }
     },
     "50296": {
@@ -18029,8 +18051,8 @@
       "voice": "50296",
       "name": "narrator",
       "lCharactor": "",
-      "bgr": "",
-      "bgm": "",
+      "bgr": "城市郊区3",
+      "bgm": "青石巷",
       "onNext": { "nextNode": true }
     },
     "50297": {
@@ -18038,8 +18060,8 @@
       "voice": "50297",
       "name": "ryo",
       "lCharactor": "凉_梦境",
-      "bgr": "",
-      "bgm": "",
+      "bgr": "城市郊区3",
+      "bgm": "青石巷",
       "onNext": { "nextNode": true }
     },
     "50298": {
@@ -18047,8 +18069,8 @@
       "voice": "50298",
       "name": "aoi",
       "lCharactor": "葵_梦境",
-      "bgr": "",
-      "bgm": "",
+      "bgr": "城市郊区3",
+      "bgm": "青石巷",
       "onNext": { "nextNode": true }
     },
     "50299": {
@@ -18056,8 +18078,8 @@
       "voice": "50299",
       "name": "tomoya",
       "lCharactor": "友也_梦境",
-      "bgr": "",
-      "bgm": "",
+      "bgr": "城市郊区3",
+      "bgm": "青石巷",
       "onNext": { "nextNode": true }
     },
     "50300": {
@@ -18065,16 +18087,16 @@
       "voice": "50300",
       "name": "ayane",
       "rCharactor": "绚音_梦境",
-      "bgr": "",
-      "bgm": "",
+      "bgr": "城市郊区3",
+      "bgm": "青石巷",
       "onNext": { "nextNode": true }
     },
     "50301": {
       "type": "animation",
       "name": "fadeInBlack",
       "voice": "50301",
-      "bgr":"",
-      "bgm":"",
+      "bgr": "城市郊区3",
+      "bgm": "青石巷",
       "rCharactor":"",
       "onNext": { "nextNode": true }
     },
@@ -18083,16 +18105,16 @@
       "voice": "50302",
       "name": "narrator",
       "rCharactor": "",
-      "bgr": "",
-      "bgm": "",
+      "bgr": "城市郊区3",
+      "bgm": "青石巷",
       "onNext": { "nextNode": true }
     },
     "50303": {
       "type": "animation",
       "name": "fadeInBlack",
       "voice": "50303",
-      "bgr":"",
-      "bgm":"",
+      "bgr": "城市郊区3",
+      "bgm": "青石巷",
       "rCharactor":"",
       "onNext": { "nextNode": true }
     },
@@ -18100,8 +18122,8 @@
       "type": "animation",
       "name": "fadeInBlack",
       "voice": "50304",
-      "bgr":"",
-      "bgm":"",
+      "bgr": "列车1",
+      "bgm": "回家",
       "lCharactor":"",
       "onNext": { "nextNode": true }
     },
@@ -18110,8 +18132,8 @@
       "voice": "50305",
       "name": "narrator",
       "lCharactor": "",
-      "bgr": "",
-      "bgm": "",
+      "bgr": "列车1",
+      "bgm": "回家",
       "onNext": { "nextNode": true }
     },
     "50306": {
@@ -18119,8 +18141,8 @@
       "voice": "50306",
       "name": "narrator",
       "rCharactor": "",
-      "bgr": "",
-      "bgm": "",
+      "bgr": "列车1",
+      "bgm": "回家",
       "onNext": { "nextNode": true }
     },
     "50307": {
@@ -18128,8 +18150,8 @@
       "voice": "50307",
       "name": "ryo",
       "rCharactor": "凉_梦境",
-      "bgr": "",
-      "bgm": "",
+      "bgr": "列车1",
+      "bgm": "回家",
       "onNext": { "nextNode": true }
     },
     "50308": {
@@ -18137,8 +18159,8 @@
       "voice": "50308",
       "name": "aoi",
       "rCharactor": "葵_梦境",
-      "bgr": "",
-      "bgm": "",
+      "bgr": "列车1",
+      "bgm": "回家",
       "onNext": { "nextNode": true }
     },
     "50309": {
@@ -18146,8 +18168,8 @@
       "voice": "50309",
       "name": "tomoya",
       "rCharactor": "友也_梦境",
-      "bgr": "",
-      "bgm": "",
+      "bgr": "列车1",
+      "bgm": "回家",
       "onNext": { "nextNode": true }
     },
     "50310": {
@@ -18155,16 +18177,16 @@
       "voice": "50310",
       "name": "ayane",
       "lCharactor": "绚音_梦境",
-      "bgr": "",
-      "bgm": "",
+      "bgr": "列车1",
+      "bgm": "回家",
       "onNext": { "nextNode": true }
     },
     "50311": {
       "type": "animation",
       "name": "fadeInBlack",
       "voice": "50311",
-      "bgr":"",
-      "bgm":"",
+      "bgr": "列车1",
+      "bgm": "回家",
       "rCharactor":"",
       "onNext": { "nextNode": true }
     },
@@ -18173,8 +18195,8 @@
       "voice": "50312",
       "name": "narrator",
       "lCharactor": "",
-      "bgr": "",
-      "bgm": "",
+      "bgr": "列车1",
+      "bgm": "回家",
       "onNext": { "nextNode": true }
     },
     "50313": {
@@ -18182,8 +18204,8 @@
       "voice": "50313",
       "name": "narrator",
       "rCharactor": "",
-      "bgr": "",
-      "bgm": "",
+      "bgr": "列车1",
+      "bgm": "回家",
       "onNext": { "nextNode": true }
     },
     "50314": {
@@ -18191,8 +18213,8 @@
       "voice": "50314",
       "name": "tomoya",
       "rCharactor": "友也_梦境",
-      "bgr": "",
-      "bgm": "",
+      "bgr": "列车1",
+      "bgm": "回家",
       "onNext": { "nextNode": true }
     },
     "50315": {
@@ -18200,8 +18222,8 @@
       "voice": "50315",
       "name": "ayane",
       "lCharactor": "绚音_梦境",
-      "bgr": "",
-      "bgm": "",
+      "bgr": "列车1",
+      "bgm": "回家",
       "onNext": { "nextNode": true }
     },
     "50316": {
@@ -18209,8 +18231,8 @@
       "voice": "50316",
       "name": "ryo",
       "rCharactor": "凉_梦境",
-      "bgr": "",
-      "bgm": "",
+      "bgr": "列车1",
+      "bgm": "回家",
       "onNext": { "nextNode": true }
     },
     "50317": {
@@ -18218,8 +18240,8 @@
       "voice": "50317",
       "name": "narrator",
       "lCharactor": "",
-      "bgr": "",
-      "bgm": "",
+      "bgr": "列车1",
+      "bgm": "回家",
       "onNext": { "nextNode": true }
     },
     "50318": {
@@ -18227,8 +18249,8 @@
       "voice": "50318",
       "name": "narrator",
       "lCharactor": "",
-      "bgr": "",
-      "bgm": "",
+      "bgr": "列车2",
+      "bgm": "回家",
       "onNext": { "nextNode": true }
     },
     "50319": {
@@ -18236,8 +18258,8 @@
       "voice": "50319",
       "name": "aoi",
       "rCharactor": "葵_梦境",
-      "bgr": "",
-      "bgm": "",
+      "bgr": "列车2",
+      "bgm": "回家",
       "onNext": { "nextNode": true }
     },
     "50320": {
@@ -18245,8 +18267,8 @@
       "voice": "50320",
       "name": "ayane",
       "rCharactor": "绚音_梦境",
-      "bgr": "",
-      "bgm": "",
+      "bgr": "列车2",
+      "bgm": "回家",
       "onNext": { "nextNode": true }
     },
     "50321": {
@@ -18254,16 +18276,16 @@
       "voice": "50321",
       "name": "ryo",
       "rCharactor": "凉_梦境",
-      "bgr": "",
-      "bgm": "",
+      "bgr": "列车2",
+      "bgm": "回家",
       "onNext": { "nextNode": true }
     },
     "50322": {
       "type": "animation",
       "name": "fadeInBlack",
       "voice": "50322",
-      "bgr":"",
-      "bgm":"",
+      "bgr": "列车2",
+      "bgm": "回家",
       "lCharactor":"",
       "onNext": { "nextNode": true }
     },
@@ -18272,8 +18294,8 @@
       "voice": "50323",
       "name": "narrator",
       "rCharactor": "",
-      "bgr": "",
-      "bgm": "",
+      "bgr": "列车2",
+      "bgm": "回家",
       "onNext": { "nextNode": true }
     },
     "50324": {
@@ -18281,8 +18303,8 @@
       "voice": "50324",
       "name": "narrator",
       "rCharactor": "",
-      "bgr": "",
-      "bgm": "",
+      "bgr": "列车2",
+      "bgm": "回家",
       "onNext": { "nextNode": true }
     },
     "50325": {
@@ -18290,8 +18312,8 @@
       "voice": "50325",
       "name": "tomoya",
       "lCharactor": "友也_梦境",
-      "bgr": "",
-      "bgm": "",
+      "bgr": "列车2",
+      "bgm": "回家",
       "onNext": { "nextNode": true }
     },
     "50326": {
@@ -18299,8 +18321,8 @@
       "voice": "50326",
       "name": "ayane",
       "lCharactor": "绚音_梦境",
-      "bgr": "",
-      "bgm": "",
+      "bgr": "列车2",
+      "bgm": "回家",
       "onNext": { "nextNode": true }
     },
     "50327": {
@@ -18308,8 +18330,8 @@
       "voice": "50327",
       "name": "aoi",
       "lCharactor": "葵_梦境",
-      "bgr": "",
-      "bgm": "",
+      "bgr": "列车2",
+      "bgm": "回家",
       "onNext": { "nextNode": true }
     },
     "50328": {
@@ -18317,8 +18339,8 @@
       "voice": "50328",
       "name": "ryo",
       "rCharactor": "凉_梦境",
-      "bgr": "",
-      "bgm": "",
+      "bgr": "列车2",
+      "bgm": "回家",
       "onNext": { "nextNode": true }
     },
     "50329": {
@@ -18326,16 +18348,16 @@
       "voice": "50329",
       "name": "narrator",
       "rCharactor": "",
-      "bgr": "",
-      "bgm": "",
+      "bgr": "列车2",
+      "bgm": "回家",
       "onNext": { "nextNode": true }
     },
     "50330": {
       "type": "animation",
       "name": "fadeInBlack",
       "voice": "50330",
-      "bgr":"",
-      "bgm":"",
+      "bgr": "列车2",
+      "bgm": "回家",
       "lCharactor":"",
       "onNext": { "nextNode": true }
     },
@@ -18344,16 +18366,16 @@
       "voice": "50331",
       "name": "narrator",
       "lCharactor": "",
-      "bgr": "",
-      "bgm": "",
+      "bgr": "列车2",
+      "bgm": "森归湖遇鹿",
       "onNext": { "nextNode": true }
     },
     "50332": {
       "type": "animation",
       "name": "fadeInBlack",
       "voice": "50332",
-      "bgr":"",
-      "bgm":"",
+      "bgr": "市集1",
+      "bgm": "森归湖遇鹿",
       "rCharactor":"",
       "onNext": { "nextNode": true }
     },
@@ -18362,8 +18384,8 @@
       "voice": "50333",
       "name": "narrator",
       "lCharactor": "",
-      "bgr": "",
-      "bgm": "",
+      "bgr": "市集1",
+      "bgm": "森归湖遇鹿",
       "onNext": { "nextNode": true }
     },
     "50334": {
@@ -18371,8 +18393,8 @@
       "voice": "50334",
       "name": "aoi",
       "rCharactor": "葵_梦境",
-      "bgr": "",
-      "bgm": "",
+      "bgr": "市集1",
+      "bgm": "森归湖遇鹿",
       "onNext": { "nextNode": true }
     },
     "50335": {
@@ -18380,8 +18402,8 @@
       "voice": "50335",
       "name": "ryo",
       "rCharactor": "凉_梦境",
-      "bgr": "",
-      "bgm": "",
+      "bgr": "市集1",
+      "bgm": "森归湖遇鹿",
       "onNext": { "nextNode": true }
     },
     "50336": {
@@ -18389,8 +18411,8 @@
       "voice": "50336",
       "name": "tomoya",
       "lCharactor": "友也_梦境",
-      "bgr": "",
-      "bgm": "",
+      "bgr": "市集1",
+      "bgm": "森归湖遇鹿",
       "onNext": { "nextNode": true }
     },
     "50337": {
@@ -18398,8 +18420,8 @@
       "voice": "50337",
       "name": "ayane",
       "rCharactor": "绚音_梦境",
-      "bgr": "",
-      "bgm": "",
+      "bgr": "市集1",
+      "bgm": "森归湖遇鹿",
       "onNext": { "nextNode": true }
     },
     "50338": {
@@ -18407,8 +18429,8 @@
       "voice": "50338",
       "name": "narrator",
       "rCharactor": "",
-      "bgr": "",
-      "bgm": "",
+      "bgr": "市集1",
+      "bgm": "森归湖遇鹿",
       "onNext": { "nextNode": true }
     },
     "50339": {
@@ -18416,8 +18438,8 @@
       "voice": "50339",
       "name": "ayane",
       "lCharactor": "绚音_梦境",
-      "bgr": "",
-      "bgm": "",
+      "bgr": "市集1",
+      "bgm": "森归湖遇鹿",
       "onNext": { "nextNode": true }
     },
     "50340": {
@@ -18425,8 +18447,8 @@
       "voice": "50340",
       "name": "narrator",
       "rCharactor": "",
-      "bgr": "",
-      "bgm": "",
+      "bgr": "市集1",
+      "bgm": "森归湖遇鹿",
       "onNext": { "nextNode": true }
     },
     "50341": {
@@ -18434,8 +18456,8 @@
       "voice": "50341",
       "name": "aoi",
       "rCharactor": "葵_梦境",
-      "bgr": "",
-      "bgm": "",
+      "bgr": "市集1",
+      "bgm": "森归湖遇鹿",
       "onNext": { "nextNode": true }
     },
     "50342": {
@@ -18443,16 +18465,16 @@
       "voice": "50342",
       "name": "tomoya",
       "rCharactor": "友也_梦境",
-      "bgr": "",
-      "bgm": "",
+      "bgr": "市集1",
+      "bgm": "森归湖遇鹿",
       "onNext": { "nextNode": true }
     },
     "50343": {
       "type": "animation",
       "name": "fadeInBlack",
       "voice": "50343",
-      "bgr":"",
-      "bgm":"",
+      "bgr": "市集1",
+      "bgm": "森归湖遇鹿",
       "rCharactor":"",
       "onNext": { "nextNode": true }
     },
@@ -18461,8 +18483,8 @@
       "voice": "50344",
       "name": "narrator",
       "lCharactor": "",
-      "bgr": "",
-      "bgm": "",
+      "bgr": "市集2",
+      "bgm": "森归湖遇鹿",
       "onNext": { "nextNode": true }
     },
     "50345": {
@@ -18470,16 +18492,16 @@
       "voice": "50345",
       "name": "narrator",
       "lCharactor": "",
-      "bgr": "",
-      "bgm": "",
+      "bgr": "市集2",
+      "bgm": "森归湖遇鹿",
       "onNext": { "nextNode": true }
     },
     "50346": {
       "type": "animation",
       "name": "fadeInBlack",
       "voice": "50346",
-      "bgr":"",
-      "bgm":"",
+      "bgr": "市集2",
+      "bgm": "森归湖遇鹿",
       "rCharactor":"",
       "onNext": { "nextNode": true }
     },
@@ -18488,8 +18510,8 @@
       "voice": "50347",
       "name": "ryo",
       "rCharactor": "凉_梦境",
-      "bgr": "",
-      "bgm": "",
+      "bgr": "市集2",
+      "bgm": "森归湖遇鹿",
       "onNext": { "nextNode": true }
     },
     "50348": {
@@ -18497,8 +18519,8 @@
       "voice": "50348",
       "name": "aoi",
       "lCharactor": "葵_梦境",
-      "bgr": "",
-      "bgm": "",
+      "bgr": "市集2",
+      "bgm": "森归湖遇鹿",
       "onNext": { "nextNode": true }
     },
     "50349": {
@@ -18506,16 +18528,16 @@
       "voice": "50349",
       "name": "ryo",
       "lCharactor": "凉_梦境",
-      "bgr": "",
-      "bgm": "",
+      "bgr": "市集2",
+      "bgm": "森归湖遇鹿",
       "onNext": { "nextNode": true }
     },
     "50350": {
       "type": "animation",
       "name": "fadeInBlack",
       "voice": "50350",
-      "bgr":"",
-      "bgm":"",
+      "bgr": "市集2",
+      "bgm": "森归湖遇鹿",
       "lCharactor":"",
       "onNext": { "nextNode": true }
     },
@@ -18524,8 +18546,8 @@
       "voice": "50351",
       "name": "narrator",
       "rCharactor": "",
-      "bgr": "",
-      "bgm": "",
+      "bgr": "市集2",
+      "bgm": "森归湖遇鹿",
       "onNext": { "nextNode": true }
     },
     "50352": {
@@ -18533,8 +18555,8 @@
       "voice": "50352",
       "name": "narrator",
       "lCharactor": "",
-      "bgr": "",
-      "bgm": "",
+      "bgr": "市集2",
+      "bgm": "森归湖遇鹿",
       "onNext": { "nextNode": true }
     },
     "50353": {
@@ -18542,8 +18564,8 @@
       "voice": "50353",
       "name": "tomoya",
       "lCharactor": "友也_梦境",
-      "bgr": "",
-      "bgm": "",
+      "bgr": "市集2",
+      "bgm": "森归湖遇鹿",
       "onNext": { "nextNode": true }
     },
     "50354": {
@@ -18551,8 +18573,8 @@
       "voice": "50354",
       "name": "ayane",
       "rCharactor": "绚音_梦境",
-      "bgr": "",
-      "bgm": "",
+      "bgr": "市集2",
+      "bgm": "森归湖遇鹿",
       "onNext": { "nextNode": true }
     },
     "50355": {
@@ -18560,8 +18582,8 @@
       "voice": "50355",
       "name": "narrator",
       "lCharactor": "",
-      "bgr": "",
-      "bgm": "",
+      "bgr": "市集2",
+      "bgm": "森归湖遇鹿",
       "onNext": { "nextNode": true }
     },
     "50356": {
@@ -18569,16 +18591,16 @@
       "voice": "50356",
       "name": "narrator",
       "rCharactor": "",
-      "bgr": "",
-      "bgm": "",
+      "bgr": "市集2",
+      "bgm": "森归湖遇鹿",
       "onNext": { "nextNode": true }
     },
     "50357": {
       "type": "animation",
       "name": "fadeInBlack",
       "voice": "50357",
-      "bgr":"",
-      "bgm":"",
+      "bgr": "市集2",
+      "bgm": "森归湖遇鹿",
       "rCharactor":"",
       "onNext": { "nextNode": true }
     },
@@ -18586,8 +18608,8 @@
       "type": "animation",
       "name": "fadeInBlack",
       "voice": "50358",
-      "bgr":"",
-      "bgm":"",
+      "bgr": "酒吧1",
+      "bgm": "短暂的回忆",
       "rCharactor":"",
       "onNext": { "nextNode": true }
     },
@@ -18596,8 +18618,8 @@
       "voice": "50359",
       "name": "narrator",
       "lCharactor": "",
-      "bgr": "",
-      "bgm": "",
+      "bgr": "酒吧1",
+      "bgm": "短暂的回忆",
       "onNext": { "nextNode": true }
     },
     "50360": {
@@ -18605,8 +18627,8 @@
       "voice": "50360",
       "name": "narrator",
       "lCharactor": "",
-      "bgr": "",
-      "bgm": "",
+      "bgr": "酒吧1",
+      "bgm": "短暂的回忆",
       "onNext": { "nextNode": true }
     },
     "50361": {
@@ -18614,8 +18636,8 @@
       "voice": "50361",
       "name": "ayane",
       "rCharactor": "绚音_梦境",
-      "bgr": "",
-      "bgm": "",
+      "bgr": "酒吧1",
+      "bgm": "短暂的回忆",
       "onNext": { "nextNode": true }
     },
     "50362": {
@@ -18623,16 +18645,16 @@
       "voice": "50362",
       "name": "tomoya",
       "rCharactor": "友也_梦境",
-      "bgr": "",
-      "bgm": "",
+      "bgr": "酒吧1",
+      "bgm": "短暂的回忆",
       "onNext": { "nextNode": true }
     },
     "50363": {
       "type": "animation",
       "name": "fadeInBlack",
       "voice": "50363",
-      "bgr":"",
-      "bgm":"",
+      "bgr": "酒吧1",
+      "bgm": "短暂的回忆",
       "rCharactor":"",
       "onNext": { "nextNode": true }
     },
@@ -18641,8 +18663,8 @@
       "voice": "50364",
       "name": "narrator",
       "rCharactor": "",
-      "bgr": "",
-      "bgm": "",
+      "bgr": "酒吧1",
+      "bgm": "短暂的回忆",
       "onNext": { "nextNode": true }
     },
     "50365": {
@@ -18650,16 +18672,16 @@
       "voice": "50365",
       "name": "ayane",
       "rCharactor": "绚音_梦境",
-      "bgr": "",
-      "bgm": "",
+      "bgr": "酒吧1",
+      "bgm": "短暂的回忆",
       "onNext": { "nextNode": true }
     },
     "50366": {
       "type": "animation",
       "name": "fadeInBlack",
       "voice": "50366",
-      "bgr":"",
-      "bgm":"",
+      "bgr": "酒吧1",
+      "bgm": "短暂的回忆",
       "lCharactor":"",
       "onNext": { "nextNode": true }
     },
@@ -18668,8 +18690,8 @@
       "voice": "50367",
       "name": "narrator",
       "lCharactor": "",
-      "bgr": "",
-      "bgm": "",
+      "bgr": "酒吧1",
+      "bgm": "短暂的回忆",
       "onNext": { "nextNode": true }
     },
     "50368": {
@@ -18677,8 +18699,8 @@
       "voice": "50368",
       "name": "narrator",
       "lCharactor": "",
-      "bgr": "",
-      "bgm": "",
+      "bgr": "酒吧1",
+      "bgm": "短暂的回忆",
       "onNext": { "nextNode": true }
     },
     "50369": {
@@ -18686,8 +18708,8 @@
       "voice": "50369",
       "name": "narrator",
       "lCharactor": "",
-      "bgr": "",
-      "bgm": "",
+      "bgr": "酒吧2",
+      "bgm": "短暂的回忆",
       "onNext": { "nextNode": true }
     },
     "50370": {
@@ -18695,8 +18717,8 @@
       "voice": "50370",
       "name": "tomoya",
       "lCharactor": "友也_梦境",
-      "bgr": "",
-      "bgm": "",
+      "bgr": "酒吧2",
+      "bgm": "短暂的回忆",
       "onNext": { "nextNode": true }
     },
     "50371": {
@@ -18704,8 +18726,8 @@
       "voice": "50371",
       "name": "aoi",
       "lCharactor": "葵_梦境",
-      "bgr": "",
-      "bgm": "",
+      "bgr": "酒吧2",
+      "bgm": "短暂的回忆",
       "onNext": { "nextNode": true }
     },
     "50372": {
@@ -18713,8 +18735,8 @@
       "voice": "50372",
       "name": "ayane",
       "lCharactor": "绚音_梦境",
-      "bgr": "",
-      "bgm": "",
+      "bgr": "酒吧2",
+      "bgm": "短暂的回忆",
       "onNext": { "nextNode": true }
     },
     "50373": {
@@ -18722,8 +18744,8 @@
       "voice": "50373",
       "name": "ryo",
       "lCharactor": "凉_梦境",
-      "bgr": "",
-      "bgm": "",
+      "bgr": "酒吧2",
+      "bgm": "短暂的回忆",
       "onNext": { "nextNode": true }
     },
     "50374": {
@@ -18731,8 +18753,8 @@
       "voice": "50374",
       "name": "narrator",
       "lCharactor": "",
-      "bgr": "",
-      "bgm": "",
+      "bgr": "酒吧2",
+      "bgm": "短暂的回忆",
       "onNext": { "nextNode": true }
     },
     "50375": {
@@ -18740,8 +18762,8 @@
       "voice": "50375",
       "name": "ayane",
       "lCharactor": "绚音_梦境",
-      "bgr": "",
-      "bgm": "",
+      "bgr": "酒吧2",
+      "bgm": "短暂的回忆",
       "onNext": { "nextNode": true }
     },
     "50376": {
@@ -18749,8 +18771,8 @@
       "voice": "50376",
       "name": "tomoya",
       "lCharactor": "友也_梦境",
-      "bgr": "",
-      "bgm": "",
+      "bgr": "酒吧2",
+      "bgm": "短暂的回忆",
       "onNext": { "nextNode": true }
     },
     "50377": {
@@ -18758,16 +18780,16 @@
       "voice": "50377",
       "name": "ryo",
       "rCharactor": "凉_梦境",
-      "bgr": "",
-      "bgm": "",
+      "bgr": "酒吧2",
+      "bgm": "短暂的回忆",
       "onNext": { "nextNode": true }
     },
     "50378": {
       "type": "animation",
       "name": "fadeInBlack",
       "voice": "50378",
-      "bgr":"",
-      "bgm":"",
+      "bgr": "酒吧2",
+      "bgm": "短暂的回忆",
       "lCharactor":"",
       "onNext": { "nextNode": true }
     },
@@ -18776,8 +18798,8 @@
       "voice": "50379",
       "name": "narrator",
       "rCharactor": "",
-      "bgr": "",
-      "bgm": "",
+      "bgr": "酒吧2",
+      "bgm": "短暂的回忆",
       "onNext": { "nextNode": true }
     },
     "50380": {
@@ -18785,16 +18807,16 @@
       "voice": "50380",
       "name": "narrator",
       "lCharactor": "",
-      "bgr": "",
-      "bgm": "",
+      "bgr": "公交车站1",
+      "bgm": "短暂的回忆",
       "onNext": { "nextNode": true }
     },
     "50381": {
       "type": "animation",
       "name": "fadeInBlack",
       "voice": "50381",
-      "bgr":"",
-      "bgm":"",
+      "bgr": "公交车站1",
+      "bgm": "夏夜烟火",
       "lCharactor":"",
       "onNext": { "nextNode": true }
     },
@@ -18803,8 +18825,8 @@
       "voice": "50382",
       "name": "narrator",
       "lCharactor": "",
-      "bgr": "",
-      "bgm": "",
+      "bgr": "烟花13",
+      "bgm": "夏夜烟火",
       "onNext": { "nextNode": true }
     },
     "50383": {
@@ -18812,8 +18834,8 @@
       "voice": "50383",
       "name": "narrator",
       "rCharactor": "",
-      "bgr": "",
-      "bgm": "",
+      "bgr": "烟花13",
+      "bgm": "夏夜烟火",
       "onNext": { "nextNode": true }
     },
     "50384": {
@@ -18821,8 +18843,8 @@
       "voice": "50384",
       "name": "ayane",
       "rCharactor": "绚音_梦境",
-      "bgr": "",
-      "bgm": "",
+      "bgr": "烟花13",
+      "bgm": "夏夜烟火",
       "onNext": { "nextNode": true }
     },
     "50385": {
@@ -18830,8 +18852,8 @@
       "voice": "50385",
       "name": "tomoya",
       "rCharactor": "友也_梦境",
-      "bgr": "",
-      "bgm": "",
+      "bgr": "烟花13",
+      "bgm": "夏夜烟火",
       "onNext": { "nextNode": true }
     },
     "50386": {
@@ -18839,8 +18861,8 @@
       "voice": "50386",
       "name": "aoi",
       "rCharactor": "葵_梦境",
-      "bgr": "",
-      "bgm": "",
+      "bgr": "烟花13",
+      "bgm": "夏夜烟火",
       "onNext": { "nextNode": true }
     },
     "50387": {
@@ -18848,16 +18870,16 @@
       "voice": "50387",
       "name": "ryo",
       "lCharactor": "凉_梦境",
-      "bgr": "",
-      "bgm": "",
+      "bgr": "烟花13",
+      "bgm": "夏夜烟火",
       "onNext": { "nextNode": true }
     },
     "50388": {
       "type": "animation",
       "name": "fadeInBlack",
       "voice": "50388",
-      "bgr":"",
-      "bgm":"",
+      "bgr": "烟花13",
+      "bgm": "夏夜烟火",
       "lCharactor":"",
       "onNext": { "nextNode": true }
     },
@@ -18866,8 +18888,8 @@
       "voice": "50389",
       "name": "narrator",
       "lCharactor": "",
-      "bgr": "",
-      "bgm": "",
+      "bgr": "烟花13",
+      "bgm": "夏夜烟火",
       "onNext": { "nextNode": true }
     },
     "50390": {
@@ -18875,8 +18897,8 @@
       "voice": "50390",
       "name": "narrator",
       "lCharactor": "",
-      "bgr": "",
-      "bgm": "",
+      "bgr": "烟花13",
+      "bgm": "夏夜烟火",
       "onNext": { "nextNode": true }
     },
     "50391": {
@@ -18884,8 +18906,8 @@
       "voice": "50391",
       "name": "narrator",
       "lCharactor": "",
-      "bgr": "",
-      "bgm": "",
+      "bgr": "烟花12",
+      "bgm": "夏夜烟火",
       "onNext": { "nextNode": true }
     },
     "50392": {
@@ -18893,8 +18915,8 @@
       "voice": "50392",
       "name": "narrator",
       "rCharactor": "",
-      "bgr": "",
-      "bgm": "",
+      "bgr": "烟花12",
+      "bgm": "夏夜烟火",
       "onNext": { "nextNode": true }
     },
     "50393": {
@@ -18902,16 +18924,16 @@
       "voice": "50393",
       "name": "narrator",
       "lCharactor": "",
-      "bgr": "",
-      "bgm": "",
+      "bgr": "烟花12",
+      "bgm": "夏夜烟火",
       "onNext": { "nextNode": true }
     },
     "50394": {
       "type": "animation",
       "name": "fadeInBlack",
       "voice": "50394",
-      "bgr":"",
-      "bgm":"",
+      "bgr": "烟花12",
+      "bgm": "夏夜烟火",
       "rCharactor":"",
       "onNext": { "nextNode": true }
     },
@@ -18920,8 +18942,8 @@
       "voice": "50395",
       "name": "narrator",
       "lCharactor": "",
-      "bgr": "",
-      "bgm": "",
+      "bgr": "烟花12",
+      "bgm": "夏夜烟火",
       "onNext": { "nextNode": true }
     },
     "50396": {
@@ -18929,8 +18951,8 @@
       "voice": "50396",
       "name": "tomoya",
       "lCharactor": "友也_梦境",
-      "bgr": "",
-      "bgm": "",
+      "bgr": "烟花12",
+      "bgm": "夏夜烟火",
       "onNext": { "nextNode": true }
     },
     "50397": {
@@ -18938,8 +18960,8 @@
       "voice": "50397",
       "name": "ayane",
       "lCharactor": "绚音_梦境",
-      "bgr": "",
-      "bgm": "",
+      "bgr": "烟花12",
+      "bgm": "夏夜烟火",
       "onNext": { "nextNode": true }
     },
     "50398": {
@@ -18947,8 +18969,8 @@
       "voice": "50398",
       "name": "aoi",
       "rCharactor": "葵_梦境",
-      "bgr": "",
-      "bgm": "",
+      "bgr": "烟花12",
+      "bgm": "夏夜烟火",
       "onNext": { "nextNode": true }
     },
     "50399": {
@@ -18956,8 +18978,8 @@
       "voice": "50399",
       "name": "ryo",
       "lCharactor": "凉_梦境",
-      "bgr": "",
-      "bgm": "",
+      "bgr": "烟花12",
+      "bgm": "夏夜烟火",
       "onNext": { "nextNode": true }
     },
     "50400": {
@@ -18965,8 +18987,8 @@
       "voice": "50400",
       "name": "ryo",
       "rCharactor": "凉_梦境",
-      "bgr": "",
-      "bgm": "",
+      "bgr": "烟花12",
+      "bgm": "夏夜烟火",
       "onNext": { "nextNode": true }
     },
     "50401": {
@@ -18974,8 +18996,8 @@
       "voice": "50401",
       "name": "narrator",
       "rCharactor": "",
-      "bgr": "",
-      "bgm": "",
+      "bgr": "烟花14",
+      "bgm": "夏夜烟火",
       "onNext": { "nextNode": true }
     },
     "50402": {
@@ -18983,8 +19005,8 @@
       "voice": "50402",
       "name": "narrator",
       "lCharactor": "",
-      "bgr": "",
-      "bgm": "",
+      "bgr": "烟花14",
+      "bgm": "夏夜烟火",
       "onNext": { "nextNode": true }
     },
     "50403": {
@@ -18992,16 +19014,16 @@
       "voice": "50403",
       "name": "narrator",
       "rCharactor": "",
-      "bgr": "",
-      "bgm": "",
+      "bgr": "烟花14",
+      "bgm": "夏夜烟火",
       "onNext": { "nextNode": true }
     },
     "50404": {
       "type": "animation",
       "name": "fadeInBlack",
       "voice": "50404",
-      "bgr":"",
-      "bgm":"",
+      "bgr": "烟花14",
+      "bgm": "夏夜烟火",
       "lCharactor":"",
       "onNext": { "nextNode": true }
     },
@@ -19009,8 +19031,8 @@
       "type": "animation",
       "name": "fadeInBlack",
       "voice": "50405",
-      "bgr":"",
-      "bgm":"",
+      "bgr": "test",
+      "bgm": "夏天的呼唤",
       "lCharactor":"",
       "onNext": { "nextNode": true }
     },
@@ -19020,15 +19042,15 @@
       "name": "narrator",
       "rCharactor": "",
       "bgr": "",
-      "bgm": "",
+      "bgm": "夏天的呼唤",
       "onNext": { "nextNode": true }
     },
     "50407": {
       "type": "animation",
       "name": "fadeInBlack",
       "voice": "50407",
-      "bgr":"",
-      "bgm":"",
+      "bgr": "",
+      "bgm": "夏天的呼唤",
       "rCharactor":"",
       "onNext": { "nextNode": true }
     },
@@ -19038,7 +19060,7 @@
       "name": "narrator",
       "lCharactor": "",
       "bgr": "",
-      "bgm": "",
+      "bgm": "夏天的呼唤",
       "onNext": { "nextNode": true }
     },
     "50409": {
@@ -19047,7 +19069,7 @@
       "name": "narrator",
       "lCharactor": "",
       "bgr": "",
-      "bgm": "",
+      "bgm": "夏天的呼唤",
       "onNext": { "nextNode": true }
     },
     "50410": {
@@ -19056,15 +19078,15 @@
       "name": "tomoya",
       "lCharactor": "友也_梦境",
       "bgr": "",
-      "bgm": "",
+      "bgm": "夏天的呼唤",
       "onNext": { "nextNode": true }
     },
     "50411": {
       "type": "animation",
       "name": "fadeInBlack",
       "voice": "50411",
-      "bgr":"",
-      "bgm":"",
+      "bgr": "",
+      "bgm": "夏天的呼唤",
       "lCharactor":"",
       "onNext": { "nextNode": true }
     },
@@ -19074,15 +19096,15 @@
       "name": "narrator",
       "rCharactor": "",
       "bgr": "",
-      "bgm": "",
+      "bgm": "夏天的呼唤",
       "onNext": { "nextNode": true }
     },
     "50413": {
       "type": "animation",
       "name": "fadeInBlack",
       "voice": "50413",
-      "bgr":"",
-      "bgm":"",
+      "bgr": "",
+      "bgm": "夏天的呼唤",
       "rCharactor":"",
       "onNext": { "nextNode": true }
     },
@@ -19092,7 +19114,7 @@
       "name": "narrator",
       "lCharactor": "",
       "bgr": "",
-      "bgm": "",
+      "bgm": "夏天的呼唤",
       "onNext": { "nextNode": true }
     },
     "50415": {
@@ -19101,7 +19123,7 @@
       "name": "narrator",
       "lCharactor": "",
       "bgr": "",
-      "bgm": "",
+      "bgm": "夏天的呼唤",
       "onNext": { "nextNode": true }
     },
     "50416": {
@@ -19110,7 +19132,7 @@
       "name": "narrator",
       "rCharactor": "",
       "bgr": "",
-      "bgm": "",
+      "bgm": "夏天的呼唤",
       "onNext": { "nextNode": true }
     },
     "50417": {
@@ -19119,15 +19141,15 @@
       "name": "narrator",
       "lCharactor": "",
       "bgr": "",
-      "bgm": "",
+      "bgm": "夏天的呼唤",
       "onNext": { "nextNode": true }
     },
     "50418": {
       "type": "animation",
       "name": "fadeInBlack",
       "voice": "50418",
-      "bgr":"",
-      "bgm":"",
+      "bgr": "",
+      "bgm": "夏天的呼唤",
       "rCharactor":"",
       "onNext": { "nextNode": true }
     },
@@ -19137,15 +19159,15 @@
       "name": "narrator",
       "rCharactor": "",
       "bgr": "",
-      "bgm": "",
+      "bgm": "夏天的呼唤",
       "onNext": { "nextNode": true }
     },
     "50420": {
       "type": "animation",
       "name": "fadeInBlack",
       "voice": "50420",
-      "bgr":"",
-      "bgm":"",
+      "bgr": "",
+      "bgm": "夏天的呼唤",
       "lCharactor":"",
       "onNext": { "nextNode": true }
     },
@@ -19155,7 +19177,7 @@
       "name": "aoi",
       "lCharactor": "葵_梦境",
       "bgr": "",
-      "bgm": "",
+      "bgm": "夏天的呼唤",
       "onNext": { "nextNode": true }
     },
     "50422": {
@@ -19164,7 +19186,7 @@
       "name": "narrator",
       "rCharactor": "",
       "bgr": "",
-      "bgm": "",
+      "bgm": "夏天的呼唤",
       "onNext": { "nextNode": true }
     },
     "50423": {
@@ -19173,7 +19195,7 @@
       "name": "narrator",
       "lCharactor": "",
       "bgr": "",
-      "bgm": "",
+      "bgm": "夏天的呼唤",
       "onNext": { "nextNode": true }
     },
     "50424": {
@@ -19182,15 +19204,15 @@
       "name": "narrator",
       "rCharactor": "",
       "bgr": "",
-      "bgm": "",
+      "bgm": "夏天的呼唤",
       "onNext": { "nextNode": true }
     },
     "50425": {
       "type": "animation",
       "name": "fadeInBlack",
       "voice": "50425",
-      "bgr":"",
-      "bgm":"",
+      "bgr": "",
+      "bgm": "夜与萤火虫",
       "rCharactor":"",
       "onNext": { "nextNode": true }
     },
@@ -19200,7 +19222,7 @@
       "name": "narrator",
       "rCharactor": "",
       "bgr": "",
-      "bgm": "",
+      "bgm": "夜与萤火虫",
       "onNext": { "nextNode": true }
     },
     "50427": {
@@ -19209,7 +19231,7 @@
       "name": "narrator",
       "rCharactor": "",
       "bgr": "",
-      "bgm": "",
+      "bgm": "夜与萤火虫",
       "onNext": { "nextNode": true }
     },
     "50428": {
@@ -19218,7 +19240,7 @@
       "name": "ryo",
       "rCharactor": "凉_梦境",
       "bgr": "",
-      "bgm": "",
+      "bgm": "夜与萤火虫",
       "onNext": { "nextNode": true }
     },
     "50429": {
@@ -19227,15 +19249,15 @@
       "name": "narrator",
       "lCharactor": "",
       "bgr": "",
-      "bgm": "",
+      "bgm": "夜与萤火虫",
       "onNext": { "nextNode": true }
     },
     "50430": {
       "type": "animation",
       "name": "fadeInBlack",
       "voice": "50430",
-      "bgr":"",
-      "bgm":"",
+      "bgr": "",
+      "bgm": "夜与萤火虫",
       "rCharactor":"",
       "onNext": { "nextNode": true }
     },
@@ -19245,7 +19267,7 @@
       "name": "narrator",
       "lCharactor": "",
       "bgr": "",
-      "bgm": "",
+      "bgm": "夜与萤火虫",
       "onNext": { "nextNode": true }
     },
     "50432": {
@@ -19254,15 +19276,15 @@
       "name": "narrator",
       "rCharactor": "",
       "bgr": "",
-      "bgm": "",
+      "bgm": "夜与萤火虫",
       "onNext": { "nextNode": true }
     },
     "50433": {
       "type": "animation",
       "name": "fadeInBlack",
       "voice": "50433",
-      "bgr":"",
-      "bgm":"",
+      "bgr": "",
+      "bgm": "夜与萤火虫",
       "lCharactor":"",
       "onNext": { "nextNode": true }
     },
@@ -19272,7 +19294,7 @@
       "name": "narrator",
       "lCharactor": "",
       "bgr": "",
-      "bgm": "",
+      "bgm": "夜与萤火虫",
       "onNext": { "nextNode": true }
     },
     "50435": {
@@ -19281,7 +19303,7 @@
       "name": "ayane",
       "rCharactor": "绚音_梦境",
       "bgr": "",
-      "bgm": "",
+      "bgm": "夜与萤火虫",
       "onNext": { "nextNode": true }
     },
     "50436": {
@@ -19290,7 +19312,7 @@
       "name": "narrator",
       "rCharactor": "",
       "bgr": "",
-      "bgm": "",
+      "bgm": "夜与萤火虫",
       "onNext": { "nextNode": true }
     },
     "50437": {
@@ -19299,15 +19321,15 @@
       "name": "narrator",
       "lCharactor": "",
       "bgr": "",
-      "bgm": "",
+      "bgm": "夜与萤火虫",
       "onNext": { "nextNode": true }
     },
     "50438": {
       "type": "animation",
       "name": "fadeInBlack",
       "voice": "50438",
-      "bgr":"",
-      "bgm":"",
+      "bgr": "",
+      "bgm": "夜与萤火虫",
       "rCharactor":"",
       "onNext": { "nextNode": true }
     },
@@ -19317,7 +19339,7 @@
       "name": "narrator",
       "rCharactor": "",
       "bgr": "",
-      "bgm": "",
+      "bgm": "夜与萤火虫",
       "onNext": { "nextNode": true }
     },
     "50440": {
@@ -19326,7 +19348,7 @@
       "name": "narrator",
       "lCharactor": "",
       "bgr": "",
-      "bgm": "",
+      "bgm": "夜与萤火虫",
       "onNext": { "nextNode": true }
     },
     "50441": {
@@ -19335,15 +19357,15 @@
       "name": "narrator",
       "lCharactor": "",
       "bgr": "",
-      "bgm": "",
+      "bgm": "夜与萤火虫",
       "onNext": { "nextNode": true }
     },
     "50442": {
       "type": "animation",
       "name": "fadeInBlack",
       "voice": "50442",
-      "bgr":"",
-      "bgm":"",
+      "bgr": "",
+      "bgm": "夜与萤火虫",
       "lCharactor":"",
       "onNext": { "nextNode": true }
     },
@@ -19353,7 +19375,7 @@
       "name": "ayane",
       "lCharactor": "绚音_梦境",
       "bgr": "",
-      "bgm": "",
+      "bgm": "夜与萤火虫",
       "onNext": { "nextNode": true }
     },
     "50444": {
@@ -19362,15 +19384,15 @@
       "name": "narrator",
       "rCharactor": "",
       "bgr": "",
-      "bgm": "",
+      "bgm": "夜与萤火虫",
       "onNext": { "nextNode": true }
     },
     "50445": {
       "type": "animation",
       "name": "fadeInBlack",
       "voice": "50445",
-      "bgr":"",
-      "bgm":"",
+      "bgr": "",
+      "bgm": "阳光洒落在叶间",
       "lCharactor":"",
       "onNext": { "nextNode": true }
     },
@@ -19380,7 +19402,7 @@
       "name": "narrator",
       "rCharactor": "",
       "bgr": "",
-      "bgm": "",
+      "bgm": "阳光洒落在叶间",
       "onNext": { "nextNode": true }
     },
     "50447": {
@@ -19389,7 +19411,7 @@
       "name": "narrator",
       "lCharactor": "",
       "bgr": "",
-      "bgm": "",
+      "bgm": "阳光洒落在叶间",
       "onNext": { "nextNode": true }
     },
     "50448": {
@@ -19398,7 +19420,7 @@
       "name": "narrator",
       "rCharactor": "",
       "bgr": "",
-      "bgm": "",
+      "bgm": "阳光洒落在叶间",
       "onNext": { "nextNode": true }
     },
     "50449": {
@@ -19407,7 +19429,7 @@
       "name": "aoi",
       "lCharactor": "葵_梦境",
       "bgr": "",
-      "bgm": "",
+      "bgm": "阳光洒落在叶间",
       "onNext": { "nextNode": true }
     },
     "50450": {
@@ -19416,7 +19438,7 @@
       "name": "ryo",
       "rCharactor": "凉_梦境",
       "bgr": "",
-      "bgm": "",
+      "bgm": "阳光洒落在叶间",
       "onNext": { "nextNode": true }
     },
     "50451": {
@@ -19425,15 +19447,15 @@
       "name": "ayane",
       "lCharactor": "绚音_梦境",
       "bgr": "",
-      "bgm": "",
+      "bgm": "阳光洒落在叶间",
       "onNext": { "nextNode": true }
     },
     "50452": {
       "type": "animation",
       "name": "fadeInBlack",
       "voice": "50452",
-      "bgr":"",
-      "bgm":"",
+      "bgr": "",
+      "bgm": "阳光洒落在叶间",
       "rCharactor":"",
       "onNext": { "nextNode": true }
     },
@@ -19443,7 +19465,7 @@
       "name": "narrator",
       "lCharactor": "",
       "bgr": "",
-      "bgm": "",
+      "bgm": "阳光洒落在叶间",
       "onNext": { "nextNode": true }
     },
     "50454": {
@@ -19452,15 +19474,15 @@
       "name": "narrator",
       "lCharactor": "",
       "bgr": "",
-      "bgm": "",
+      "bgm": "阳光洒落在叶间",
       "onNext": { "nextNode": true }
     },
     "50455": {
       "type": "animation",
       "name": "fadeInBlack",
       "voice": "50455",
-      "bgr":"",
-      "bgm":"",
+      "bgr": "",
+      "bgm": "阳光洒落在叶间",
       "lCharactor":"",
       "onNext": { "nextNode": true }
     },
@@ -19470,7 +19492,7 @@
       "name": "narrator",
       "rCharactor": "",
       "bgr": "",
-      "bgm": "",
+      "bgm": "阳光洒落在叶间",
       "onNext": { "nextNode": true }
     },
     "50457": {
@@ -19479,7 +19501,7 @@
       "name": "narrator",
       "rCharactor": "",
       "bgr": "",
-      "bgm": "",
+      "bgm": "阳光洒落在叶间",
       "onNext": { "nextNode": true }
     },
     "50458": {
@@ -19488,7 +19510,7 @@
       "name": "narrator",
       "lCharactor": "",
       "bgr": "",
-      "bgm": "",
+      "bgm": "阳光洒落在叶间",
       "onNext": { "nextNode": true }
     },
     "50459": {
@@ -19497,7 +19519,7 @@
       "name": "narrator",
       "rCharactor": "",
       "bgr": "",
-      "bgm": "",
+      "bgm": "阳光洒落在叶间",
       "onNext": { "nextNode": true }
     },
     "50460": {
@@ -19506,7 +19528,7 @@
       "name": "narrator",
       "lCharactor": "",
       "bgr": "",
-      "bgm": "",
+      "bgm": "阳光洒落在叶间",
       "onNext": { "nextNode": true }
     },
     "50461": {
@@ -19515,7 +19537,7 @@
       "name": "narrator",
       "rCharactor": "",
       "bgr": "",
-      "bgm": "",
+      "bgm": "阳光洒落在叶间",
       "onNext": { "nextNode": true }
     },
     "50462": {
@@ -19524,7 +19546,7 @@
       "name": "ayane",
       "rCharactor": "绚音_梦境",
       "bgr": "",
-      "bgm": "",
+      "bgm": "阳光洒落在叶间",
       "onNext": { "nextNode": true }
     },
     "50463": {
@@ -19533,15 +19555,15 @@
       "name": "narrator",
       "lCharactor": "",
       "bgr": "",
-      "bgm": "",
+      "bgm": "阳光洒落在叶间",
       "onNext": { "nextNode": true }
     },
     "50464": {
       "type": "animation",
       "name": "fadeInBlack",
       "voice": "50464",
-      "bgr":"",
-      "bgm":"",
+      "bgr": "",
+      "bgm": "阳光洒落在叶间",
       "rCharactor":"",
       "onNext": { "nextNode": true }
     },
@@ -19551,7 +19573,7 @@
       "name": "narrator",
       "lCharactor": "",
       "bgr": "",
-      "bgm": "",
+      "bgm": "阳光洒落在叶间",
       "onNext": { "nextNode": true }
     },
     "50466": {
@@ -19560,7 +19582,7 @@
       "name": "narrator",
       "lCharactor": "",
       "bgr": "",
-      "bgm": "",
+      "bgm": "阳光洒落在叶间",
       "onNext": { "nextNode": true }
     },
     "50467": {
@@ -19569,7 +19591,7 @@
       "name": "narrator",
       "lCharactor": "",
       "bgr": "",
-      "bgm": "",
+      "bgm": "阳光洒落在叶间",
       "onNext": { "nextNode": true }
     },
     "50468": {
@@ -19578,15 +19600,15 @@
       "name": "narrator",
       "lCharactor": "",
       "bgr": "",
-      "bgm": "",
+      "bgm": "阳光洒落在叶间",
       "onNext": { "nextNode": true }
     },
     "50469": {
       "type": "animation",
       "name": "fadeInBlack",
       "voice": "50469",
-      "bgr":"",
-      "bgm":"",
+      "bgr": "",
+      "bgm": "阳光洒落在叶间",
       "lCharactor":"",
       "onNext": { "nextNode": true }
     },
@@ -19596,7 +19618,7 @@
       "name": "narrator",
       "rCharactor": "",
       "bgr": "",
-      "bgm": "",
+      "bgm": "阳光洒落在叶间",
       "onNext": { "nextNode": true }
     },
     "50471": {
@@ -19605,7 +19627,7 @@
       "name": "narrator",
       "lCharactor": "",
       "bgr": "",
-      "bgm": "",
+      "bgm": "阳光洒落在叶间",
       "onNext": { "nextNode": true }
     },
     "50472": {
@@ -19614,15 +19636,15 @@
       "name": "narrator",
       "rCharactor": "",
       "bgr": "",
-      "bgm": "",
+      "bgm": "阳光洒落在叶间",
       "onNext": { "nextNode": true }
     },
     "50473": {
       "type": "animation",
       "name": "fadeInBlack",
       "voice": "50473",
-      "bgr":"",
-      "bgm":"",
+      "bgr": "",
+      "bgm": "阳光洒落在叶间",
       "lCharactor":"",
       "onNext": { "nextNode": true }
     },
@@ -19632,7 +19654,7 @@
       "name": "ayane",
       "rCharactor": "绚音_梦境",
       "bgr": "",
-      "bgm": "",
+      "bgm": "阳光洒落在叶间",
       "onNext": { "nextNode": true }
     },
     "50475": {
@@ -19641,15 +19663,15 @@
       "name": "narrator",
       "rCharactor": "",
       "bgr": "",
-      "bgm": "",
+      "bgm": "阳光洒落在叶间",
       "onNext": { "nextNode": true }
     },
     "50476": {
       "type": "animation",
       "name": "fadeInBlack",
       "voice": "50476",
-      "bgr":"",
-      "bgm":"",
+      "bgr": "",
+      "bgm": "阳光洒落在叶间",
       "rCharactor":"",
       "onNext": { "nextNode": true }
     },
@@ -19659,15 +19681,15 @@
       "name": "narrator",
       "lCharactor": "",
       "bgr": "",
-      "bgm": "",
+      "bgm": "阳光洒落在叶间",
       "onNext": { "nextNode": true }
     },
     "50478": {
       "type": "animation",
       "name": "fadeInBlack",
       "voice": "50478",
-      "bgr":"",
-      "bgm":"",
+      "bgr": "",
+      "bgm": "千本樱",
       "rCharactor":"",
       "onNext": { "nextNode": true }
     },
@@ -19677,7 +19699,7 @@
       "name": "narrator",
       "rCharactor": "",
       "bgr": "",
-      "bgm": "",
+      "bgm": "千本樱",
       "onNext": { "nextNode": true }
     },
     "50480": {
@@ -19686,7 +19708,7 @@
       "name": "narrator",
       "lCharactor": "",
       "bgr": "",
-      "bgm": "",
+      "bgm": "千本樱",
       "onNext": { "nextNode": true }
     },
     "50481": {
@@ -19695,7 +19717,7 @@
       "name": "tomoya",
       "rCharactor": "友也_梦境",
       "bgr": "",
-      "bgm": "",
+      "bgm": "千本樱",
       "onNext": { "nextNode": true }
     },
     "50482": {
@@ -19704,7 +19726,7 @@
       "name": "narrator",
       "lCharactor": "",
       "bgr": "",
-      "bgm": "",
+      "bgm": "千本樱",
       "onNext": { "nextNode": true }
     },
     "50483": {
@@ -19713,7 +19735,7 @@
       "name": "ryo",
       "rCharactor": "凉_梦境",
       "bgr": "",
-      "bgm": "",
+      "bgm": "千本樱",
       "onNext": { "nextNode": true }
     },
     "50484": {
@@ -19722,7 +19744,7 @@
       "name": "narrator",
       "lCharactor": "",
       "bgr": "",
-      "bgm": "",
+      "bgm": "千本樱",
       "onNext": { "nextNode": true }
     },
     "50485": {
@@ -19731,7 +19753,7 @@
       "name": "aoi",
       "lCharactor": "葵_梦境",
       "bgr": "",
-      "bgm": "",
+      "bgm": "千本樱",
       "onNext": { "nextNode": true }
     },
     "50486": {
@@ -19740,7 +19762,7 @@
       "name": "narrator",
       "lCharactor": "",
       "bgr": "",
-      "bgm": "",
+      "bgm": "千本樱",
       "onNext": { "nextNode": true }
     },
     "50487": {
@@ -19749,15 +19771,15 @@
       "name": "ayane",
       "lCharactor": "绚音_梦境",
       "bgr": "",
-      "bgm": "",
+      "bgm": "千本樱",
       "onNext": { "nextNode": true }
     },
     "50488": {
       "type": "animation",
       "name": "fadeInBlack",
       "voice": "50488",
-      "bgr":"",
-      "bgm":"",
+      "bgr": "",
+      "bgm": "千本樱",
       "rCharactor":"",
       "onNext": { "nextNode": true }
     },
@@ -19767,7 +19789,7 @@
       "name": "narrator",
       "rCharactor": "",
       "bgr": "",
-      "bgm": "",
+      "bgm": "千本樱",
       "onNext": { "nextNode": true }
     },
     "50490": {
@@ -19776,15 +19798,15 @@
       "name": "narrator",
       "rCharactor": "",
       "bgr": "",
-      "bgm": "",
+      "bgm": "千本樱",
       "onNext": { "nextNode": true }
     },
     "50491": {
       "type": "animation",
       "name": "fadeInBlack",
       "voice": "50491",
-      "bgr":"",
-      "bgm":"",
+      "bgr": "",
+      "bgm": "千本樱",
       "rCharactor":"",
       "onNext": { "nextNode": true }
     },
@@ -19794,7 +19816,7 @@
       "name": "narrator",
       "lCharactor": "",
       "bgr": "",
-      "bgm": "",
+      "bgm": "千本樱",
       "onNext": { "nextNode": true }
     },
     "50493": {
@@ -19803,7 +19825,7 @@
       "name": "narrator",
       "rCharactor": "",
       "bgr": "",
-      "bgm": "",
+      "bgm": "千本樱",
       "onNext": { "nextNode": true }
     },
     "50494": {
@@ -19812,7 +19834,7 @@
       "name": "tomoya",
       "rCharactor": "友也_梦境",
       "bgr": "",
-      "bgm": "",
+      "bgm": "千本樱",
       "onNext": { "nextNode": true }
     },
     "50495": {
@@ -19821,7 +19843,7 @@
       "name": "ayane",
       "rCharactor": "绚音_梦境",
       "bgr": "",
-      "bgm": "",
+      "bgm": "千本樱",
       "onNext": { "nextNode": true }
     },
     "50496": {
@@ -19830,7 +19852,7 @@
       "name": "ryo",
       "rCharactor": "凉_梦境",
       "bgr": "",
-      "bgm": "",
+      "bgm": "千本樱",
       "onNext": { "nextNode": true }
     },
     "50497": {
@@ -19839,15 +19861,15 @@
       "name": "aoi",
       "lCharactor": "葵_梦境",
       "bgr": "",
-      "bgm": "",
+      "bgm": "千本樱",
       "onNext": { "nextNode": true }
     },
     "50498": {
       "type": "animation",
       "name": "fadeInBlack",
       "voice": "50498",
-      "bgr":"",
-      "bgm":"",
+      "bgr": "",
+      "bgm": "妄想哀歌",
       "lCharactor":"",
       "onNext": { "nextNode": true }
     },
@@ -19857,7 +19879,7 @@
       "name": "narrator",
       "lCharactor": "",
       "bgr": "",
-      "bgm": "",
+      "bgm": "妄想哀歌",
       "onNext": { "nextNode": true }
     },
     "50500": {
@@ -19866,15 +19888,15 @@
       "name": "narrator",
       "rCharactor": "",
       "bgr": "",
-      "bgm": "",
+      "bgm": "妄想哀歌",
       "onNext": { "nextNode": true }
     },
     "50501": {
       "type": "animation",
       "name": "fadeInBlack",
       "voice": "50501",
-      "bgr":"",
-      "bgm":"",
+      "bgr": "",
+      "bgm": "妄想哀歌",
       "lCharactor":"",
       "onNext": { "nextNode": true }
     },
@@ -19884,7 +19906,7 @@
       "name": "narrator",
       "lCharactor": "",
       "bgr": "",
-      "bgm": "",
+      "bgm": "妄想哀歌",
       "onNext": { "nextNode": true }
     },
     "50503": {
@@ -19893,7 +19915,7 @@
       "name": "tomoya",
       "lCharactor": "友也_梦境",
       "bgr": "",
-      "bgm": "",
+      "bgm": "妄想哀歌",
       "onNext": { "nextNode": true }
     },
     "50504": {
@@ -19902,15 +19924,15 @@
       "name": "ayane",
       "rCharactor": "绚音_梦境",
       "bgr": "",
-      "bgm": "",
+      "bgm": "妄想哀歌",
       "onNext": { "nextNode": true }
     },
     "50505": {
       "type": "animation",
       "name": "fadeInBlack",
       "voice": "50505",
-      "bgr":"",
-      "bgm":"",
+      "bgr": "",
+      "bgm": "妄想哀歌",
       "rCharactor":"",
       "onNext": { "nextNode": true }
     },
@@ -19920,7 +19942,7 @@
       "name": "narrator",
       "rCharactor": "",
       "bgr": "",
-      "bgm": "",
+      "bgm": "妄想哀歌",
       "onNext": { "nextNode": true }
     },
     "50507": {
@@ -19929,7 +19951,7 @@
       "name": "ryo",
       "lCharactor": "凉_梦境",
       "bgr": "",
-      "bgm": "",
+      "bgm": "妄想哀歌",
       "onNext": { "nextNode": true }
     },
     "50508": {
@@ -19938,15 +19960,15 @@
       "name": "aoi",
       "lCharactor": "葵_梦境",
       "bgr": "",
-      "bgm": "",
+      "bgm": "妄想哀歌",
       "onNext": { "nextNode": true }
     },
     "50509": {
       "type": "animation",
       "name": "fadeInBlack",
       "voice": "50509",
-      "bgr":"",
-      "bgm":"",
+      "bgr": "",
+      "bgm": "妄想哀歌",
       "rCharactor":"",
       "onNext": { "nextNode": true }
     },
@@ -19956,15 +19978,15 @@
       "name": "narrator",
       "lCharactor": "",
       "bgr": "",
-      "bgm": "",
+      "bgm": "妄想哀歌",
       "onNext": { "nextNode": true }
     },
     "50511": {
       "type": "animation",
       "name": "fadeInBlack",
       "voice": "50511",
-      "bgr":"",
-      "bgm":"",
+      "bgr": "",
+      "bgm": "妄想哀歌",
       "rCharactor":"",
       "onNext": { "nextNode": true }
     },
@@ -19974,7 +19996,7 @@
       "name": "narrator",
       "rCharactor": "",
       "bgr": "",
-      "bgm": "",
+      "bgm": "妄想哀歌",
       "onNext": { "nextNode": true }
     },
     "50513": {
@@ -19983,7 +20005,7 @@
       "name": "narrator",
       "lCharactor": "",
       "bgr": "",
-      "bgm": "",
+      "bgm": "妄想哀歌",
       "onNext": { "nextNode": true }
     },
     "50514": {
@@ -19992,7 +20014,7 @@
       "name": "tomoya",
       "rCharactor": "友也_梦境",
       "bgr": "",
-      "bgm": "",
+      "bgm": "妄想哀歌",
       "onNext": { "nextNode": true }
     },
     "50515": {
@@ -20001,7 +20023,7 @@
       "name": "ayane",
       "rCharactor": "绚音_梦境",
       "bgr": "",
-      "bgm": "",
+      "bgm": "妄想哀歌",
       "onNext": { "nextNode": true }
     },
     "50516": {
@@ -20010,7 +20032,7 @@
       "name": "ryo",
       "lCharactor": "凉_梦境",
       "bgr": "",
-      "bgm": "",
+      "bgm": "妄想哀歌",
       "onNext": { "nextNode": true }
     },
     "50517": {
@@ -20019,7 +20041,7 @@
       "name": "aoi",
       "rCharactor": "葵_梦境",
       "bgr": "",
-      "bgm": "",
+      "bgm": "妄想哀歌",
       "onNext": { "nextNode": true }
     },
     "50518": {
@@ -20028,15 +20050,15 @@
       "name": "tomoya",
       "rCharactor": "友也_梦境",
       "bgr": "",
-      "bgm": "",
+      "bgm": "妄想哀歌",
       "onNext": { "nextNode": true }
     },
     "50519": {
       "type": "animation",
       "name": "fadeInBlack",
       "voice": "50519",
-      "bgr":"",
-      "bgm":"",
+      "bgr": "",
+      "bgm": "花上亡灵",
       "rCharactor":"",
       "onNext": { "nextNode": true }
     },
@@ -20046,7 +20068,7 @@
       "name": "narrator",
       "lCharactor": "",
       "bgr": "",
-      "bgm": "",
+      "bgm": "花上亡灵",
       "onNext": { "nextNode": true }
     },
     "50521": {
@@ -20055,7 +20077,7 @@
       "name": "narrator",
       "lCharactor": "",
       "bgr": "",
-      "bgm": "",
+      "bgm": "花上亡灵",
       "onNext": { "nextNode": true }
     },
     "50522": {
@@ -20064,7 +20086,7 @@
       "name": "narrator",
       "rCharactor": "",
       "bgr": "",
-      "bgm": "",
+      "bgm": "花上亡灵",
       "onNext": { "nextNode": true }
     },
     "50523": {
@@ -20073,15 +20095,15 @@
       "name": "narrator",
       "lCharactor": "",
       "bgr": "",
-      "bgm": "",
+      "bgm": "花上亡灵",
       "onNext": { "nextNode": true }
     },
     "50524": {
       "type": "animation",
       "name": "fadeInBlack",
       "voice": "50524",
-      "bgr":"",
-      "bgm":"",
+      "bgr": "",
+      "bgm": "花上亡灵",
       "rCharactor":"",
       "onNext": { "nextNode": true }
     },
@@ -20091,7 +20113,7 @@
       "name": "narrator",
       "rCharactor": "",
       "bgr": "",
-      "bgm": "",
+      "bgm": "花上亡灵",
       "onNext": { "nextNode": true }
     },
     "50526": {
@@ -20100,7 +20122,7 @@
       "name": "narrator",
       "rCharactor": "",
       "bgr": "",
-      "bgm": "",
+      "bgm": "花上亡灵",
       "onNext": { "nextNode": true }
     },
     "50527": {
@@ -20109,7 +20131,7 @@
       "name": "tomoya",
       "rCharactor": "友也_梦境",
       "bgr": "",
-      "bgm": "",
+      "bgm": "花上亡灵",
       "onNext": { "nextNode": true }
     },
     "50528": {
@@ -20118,7 +20140,7 @@
       "name": "ayane",
       "rCharactor": "绚音_梦境",
       "bgr": "",
-      "bgm": "",
+      "bgm": "花上亡灵",
       "onNext": { "nextNode": true }
     },
     "50529": {
@@ -20127,7 +20149,7 @@
       "name": "ryo",
       "lCharactor": "凉_梦境",
       "bgr": "",
-      "bgm": "",
+      "bgm": "花上亡灵",
       "onNext": { "nextNode": true }
     },
     "50530": {
@@ -20136,15 +20158,15 @@
       "name": "aoi",
       "rCharactor": "葵_梦境",
       "bgr": "",
-      "bgm": "",
+      "bgm": "花上亡灵",
       "onNext": { "nextNode": true }
     },
     "50531": {
       "type": "animation",
       "name": "fadeInBlack",
       "voice": "50531",
-      "bgr":"",
-      "bgm":"",
+      "bgr": "",
+      "bgm": "花上亡灵",
       "rCharactor":"",
       "onNext": { "nextNode": true }
     },
@@ -20154,7 +20176,7 @@
       "name": "narrator",
       "rCharactor": "",
       "bgr": "",
-      "bgm": "",
+      "bgm": "花上亡灵",
       "onNext": { "nextNode": true }
     },
     "50533": {
@@ -20163,15 +20185,15 @@
       "name": "narrator",
       "rCharactor": "",
       "bgr": "",
-      "bgm": "",
+      "bgm": "花上亡灵",
       "onNext": { "nextNode": true }
     },
     "50534": {
       "type": "animation",
       "name": "fadeInBlack",
       "voice": "50534",
-      "bgr":"",
-      "bgm":"",
+      "bgr": "",
+      "bgm": "花上亡灵",
       "rCharactor":"",
       "onNext": { "nextNode": true }
     },
@@ -20181,7 +20203,7 @@
       "name": "narrator",
       "rCharactor": "",
       "bgr": "",
-      "bgm": "",
+      "bgm": "花上亡灵",
       "onNext": { "nextNode": true }
     },
     "50536": {
@@ -20190,7 +20212,7 @@
       "name": "ayane",
       "rCharactor": "绚音_梦境",
       "bgr": "",
-      "bgm": "",
+      "bgm": "花上亡灵",
       "onNext": { "nextNode": true }
     },
     "50537": {
@@ -20199,7 +20221,7 @@
       "name": "tomoya",
       "rCharactor": "友也_梦境",
       "bgr": "",
-      "bgm": "",
+      "bgm": "花上亡灵",
       "onNext": { "nextNode": true }
     },
     "50538": {
@@ -20208,7 +20230,7 @@
       "name": "ayane",
       "lCharactor": "绚音_梦境",
       "bgr": "",
-      "bgm": "",
+      "bgm": "花上亡灵",
       "onNext": { "nextNode": true }
     },
     "50539": {
@@ -20217,15 +20239,15 @@
       "name": "aoi",
       "rCharactor": "葵_梦境",
       "bgr": "",
-      "bgm": "",
+      "bgm": "花上亡灵",
       "onNext": { "nextNode": true }
     },
     "50540": {
       "type": "animation",
       "name": "fadeInBlack",
       "voice": "50540",
-      "bgr":"",
-      "bgm":"",
+      "bgr": "",
+      "bgm": "花上亡灵",
       "lCharactor":"",
       "onNext": { "nextNode": true }
     },
@@ -20235,7 +20257,7 @@
       "name": "narrator",
       "rCharactor": "",
       "bgr": "",
-      "bgm": "",
+      "bgm": "花上亡灵",
       "onNext": { "nextNode": true }
     },
     "50542": {
@@ -20244,7 +20266,7 @@
       "name": "narrator",
       "lCharactor": "",
       "bgr": "",
-      "bgm": "",
+      "bgm": "花上亡灵",
       "onNext": { "nextNode": true }
     },
     "50543": {
@@ -20253,7 +20275,7 @@
       "name": "narrator",
       "rCharactor": "",
       "bgr": "",
-      "bgm": "",
+      "bgm": "花上亡灵",
       "onNext": { "nextNode": true }
     },
     "50544": {
@@ -20262,7 +20284,7 @@
       "name": "narrator",
       "lCharactor": "",
       "bgr": "",
-      "bgm": "",
+      "bgm": "花上亡灵",
       "onNext": { "nextNode": true }
     },
     "50545": {
@@ -20271,7 +20293,7 @@
       "name": "narrator",
       "rCharactor": "",
       "bgr": "",
-      "bgm": "",
+      "bgm": "花上亡灵",
       "onNext": { "nextNode": true }
     },
     "50546": {
@@ -20280,15 +20302,15 @@
       "name": "ayane",
       "lCharactor": "绚音_梦境",
       "bgr": "",
-      "bgm": "",
+      "bgm": "花上亡灵",
       "onNext": { "nextNode": true }
     },
     "50547": {
       "type": "animation",
       "name": "fadeInBlack",
       "voice": "50547",
-      "bgr":"",
-      "bgm":"",
+      "bgr": "",
+      "bgm": "花上亡灵",
       "lCharactor":"",
       "onNext": { "nextNode": true }
     },
@@ -20298,7 +20320,7 @@
       "name": "narrator",
       "lCharactor": "",
       "bgr": "",
-      "bgm": "",
+      "bgm": "花上亡灵",
       "onNext": { "nextNode": true }
     },
     "50549": {
@@ -20307,7 +20329,7 @@
       "name": "narrator",
       "lCharactor": "",
       "bgr": "",
-      "bgm": "",
+      "bgm": "花上亡灵",
       "onNext": { "ending": true }
     }
   }
