@@ -1,7 +1,7 @@
 {
     "ui": {
         "start": "新游戏",
-        "load": "存档/继续",
+        "load": "存档",
         "achievement": "我的成就",
         "about": "关于",
         "continue": "继续游戏",

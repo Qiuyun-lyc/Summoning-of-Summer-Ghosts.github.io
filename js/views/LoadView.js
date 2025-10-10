@@ -19,13 +19,6 @@ const LoadView = {
                         <a>存档系统</a>
                     </span>
                     
-                    ${engine.gameState.currentSave ? `
-                        <button id="back-to-game" class="main-menu-button" style="background:none;border:none;font-family: 'lilyshow', 'FangSong', '仿宋', 'SimSun', sans-serif;">
-                            <img class="button-img" src="./assets/img/button.png">
-                            <a>${L.get('ui.continue')}</a>
-                        </button>
-                    ` : ''}
-
                     <button id="back-to-menu" class="main-menu-button" style="background:none;border:none;font-family: 'lilyshow', 'FangSong', '仿宋', 'SimSun', sans-serif;">
                         <img class="button-img" src="./assets/img/button.png">
                         <a>${L.get('ui.title')}</a>
@@ -82,7 +75,6 @@ const LoadView = {
     // 绑定全局事件监听器
     attachEventListeners: (container, engine) => {
         document.getElementById('back-to-menu').addEventListener('click', () => engine.showView('MainMenu'));
-        document.getElementById('back-to-game')?.addEventListener('click', () => engine.resumeGame());
 
         // 给存档槽按钮绑定事件
         LoadView.bindSlotButtons(container, engine);

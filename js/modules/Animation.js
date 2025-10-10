@@ -11,7 +11,7 @@ export default class Animation {
         });
     }
 
-    // 淡入淡出效果的辅助函数
+    // 淡入淡出效果的辅助函数 (为旧动画保留)
     _fade(element, time, start, target, callback) {
         let currentOpacity = start;
         element.style.opacity = currentOpacity;
@@ -28,7 +28,7 @@ export default class Animation {
         }, 20);
     }
     
-    // 创建和管理临时覆盖元素的辅助函数
+    // 创建和管理临时覆盖元素的辅助函数 (为旧动画保留)
     _fadeToggle(src, className, fadeInTime, pauseTime, fadeOutTime, callback) {
         const element = document.createElement('img');
         element.src = src;
@@ -54,34 +54,51 @@ export default class Animation {
         this._fadeToggle('./assets/img/bgr/test.png', 'show-title-icon', 1000, 2000, 1000, resolve);
     }
     
+    // 使用 CSS Transitions
     fadeInBlack(resolve) {
-        // 检查是否已经存在一个黑屏遮罩，如果存在就先移除
         const existingOverlay = document.getElementById('black-overlay-transition');
         if (existingOverlay) {
             existingOverlay.remove();
         }
 
         const element = document.createElement('div');
-        element.id = 'black-overlay-transition'; // 添加ID
-        element.className = 'animation-overlay black-overlay';
-        element.style.zIndex = '9999'; // 确保在最顶层
+        element.id = 'black-overlay-transition';
+        element.className = 'animation-overlay black-overlay'; // 应用 CSS 类
         document.body.appendChild(element);
-        // 淡入时间缩短为600ms，让体验更流畅
-        this._fade(element, 600, 0, 1, () => {
-            if (resolve) resolve(); // 淡入完成后立即解析Promise
+
+        // 监听过渡动画结束
+        element.addEventListener('transitionend', resolve, { once: true });
+
+        // 触发过渡
+        requestAnimationFrame(() => {
+            requestAnimationFrame(() => { // 确保浏览器应用初始样式
+                element.classList.add('visible');
+            });
         });
     }
 
+    // 使用 CSS Transitions 
     fadeOutBlack(resolve) {
         const element = document.getElementById('black-overlay-transition');
+        
         if (element) {
-            // 淡出时间也缩短为600ms
-            this._fade(element, 600, 1, 0, () => {
-                document.body.removeChild(element);
+             // 监听过渡动画结束
+            element.addEventListener('transitionend', () => {
+                element.remove();
                 if (resolve) resolve();
-            });
+            }, { once: true });
+
+            // 触发淡出
+            element.classList.remove('visible');
+
+            // 添加安全超时
+            setTimeout(() => {
+                if (document.body.contains(element)) {
+                    element.remove();
+                    if (resolve) resolve(); // 确保 Promise 被解析
+                }
+            }, 1000); // 略长于动画时间
         } else {
-            // 如果没有找到遮罩，也直接解析Promise
             console.warn("fadeOutBlack: 未找到黑屏遮罩。");
             if (resolve) resolve();
         }

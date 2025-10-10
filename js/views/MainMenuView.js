@@ -4,6 +4,9 @@ const MainMenuView = {
     const bgImages = ['./assets/img/bgr/mainmenu.png'];
     const randomIndex = Math.floor(Math.random() * bgImages.length);
 
+    // 检查是否存在一个活动的游戏会话
+    const hasActiveGame = engine.gameState.currentSave !== null;
+
     container.innerHTML = `
       <style>
         :root{
@@ -94,6 +97,12 @@ const MainMenuView = {
           </div>
 
           <div class="main-menu-button-group">
+            ${hasActiveGame ? `
+              <div class="main-menu-button" data-action="continue">
+                <img class="button-img" src="./assets/img/button.png" alt="">
+                <a>${L.get('ui.continue')}</a>
+              </div>
+            ` : ''}
             <div class="main-menu-button" data-action="start">
               <img class="button-img" src="./assets/img/button.png" alt="">
               <a>${L.get('ui.start')}</a>
@@ -135,9 +144,10 @@ const MainMenuView = {
         engine.audioManager.playSoundEffect('titleClick');
         const action = e.currentTarget.dataset.action;
 
-        await engine.animation.fadeOutBlack();
+        await engine.animation.play('fadeOutBlack');
 
         switch (action) {
+          case 'continue': engine.resumeGame(); break;
           case 'start': engine.startNewGame(); break;
           case 'load': engine.showView('Load'); break;
           case 'settings': engine.showView('Settings'); break;
