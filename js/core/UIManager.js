@@ -61,22 +61,22 @@ export default class UIManager {
             choiceGroup.style.display = 'none';
         }
         
-        // 特殊图片仅在节点 30483 时显示，否则隐藏
+        // 特殊图片仅在节点 30483-30486 时显示，否则隐藏
         try {
             const specialImg = document.getElementById('special-click-img');
             if (specialImg) {
                 const currentNodeId = this.engine && this.engine.gameState && this.engine.gameState.currentSave
                     ? this.engine.gameState.currentSave.nodeId
                     : null;
-                // 兼容字符串/数字类型
-                if (String(currentNodeId) === '30483') {
+                const showNodes = ['30483','30484','30485','30486'];
+                if (showNodes.includes(String(currentNodeId))) {
                     specialImg.style.display = 'inline-block';
                 } else {
                     specialImg.style.display = 'none';
                 }
             }
         } catch (e) {
-            // 不影响渲染主流程
+            
             console.warn('设置 special-click-img 可见性时出错:', e);
         }
     }
@@ -373,24 +373,32 @@ export default class UIManager {
 
             overlay.innerHTML = `
                 <style>
-                    .unlock-modal-overlay {
-                        position: fixed; inset: 0; display: flex; align-items: center; justify-content: center;
-                        background: rgba(0,0,0,0.6); z-index: 2000;
-                    }
-                    .unlock-modal {
-                        background: rgba(10,10,10,0.95); color: #fff; padding: 22px; border-radius: 10px;
-                        width: 420px; max-width: 92%; box-shadow: 0 10px 30px rgba(0,0,0,0.6);
-                        font-family: 'lilyshow', 'Arial', sans-serif; text-align: center;
-                    }
-                    .unlock-modal h3 { margin: 0 0 8px 0; color: #ffd700; }
-                    .unlock-modal p { margin: 0 0 16px 0; font-size: 16px; }
-                    .unlock-modal .actions { display:flex; justify-content:center; gap:12px; }
-                    .unlock-modal .btn { padding: 10px 18px; border-radius: 6px; cursor: pointer; border: none; font-size: 14px; }
-                    .unlock-modal .btn.confirm { background: linear-gradient(90deg,#ffb347,#ffcc33); color:#111; }
+                    .unlock-modal-overlay { position: fixed; inset: 0; display: flex; align-items: center; justify-content: center; background: rgba(0,0,0,0.6); z-index: 2100; }
+                    .unlock-modal { position: relative; background: linear-gradient(180deg,#111 0%, #0b0b0b 100%); color: #fff; padding: 26px; border-radius: 14px; width: 520px; max-width: 94%; box-shadow: 0 12px 40px rgba(0,0,0,0.7); font-family: 'lilyshow', 'Arial', sans-serif; text-align: center; overflow: visible; }
+                    .unlock-modal h2 { margin: 0 0 8px 0; color: #ffea8a; font-size: 1.6rem; letter-spacing: 0.6px; }
+                    .unlock-modal p { margin: 0 0 18px 0; font-size: 1.05rem; color: #fffdf0; }
+                    .unlock-modal .actions { display:flex; justify-content:center; gap:16px; margin-top: 12px; }
+                    .unlock-modal .btn { padding: 12px 22px; border-radius: 8px; cursor: pointer; border: none; font-size: 1rem; font-weight: 700; }
+                    .unlock-modal .btn.confirm { background: linear-gradient(90deg,#ffd36a,#ffb347); color:#2b1b00; box-shadow: 0 6px 18px rgba(255,180,80,0.28); }
+                    .firework { position: absolute; width: 28px; height: 28px; border-radius: 50%; opacity: 0.0; pointer-events: none; filter: blur(0.6px); }
+                    /* 更明显的烟花效果：多点扩散与放大 */
+                    .firework.f1 { left: 12%; top: -6%; background: radial-gradient(circle at 30% 30%, #fff9df 0%, #ffd36a 40%, transparent 68%); animation: fw1 1100ms ease-out infinite; }
+                    .firework.f2 { left: 88%; top: -10%; background: radial-gradient(circle at 30% 30%, #fff9df 0%, #ffcf6a 40%, transparent 68%); animation: fw2 1300ms ease-out infinite; }
+                    .firework.f3 { left: 50%; top: -4%; background: radial-gradient(circle at 30% 30%, #fff9df 0%, #ffe89a 40%, transparent 68%); animation: fw3 900ms ease-out infinite; }
+                    .firework.f4 { left: 30%; top: -2%; background: radial-gradient(circle at 30% 30%, #fff9df 0%, #ffedbf 40%, transparent 68%); animation: fw4 1250ms ease-out infinite; }
+                    .firework.f5 { left: 70%; top: -2%; background: radial-gradient(circle at 30% 30%, #fff9df 0%, #ffd78a 40%, transparent 68%); animation: fw5 1150ms ease-out infinite; }
+                    @keyframes fw1 { 0% { transform: translateY(0) scale(0.18); opacity: 1; } 60% { opacity: 0.6; } 100% { transform: translateY(-160px) scale(1.5); opacity: 0; } }
+                    @keyframes fw2 { 0% { transform: translateY(0) scale(0.18); opacity: 1; } 60% { opacity: 0.55; } 100% { transform: translateY(-180px) scale(1.45); opacity: 0; } }
+                    @keyframes fw3 { 0% { transform: translateY(0) scale(0.18); opacity: 1; } 60% { opacity: 0.7; } 100% { transform: translateY(-140px) scale(1.6); opacity: 0; } }
+                    @keyframes fw4 { 0% { transform: translateY(0) scale(0.18); opacity: 1; } 60% { opacity: 0.62; } 100% { transform: translateY(-150px) scale(1.5); opacity: 0; } }
+                    @keyframes fw5 { 0% { transform: translateY(0) scale(0.18); opacity: 1; } 60% { opacity: 0.58; } 100% { transform: translateY(-155px) scale(1.52); opacity: 0; } }
                 </style>
                 <div class="unlock-modal" role="dialog" aria-modal="true">
-                    <h3>隐藏剧情已解锁</h3>
-                    <p>${message}</p>
+                    <div class="firework f1"></div>
+                    <div class="firework f2"></div>
+                    <div class="firework f3"></div>
+                    <h2>隐藏剧情已解锁</h2>
+                    <p class="unlock-message">${message}</p>
                     <div class="actions">
                         <button class="btn confirm" id="unlock-confirm">确定</button>
                     </div>
