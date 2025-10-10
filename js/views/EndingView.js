@@ -46,19 +46,47 @@ const EndingView = {
 
     attachEventListeners: (container, engine) => {
         const videoElement = document.getElementById('ending-video');
+        const skipButton = document.getElementById('skip-ending-btn');
 
         engine.audioManager.stopBgm();
 
-        videoElement.addEventListener('ended', () => {
-            console.log('片尾视频播放完毕，返回主菜单。');
+        // 封装统一的返回主菜单逻辑
+        const returnToMainMenu = () => {
+            // 移除监听器，防止重复触发
+            videoElement.removeEventListener('ended', returnToMainMenu);
+            skipButton.removeEventListener('click', handleSkipClick);
+
+            console.log('片尾结束，返回主菜单。');
             
             engine.animation.play('fadeInBlack').then(() => {
+                // 在显示主菜单前，清空当前游戏状态
+                engine.gameState.currentSave = null; 
                 engine.showView('MainMenu');
                 engine.animation.play('fadeOutBlack');
             });
-        });
-        
+        };
 
+        // 创建跳过按钮的点击处理函数
+        const handleSkipClick = () => {
+            engine.audioManager.playSoundEffect('click');
+            returnToMainMenu();
+        };
+
+        // 绑定事件
+        videoElement.addEventListener('ended', returnToMainMenu, { once: true });
+        skipButton.addEventListener('click', handleSkipClick, { once: true });
+
+        // 同样处理视频播放错误的情况，直接返回主菜单
+        videoElement.addEventListener('error', (e) => {
+            console.error("片尾视频加载/播放失败:", e, "将直接返回主菜单。");
+            returnToMainMenu();
+        }, { once: true });
+        
+        // 尝试播放，处理浏览器可能阻止自动播放的情况
+        videoElement.play().catch(error => {
+            console.warn("片尾视频自动播放被浏览器阻止，需要用户交互。");
+            // 在这种情况下，跳过按钮是用户继续的途径。
+        });
     }
 };
 

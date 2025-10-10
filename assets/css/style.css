@@ -629,3 +629,24 @@ a {
     text-shadow: 1px 1px 3px #000;
     pointer-events: none;
 }
+/*动画遮罩层样式*/
+.animation-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none; /* 确保遮罩层不影响点击 */
+    z-index: 9999; /* 确保在最顶层 */
+}
+
+.black-overlay {
+    background-color: #000;
+    opacity: 0; /* 初始透明度为0 */
+    /* 核心修改：使用 CSS transition */
+    transition: opacity 0.8s cubic-bezier(0.42, 0, 0.58, 1); /* 0.8秒，使用 ease-in-out 缓动曲线 */
+}
+
+.black-overlay.visible {
+    opacity: 1; /* 目标透明度为1 */
+}
