@@ -10015,7 +10015,7 @@
       "lCharactor": "友也_回忆",
       "bgr": "天台5",
       "bgm": "叶隙洒落的阳光",
-      "onNext": { "setNode": 303100 }
+      "onNext": { "setNode": 203100 }
     },
     "203100": {
       "type": "animation",
