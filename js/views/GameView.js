@@ -276,23 +276,70 @@ const GameView = {
                     bottom: 12px;
                     right: 30px;
                     display: flex;
-                    gap: 25px;
+                    gap: 18px;
                     z-index: 5;
+                    align-items: center;
                 }
+                /* HUD 底部按钮：更大的触控区域、流畅过渡、焦点可见/键盘可操作 */
                 .hud-button {
-                    background: none;
-                    border: none;
-                    color: rgba(255, 255, 255, 0.85);
+                    background: rgba(0,0,0,0.25);
+                    border: 1px solid rgba(255,255,255,0.08);
+                    color: rgba(255, 255, 255, 0.95);
                     font-family: 'FangSong', '仿宋', sans-serif;
-                    font-size: 1.2em;
+                    font-size: clamp(14px, 1.6vw, 18px);
                     cursor: pointer;
-                    padding: 5px;
-                    transition: color 0.2s, text-shadow 0.2s;
-                    text-shadow: 1px 1px 3px rgba(0,0,0,0.8);
+                    padding: 10px 14px; /* 增大点击区域，提升移动端可点性 */
+                    border-radius: 10px;
+                    transition: transform 160ms cubic-bezier(.2,.8,.2,1),
+                                box-shadow 160ms ease, background-color 160ms ease, color 120ms ease;
+                    text-shadow: 1px 1px 3px rgba(0,0,0,0.7);
+                    -webkit-tap-highlight-color: transparent;
+                    touch-action: manipulation; /* 避免滚动冲突 */
+                    display: inline-flex;
+                    align-items: center;
+                    justify-content: center;
+                    gap: 8px;
                 }
-                .hud-button:hover {
-                    color: #fff;
-                    text-shadow: 0 0 6px rgba(255, 255, 255, 0.7);
+                /* 如果按钮里包含图片（或未来扩展为图文按钮），图片在悬停时会略微放大 */
+                .hud-button img {
+                    display: inline-block;
+                    width: auto;
+                    height: 1.1em;
+                    transition: transform 160ms cubic-bezier(.2,.8,.2,1), filter 160ms ease;
+                }
+                /* 悬停时：图片/按钮轻微放大，文字变为淡金色 */
+                .hud-button:hover,
+                .hud-button:focus {
+                    transform: translateY(-3px) scale(1.06);
+                    box-shadow: 0 8px 28px rgba(0,0,0,0.48), 0 0 10px rgba(255,255,255,0.05) inset;
+                    background-color: rgba(255,255,255,0.035);
+                    outline: none;
+                    color: #F6E27A; /* 悬停文字淡金色 */
+                }
+                .hud-button:hover img,
+                .hud-button:focus img {
+                    transform: scale(1.12);
+                }
+                /* 按下时：收回放大，表现按下效果 */
+                .hud-button:active,
+                .hud-button.pressed {
+                    transform: translateY(0) scale(0.985);
+                    box-shadow: 0 3px 8px rgba(0,0,0,0.45) inset;
+                    transition-duration: 80ms;
+                    color: #E6C86A; /* 稍暗的金色，表现按下 */
+                }
+                .hud-button:active img,
+                .hud-button.pressed img {
+                    transform: scale(0.98);
+                }
+                /* 键盘可见焦点样式（高对比） */
+                .hud-button:focus-visible {
+                    box-shadow: 0 0 0 3px rgba(130,180,255,0.18), 0 8px 26px rgba(0,0,0,0.6);
+                }
+                /* 小屏幕自适应：按钮更紧凑 */
+                @media (max-width: 520px) {
+                    .game-hud-bottom-right { right: 14px; gap: 12px; }
+                    .hud-button { padding: 12px 10px; font-size: 15px; border-radius: 8px; }
                 }
             </style>
             <div class="view game-view">
@@ -412,40 +459,83 @@ const GameView = {
         document.getElementById('auto-play-btn').addEventListener('mouseover', () => engine.audioManager.playSoundEffect('hover'));
 
         // 存档/读取按钮 (右下角)
-        document.getElementById('save-load-btn').addEventListener('click', (e) => {
-            e.stopPropagation();
-            engine.audioManager.playSoundEffect('click');
-            engine.showView('Load');
-        });
+        const saveBtn = document.getElementById('save-load-btn');
+        if (saveBtn) {
+            saveBtn.setAttribute('role', 'button');
+            saveBtn.setAttribute('tabindex', '0');
+            saveBtn.setAttribute('aria-label', '打开存档界面');
+            const activateSave = (e) => {
+                if (e) e.stopPropagation();
+                engine.audioManager.playSoundEffect('click');
+                engine.showView('Load');
+            };
+            saveBtn.addEventListener('click', activateSave);
+            saveBtn.addEventListener('touchstart', (e) => { e.stopPropagation(); e.currentTarget.classList.add('pressed'); }, {passive:true});
+            saveBtn.addEventListener('touchend', (e) => { e.stopPropagation(); e.currentTarget.classList.remove('pressed'); activateSave(e); });
+            saveBtn.addEventListener('keydown', (e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); activateSave(e); } });
+        }
 
-        // 全屏按钮 (右下角)
-        document.getElementById('fullscreen-btn').addEventListener('click', (e) => {
-            e.stopPropagation();
-            engine.audioManager.playSoundEffect('click');
-            if (!document.fullscreenElement) {
-                document.documentElement.requestFullscreen().catch(err => {
-                    alert(`错误: 无法进入全屏模式: ${err.message}`);
-                });
-            } else {
-                if (document.exitFullscreen) {
-                    document.exitFullscreen();
+        // 全屏按钮 (右下角) — 增加键盘与触摸支持，及状态同步
+        const fsBtn = document.getElementById('fullscreen-btn');
+        if (fsBtn) {
+            fsBtn.setAttribute('role', 'button');
+            fsBtn.setAttribute('tabindex', '0');
+            fsBtn.setAttribute('aria-pressed', String(!!document.fullscreenElement));
+            const toggleFullscreen = (e) => {
+                if (e) e.stopPropagation();
+                engine.audioManager.playSoundEffect('click');
+                if (!document.fullscreenElement) {
+                    document.documentElement.requestFullscreen().catch(err => {
+                        alert(`错误: 无法进入全屏模式: ${err.message}`);
+                    });
+                } else {
+                    if (document.exitFullscreen) document.exitFullscreen();
                 }
-            }
-        });
+            };
+            fsBtn.addEventListener('click', toggleFullscreen);
+            fsBtn.addEventListener('touchstart', (e) => { e.stopPropagation(); e.currentTarget.classList.add('pressed'); }, {passive:true});
+            fsBtn.addEventListener('touchend', (e) => { e.stopPropagation(); e.currentTarget.classList.remove('pressed'); toggleFullscreen(e); });
+            fsBtn.addEventListener('keydown', (e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggleFullscreen(e); } });
+
+            // 同步全屏状态，当用户使用 F11 或浏览器内其他方式时保持按钮状态
+            const onFullScreenChange = () => {
+                const isFs = !!document.fullscreenElement;
+                fsBtn.textContent = isFs ? '退出全屏' : '一键全屏';
+                fsBtn.setAttribute('aria-pressed', String(isFs));
+                // 确保在切换全屏后移除按下态并清除焦点，避免视觉样式残留
+                fsBtn.classList.remove('pressed');
+                try { fsBtn.blur(); } catch (e) { /* ignore */ }
+            };
+            document.addEventListener('fullscreenchange', onFullScreenChange);
+            // 初始同步
+            onFullScreenChange();
+        }
 
         // 标题按钮 (右下角)
-        document.getElementById('title-btn').addEventListener('click', (e) => {
-            e.stopPropagation();
-            engine.audioManager.playSoundEffect('click');
-            engine.showView('MainMenu');
-        });
+        const titleBtn = document.getElementById('title-btn');
+        if (titleBtn) {
+            titleBtn.setAttribute('role', 'button');
+            titleBtn.setAttribute('tabindex', '0');
+            titleBtn.setAttribute('aria-label', '返回主菜单');
+            const activateTitle = (e) => { if (e) e.stopPropagation(); engine.audioManager.playSoundEffect('click'); engine.showView('MainMenu'); };
+            titleBtn.addEventListener('click', activateTitle);
+            titleBtn.addEventListener('touchstart', (e) => { e.stopPropagation(); e.currentTarget.classList.add('pressed'); }, {passive:true});
+            titleBtn.addEventListener('touchend', (e) => { e.stopPropagation(); e.currentTarget.classList.remove('pressed'); activateTitle(e); });
+            titleBtn.addEventListener('keydown', (e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); activateTitle(e); } });
+        }
         
         // 设置按钮 (右下角)
-        document.getElementById('settings-btn').addEventListener('click', (e) => {
-            e.stopPropagation();
-            engine.audioManager.playSoundEffect('click');
-            engine.showView('Settings');
-        });
+        const settingsBtn = document.getElementById('settings-btn');
+        if (settingsBtn) {
+            settingsBtn.setAttribute('role', 'button');
+            settingsBtn.setAttribute('tabindex', '0');
+            settingsBtn.setAttribute('aria-label', '打开设置');
+            const activateSettings = (e) => { if (e) e.stopPropagation(); engine.audioManager.playSoundEffect('click'); engine.showView('Settings'); };
+            settingsBtn.addEventListener('click', activateSettings);
+            settingsBtn.addEventListener('touchstart', (e) => { e.stopPropagation(); e.currentTarget.classList.add('pressed'); }, {passive:true});
+            settingsBtn.addEventListener('touchend', (e) => { e.stopPropagation(); e.currentTarget.classList.remove('pressed'); activateSettings(e); });
+            settingsBtn.addEventListener('keydown', (e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); activateSettings(e); } });
+        }
 
         // 为所有底部HUD按钮添加悬停音效
         container.querySelectorAll('.hud-button').forEach(button => {
@@ -473,7 +563,162 @@ const GameView = {
                             }
                         } catch (hx) { console.warn('添加历史记录时出错', hx); }
 
-                        engine.goToNode(50000).catch(err => console.error('goToNode error:', err));
+                        // 展示解锁弹窗，确认后播放视频 intro_3.mp4，播放完成后跳转到 50001
+                        (async () => {
+                            try {
+                                if (engine.uiManager && typeof engine.uiManager.showUnlockModal === 'function') {
+                                    await engine.uiManager.showUnlockModal('恭喜你解锁隐藏剧情!');
+                                } else {
+                                    try { window.alert('恭喜你解锁隐藏剧情!'); } catch (e) { /* ignore */ }
+                                }
+                            } catch (e) {
+                                console.warn('showUnlockModal error:', e);
+                            }
+
+                            const videoPath = './assets/video/intro_3.mp4';
+                            // 检查视频文件是否存在（若 GameEngine 提供方法则复用）
+                            let exists = true;
+                            try {
+                                if (engine._checkFileExists && typeof engine._checkFileExists === 'function') {
+                                    exists = await engine._checkFileExists(videoPath);
+                                }
+                            } catch (e) {
+                                exists = false;
+                            }
+
+                            if (!exists) {
+                                // 若视频不存在，直接跳转到 50001
+                                engine.goToNode(50001, { showUnlockAlert: false }).catch(err => console.error('goToNode error:', err));
+                                return;
+                            }
+
+                            // 禁用输入以防在播放过程中触发其他交互
+                            try { engine.setInputDisabled(true); } catch (e) { /* ignore */ }
+
+                            // 创建覆盖层并播放视频
+                            const overlay = document.createElement('div');
+                            overlay.style.position = 'fixed';
+                            overlay.style.inset = '0';
+                            overlay.style.background = '#000';
+                            overlay.style.display = 'flex';
+                            overlay.style.alignItems = 'center';
+                            overlay.style.justifyContent = 'center';
+                            overlay.style.zIndex = '2200';
+
+                            const video = document.createElement('video');
+                            video.src = videoPath;
+                            video.style.width = '100%';
+                            video.style.height = '100%';
+                            video.style.objectFit = 'contain';
+                            video.autoplay = true;
+                            video.controls = false;
+                            video.playsInline = true;
+
+                            overlay.appendChild(video);
+                            document.body.appendChild(overlay);
+
+                            // 更鲁棒的结束处理：ended、timeupdate、loadedmetadata 三管齐下，并增加超时回退
+                            let finished = false;
+                            let fallbackTimeout = null;
+
+                            const cleanup = () => {
+                                try { if (!video.paused) video.pause(); } catch (e) { /* ignore */ }
+                                try { if (fallbackTimeout) clearTimeout(fallbackTimeout); } catch (e) { /* ignore */ }
+                                try { video.removeEventListener('ended', onEnded); } catch (e) { /* ignore */ }
+                                try { video.removeEventListener('error', onError); } catch (e) { /* ignore */ }
+                                try { video.removeEventListener('timeupdate', onTimeUpdate); } catch (e) { /* ignore */ }
+                                try { video.removeEventListener('loadedmetadata', onLoadedMetadata); } catch (e) { /* ignore */ }
+                                try { overlay.remove(); } catch (e) { /* ignore */ }
+                            };
+
+                            const gotoAfter = async () => {
+                                if (finished) return;
+                                finished = true;
+                                cleanup();
+                                try {
+                                    // 如果之前设置了禁用输入，先尝试恢复，避免引擎在跳转时被阻塞
+                                    try { if (engine && typeof engine.setInputDisabled === 'function') engine.setInputDisabled(false); } catch (e) { console.warn('setInputDisabled(false) failed', e); }
+                                    console.debug('Attempting to call engine.goToNode:', engine && typeof engine.goToNode === 'function');
+                                    if (engine && typeof engine.goToNode === 'function') {
+                                        const res = engine.goToNode(50001, { showUnlockAlert: false });
+                                        // 如果返回 Promise，观察其拒绝
+                                        if (res && typeof res.then === 'function') {
+                                            res.then(() => console.debug('engine.goToNode resolved')).catch(err => console.error('engine.goToNode rejected:', err));
+                                        }
+                                    } else {
+                                        console.error('engine.goToNode is not a function; cannot navigate to 50001');
+                                    }
+                                } catch (err) {
+                                    console.error('goToNode error (outer):', err);
+                                }
+                            };
+
+                            const onEnded = () => {
+                                console.debug('video ended event fired');
+                                gotoAfter();
+                            };
+
+                            const onError = (e) => {
+                                console.error('video playback error', e);
+                                gotoAfter();
+                            };
+
+                            const onTimeUpdate = () => {
+                                try {
+                                    if (!isFinite(video.duration) || isNaN(video.duration)) return;
+                                    // 在靠近结束（例如最后 0.5 秒）时触发，作为 ended 的后备
+                                    if (video.currentTime >= Math.max(0, video.duration - 0.6)) {
+                                        console.debug('video timeupdate near end, currentTime=', video.currentTime, 'duration=', video.duration);
+                                        gotoAfter();
+                                    }
+                                } catch (e) { /* ignore */ }
+                            };
+
+                            const onLoadedMetadata = () => {
+                                try {
+                                    const dur = video.duration;
+                                    console.debug('video loadedmetadata, duration=', dur);
+                                    if (isFinite(dur) && !isNaN(dur) && dur > 0) {
+                                        // 设置一个比时长多几秒的超时回退（防止某些浏览器不触发 ended）
+                                        const maxWait = Math.min(dur + 5, 300); // 最长 5 分钟上限
+                                        fallbackTimeout = setTimeout(() => {
+                                            console.warn('video fallback timeout fired after loadedmetadata');
+                                            gotoAfter();
+                                        }, maxWait * 1000);
+                                    } else {
+                                        // 未能读取时长，使用默认回退（90s）
+                                        fallbackTimeout = setTimeout(() => {
+                                            console.warn('video fallback timeout fired (no duration)');
+                                            gotoAfter();
+                                        }, 90000);
+                                    }
+                                } catch (e) {
+                                    console.warn('onLoadedMetadata error', e);
+                                }
+                            };
+
+                            video.addEventListener('ended', onEnded, { once: true });
+                            video.addEventListener('error', onError, { once: true });
+                            video.addEventListener('timeupdate', onTimeUpdate);
+                            video.addEventListener('loadedmetadata', onLoadedMetadata, { once: true });
+
+                            // play() 返回 Promise，处理被拒绝的情况（例如浏览器策略）
+                            try {
+                                const p = video.play();
+                                if (p && typeof p.then === 'function') {
+                                    p.then(() => {
+                                        console.debug('video.play() resolved');
+                                    }).catch((err) => {
+                                        console.warn('Video play rejected:', err);
+                                        // 回退：移除覆盖并直接跳转
+                                        gotoAfter();
+                                    });
+                                }
+                            } catch (err) {
+                                console.warn('video.play() throws:', err);
+                                gotoAfter();
+                            }
+                        })();
                 }
             });
         }

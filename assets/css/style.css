@@ -63,9 +63,9 @@ a {
     box-sizing: border-box;
 }
 
-/* 标题 "夏日幻魂" */
+/* 标题 "夏夜唤灵簿" */
 .auth-view::before {
-    content: "夏日幻魂";
+    content: "夏夜唤灵簿";
     position: absolute;
     top: 10vh; 
     right: 20vw; 
