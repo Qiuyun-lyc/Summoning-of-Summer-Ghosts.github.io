@@ -230,6 +230,7 @@
       "type": "text",
       "name": "narrator",
       "voice": "1013",
+      "bgr": "补充4",
       "inherit": 1007,
       "onNext": { "nextNode": true }
     },
@@ -238,6 +239,7 @@
       "name": "studentA",
       "lCharactor": "男生1",
       "voice": "1014",
+      "bgr": "补充4",
       "inherit": 1007,
       "onNext": { "nextNode": true }
     },
@@ -246,6 +248,7 @@
       "name": "studentB",
       "rCharactor": "女生2",
       "voice": "1015",
+      "bgr": "补充4",
       "inherit": 1007,
       "onNext": { "nextNode": true }
     },
@@ -254,6 +257,7 @@
       "name": "studentA",
       "lCharactor": "男生1",
       "voice": "1016",
+      "bgr": "补充4",
       "inherit": 1007,
       "onNext": { "nextNode": true }
     },
@@ -262,6 +266,7 @@
       "name": "studentC",
       "lCharactor": "男生2",
       "voice": "1017",
+      "bgr": "补充4",
       "inherit": 1007,
       "onNext": { "nextNode": true }
     },
@@ -270,6 +275,7 @@
       "name": "studentA",
       "lCharactor": "男生1",
       "voice": "1018",
+      "bgr": "补充4",
       "inherit": 1007,
       "onNext": { "nextNode": true }
     },
@@ -278,6 +284,7 @@
       "name": "studentB",
       "rCharactor": "女生2",
       "voice": "1019",
+      "bgr": "补充4",
       "inherit": 1007,
       "onNext": { "nextNode": true }
     },
@@ -286,6 +293,7 @@
       "name": "studentC",
       "lCharactor": "男生2",
       "voice": "1020",
+      "bgr": "补充4",
       "inherit": 1007,
       "onNext": { "nextNode": true }
     },
@@ -387,7 +395,8 @@
       "name": "aoi",
       "lCharactor": "葵_伤心",
       "voice": "1033",
-      "inherit": 1032,
+      "bgr": "公园3",
+      "bgm": "荆棘",
       "onNext": { "nextNode": true }
     },
     "1034": {
@@ -395,7 +404,8 @@
       "name": "aoi",
       "lCharactor": "葵_疑惑",
       "voice": "1034",
-      "inherit": 1032,
+      "bgr": "公园3",
+      "bgm": "荆棘",
       "onNext": { "nextNode": true }
     },
     "1035": {
@@ -403,7 +413,8 @@
       "name": "aoi",
       "lCharactor": "葵_疑惑",
       "voice": "1035",
-      "inherit": 1032,
+      "bgr": "公园3",
+      "bgm": "荆棘",
       "onNext": { "nextNode": true }
     },
     "1036": {
@@ -411,7 +422,8 @@
       "name": "aoi",
       "lCharactor": "葵_思考",
       "voice": "1036",
-      "inherit": 1032,
+      "bgr": "公园3",
+      "bgm": "荆棘",
       "onNext": { "nextNode": true }
     },
     "1037": {
@@ -419,7 +431,8 @@
       "name": "aoi",
       "lCharactor": "葵_思考",
       "voice": "1037",
-      "inherit": 1032,
+      "bgr": "公园3",
+      "bgm": "荆棘",
       "onNext": { "nextNode": true }
     },
     "1038": {
@@ -427,14 +440,16 @@
       "name": "aoi",
       "lCharactor": "葵_畅想",
       "voice": "1038",
-      "inherit": 1032,
+      "bgr": "公园3",
+      "bgm": "荆棘",
       "onNext": { "nextNode": true }
     },
     "1039": {
       "type": "text",
       "name": "narrator",
       "voice": "1039",
-      "inherit": 1032,
+      "bgr": "公园3",
+      "bgm": "荆棘",
       "onNext": { "nextNode": true }
     },
     "1040": {
@@ -442,7 +457,8 @@
       "voice": "1040",
       "name": "studentD",
       "lCharactor": "女生1",
-      "inherit": 1032,
+      "bgr": "公园3",
+      "bgm": "荆棘",
       "onNext": { "nextNode": true }
     },
     "1041": {
@@ -450,7 +466,8 @@
       "voice": "1041",
       "name": "studentB",
       "rCharactor": "女生3",
-      "inherit": 1032,
+      "bgr": "公园3",
+      "bgm": "荆棘",
       "onNext": { "nextNode": true }
     },
     "1042": {
@@ -458,7 +475,8 @@
       "voice": "1042",
       "name": "studentD",
       "lCharactor": "女生1",
-      "inherit": 1032,
+      "bgr": "公园3",
+      "bgm": "荆棘",
       "onNext": { "nextNode": true }
     },
     "1043": {
@@ -466,7 +484,8 @@
       "voice": "1043",
       "name": "studentB",
       "rCharactor": "女生3",
-      "inherit": 1032,
+      "bgr": "公园3",
+      "bgm": "荆棘",
       "onNext": { "nextNode": true }
     },
     "1044": {
@@ -474,7 +493,8 @@
       "voice": "1044",
       "name": "studentD",
       "lCharactor": "女生1",
-      "inherit": 1032,
+      "bgr": "公园3",
+      "bgm": "荆棘",
       "onNext": { "nextNode": true }
     },
     "1045": {
@@ -482,14 +502,16 @@
       "voice": "1045",
       "name": "studentB",
       "rCharactor": "女生3",
-      "inherit": 1032,
+      "bgr": "公园3",
+      "bgm": "荆棘",
       "onNext": { "nextNode": true }
     },
     "1046": {
       "type": "text",
       "voice": "1046",
       "name": "narrator",
-      "inherit": 1032,
+      "bgr": "公园3",
+      "bgm": "荆棘",
       "onNext": { "nextNode": true }
     },
     "1047": {
@@ -497,7 +519,8 @@
       "name": "aoi",
       "lCharactor": "葵_思考",
       "voice": "1047",
-      "inherit": 1032,
+      "bgr": "公园3",
+      "bgm": "荆棘",
       "onNext": { "nextNode": true }
     },
     "1048": {
@@ -505,7 +528,8 @@
       "name": "aoi",
       "lCharactor": "葵_微笑",
       "voice": "1048",
-      "inherit": 1032,
+      "bgr": "公园3",
+      "bgm": "荆棘",
       "onNext": { "nextNode": true }
     },
     "1049": {
@@ -513,7 +537,8 @@
       "name": "aoi",
       "lCharactor": "葵_可爱",
       "voice": "1049",
-      "inherit": 1032,
+      "bgr": "公园3",
+      "bgm": "荆棘",
       "onNext": { "nextNode": true }
     },
     "1050": {
@@ -521,13 +546,15 @@
       "name": "aoi",
       "lCharactor": "葵_畅想",
       "voice": "1050",
-      "inherit": 1032,
+      "bgr": "公园3",
+      "bgm": "荆棘",
       "onNext": { "nextNode": true }
     },
     "1051": {
       "type": "animation",
       "name": "fadeInBlack",
-      "inherit": 1032,
+      "bgr": "公园3",
+      "bgm": "荆棘",
       "voice": "1051",
       "onNext": { "nextNode": true }
     },
@@ -536,7 +563,7 @@
       "type": "text",
       "voice": "1052",
       "name": "narrator",
-      "bgr": "公园2",
+      "bgr": "补充3",
       "bgm": "荆棘",
       "onNext": { "nextNode": true }
     },
@@ -545,23 +572,24 @@
       "voice": "1053",
       "name": "narrator",
       "lockAchievement":"收集#",
-      "inherit": 1052,
+      "bgr": "补充3",
+      "bgm": "荆棘",
       "onNext": { "nextNode": true }
     },
     "1054": {
       "type": "text",
       "name": "aoi",
-      "lCharactor": "葵_可爱",
       "voice": "1054",
-      "inherit": 1052,
+      "bgr": "补充3",
+      "bgm": "荆棘",
       "onNext": { "nextNode": true }
     },
     "1055": {
       "type": "text",
       "name": "aoi",
-      "lCharactor": "葵_畅想",
       "voice": "1055",
-      "inherit": 1052,
+      "bgr": "补充3",
+      "bgm": "荆棘",
       "onNext": { "nextNode": true }
     },
     "1056": {
@@ -569,13 +597,15 @@
       "name": "aoi",
       "lCharactor": "葵_畅想",
       "voice": "1056",
-      "inherit": 1052,
+      "bgr": "公园2",
+      "bgm": "荆棘",
       "onNext": { "nextNode": true }
     },
     "1057": {
       "type": "animation",
       "name": "fadeInBlack",
-      "inherit": 1052,
+      "bgr": "公园2",
+      "bgm": "荆棘",
       "voice": "1057",
       "onNext": { "nextNode": true }
     },
@@ -593,7 +623,8 @@
       "name": "ryo",
       "rCharactor": "凉_思考",
       "voice": "1059",
-      "inherit": 1058,
+      "bgr": "病房",
+      "bgm": "陌生的河",
       "onNext": { "nextNode": true }
     },
     "1060": {
@@ -601,7 +632,8 @@
       "name": "ryo",
       "rCharactor": "凉_思考",
       "voice": "1060",
-      "inherit": 1058,
+      "bgr": "病房",
+      "bgm": "陌生的河",
       "onNext": { "nextNode": true }
     },
     "1061": {
@@ -609,7 +641,8 @@
       "name": "ryo",
       "rCharactor": "凉_不舍",
       "voice": "1061",
-      "inherit": 1058,
+      "bgr": "病房",
+      "bgm": "陌生的河",
       "onNext": { "nextNode": true }
     },
     "1062": {
@@ -617,7 +650,8 @@
       "name": "ryo",
       "rCharactor": "凉_痛苦",
       "voice": "1062",
-      "inherit": 1058,
+      "bgr": "病房",
+      "bgm": "陌生的河",
       "onNext": { "nextNode": true }
     },
     "1063": {
@@ -625,14 +659,16 @@
       "name": "ryo",
       "rCharactor": "凉_难过",
       "voice": "1063",
-      "inherit": 1058,
+      "bgr": "病房",
+      "bgm": "陌生的河",
       "onNext": { "nextNode": true }
     },
     "1064": {
       "type": "text",
       "voice": "1064",
       "name": "narrator",
-      "inherit": 1058,
+      "bgr": "病房",
+      "bgm": "陌生的河",
       "onNext": { "nextNode": true }
     },
     "1065": {
@@ -640,7 +676,8 @@
       "voice": "1065",
       "name": "patient",
       "lCharactor": "病人大叔",
-      "inherit": 1058,
+      "bgr": "病房",
+      "bgm": "陌生的河",
       "onNext": { "nextNode": true }
     },
     "1066": {
@@ -648,7 +685,8 @@
       "voice": "1066",
       "rCharactor": "中年男士1",
       "name": "narrator",
-      "inherit": 1058,
+      "bgr": "病房",
+      "bgm": "陌生的河",
       "onNext": { "nextNode": true }
     },
     "1067": {
@@ -656,7 +694,8 @@
       "voice": "1067",
       "name": "patient",
       "lCharactor": "病人大叔",
-      "inherit": 1058,
+      "bgr": "病房",
+      "bgm": "陌生的河",
       "onNext": { "nextNode": true }
     },
     "1068": {
@@ -664,7 +703,8 @@
       "voice": "1068",
       "rCharactor": "中年男士1",
       "name": "narrator",
-      "inherit": 1058,
+      "bgr": "病房",
+      "bgm": "陌生的河",
       "onNext": { "nextNode": true }
     },
     "1069": {
@@ -672,7 +712,8 @@
       "voice": "1069",
       "name": "patient",
       "lCharactor": "病人大叔",
-      "inherit": 1058,
+      "bgr": "病房",
+      "bgm": "陌生的河",
       "onNext": { "nextNode": true }
     },
     "1070": {
@@ -680,7 +721,8 @@
       "voice": "1070",
       "rCharactor": "中年男士1",
       "name": "narrator",
-      "inherit": 1058,
+      "bgr": "病房",
+      "bgm": "陌生的河",
       "onNext": { "nextNode": true }
     },
     "1071": {
@@ -688,45 +730,48 @@
       "voice": "1071",
       "name": "patient",
       "lCharactor": "病人大叔",
-      "inherit": 1058,
+      "bgr": "病房",
+      "bgm": "陌生的河",
       "onNext": { "nextNode": true }
     },
     "1072": {
       "type": "animation",
       "name": "fadeInBlack",
       "voice": "1072",
-      "inherit": 1058,
+      "bgr": "补充2",
+      "bgm": "陌生的河",
       "onNext": { "nextNode": true }
     },
     "1073": {
       "type": "text",
       "voice": "1073",
       "name": "narrator",
-      "inherit": 1058,
+      "bgr": "补充2",
+      "bgm": "陌生的河",
       "onNext": { "nextNode": true }
     },
     "1074": {
       "type": "text",
       "name": "ryo",
-      "rCharactor": "凉",
       "voice": "1074",
-      "inherit": 1058,
+      "bgr": "补充2",
+      "bgm": "陌生的河",
       "onNext": { "nextNode": true }
     },
     "1075": {
       "type": "text",
       "name": "ryo",
-      "rCharactor": "凉_思考",
       "voice": "1075",
-      "inherit": 1058,
+      "bgr": "补充2",
+      "bgm": "陌生的河",
       "onNext": { "nextNode": true }
     },
     "1076": {
       "type": "text",
       "name": "ryo",
-      "rCharactor": "凉_回忆",
       "voice": "1076",
-      "inherit": 1058,
+      "bgr": "补充2",
+      "bgm": "陌生的河",
       "onNext": { "nextNode": true }
     },
     "1077": {
@@ -734,7 +779,8 @@
       "voice": "1077",
       "name": "narrator",
       "lockAchievement":"收集#",
-      "inherit": 1058,
+      "bgr": "补充2",
+      "bgm": "陌生的河",
       "onNext": { "nextNode": true }
     },
     "1078": {
@@ -742,13 +788,15 @@
       "name": "ryo",
       "rCharactor": "凉_回忆",
       "voice": "1078",
-      "inherit": 1058,
+      "bgr": "病房",
+      "bgm": "陌生的河",
       "onNext": { "nextNode": true }
     },
     "1079": {
       "type": "animation",
       "name": "fadeInBlack",
-      "inherit": 1058,
+      "bgr": "病房",
+      "bgm": "陌生的河",
       "voice": "1079",
       "onNext": { "nextNode": true }
     },
@@ -1741,6 +1789,7 @@
       "voice": "1218",
       "name": "narrator",
       "bgm":"夏天花散了",
+      "bgr": "原画三人过马路",
       "inherit": 1144,
       "onNext": { "nextNode": true }
     },
@@ -1749,6 +1798,7 @@
       "voice": "1219",
       "name": "narrator",
       "bgm":"夏天花散了",
+      "bgr": "原画三人过马路",
       "inherit": 1144,
       "onNext": { "nextNode": true }
     },
@@ -1757,6 +1807,7 @@
       "voice": "1220",
       "name": "narrator",
       "bgm":"夏天花散了",
+      "bgr": "原画三人过马路",
       "inherit": 1144,
       "onNext": { "nextNode": true }
     },
@@ -1765,6 +1816,7 @@
       "voice": "1221",
       "name": "narrator",
       "bgm":"夏天花散了",
+      "bgr": "原画三人过马路",
       "inherit": 1144,
       "onNext": { "nextNode": true }
     },
@@ -1772,6 +1824,7 @@
       "type": "animation",
       "voice": "1222",
       "bgm":"夏天花散了",
+      "bgr": "原画三人过马路",
       "name": "fadeInBlack",
       "inherit": 1144,
       "onNext": { "setNode": 1302 }
@@ -2493,7 +2546,7 @@
       "rCharactor": "绚音_回忆",
       "voice": "1388",
       "inherit": 1348,
-      "onNext": { "setNode": 5 }
+      "onNext": { "nextNode": true }
     },
     "1389": {
       "type": "animation",
@@ -3110,6 +3163,7 @@
       "type": "text",
       "voice": "20061",
       "name": "narrator",
+      "bgr": "原画凉投篮",
       "inherit": 20058,
       "onNext": { "nextNode": true }
     },
@@ -3118,6 +3172,7 @@
       "voice": "20062",
       "name": "studentB",
       "lCharactor": "男生3",
+      "bgr": "原画凉投篮",
       "inherit": 20058,
       "onNext": { "nextNode": true }
     },
@@ -4626,7 +4681,7 @@
       "type": "text",
       "voice": "40035",
       "name": "narrator",
-      "bgr": "图书馆4",
+      "bgr": "补充1",
       "bgm": "流水",
       "onNext": { "nextNode": true }
     },
@@ -4634,42 +4689,48 @@
       "type": "text",
       "voice": "40036",
       "name": "narrator",
-      "inherit": 40035,
+      "bgr": "补充1",
+      "bgm": "流水",
       "onNext": { "nextNode": true }
     },
     "40037": {
       "type": "text",
       "voice": "40037",
       "name": "narrator",
-      "inherit": 40035,
+      "bgr": "补充1",
+      "bgm": "流水",
       "onNext": { "nextNode": true }
     },
     "40038": {
       "type": "text",
       "voice": "40038",
       "name": "narrator",
-      "inherit": 40035,
+      "bgr": "补充1",
+      "bgm": "流水",
       "onNext": { "nextNode": true }
     },
     "40039": {
       "type": "text",
       "voice": "40039",
       "name": "narrator",
-      "inherit": 40035,
+      "bgr": "补充1",
+      "bgm": "流水",
       "onNext": { "nextNode": true }
     },
     "40040": {
       "type": "text",
       "voice": "40040",
       "name": "narrator",
-      "inherit": 40035,
+      "bgr": "图书馆4",
+      "bgm": "流水",
       "onNext": { "nextNode": true }
     },
     "40041": {
       "type": "text",
       "voice": "40041",
       "name": "narrator",
-      "inherit": 40035,
+      "bgr": "图书馆4",
+      "bgm": "流水",
       "onNext": { "nextNode": true }
     },
     "40042": {
@@ -4677,14 +4738,16 @@
       "voice": "40042",
       "name": "tomoya",
       "lCharactor": "友也_思考",
-      "inherit": 40035,
+      "bgr": "图书馆4",
+      "bgm": "流水",
       "onNext": { "nextNode": true }
     },
     "40043": {
       "type": "text",
       "voice": "40043",
       "name": "narrator",
-      "inherit": 40035,
+      "bgr": "图书馆4",
+      "bgm": "流水",
       "onNext": { "nextNode": true }
     },
     "40044": {
@@ -4693,7 +4756,7 @@
       "name": "narrator",
       "unlockAchievement":"书里千秋",
       "bgr":"大厅",
-      "inherit": 40035,
+      "bgm": "流水",
       "onNext": { "nextNode": true }
     },
 
@@ -15090,7 +15153,7 @@
       "lCharactor": "",
       "inherit": 30483,
       "voice": "30487",
-      "onNext": { "setNode": 5 }
+      "onNext": { "nextNode": true }
     },
     "30488": {
       "type": "text",
