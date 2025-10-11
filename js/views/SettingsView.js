@@ -77,7 +77,7 @@ const SettingsView = {
                     <div class="settings-buttons">
                         <div id="logout-btn" class="settings-button">
                              <img class="button-img" src="./assets/img/button.png">
-                             <a>退出当前账号登录</a>
+                             <a>退出登录</a>
                         </div>
                         <div id="back-to-menu-btn" class="settings-button">
                              <img class="button-img" src="./assets/img/button.png">
