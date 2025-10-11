@@ -152,7 +152,7 @@ const GameView = {
                 .tooltip-container {
                     position: fixed;
                     bottom: 20px;
-                    right: 20px;
+                    left: 20px;
                     z-index: 998;
                 }
                 .tooltip {
