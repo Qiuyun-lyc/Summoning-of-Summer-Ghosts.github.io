@@ -49,9 +49,16 @@ const SettingsView = {
                     position: relative;
                     cursor: pointer;
                     width: clamp(10px, 25vw, 300px);
+                    transition: transform 180ms cubic-bezier(.2,.8,.2,1), box-shadow 160ms ease, color 120ms ease;
+                    -webkit-tap-highlight-color: transparent;
+                    touch-action: manipulation;
+                    display: inline-flex;
+                    align-items: center;
+                    justify-content: center;
                 }
                 .settings-button .button-img {
                     width: 100%;
+                    transition: transform 180ms cubic-bezier(.2,.8,.2,1), filter 160ms ease;
                 }
                 .settings-button a {
                     position: absolute;
@@ -60,6 +67,25 @@ const SettingsView = {
                     transform: translate(-50%, -50%);
                     font-size: clamp(10px, 2vw, 300px);
                     color: white;
+                }
+                /* 悬停时略微放大，离开/点击后恢复 */
+                .settings-button:hover {
+                    transform: scale(1.06) translateZ(0);
+                    box-shadow: 0 10px 30px rgba(0,0,0,0.45);
+                }
+                .settings-button:hover .button-img {
+                    transform: scale(1.08);
+                }
+                .settings-button:hover a { color: #F6E27A; /* 淡金色文字 */ }
+                .settings-button:active,
+                .settings-button.pressed {
+                    transform: scale(0.985);
+                    box-shadow: 0 3px 8px rgba(0,0,0,0.45) inset;
+                }
+                /* 仅针对退出登录和返回按钮的文字大小调整，保持一致 */
+                #logout-btn a,
+                #back-to-menu-btn a {
+                    font-size: 25px; /* 可改为 18px/22px 或 使用 rem/em/clamp */
                 }
             </style>
             <div class="view settings-view">
@@ -107,18 +133,44 @@ const SettingsView = {
         });
 
         // 退出登录
-        logoutBtn.addEventListener('click', () => {
-            engine.audioManager.playSoundEffect('click');
-            if (confirm('您确定要退出登录吗？')) {
-                engine.logout(); // 调用引擎的登出方法
-            }
-        });
+        if (logoutBtn) {
+            logoutBtn.setAttribute('role', 'button');
+            logoutBtn.setAttribute('tabindex', '0');
+            logoutBtn.setAttribute('aria-label', '退出登录');
+            const doLogout = (e) => {
+                if (e) e.stopPropagation();
+                logoutBtn.classList.remove('pressed');
+                try { logoutBtn.blur(); } catch (ex) {}
+                engine.audioManager.playSoundEffect('click');
+                if (confirm('您确定要退出登录吗？')) {
+                    engine.logout(); // 调用引擎的登出方法
+                }
+            };
+            logoutBtn.addEventListener('click', doLogout);
+            logoutBtn.addEventListener('touchstart', (e) => { e.stopPropagation(); logoutBtn.classList.add('pressed'); }, {passive:true});
+            logoutBtn.addEventListener('touchend', (e) => { e.stopPropagation(); logoutBtn.classList.remove('pressed'); doLogout(e); });
+            logoutBtn.addEventListener('mouseleave', () => { logoutBtn.classList.remove('pressed'); });
+            logoutBtn.addEventListener('keydown', (e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); doLogout(e); } });
+        }
 
         // 返回主菜单
-        backBtn.addEventListener('click', () => {
-            engine.audioManager.playSoundEffect('click');
-            engine.showView('MainMenu');
-        });
+        if (backBtn) {
+            backBtn.setAttribute('role', 'button');
+            backBtn.setAttribute('tabindex', '0');
+            backBtn.setAttribute('aria-label', '返回主菜单');
+            const doBack = (e) => {
+                if (e) e.stopPropagation();
+                backBtn.classList.remove('pressed');
+                try { backBtn.blur(); } catch (ex) {}
+                engine.audioManager.playSoundEffect('click');
+                engine.showView('MainMenu');
+            };
+            backBtn.addEventListener('click', doBack);
+            backBtn.addEventListener('touchstart', (e) => { e.stopPropagation(); backBtn.classList.add('pressed'); }, {passive:true});
+            backBtn.addEventListener('touchend', (e) => { e.stopPropagation(); backBtn.classList.remove('pressed'); doBack(e); });
+            backBtn.addEventListener('mouseleave', () => { backBtn.classList.remove('pressed'); });
+            backBtn.addEventListener('keydown', (e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); doBack(e); } });
+        }
 
         // 添加悬停音效
         container.querySelectorAll('.settings-button').forEach(button => {
