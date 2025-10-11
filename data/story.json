@@ -19,7 +19,7 @@
       "type": "minigame",
       "gameId": "platformer",
       "level": "level1.json",
-      "timeLimit": 20,
+      "timeLimit": 30,
       "introText": "孤独与茫然笼罩了心灵与梦境，漫没黑水的海洋中，葵在苦苦挣扎",
       "resultTitle": "任务结果",
       "winCondition": {
@@ -42,7 +42,7 @@
       "type": "minigame",
       "gameId": "platformer",
       "level": "level2.json",
-      "timeLimit": 20,
+      "timeLimit": 25,
       "introText": "对于过去那场事故，绚音的记忆很模糊，在黑暗的时光里追寻那些记忆吧",
       "resultTitle": "任务结果",
       "winCondition": {
@@ -64,7 +64,7 @@
       "type": "minigame",
       "gameId": "platformer",
       "level": "level3.json",
-      "timeLimit": 20,
+      "timeLimit": 25,
       "introText": "葵的内心发生了动摇，所谓意义，究竟为何物，她需要足够的“打扰”他们寻求安慰的理由.",
       "resultTitle": "任务结果",
       "winCondition": {
@@ -88,7 +88,7 @@
       "type": "minigame",
       "gameId": "platformer",
       "level": "level4.json",
-      "timeLimit": 20,
+      "timeLimit": 35,
       "introText": "搜集其他与事故有关的线索，找到遗忘在历史中的记忆.",
       "resultTitle": "任务结果",
       "winCondition": {
