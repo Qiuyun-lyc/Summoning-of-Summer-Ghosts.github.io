@@ -176,23 +176,14 @@ const GameView = {
                /* 特殊图片的微弱脉动与黄光效果 */
                 .special-image {
                     transition: transform 0.2s ease;
-                    /* 可调参数（可以在元素上覆写这些变量）：
-                       --pulse-duration: 动画周期
-                       --pulse-min: 最小不透明度
-                       --pulse-max: 最大不透明度
-                       --glow-color: 泛光颜色
-                       --glow-size: 泛光扩散大小
-                    */
                     --pulse-duration: 6s;
                     --pulse-min: 0.82;
                     --pulse-max: 1.0;
                     --glow-color: rgba(255,220,120,0.55);
                     --glow-size: 14px;
-                    /* 改为基于透明通道的发光（使用 drop-shadow），并做动画 */
-                        animation: pulseOpacity var(--pulse-duration) ease-in-out infinite, glowDrop var(--pulse-duration) ease-in-out infinite;
-                        will-change: opacity, filter;
-                        filter: drop-shadow(0 0 calc(var(--glow-size) / 3) var(--glow-color));
-                    /* 悬停可调参数 */
+                    animation: pulseOpacity var(--pulse-duration) ease-in-out infinite, glowDrop var(--pulse-duration) ease-in-out infinite;
+                    will-change: opacity, filter;
+                    filter: drop-shadow(0 0 calc(var(--glow-size) / 3) var(--glow-color));
                     --hover-scale: 1.06;
                     --hover-glow-intensity: 0.32;
                     transition: transform 250ms cubic-bezier(.2,.8,.2,1), box-shadow 250ms cubic-bezier(.2,.8,.2,1), opacity 300ms ease;
@@ -216,7 +207,6 @@ const GameView = {
                     }
                 }
 
-                /* 悬停时微放大并增强泛光；按下时轻微缩小以模拟按压感 */
                 .special-image:hover {
                     transform: scale(var(--hover-scale));
                     filter: drop-shadow(0 0 calc(var(--glow-size) / 0.9) rgba(255,230,140,0.95)) drop-shadow(0 0 calc(var(--glow-size) * 1.8) rgba(255,230,140,0.6));
@@ -226,7 +216,6 @@ const GameView = {
                     transform: scale(calc(var(--hover-scale) - 0.06));
                 }
 
-                /* 尊重用户减少动画偏好 */
                 @media (prefers-reduced-motion: reduce) {
                     .special-image { animation: none !important; transition: none !important; }
                 } 
@@ -245,6 +234,66 @@ const GameView = {
                 #basic-tooltip.hidden {
                     display: none;
                 }
+
+                .game-hud-top-right {
+                    position: absolute;
+                    top: 20px;
+                    right: 20px;
+                    z-index: 200;
+                    display: flex;
+                    gap: 10px;
+                }
+                .ingame-menu-button {
+                    position: relative;
+                    width: 200px;
+                    background: none;
+                    border: none;
+                    cursor: pointer;
+                    padding: 0;
+                }
+                .ingame-menu-button img {
+                    width: 100%;
+                    display: block;
+                    transition: transform 0.2s ease, filter 0.2s ease;
+                }
+                .ingame-menu-button:hover img {
+                    transform: scale(1.05);
+                    filter: brightness(1.2);
+                }
+                .ingame-menu-button span {
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                    font-family: 'lilyshow', 'FangSong', '仿宋', 'SimSun', sans-serif;
+                    font-size: 28px;
+                    color: white;
+                    text-shadow: 1px 1px 3px #000;
+                    pointer-events: none;
+                }
+                .game-hud-bottom-right {
+                    position: absolute;
+                    bottom: 12px;
+                    right: 30px;
+                    display: flex;
+                    gap: 25px;
+                    z-index: 5;
+                }
+                .hud-button {
+                    background: none;
+                    border: none;
+                    color: rgba(255, 255, 255, 0.85);
+                    font-family: 'FangSong', '仿宋', sans-serif;
+                    font-size: 1.2em;
+                    cursor: pointer;
+                    padding: 5px;
+                    transition: color 0.2s, text-shadow 0.2s;
+                    text-shadow: 1px 1px 3px rgba(0,0,0,0.8);
+                }
+                .hud-button:hover {
+                    color: #fff;
+                    text-shadow: 0 0 6px rgba(255, 255, 255, 0.7);
+                }
             </style>
             <div class="view game-view">
                 <img class="game-bgr" id="game-bgr">
@@ -257,6 +306,13 @@ const GameView = {
                     <div class="textbox-content">
                         <div id="dialogue-name" class="textbox-name"></div>
                         <div id="dialogue-text" class="textbox-text"></div>
+                    </div>
+                    <!-- 底部HUD -->
+                    <div class="game-hud-bottom-right">
+                        <button id="save-load-btn" class="hud-button">存档</button>
+                        <button id="fullscreen-btn" class="hud-button">一键全屏</button>
+                        <button id="title-btn" class="hud-button">返回</button>
+                        <button id="settings-btn" class="hud-button">设置</button>
                     </div>
                 </div>
 
@@ -278,7 +334,8 @@ const GameView = {
                     </div>
                 </div>
                 
-                <div class="game-hud">
+                <!-- 右上角HUD -->
+                <div class="game-hud-top-right">
                     <button id="history-btn" class="ingame-menu-button">
                         <img src="./assets/img/button.png">
                         <span>对话录</span>
@@ -287,14 +344,10 @@ const GameView = {
                         <img src="./assets/img/button.png">
                         <span>自动</span>
                     </button>
-                    <button id="ingame-menu-btn" class="ingame-menu-button">
-                        <img src="./assets/img/button.png">
-                        <span>菜单</span>
-                    </button>
-                    <!-- 特殊跳转图片（可放在 ./assets/img/ 下，文件名 1.png） -->
-                    <div id="special-image-container" style="position: fixed; top: 18px; left: 18px; z-index: 120;">
-                        <img id="special-click-img" class="special-image" src="./assets/img/1.png" data-seq="30483" alt="special" style="width:220px; height:123px; cursor:pointer; --pulse-duration:3s; --pulse-min:0.7; --glow-color: rgba(255,230,140,0.9); --glow-size: 24px; --hover-scale:1.08; --hover-glow-intensity:0.5; display:block;">
-                    </div>
+                </div>
+
+                <div id="special-image-container" style="position: fixed; top: 18px; left: 18px; z-index: 120;">
+                    <img id="special-click-img" class="special-image" src="./assets/img/1.png" data-seq="30483" alt="special" style="width:220px; height:123px; cursor:pointer; --pulse-duration:3s; --pulse-min:0.7; --glow-color: rgba(255,230,140,0.9); --glow-size: 24px; --hover-scale:1.08; --hover-glow-intensity:0.5; display:block;">
                 </div>
 
                 <!-- 历史记录浮层 -->
@@ -302,7 +355,6 @@ const GameView = {
                     <div class="history-panel">
                         <h2>对话历史</h2>
                         <div id="history-content">
-                            <!-- 历史记录将动态插入这里 -->
                         </div>
                     </div>
                     <button id="history-close-btn">&times;</button>
@@ -316,9 +368,6 @@ const GameView = {
         engine.uiManager.sentencePrinter = new SentencePrinter(document.getElementById('dialogue-text'));
     },
     attachEventListeners: (container, engine) => {
-        // [新增代码]
-        // 当视图被重新渲染时，立即根据当前的 gameState 更新自动播放按钮的视觉状态。
-        // 这是解决从存档页返回后按钮状态不正确问题的关键。
         engine.uiManager.updateAutoPlayButton(engine.gameState.isAutoPlay);
 
         const gameView = container.querySelector('.game-view');
@@ -337,19 +386,14 @@ const GameView = {
             });
         });
 
-        // 游戏内菜单按钮
-        document.getElementById('ingame-menu-btn').addEventListener('click', (e) => {
-            e.stopPropagation();
-            engine.audioManager.playSoundEffect('click');
-            engine.pauseGame(); // 调用暂停
-        });
-
-        // 历史记录按钮
+        // 对话录按钮 (右上角)
         document.getElementById('history-btn').addEventListener('click', (e) => {
             e.stopPropagation();
             engine.audioManager.playSoundEffect('click');
             engine.uiManager.toggleHistory(true); // 调用 UIManager 的方法来显示历史
         });
+        document.getElementById('history-btn').addEventListener('mouseover', () => engine.audioManager.playSoundEffect('hover'));
+
 
         // 关闭历史记录按钮
         document.getElementById('history-close-btn').addEventListener('click', (e) => {
@@ -358,12 +402,54 @@ const GameView = {
             engine.uiManager.toggleHistory(false); // 调用 UIManager 的方法来隐藏历史
         });
 
-        // 自动播放按钮
+        // 自动播放按钮 (右上角)
         document.getElementById('auto-play-btn').addEventListener('click', (e) => {
             e.stopPropagation();
             engine.audioManager.playSoundEffect('click');
             engine.toggleAutoPlay();
             e.currentTarget.blur();
+        });
+        document.getElementById('auto-play-btn').addEventListener('mouseover', () => engine.audioManager.playSoundEffect('hover'));
+
+        // 存档/读取按钮 (右下角)
+        document.getElementById('save-load-btn').addEventListener('click', (e) => {
+            e.stopPropagation();
+            engine.audioManager.playSoundEffect('click');
+            engine.showView('Load');
+        });
+
+        // 全屏按钮 (右下角)
+        document.getElementById('fullscreen-btn').addEventListener('click', (e) => {
+            e.stopPropagation();
+            engine.audioManager.playSoundEffect('click');
+            if (!document.fullscreenElement) {
+                document.documentElement.requestFullscreen().catch(err => {
+                    alert(`错误: 无法进入全屏模式: ${err.message}`);
+                });
+            } else {
+                if (document.exitFullscreen) {
+                    document.exitFullscreen();
+                }
+            }
+        });
+
+        // 标题按钮 (右下角)
+        document.getElementById('title-btn').addEventListener('click', (e) => {
+            e.stopPropagation();
+            engine.audioManager.playSoundEffect('click');
+            engine.showView('MainMenu');
+        });
+        
+        // 设置按钮 (右下角)
+        document.getElementById('settings-btn').addEventListener('click', (e) => {
+            e.stopPropagation();
+            engine.audioManager.playSoundEffect('click');
+            engine.showView('Settings');
+        });
+
+        // 为所有底部HUD按钮添加悬停音效
+        container.querySelectorAll('.hud-button').forEach(button => {
+            button.addEventListener('mouseover', () => engine.audioManager.playSoundEffect('hover'));
         });
 
         // 特殊图片点击绑定：当 data-seq 为 30483 时跳转到节点 50000
