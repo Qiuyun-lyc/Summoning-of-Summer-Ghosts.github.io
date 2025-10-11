@@ -1,6 +1,6 @@
 // 成就界面视图对象
 const AchievementView = {
-    totalSlots: 16, // 固定成就槽数量
+    totalSlots: 50, // 固定成就槽数量
 
     render: (container, engine) => {
         const L = engine.localization;
