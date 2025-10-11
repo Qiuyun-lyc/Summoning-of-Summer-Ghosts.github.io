@@ -188,9 +188,10 @@ const GameView = {
                     --pulse-max: 1.0;
                     --glow-color: rgba(255,220,120,0.55);
                     --glow-size: 14px;
-                    animation: pulseOpacity var(--pulse-duration) ease-in-out infinite, glowPulse var(--pulse-duration) ease-in-out infinite;
-                    will-change: opacity, box-shadow;
-                    filter: drop-shadow(0 0 0 rgba(0,0,0,0));
+                    /* 改为基于透明通道的发光（使用 drop-shadow），并做动画 */
+                        animation: pulseOpacity var(--pulse-duration) ease-in-out infinite, glowDrop var(--pulse-duration) ease-in-out infinite;
+                        will-change: opacity, filter;
+                        filter: drop-shadow(0 0 calc(var(--glow-size) / 3) var(--glow-color));
                     /* 悬停可调参数 */
                     --hover-scale: 1.06;
                     --hover-glow-intensity: 0.32;
@@ -203,22 +204,22 @@ const GameView = {
                     100% { opacity: var(--pulse-max); }
                 }
 
-                @keyframes glowPulse {
+                @keyframes glowDrop {
                     0% {
-                        box-shadow: 0 0 0px rgba(0,0,0,0);
+                        filter: drop-shadow(0 0 calc(var(--glow-size) / 3) rgba(255,220,120,0.35)) drop-shadow(0 0 calc(var(--glow-size) / 1.6) rgba(255,220,120,0.18));
                     }
                     40% {
-                        box-shadow: 0 0 calc(var(--glow-size) / 2) rgba(255,220,120,0.18), 0 0 var(--glow-size) var(--glow-color);
+                        filter: drop-shadow(0 0 calc(var(--glow-size) / 1.1) rgba(255,230,140,0.9)) drop-shadow(0 0 calc(var(--glow-size) * 1.4) rgba(255,230,140,0.55));
                     }
                     100% {
-                        box-shadow: 0 0 0px rgba(0,0,0,0);
+                        filter: drop-shadow(0 0 calc(var(--glow-size) / 3) rgba(255,220,120,0.35)) drop-shadow(0 0 calc(var(--glow-size) / 1.6) rgba(255,220,120,0.18));
                     }
-                }    
-                
+                }
+
                 /* 悬停时微放大并增强泛光；按下时轻微缩小以模拟按压感 */
                 .special-image:hover {
                     transform: scale(var(--hover-scale));
-                    box-shadow: 0 0 calc(var(--glow-size) / 2) rgba(255,220,120,calc(var(--hover-glow-intensity) * 0.56)), 0 0 calc(var(--glow-size) * 1.2) rgba(255,220,120, calc(var(--hover-glow-intensity)));
+                    filter: drop-shadow(0 0 calc(var(--glow-size) / 0.9) rgba(255,230,140,0.95)) drop-shadow(0 0 calc(var(--glow-size) * 1.8) rgba(255,230,140,0.6));
                 }
 
                 .special-image:active {
@@ -291,8 +292,8 @@ const GameView = {
                         <span>菜单</span>
                     </button>
                     <!-- 特殊跳转图片（可放在 ./assets/img/ 下，文件名 1.png） -->
-                    <div id="special-image-container" style="display:inline-block; margin-left:12px;">
-                        <img id="special-click-img" class="special-image" src="./assets/img/1.png" data-seq="30483" alt="special" style="width:48px; height:48px; cursor:pointer; /* 可覆盖变量: --pulse-duration, --pulse-min, --pulse-max, --glow-color, --glow-size */">
+                    <div id="special-image-container" style="position: fixed; top: 18px; left: 18px; z-index: 120;">
+                        <img id="special-click-img" class="special-image" src="./assets/img/1.png" data-seq="30483" alt="special" style="width:220px; height:123px; cursor:pointer; --pulse-duration:3s; --pulse-min:0.7; --glow-color: rgba(255,230,140,0.9); --glow-size: 24px; --hover-scale:1.08; --hover-glow-intensity:0.5; display:block;">
                     </div>
                 </div>
 
@@ -373,11 +374,20 @@ const GameView = {
                 engine.audioManager.playSoundEffect('click');
                 const seq = specialImg.getAttribute('data-seq');
                 if (seq === '30483') {
-                    // 立即隐藏图片，防止跳转后再次出现
-                    try { specialImg.style.display = 'none'; } catch (er) { /* ignore */ }
-                    // 可选：在保存数据上打标，避免未来重现（如需要可启用）
-                    // if (engine.gameState.currentSave) engine.gameState.currentSave._specialImageUsed = true;
-                    engine.goToNode(50000).catch(err => console.error('goToNode error:', err));
+                        // 点击时不再隐藏图片，保持在这几个节点中持续显示
+                        // 在对话历史中加入记录
+                        try {
+                            if (engine.gameState.currentSave) {
+                                if (!engine.gameState.currentSave.dialogueHistory) engine.gameState.currentSave.dialogueHistory = [];
+                                engine.gameState.currentSave.dialogueHistory.push({ type: 'choice', text: '（恭喜你解锁作者设计的隐藏剧情！）' });
+                                // 尝试持久化保存（若有 saveManager）
+                                if (engine.saveManager && typeof engine.saveManager.save === 'function') {
+                                    try { engine.saveManager.save(); } catch (e) { /* ignore save errors */ }
+                                }
+                            }
+                        } catch (hx) { console.warn('添加历史记录时出错', hx); }
+
+                        engine.goToNode(50000).catch(err => console.error('goToNode error:', err));
                 }
             });
         }
