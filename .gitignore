@@ -4,13 +4,7 @@ Thumbs.db
 desktop.ini
 
 # ===== Editors =====
-.vscode/*
-!.vscode/extensions.json
-!.vscode/settings.json
-!.vscode/tasks.json
-!.vscode/launch.json
-.idea/
-*.iml
+.vscode/
 
 # ===== Node / 包管理器 =====
 node_modules/
