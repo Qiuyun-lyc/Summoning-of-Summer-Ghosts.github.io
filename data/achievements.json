@@ -52,7 +52,7 @@
             "id": "票据",
             "name": "柜台里的票据",
             "description": "柜台里的票据，总会在某一天给某个人带来快乐",
-            "icon": "./assets/img/achievements/票据存根.png"
+            "icon": "./assets/img/achievements/票据.png"
         },
         {
             "id": "书里千秋",
@@ -299,6 +299,18 @@
             "name": "来和我组一辈子乐队吧",
             "description": "来和我组一辈子乐队吧，哈哈哈哈哈",
             "icon": "./assets/img/achievements/一辈子乐队.png"
+        },
+        {
+            "id": "最牢之人",
+            "name": "最牢之人",
+            "description": "精准避开了所有精美小游戏，倒霉也是一种天赋呢~",
+            "icon": "./assets/img/achievements/最牢之人.png"
+        },
+        {
+            "id": "最可恶之人",
+            "name": "最可恶之人",
+            "description": "你怎么这么自私！（怒！）呸~***我让你飞起来！！！",
+            "icon": "./assets/img/achievements/最可恶之人.png"
         }
     ],
     "lockedIcon": "./assets/img/achievements/未解锁.png"

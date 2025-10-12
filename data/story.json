@@ -5380,13 +5380,37 @@
       "name": "tomoya",
       "inherit": 40105,
       "lCharactor": "友也_无奈",
-      "onNext": { "choice": [{ "targetNode": 40109 }, { "targetNode": 20350 }] }
+      "onNext": { "choice": [{ "targetNode": 401090 },
+       { "targetNode": 20350 }] }
+    },
+
+
+    "401090": {
+      "type": "choices",
+      "voice": "null",
+      "name": "narrator",
+      "bgr": "补充12",
+      "bgm": "走马灯",
+      "onNext": { "choice": [{ "targetNode": 4109 },
+       { "targetNode": 40109 }] }
+    },
+
+
+    "4109": {
+      "type": "text",
+      "voice": "40109",
+      "name": "tomoya_mother",
+      "bgr": "补充12",
+      "unlockAchievement":"最可恶之人",
+      "bgm": "走马灯",
+      "onNext": { "setNode": 40110 }
     },
 
     "40109": {
       "type": "text",
       "voice": "40109",
       "name": "tomoya_mother",
+      "unlockAchievement":"最牢之人",
       "bgr": "补充12",
       "bgm": "走马灯",
       "onNext": { "nextNode": true }
