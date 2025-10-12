@@ -1508,8 +1508,8 @@
     "1186": {
       "type": "text",
       "name": "aoi",
-      "lCharactor": "葵_疑惑",
       "voice": "1186",
+      "bgr":"补充5",
       "bgm":"夏天花散了",
       "inherit": 1144,
       "onNext": { "nextNode": true }
@@ -1517,8 +1517,8 @@
     "1187": {
       "type": "text",
       "name": "tomoya",
-      "lCharactor": "友也_思考",
       "voice": "1187",
+      "bgr":"补充5",
       "bgm":"夏天花散了",
       "inherit": 1144,
       "onNext": { "nextNode": true }
@@ -1526,8 +1526,8 @@
     "1188": {
       "type": "text",
       "name": "ryo",
-      "rCharactor": "凉",
       "voice": "1188",
+      "bgr":"补充5",
       "bgm":"夏天花散了",
       "inherit": 1144,
       "onNext": { "nextNode": true }
@@ -1535,8 +1535,8 @@
     "1189": {
       "type": "text",
       "name": "aoi",
-      "lCharactor": "葵_可爱",
       "voice": "1189",
+      "bgr":"补充5",
       "bgm":"夏天花散了",
       "inherit": 1144,
       "onNext": { "nextNode": true }
@@ -1544,8 +1544,8 @@
     "1190": {
       "type": "text",
       "name": "ryo",
-      "rCharactor": "凉_回忆",
       "voice": "1190",
+      "bgr":"补充5",
       "bgm":"夏天花散了",
       "inherit": 1144,
       "onNext": { "nextNode": true }
@@ -1553,8 +1553,8 @@
     "1191": {
       "type": "text",
       "name": "tomoya",
-      "lCharactor": "友也_平静",
       "voice": "1191",
+      "bgr":"补充5",
       "bgm":"夏天花散了",
       "inherit": 1144,
       "onNext": { "nextNode": true }
@@ -1562,6 +1562,7 @@
     "1192": {
       "type": "animation",
       "voice": "1192",
+      "bgr":"补充5",
       "name": "fadeInBlack",
       "bgm":"夏天花散了",
       "inherit": 1144,
@@ -2227,7 +2228,7 @@
       "type": "animation",
       "name": "fadeInBlack",
       "voice": "null",
-      "bgr":"原画三人烟火",
+      "bgr": "补充6",
       "bgm":"愿望在降临",
       "onNext": { "setNode": 1348 }
     },
@@ -2236,7 +2237,7 @@
       "type": "text",
       "name": "narrator",
       "voice": "1348",
-      "bgr": "机场跑道2",
+      "bgr": "补充6",
       "bgm": "绚音的独白",
       "unlockAchievement":"嗨",
       "onNext": { "nextNode": true }
@@ -2246,7 +2247,8 @@
       "voice": "1349",
       "name": "tomoya",
       "lCharactor": "友也_平静",
-      "inherit": 1348,
+      "bgr": "补充6",
+      "bgm": "绚音的独白",
       "onNext": { "nextNode": true }
     },
     "1350": {
@@ -2254,7 +2256,8 @@
       "name": "ayane",
       "rCharactor": "绚音_平静",
       "voice": "1350",
-      "inherit": 1348,
+      "bgr": "机场跑道2",
+      "bgm": "绚音的独白",
       "onNext": { "nextNode": true }
     },
     "1351": {
@@ -2262,7 +2265,8 @@
       "name": "tomoya",
       "lCharactor": "友也_平静",
       "voice": "1351",
-      "inherit": 1348,
+      "bgr": "机场跑道2",
+      "bgm": "绚音的独白",
       "onNext": { "nextNode": true }
     },
     "1352": {
@@ -2270,20 +2274,23 @@
       "name": "ayane",
       "rCharactor": "绚音_俏皮",
       "voice": "1352",
-      "inherit": 1348,
+      "bgr": "机场跑道2",
+      "bgm": "绚音的独白",
       "onNext": { "setNode": 1354 }
     },
     "1353": {
       "type": "text",
       "name": "narrator",
-      "inherit": 1348,
+      "bgr": "机场跑道2",
+      "bgm": "绚音的独白",
       "voice": "1353",
       "onNext": { "nextNode": true }
     },
     "1354": {
       "type": "text",
       "name": "narrator",
-      "inherit": 1348,
+      "bgr": "机场跑道2",
+      "bgm": "绚音的独白",
       "voice": "1354",
       "onNext": { "nextNode": true }
     },
@@ -2291,7 +2298,8 @@
       "type": "animation",
       "name": "fadeInBlack",
       "voice": "1355",
-      "inherit": 1348,
+      "bgr": "机场跑道2",
+      "bgm": "绚音的独白",
       "onNext": { "nextNode": true }
     },
     "1356": {
@@ -2299,7 +2307,8 @@
       "name": "aoi",
       "lCharactor": "葵_可爱",
       "voice": "1356",
-      "inherit": 1348,
+      "bgr": "机场跑道2",
+      "bgm": "绚音的独白",
       "onNext": { "nextNode": true }
     },
     "1357": {
@@ -2307,7 +2316,8 @@
       "name": "ayane",
       "rCharactor": "绚音_回忆",
       "voice": "1357",
-      "inherit": 1348,
+      "bgr": "机场跑道2",
+      "bgm": "绚音的独白",
       "onNext": { "nextNode": true }
     },
     "1358": {
@@ -2315,7 +2325,8 @@
       "name": "aoi",
       "lCharactor": "葵_可爱",
       "voice": "1358",
-      "inherit": 1348,
+      "bgr": "机场跑道2",
+      "bgm": "绚音的独白",
       "onNext": { "nextNode": true }
     },
     "1359": {
@@ -2323,13 +2334,15 @@
       "name": "ayane",
       "rCharactor": "绚音_俏皮",
       "voice": "1359",
-      "inherit": 1348,
+      "bgr": "机场跑道2",
+      "bgm": "绚音的独白",
       "onNext": { "nextNode": true }
     },
     "1360": {
       "type": "text",
       "name": "narrator",
-      "inherit": 1348,
+      "bgr": "机场跑道2",
+      "bgm": "绚音的独白",
       "voice": "1360",
       "onNext": { "nextNode": true }
     },
@@ -2338,7 +2351,8 @@
       "name": "ryo",
       "rCharactor": "凉_思考",
       "voice": "1361",
-      "inherit": 1348,
+      "bgr": "机场跑道2",
+      "bgm": "绚音的独白",
       "onNext": { "nextNode": true }
     },
     "1362": {
@@ -2346,13 +2360,15 @@
       "name": "tomoya",
       "lCharactor": "友也_回忆",
       "voice": "1362",
-      "inherit": 1348,
+      "bgr": "机场跑道2",
+      "bgm": "绚音的独白",
       "onNext": { "nextNode": true }
     },
     "1363": {
       "type": "animation",
       "name": "fadeInBlack",
-      "inherit": 1348,
+      "bgr": "机场跑道2",
+      "bgm": "绚音的独白",
       "voice": "1363",
       "onNext": { "nextNode": true }
     },
@@ -2361,7 +2377,8 @@
       "name": "ayane",
       "rCharactor": "绚音_微笑",
       "voice": "1364",
-      "inherit": 1348,
+      "bgr": "机场跑道2",
+      "bgm": "绚音的独白",
       "onNext": { "nextNode": true }
     },
     "1365": {
@@ -2369,7 +2386,8 @@
       "name": "ayane",
       "rCharactor": "绚音_俏皮",
       "voice": "1365",
-      "inherit": 1348,
+      "bgr": "机场跑道2",
+      "bgm": "绚音的独白",
       "onNext": { "nextNode": true }
     },
     "1366": {
@@ -2377,42 +2395,48 @@
       "name": "aoi",
       "lCharactor": "葵_惊讶",
       "voice": "1366",
-      "inherit": 1348,
+      "bgr": "机场跑道2",
+      "bgm": "绚音的独白",
       "onNext": { "nextNode": true }
     },
     "1367": {
       "type": "animation",
       "name": "fadeInBlack",
       "voice": "1367",
-      "inherit": 1348,
+      "bgr": "机场跑道2",
+      "bgm": "绚音的独白",
       "onNext": { "setNode": 1372 }
     },
     "1368": {
       "type": "text",
       "name": "narrator",
       "voice": "1368",
-      "inherit": 1348,
+      "bgr": "机场跑道2",
+      "bgm": "绚音的独白",
       "onNext": { "nextNode": true }
     },
     "1369": {
       "type": "text",
       "voice": "1369",
       "name": "narrator",
-      "inherit": 1348,
+      "bgr": "机场跑道2",
+      "bgm": "绚音的独白",
       "onNext": { "nextNode": true }
     },
     "1370": {
       "type": "text",
       "voice": "1370",
       "name": "narrator",
-      "inherit": 1348,
+      "bgr": "机场跑道2",
+      "bgm": "绚音的独白",
       "onNext": { "nextNode": true }
     },
     "1371": {
       "type": "text",
       "voice": "1371",
       "name": "narrator",
-      "inherit": 1348,
+      "bgr": "机场跑道2",
+      "bgm": "绚音的独白",
       "onNext": { "nextNode": true }
     },
     "1372": {
@@ -2420,7 +2444,8 @@
       "name": "tomoya",
       "lCharactor": "友也_平静",
       "voice": "1372",
-      "inherit": 1348,
+      "bgr": "机场跑道2",
+      "bgm": "绚音的独白",
       "onNext": { "nextNode": true }
     },
     "1373": {
@@ -2428,7 +2453,8 @@
       "name": "ayane",
       "rCharactor": "绚音_平静",
       "voice": "1373",
-      "inherit": 1348,
+      "bgr": "机场跑道2",
+      "bgm": "绚音的独白",
       "onNext": { "nextNode": true }
     },
     "1374": {
@@ -2436,7 +2462,8 @@
       "name": "ayane",
       "rCharactor": "绚音",
       "voice": "1374",
-      "inherit": 1348,
+      "bgr": "机场跑道2",
+      "bgm": "绚音的独白",
       "onNext": { "nextNode": true }
     },
     "1375": {
@@ -2444,7 +2471,8 @@
       "name": "tomoya",
       "lCharactor": "友也_平静",
       "voice": "1375",
-      "inherit": 1348,
+      "bgr": "机场跑道2",
+      "bgm": "绚音的独白",
       "onNext": { "nextNode": true }
     },
     "1376": {
@@ -2452,7 +2480,8 @@
       "name": "tomoya",
       "lCharactor": "友也_思考",
       "voice": "1376",
-      "inherit": 1348,
+      "bgr": "机场跑道2",
+      "bgm": "绚音的独白",
       "onNext": { "nextNode": true }
     },
     "1377": {
@@ -2460,7 +2489,8 @@
       "name": "tomoya",
       "lCharactor": "友也_平静",
       "voice": "1377",
-      "inherit": 1348,
+      "bgr": "机场跑道2",
+      "bgm": "绚音的独白",
       "onNext": { "nextNode": true }
     },
     "1378": {
@@ -2468,7 +2498,8 @@
       "name": "ayane",
       "rCharactor": "绚音_沉默",
       "voice": "1378",
-      "inherit": 1348,
+      "bgr": "机场跑道2",
+      "bgm": "绚音的独白",
       "onNext": { "nextNode": true }
     },
     "1379": {
@@ -2476,7 +2507,8 @@
       "name": "ayane",
       "rCharactor": "绚音_回忆",
       "voice": "1379",
-      "inherit": 1348,
+      "bgr": "机场跑道2",
+      "bgm": "绚音的独白",
       "onNext": { "nextNode": true }
     },
     "1380": {
@@ -2484,14 +2516,16 @@
       "name": "ayane",
       "rCharactor": "绚音_平静",
       "voice": "1380",
-      "inherit": 1348,
+      "bgr": "机场跑道2",
+      "bgm": "绚音的独白",
       "onNext": { "nextNode": true }
     },
     "1381": {
       "type": "text",
       "name": "narrator",
       "voice": "1381",
-      "inherit": 1348,
+      "bgr": "机场跑道2",
+      "bgm": "绚音的独白",
       "onNext": { "nextNode": true }
     },
     "1382": {
@@ -2499,21 +2533,24 @@
       "name": "ryo",
       "rCharactor": "凉_微笑",
       "voice": "1382",
-      "inherit": 1348,
+      "bgr": "机场跑道2",
+      "bgm": "绚音的独白",
       "onNext": { "nextNode": true }
     },
     "1383": {
       "type": "animation",
       "name": "fadeInBlack",
       "voice": "1383",
-      "inherit": 1348,
+      "bgr": "机场跑道2",
+      "bgm": "绚音的独白",
       "onNext": { "nextNode": true }
     },
     "1384": {
       "type": "text",
       "voice": "1384",
       "name": "narrator",
-      "inherit": 1348,
+      "bgr": "机场跑道2",
+      "bgm": "绚音的独白",
       "onNext": { "nextNode": true }
     },
     "1385": {
@@ -2521,7 +2558,8 @@
       "name": "ayane",
       "lCharactor": "绚音_平静",
       "voice": "1385",
-      "inherit": 1348,
+      "bgr": "机场跑道2",
+      "bgm": "绚音的独白",
       "onNext": { "nextNode": true }
     },
     "1386": {
@@ -2529,7 +2567,8 @@
       "name": "ayane",
       "rCharactor": "绚音_俏皮",
       "voice": "1386",
-      "inherit": 1348,
+      "bgr": "机场跑道2",
+      "bgm": "绚音的独白",
       "onNext": { "nextNode": true }
     },
     "1387": {
@@ -2537,7 +2576,8 @@
       "name": "ayane",
       "rCharactor": "绚音_平静",
       "voice": "1387",
-      "inherit": 1348,
+      "bgr": "机场跑道2",
+      "bgm": "绚音的独白",
       "onNext": { "nextNode": true }
     },
     "1388": {
@@ -2545,14 +2585,16 @@
       "name": "ayane",
       "rCharactor": "绚音_回忆",
       "voice": "1388",
-      "inherit": 1348,
+      "bgr": "机场跑道2",
+      "bgm": "绚音的独白",
       "onNext": { "nextNode": true }
     },
     "1389": {
       "type": "animation",
       "name": "fadeInBlack",
       "voice": "1389",
-      "inherit": 1348,
+      "bgr": "机场跑道2",
+      "bgm": "绚音的独白",
       "onNext": { "nextNode": true }
     },
 
@@ -2683,6 +2725,7 @@
       "type": "text",
       "voice": "20004",
       "name": "narrator",
+      "bgr": "补充7",
       "inherit": 20001,
       "onNext": { "nextNode": true }
     },
@@ -2690,7 +2733,7 @@
       "type": "text",
       "voice": "20005",
       "name": "tomoya",
-      "lCharactor": "友也_平静",
+      "bgr": "补充7",
       "inherit": 20001,
       "onNext": { "nextNode": true }
     },
@@ -2698,7 +2741,7 @@
       "type": "text",
       "voice": "20006",
       "name": "tomoya",
-      "rCharactor": "友也_平静",
+      "bgr": "补充7",
       "inherit": 20001,
       "onNext": { "nextNode": true }
     },
@@ -2706,6 +2749,7 @@
       "type": "text",
       "voice": "20007",
       "name": "narrator",
+      "bgr": "补充7",
       "inherit": 20001,
       "onNext": { "nextNode": true }
     },
@@ -2713,7 +2757,7 @@
       "type": "text",
       "voice": "20008",
       "name": "tomoya",
-      "lCharactor": "友也_思考",
+      "bgr": "补充7",
       "inherit": 20001,
       "onNext": { "setNode": 200080 }
     },
@@ -2783,6 +2827,7 @@
       "type": "text",
       "voice": "20015",
       "name": "narrator",
+      "bgr": "补充8",
       "inherit": 20013,
       "onNext": { "nextNode": true }
     },
@@ -2790,7 +2835,7 @@
       "type": "text",
       "voice": "20016",
       "name": "aoi",
-      "lCharactor": "葵_畅想",
+      "bgr": "补充8",
       "inherit": 20013,
       "onNext": { "nextNode": true }
     },
@@ -2798,6 +2843,7 @@
       "type": "text",
       "voice": "20017",
       "name": "narrator",
+      "bgr": "补充8",
       "inherit": 20013,
       "onNext": { "nextNode": true }
     },
@@ -2805,7 +2851,7 @@
       "type": "text",
       "voice": "20018",
       "name": "aoi",
-      "lCharactor": "葵_微笑",
+      "bgr": "补充8",
       "inherit": 20013,
       "onNext": { "nextNode": true }
     },
@@ -3080,7 +3126,7 @@
       "type": "text",
       "voice": "20051",
       "name": "aoi",
-      "rCharactor": "葵_可爱",
+      "bgr": "补充9",
       "inherit": 20042,
       "onNext": { "nextNode": true }
     },
@@ -3089,7 +3135,7 @@
       "voice": "20052",
       "name": "narrator",
       "unlockAchievement":"票据",
-      "lCharactor": "女售票员",
+      "bgr": "补充9",
       "inherit": 20042,
       "onNext": { "nextNode": true }
     },
@@ -3097,7 +3143,7 @@
       "type": "text",
       "voice": "20053",
       "name": "narrator",
-      "lCharactor": "女售票员",
+      "bgr": "补充9",
       "inherit": 20042,
       "onNext": { "nextNode": true }
     },
@@ -3105,7 +3151,7 @@
       "type": "text",
       "voice": "20054",
       "name": "aoi",
-      "lCharactor": "葵_微笑",
+      "bgr": "补充9",
       "inherit": 20042,
       "onNext": { "nextNode": true }
     },
@@ -4161,15 +4207,14 @@
       "type": "text",
       "voice": "30097",
       "name": "aoi",
-      "bgr": "夜晚街道2",
-      "rCharactor": "葵_思考",
+      "bgr": "补充10",
       "inherit": 30091,
       "onNext": { "nextNode": true }
     },
     "30098": {
       "type": "text",
       "voice": "30098",
-      "bgr": "夜晚街道2",
+      "bgr": "补充10",
       "name": "narrator",
       "inherit": 30091,
       "onNext": { "nextNode": true }
@@ -4178,8 +4223,7 @@
       "type": "text",
       "voice": "30099",
       "name": "aoi",
-      "bgr": "夜晚街道2",
-      "lCharactor": "葵_畅想",
+      "bgr": "补充10",
       "inherit": 30091,
       "onNext": { "nextNode": true }
     },
@@ -4187,8 +4231,7 @@
       "type": "text",
       "voice": "30100",
       "name": "aoi",
-      "bgr": "夜晚街道2",
-      "lCharactor": "葵_思考",
+      "bgr": "补充10",
       "inherit": 30091,
       "onNext": { "setNode": 301000 }
     },
@@ -4920,14 +4963,16 @@
       "type": "text",
       "voice": "40065",
       "name": "teacherB",
+      "bgr": "补充11",
       "inherit": 40061,
-      "rCharactor": "男老师",
+      "lCharactor": "男老师",
       "onNext": { "nextNode": true }
     },
     "40066": {
       "type": "animation",
       "name": "fadeInBlack",
       "voice": "40066",
+      "bgr": "补充11",
       "inherit": 40061,
       "onNext": { "nextNode": true }
     },    
@@ -4935,6 +4980,7 @@
       "type": "text",
       "name": "narrator",
       "voice": "40067",
+      "bgr": "补充11",
       "inherit": 40061,
       "onNext": { "nextNode": true }
     },
@@ -4942,6 +4988,7 @@
       "type": "text",
       "voice": "40068",
       "name": "teacherB",
+      "bgr": "补充11",
       "inherit": 40061,
       "rCharactor": "",
       "onNext": { "nextNode": true }
@@ -4950,14 +4997,15 @@
       "type": "text",
       "name": "teacherA",
       "inherit": 40061,
+      "bgr": "补充11",
       "voice": "40069",
-      "rCharactor": "女老师1",
       "onNext": { "nextNode": true }
     },
     "40070": {
       "type": "text",
       "name": "narrator",
       "voice": "40070",
+      "bgr": "补充11",
       "inherit": 40061,
       "onNext": { "nextNode": true }
     },
@@ -4965,8 +5013,8 @@
       "type": "text",
       "name": "aoi",
       "inherit": 40061,
+      "bgr": "补充11",
       "voice": "40071",
-      "lCharactor": "葵_伤心",
       "onNext": { "nextNode": true }
     },
     "40072": {
@@ -5339,16 +5387,15 @@
       "type": "text",
       "voice": "40109",
       "name": "tomoya_mother",
-      "bgr": "厨房3",
+      "bgr": "补充12",
       "bgm": "走马灯",
-      "rCharactor": "友也母亲",
       "onNext": { "nextNode": true }
     },
     "40110": {
       "type": "text",
       "voice": "40110",
       "name": "narrator",
-      "bgr": "厨房3",
+      "bgr": "补充12",
       "bgm": "走马灯",
       "onNext": { "nextNode": true }
     },
@@ -5356,15 +5403,14 @@
       "type": "choices",
       "name": "tomoya",
       "voice": "40111",
-      "bgr": "厨房3",
+      "bgr": "补充12",
       "bgm": "走马灯",
-      "rCharactor": "友也",
       "onNext": { "choice": [{ "targetNode": 401110 }, { "targetNode": 401110 }] }
     },
     "401110": {
       "type": "animation",
       "name": "fadeInBlack",
-      "bgr": "厨房3",
+      "bgr": "补充12",
       "bgm": "走马灯",
       "onNext": { "setNode": 40112 }
     },
@@ -5373,7 +5419,7 @@
       "type": "text",
       "voice": "40112",
       "name": "narrator",
-      "bgr": "厨房3",
+      "bgr": "补充12",
       "bgm": "走马灯",
       "onNext": { "nextNode": true }
     },
@@ -5381,7 +5427,8 @@
       "type": "text",
       "voice": "40113",
       "name": "tomoya_mother",
-      "inherit": 40112,
+      "bgr": "补充12",
+      "bgm": "走马灯",
       "rCharactor": "友也母亲",
       "onNext": { "nextNode": true }
     },
@@ -5389,14 +5436,16 @@
       "type": "text",
       "voice": "40114",
       "name": "narrator",
-      "inherit": 40112,
+      "bgr": "厨房3",
+      "bgm": "走马灯",
       "onNext": { "nextNode": true }
     },
     "40115": {
       "type": "text",
       "name": "tomoya",
       "voice": "40115",
-      "inherit": 40112,
+      "bgr": "厨房3",
+      "bgm": "走马灯",
       "lCharactor": "友也_无奈",
       "onNext": { "nextNode": true }
     },
@@ -5404,7 +5453,8 @@
       "type": "text",
       "voice": "40116",
       "name": "tomoya_mother",
-      "inherit": 40112,
+      "bgr": "厨房3",
+      "bgm": "走马灯",
       "rCharactor": "友也母亲",
       "onNext": { "nextNode": true }
     },
@@ -5412,7 +5462,8 @@
       "type": "text",
       "voice": "40117",
       "name": "narrator",
-      "inherit": 40112,
+      "bgr": "厨房3",
+      "bgm": "走马灯",
       "onNext": { "setNode": 401170 }
     },
     "401170": {
@@ -5426,14 +5477,16 @@
       "type": "text",
       "name": "narrator",
       "voice": "40118",
-      "inherit": 40112,
+      "bgr": "厨房3",
+      "bgm": "走马灯",
       "onNext": { "nextNode": true }
     },
     "40119": {
       "type": "text",
       "name": "tomoya_mother",
       "voice": "40119",
-      "inherit": 40112,
+      "bgr": "厨房3",
+      "bgm": "走马灯",
       "rCharactor": "友也母亲",
       "onNext": { "nextNode": true }
     },
@@ -5441,7 +5494,8 @@
       "type": "text",
       "name": "tomoya",
       "voice": "40120",
-      "inherit": 40112,
+      "bgr": "厨房3",
+      "bgm": "走马灯",
       "lCharactor": "友也_痛苦",
       "onNext": { "nextNode": true }
     },
@@ -5449,13 +5503,15 @@
       "type": "text",
       "name": "narrator",
       "voice": "40121",
-      "inherit": 40112,
+      "bgr": "厨房3",
+      "bgm": "走马灯",
       "onNext": { "nextNode": true }
     },
     "40122": {
       "type": "text",
       "name": "tomoya_mother",
-      "inherit": 40112,
+      "bgr": "厨房3",
+      "bgm": "走马灯",
       "voice": "40122",
       "rCharactor": "友也母亲",
       "onNext": { "nextNode": true }
@@ -5464,7 +5520,8 @@
       "type": "text",
       "name": "tomoya_mother",
       "voice": "40123",
-      "inherit": 40112,
+      "bgr": "厨房3",
+      "bgm": "走马灯",
       "rCharactor": "友也母亲",
       "onNext": { "nextNode": true }
     },
@@ -5473,7 +5530,8 @@
       "name": "narrator",
       "voice": "40124",
       "lCharactor": "友也_痛苦",
-      "inherit": 40112,
+      "bgr": "厨房3",
+      "bgm": "走马灯",
       "onNext": { "setNode": 401250 }
     },
 
@@ -6230,7 +6288,8 @@
     "40207": {
       "type": "text",
       "name": "ryo",
-      "inherit": 40206,
+      "bgr": "城市郊区",
+      "bgm": "瞬间的永恒",
       "voice": "40207",
       "lCharactor": "凉_难过",
       "onNext": { "nextNode": true }
@@ -6238,28 +6297,31 @@
     "40208": {
       "type": "text",
       "name": "narrator",
-      "inherit": 40206,
+      "bgr": "城市郊区",
+      "bgm": "瞬间的永恒",
       "voice": "40208",
       "onNext": { "nextNode": true }
     },
     "40209": {
       "type": "text",
       "name": "narrator",
-      "inherit": 40206,
+      "bgr": "补充13",
+      "bgm": "瞬间的永恒",
       "voice": "40209",
       "onNext": { "nextNode": true }
     },
     "40210": {
       "type": "text",
       "name": "narrator",
-      "inherit": 40206,
+      "bgr": "补充13",
+      "bgm": "瞬间的永恒",
       "voice": "40210",
       "onNext": { "nextNode": true }
     },
     "40211": {
       "type": "text",
       "name": "narrator",
-      "bgr": "机场跑道3",
+      "bgr": "补充13",
       "bgm": "瞬间的永恒",
       "lCharactor": "绚音_哭泣",
       "voice": "40211",
@@ -6268,7 +6330,7 @@
     "40212": {
       "type": "text",
       "name": "ayane",
-      "bgr": "机场跑道3",
+      "bgr": "补充13",
       "bgm": "瞬间的永恒",
       "voice": "40212",
       "rCharactor": "绚音_沉默",
@@ -6278,7 +6340,7 @@
       "type": "text",
       "voice": "40213",
       "name": "narrator",
-      "bgr": "机场跑道3",
+      "bgr": "补充13",
       "bgm": "瞬间的永恒",
       "onNext": { "nextNode": true }
     },
@@ -7513,8 +7575,7 @@
     "30174": {
       "type": "text",
       "name": "studentC",
-      "rCharactor": "女生坏1",
-      "bgr": "楼梯2",
+      "bgr": "补充14",
       "bgm": "玫瑰少年",
       "voice": "30174",
       "onNext": { "nextNode": true }
@@ -7522,7 +7583,7 @@
     "30175": {
       "type": "text",
       "name": "narrator",
-      "bgr": "楼梯2",
+      "bgr": "补充14",
       "bgm": "玫瑰少年",
       "voice": "30175",
       "onNext": { "nextNode": true }
@@ -7530,8 +7591,7 @@
     "30176": {
       "type": "text",
       "name": "aoi",
-      "lCharactor": "葵_伤心",
-      "bgr": "楼梯2",
+      "bgr": "补充14",
       "bgm": "玫瑰少年",
       "voice": "30176",
       "onNext": { "nextNode": true }
@@ -7539,7 +7599,7 @@
     "30177": {
       "type": "text",
       "name": "narrator",
-      "bgr": "楼梯2",
+      "bgr": "补充14",
       "bgm": "玫瑰少年",
       "voice": "30177",
       "onNext": { "nextNode": true }
@@ -7547,8 +7607,7 @@
     "30178": {
       "type": "text",
       "name": "aoi",
-      "lCharactor": "葵_伤心",
-      "bgr": "楼梯2",
+      "bgr": "补充14",
       "bgm": "玫瑰少年",
       "voice": "30178",
       "onNext": { "nextNode": true }
@@ -7556,7 +7615,7 @@
     "30179": {
       "type": "text",
       "name": "narrator",
-      "bgr": "楼梯2",
+      "bgr": "补充14",
       "bgm": "玫瑰少年",
       "voice": "30179",
       "onNext": { "nextNode": true }
@@ -7959,7 +8018,7 @@
     "30219": {
       "type": "text",
       "name": "narrator",
-      "bgr": "厨房1",
+      "bgr": "补充15",
       "bgm": "旅程",
       "voice": "30219",
       "onNext": { "nextNode": true }
@@ -7967,7 +8026,6 @@
     "30220": {
       "type": "text",
       "name": "aoi",
-      "lCharactor": "葵_思考",
       "inherit": 30219,
       "voice": "30220",
       "onNext": { "nextNode": true }
@@ -7983,7 +8041,6 @@
     "30222": {
       "type": "text",
       "name": "aoi",
-      "rCharactor": "葵_思考",
       "inherit": 30219,
       "voice": "30222",
       "onNext": { "nextNode": true }
@@ -7991,7 +8048,6 @@
     "30223": {
       "type": "text",
       "name": "aoi_mother",
-      "lCharactor": "葵母亲",
       "inherit": 30219,
       "voice": "30223",
       "onNext": { "nextNode": true }
@@ -8000,6 +8056,7 @@
       "type": "text",
       "name": "aoi",
       "lCharactor": "葵_疑惑",
+      "bgr": "补充15",
       "inherit": 30219,
       "voice": "30224",
       "onNext": { "nextNode": true }
@@ -8008,6 +8065,7 @@
       "type": "text",
       "name": "aoi_mother",
       "rCharactor": "葵母亲",
+      "bgr": "补充15",
       "inherit": 30219,
       "voice": "30225",
       "onNext": { "nextNode": true }
@@ -8370,7 +8428,7 @@
       "type": "text",
       "name": "narrator",
       "lCharactor": "老奶奶",
-      "bgr": "雨夜城市4",
+      "bgr": "雨夜河边",
       "bgm": "孤独之舞",
       "voice": "30266",
       "onNext": { "nextNode": true }
@@ -8379,7 +8437,7 @@
       "type": "text",
       "name": "aoi",
       "lCharactor": "葵_畅想",
-      "bgr": "雨夜城市4",
+      "bgr": "雨夜河边",
       "bgm": "孤独之舞",
       "voice": "30267",
       "onNext": { "nextNode": true }
@@ -8397,7 +8455,7 @@
     "30269": {
       "type": "text",
       "name": "aoi",
-      "rCharactor": "葵_可爱",
+      "bgr": "雨夜女孩",
       "inherit": 30268,
       "voice": "30269",
       "onNext": { "nextNode": true }
@@ -8486,7 +8544,7 @@
     "30279": {
       "type": "text",
       "name": "aoi",
-      "lCharactor": "葵_伤心",
+      "bgr": "补充16",
       "inherit": 30275,
       "voice": "30279",
       "onNext": { "nextNode": true }
@@ -8494,7 +8552,7 @@
     "30280": {
       "type": "text",
       "name": "ayane",
-      "lCharactor": "绚音_微笑",
+      "bgr": "补充16",
       "inherit": 30275,
       "voice": "30280",
       "onNext": { "nextNode": true }
@@ -8503,6 +8561,7 @@
       "type": "text",
       "name": "narrator",
       "rCharactor": "",
+      "bgr": "补充16",
       "inherit": 30275,
       "voice": "30281",
       "onNext": { "nextNode": true }
@@ -8510,7 +8569,7 @@
     "30282": {
       "type": "text",
       "name": "aoi",
-      "rCharactor": "葵_思考",
+      "bgr": "补充16",
       "inherit": 30275,
       "voice": "30282",
       "onNext": { "nextNode": true }
@@ -8518,7 +8577,7 @@
     "30283": {
       "type": "text",
       "name": "ayane",
-      "lCharactor": "绚音_俏皮",
+      "bgr": "补充16",
       "inherit": 30275,
       "voice": "30283",
       "onNext": { "nextNode": true }
@@ -8526,6 +8585,7 @@
     "30284": {
       "type": "text",
       "name": "narrator",
+      "bgr": "补充16",
       "rCharactor": "",
       "inherit": 30275,
       "voice": "30284",
@@ -8777,7 +8837,7 @@
       "type": "text",
       "voice": "20100",
       "name": "narrator",
-      "bgr": "夜晚街道2",
+      "bgr": "补充10",
       "bgm": "云流海",
       "onNext": { "nextNode": true }
     },
@@ -8785,8 +8845,7 @@
       "type": "text",
       "voice": "20101",
       "name": "aoi",
-      "lCharactor": "葵_微笑",
-      "bgr": "夜晚街道2",
+      "bgr": "补充10",
       "bgm": "云流海",
       "onNext": { "nextNode": true }
     },
@@ -10096,7 +10155,7 @@
     "203180": {
       "type": "animation",
       "name": "fadeInBlack",
-      "bgr": "天台5",
+      "bgr": "补充17",
       "bgm": "叶隙洒落的阳光",
       "onNext": { "setNode": 203180 }
     },
@@ -10104,7 +10163,7 @@
       "type": "text",
       "voice": "20319",
       "name": "narrator",
-      "bgr": "天台5",
+      "bgr": "补充17",
       "bgm": "叶隙洒落的阳光",
       "onNext": { "nextNode": true }
     },
@@ -10112,7 +10171,7 @@
       "type": "text",
       "voice": "20320",
       "name": "narrator",
-      "bgr": "天台5",
+      "bgr": "补充17",
       "bgm": "叶隙洒落的阳光",
       "onNext": { "nextNode": true }
     },
@@ -10120,7 +10179,7 @@
       "type": "text",
       "voice": "20321",
       "name": "tomoya_mother",
-      "bgr": "天台5",
+      "bgr": "补充17",
       "bgm": "叶隙洒落的阳光",
       "onNext": { "nextNode": true }
     },
@@ -10128,7 +10187,7 @@
       "type": "text",
       "voice": "20322",
       "name": "narrator",
-      "bgr": "天台5",
+      "bgr": "补充17",
       "bgm": "叶隙洒落的阳光",
       "onNext": { "nextNode": true }
     },
@@ -10136,8 +10195,7 @@
       "type": "text",
       "voice": "20323",
       "name": "tomoya",
-      "rCharactor": "友也_平静",
-      "bgr": "天台5",
+      "bgr": "补充17",
       "bgm": "叶隙洒落的阳光",
       "onNext": { "nextNode": true }
     },
@@ -10145,7 +10203,6 @@
       "type": "text",
       "voice": "20324",
       "name": "ayane",
-      "lCharactor": "绚音_哭泣",
       "bgr": "原画入水",
       "bgm": "叶隙洒落的阳光",
       "onNext": { "nextNode": true }
@@ -13333,8 +13390,8 @@
     "30346": {
       "type": "text",
       "name": "aoi",
-      "rCharactor": "葵_畅想",
       "inherit": 30345,
+      "bgr": "补充18",
       "voice": "30346",
       "onNext": { "nextNode": true }
     },
@@ -13342,6 +13399,7 @@
       "type": "text",
       "name": "narrator",
       "rCharactor": "",
+      "bgr": "补充18",
       "inherit": 30345,
       "voice": "30347",
       "onNext": { "nextNode": true }
@@ -13349,7 +13407,7 @@
     "30348": {
       "type": "text",
       "name": "passerby",
-      "lCharactor": "路人",
+      "bgr": "补充18",
       "inherit": 30345,
       "voice": "30348",
       "onNext": { "nextNode": true }
@@ -13358,6 +13416,7 @@
       "type": "text",
       "name": "narrator",
       "inherit": 30345,
+      "bgr": "补充18",
       "voice": "30349",
       "onNext": { "nextNode": true }
     },
@@ -13798,6 +13857,7 @@
       "name": "narrator",
       "lCharactor": "",
       "inherit": 30391,
+      "bgr": "补充19",
       "voice": "30397",
       "onNext": { "nextNode": true }
     },
@@ -13806,6 +13866,7 @@
       "name": "tomoya",
       "rCharactor": "友也_微笑",
       "inherit": 30391,
+      "bgr": "补充19",
       "voice": "30398",
       "onNext": { "nextNode": true }
     },
@@ -13814,6 +13875,7 @@
       "name": "narrator",
       "lCharactor": "",
       "inherit": 30391,
+      "bgr": "补充19",
       "voice": "30399",
       "onNext": { "nextNode": true }
     },
@@ -14223,7 +14285,7 @@
       "type": "text",
       "name": "narrator",
       "lCharactor": "",
-      "bgr": "樱花2",
+      "bgr": "画展2",
       "bgm": "黄昏",
       "voice": "40339",
       "onNext": { "nextNode": true }
@@ -14232,7 +14294,7 @@
       "type": "text",
       "name": "narrator",
       "rCharactor": "",
-      "bgr": "樱花2",
+      "bgr": "画展2",
       "bgm": "黄昏",
       "voice": "40340",
       "onNext": { "nextNode": true }
@@ -14241,7 +14303,7 @@
       "type": "text",
       "name": "narrator",
       "rCharactor": "",
-      "bgr": "樱花2",
+      "bgr": "后台1",
       "bgm": "黄昏",
       "voice": "40341",
       "onNext": { "nextNode": true }
@@ -15200,7 +15262,7 @@
       "type": "text",
       "name": "narrator",
       "lCharactor": "",
-      "bgr": "烟花7",
+      "bgr": "补充20",
       "bgm": "你也没睡吗",
       "voice": "30493",
       "onNext": { "nextNode": true }
@@ -15208,8 +15270,7 @@
     "30494": {
       "type": "text",
       "name": "ayane",
-      "lCharactor": "绚音_平静",
-      "bgr": "烟花7",
+      "bgr": "补充20",
       "bgm": "你也没睡吗",
       "voice": "30494",
       "onNext": { "nextNode": true }
@@ -15218,7 +15279,7 @@
       "type": "text",
       "name": "narrator",
       "lCharactor": "",
-      "bgr": "烟花7",
+      "bgr": "补充20",
       "bgm": "你也没睡吗",
       "voice": "30495",
       "onNext": { "nextNode": true }
@@ -15226,8 +15287,7 @@
     "30496": {
       "type": "text",
       "name": "ryo",
-      "lCharactor": "凉_微笑",
-      "bgr": "烟花7",
+      "bgr": "补充20",
       "bgm": "你也没睡吗",
       "voice": "30496",
       "onNext": { "nextNode": true }
@@ -15235,8 +15295,7 @@
     "30497": {
       "type": "text",
       "name": "ayane",
-      "rCharactor": "绚音_平静",
-      "bgr": "烟花7",
+      "bgr": "补充20",
       "bgm": "你也没睡吗",
       "voice": "30497",
       "onNext": { "nextNode": true }
@@ -15476,7 +15535,7 @@
     "30524": {
       "type": "text",
       "name": "tomoya",
-      "lCharactor": "友ye",
+      "bgr": "补充21",
       "inherit": 30523,
       "voice": "30524",
       "onNext": { "nextNode": true }
@@ -15484,16 +15543,16 @@
     "30525": {
       "type": "text",
       "name": "aoi",
-      "lCharactor": "葵_可爱",
       "inherit": 30523,
+      "bgr": "补充21",
       "voice": "30525",
       "onNext": { "nextNode": true }
     },
     "30526": {
       "type": "text",
       "name": "ryo",
-      "lCharactor": "凉_悠闲",
       "inherit": 30523,
+      "bgr": "补充21",
       "voice": "30526",
       "onNext": { "nextNode": true }
     },
