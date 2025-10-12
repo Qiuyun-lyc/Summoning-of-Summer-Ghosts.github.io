@@ -53,6 +53,30 @@ const AboutView = {
                     padding: 20px 40px;   /* 左右留边距 */
                     margin-top: 20px;     /* 导航栏下方留出空间 */
                 }
+                /* 保持图片/翻转样式由外部样式表控制，仅对容器做最小调整 */
+                .about-content {
+                    /* 限制高度以便在视窗高度不足时启用垂直滚动（支持鼠标滚轮） */
+                    max-height: calc(100vh - 140px);
+                    overflow-y: auto;
+                    -webkit-overflow-scrolling: touch;
+                }
+                /* 美化 about-content 的滚动条（仅作用于此容器） */
+                .about-content::-webkit-scrollbar { width: 12px; }
+                .about-content::-webkit-scrollbar-track { background: rgba(0,0,0,0.12); border-radius: 8px; }
+                .about-content::-webkit-scrollbar-thumb { background: linear-gradient(180deg, rgba(255,255,255,0.12), rgba(255,255,255,0.06)); border-radius: 8px; border: 2px solid rgba(0,0,0,0.06); }
+                .about-content::-webkit-scrollbar-thumb:hover { background: linear-gradient(180deg, rgba(255,255,255,0.18), rgba(255,255,255,0.08)); }
+                .about-content::-webkit-scrollbar-corner { background: transparent; }
+                /* Firefox 支持 */
+                .about-content { scrollbar-width: thin; scrollbar-color: rgba(255,255,255,0.12) rgba(0,0,0,0.12); }
+                .about-content-wrapper {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center; /* 居中 gallery */
+                }
+                /* 在更广泛的窄屏或横向无法容纳多图时，强制从上到下单列排列 */
+                @media (max-width: 640px) {
+                    .gallery.row1, .gallery.row2 { grid-template-columns: 1fr !important; justify-items: center; }
+                }
             </style>
             <div class="view about-view">
                 <div class="bg" style="background-image: url('./assets/img/bgr/mainmenu.png');"></div>
