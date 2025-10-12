@@ -1,0 +1,65 @@
+# ===== OS =====
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ===== Editors =====
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+.idea/
+*.iml
+
+# ===== Node / 包管理器 =====
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+# 锁文件建议提交，便于可复现构建：
+# package-lock.json
+# yarn.lock
+# pnpm-lock.yaml
+
+# ===== 构建/缓存 =====
+dist/
+build/
+out/
+make/
+release/
+coverage/
+tmp/
+temp/
+.cache/
+.parcel-cache/
+.vite/
+.webpack/
+.electron/
+.eslintcache
+.stylelintcache
+*.tsbuildinfo
+
+# ===== Electron 特有产物 =====
+*.asar
+*.asar.unpacked/
+*.dmg
+*.exe
+*.msi
+*.blockmap
+*.snap
+*.AppImage
+*.deb
+*.rpm
+*.tar.gz
+*.zip
+
+# ===== 关卡/编辑器会话 =====
+*.tiled-session
+
+# ===== 本地运行插件配置 =====
+.liveserver.json
+
+# ===== 设计源文件=====
+# assets/**/*.{psd,ai,xcf,kra,aseprite}
