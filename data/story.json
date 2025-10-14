@@ -20,7 +20,7 @@
       "gameId": "platformer",
       "level": "level1.json",
       "timeLimit": 30,
-      "introText": "孤独与茫然笼罩了心灵与梦境，漫没黑水的海洋中，葵在苦苦挣扎",
+      "introText": "孤独与茫然笼罩了心灵与梦境，漫没黑水的海洋中，葵在苦苦挣扎（游戏输赢影响剧情走向）",
       "resultTitle": "任务结果",
       "winCondition": {
         "type": "collect",
@@ -43,7 +43,7 @@
       "gameId": "platformer",
       "level": "level2.json",
       "timeLimit": 25,
-      "introText": "对于过去那场事故，绚音的记忆很模糊，在黑暗的时光里追寻那些记忆吧",
+      "introText": "对于过去那场事故，绚音的记忆很模糊，在黑暗的时光里追寻那些记忆吧（游戏输赢影响剧情走向）",
       "resultTitle": "任务结果",
       "winCondition": {
         "type": "collect",
@@ -65,7 +65,7 @@
       "gameId": "platformer",
       "level": "level3.json",
       "timeLimit": 25,
-      "introText": "葵的内心发生了动摇，所谓意义，究竟为何物，她需要足够的“打扰”他们寻求安慰的理由.",
+      "introText": "葵的内心发生了动摇，所谓意义，究竟为何物，她需要足够的“打扰”他们寻求安慰的理由.（游戏输赢影响剧情走向）",
       "resultTitle": "任务结果",
       "winCondition": {
         "type": "collect",
@@ -88,8 +88,8 @@
       "type": "minigame",
       "gameId": "platformer",
       "level": "level4.json",
-      "timeLimit": 35,
-      "introText": "搜集其他与事故有关的线索，找到遗忘在历史中的记忆.",
+      "timeLimit": 30,
+      "introText": "搜集其他与事故有关的线索，找到遗忘在历史中的记忆.（游戏输赢影响剧情走向）",
       "resultTitle": "任务结果",
       "winCondition": {
         "type": "collect",
@@ -102,7 +102,7 @@
         },
         "lose": {
           "targetNode": 40311,
-          "outroText": "岁月的尘埃被洗刷干净，真相被埋葬在旧日的痕迹中，迷雾笼罩了正义与窥秘人的双眼"
+          "outroText": "岁月的尘埃被洗刷干净，真相被埋葬在旧日的痕迹中，迷雾笼罩了正义与窥秘人的双眼（相信我，能跳过去的，作者自己玩了六七次就过去了~）"
         }
       }
     },
@@ -13040,7 +13040,7 @@
       "type": "text",
       "voice": 20826,
       "bgr": "法庭",
-      "rCharactor": "女警官1",
+      "rCharactor": "女警员1",
       "bgm": "为我舞蹈",
       "name": "narrator",
       "onNext": { "nextNode": true }
@@ -15615,7 +15615,7 @@
       "type": "animation",
       "name": "fadeInBlack",
       "voice": "50000",
-      "bgr": "白色",
+      "bgr": "原神",
       "unlockAchievement":"世界线",
       "bgm": "null",
       "lCharactor":"",
@@ -15644,7 +15644,7 @@
       "voice": "50003",
       "name": "narrator",
       "lCharactor": "",
-      "bgr": "烟花1",
+      "bgr": "补充23",
       "bgm": "null",
       "onNext": { "nextNode": true }
     },
@@ -15653,7 +15653,7 @@
       "voice": "50004",
       "name": "narrator",
       "lCharactor": "",
-      "bgr": "烟花1",
+      "bgr": "补充23",
       "bgm": "null",
       "onNext": { "nextNode": true }
     },
@@ -15661,7 +15661,7 @@
       "type": "animation",
       "name": "fadeInBlack",
       "voice": "50005",
-      "bgr": "烟花1",
+      "bgr": "补充23",
       "bgm": "null",
       "lCharactor":"",
       "onNext": { "nextNode": true }
@@ -15895,8 +15895,7 @@
       "type": "text",
       "voice": "50031",
       "name": "tomoya",
-      "rCharactor": "友也_梦境",
-      "bgr": "烟花5",
+      "bgr": "补充24",
       "bgm": "卡农",
       "onNext": { "nextNode": true }
     },
@@ -15904,8 +15903,7 @@
       "type": "text",
       "voice": "50032",
       "name": "ayane",
-      "lCharactor": "绚音_梦境",
-      "bgr": "烟花5",
+      "bgr": "补充24",
       "bgm": "卡农",
       "onNext": { "nextNode": true }
     },
@@ -15913,8 +15911,7 @@
       "type": "text",
       "voice": "50033",
       "name": "aoi",
-      "lCharactor": "葵_梦境",
-      "bgr": "烟花5",
+      "bgr": "补充24",
       "bgm": "卡农",
       "onNext": { "nextNode": true }
     },
@@ -15922,8 +15919,7 @@
       "type": "text",
       "voice": "50034",
       "name": "ryo",
-      "lCharactor": "凉_梦境",
-      "bgr": "烟花5",
+      "bgr": "补充24",
       "bgm": "卡农",
       "onNext": { "nextNode": true }
     },
@@ -15932,7 +15928,7 @@
       "voice": "50035",
       "name": "narrator",
       "lCharactor": "",
-      "bgr": "烟花5",
+      "bgr": "补充24",
       "bgm": "卡农",
       "onNext": { "nextNode": true }
     },
@@ -16086,7 +16082,7 @@
       "voice": "50052",
       "name": "narrator",
       "rCharactor": "",
-      "bgr": "图书馆5",
+      "bgr": "补充25",
       "bgm": "青藤色仲夏",
       "onNext": { "nextNode": true }
     },
@@ -16095,7 +16091,7 @@
       "voice": "50053",
       "name": "narrator",
       "rCharactor": "",
-      "bgr": "图书馆5",
+      "bgr": "补充25",
       "bgm": "青藤色仲夏",
       "onNext": { "nextNode": true }
     },
@@ -16103,7 +16099,7 @@
       "type": "animation",
       "name": "fadeInBlack",
       "voice": "50054",
-      "bgr": "图书馆5",
+      "bgr": "补充25",
       "bgm": "青藤色仲夏",
       "rCharactor":"",
       "onNext": { "nextNode": true }
@@ -16229,7 +16225,7 @@
       "type": "text",
       "voice": "50068",
       "name": "narrator",
-      "lCharactor": "",
+      "lCharactor": "杂货店老板",
       "bgr": "饰品店",
       "bgm": "青藤色仲夏",
       "onNext": { "nextNode": true }
@@ -16238,8 +16234,7 @@
       "type": "text",
       "voice": "50069",
       "name": "aoi",
-      "rCharactor": "葵_冬日",
-      "bgr": "饰品店",
+      "bgr": "补充26",
       "bgm": "青藤色仲夏",
       "onNext": { "nextNode": true }
     },
@@ -16248,7 +16243,7 @@
       "voice": "50070",
       "name": "narrator",
       "rCharactor": "",
-      "bgr": "饰品店",
+      "bgr": "补充26",
       "bgm": "青藤色仲夏",
       "onNext": { "nextNode": true }
     },
@@ -16256,7 +16251,7 @@
       "type": "animation",
       "name": "fadeInBlack",
       "voice": "50071",
-      "bgr": "饰品店",
+      "bgr": "补充26",
       "bgm": "青藤色仲夏",
       "rCharactor":"",
       "onNext": { "nextNode": true }
@@ -16541,7 +16536,7 @@
       "voice": "50102",
       "name": "narrator",
       "lCharactor": "",
-      "bgr": "小巷1",
+      "bgr": "补充27",
       "bgm": "溺悬",
       "onNext": { "nextNode": true }
     },
@@ -16550,7 +16545,7 @@
       "voice": "50103",
       "name": "aoi",
       "rCharactor": "葵_冬日",
-      "bgr": "小巷1",
+      "bgr": "补充27",
       "bgm": "溺悬",
       "onNext": { "nextNode": true }
     },
@@ -16559,7 +16554,7 @@
       "voice": "50104",
       "name": "narrator",
       "lCharactor": "",
-      "bgr": "小巷1",
+      "bgr": "补充27",
       "bgm": "溺悬",
       "onNext": { "nextNode": true }
     },
@@ -16567,7 +16562,7 @@
       "type": "animation",
       "name": "fadeInBlack",
       "voice": "50105",
-      "bgr": "小巷1",
+      "bgr": "补充27",
       "bgm": "溺悬",
       "rCharactor": "猫猫",
       "onNext": { "nextNode": true }
@@ -16629,7 +16624,7 @@
       "type": "animation",
       "name": "fadeInBlack",
       "voice": "50112",
-      "bgr": "教室1",
+      "bgr": "补充28",
       "bgm": "溺悬",
       "lCharactor":"",
       "onNext": { "nextNode": true }
@@ -16639,7 +16634,7 @@
       "voice": "50113",
       "name": "narrator",
       "rCharactor": "",
-      "bgr": "教室1",
+      "bgr": "补充28",
       "bgm": "溺悬",
       "onNext": { "nextNode": true }
     },
@@ -16647,7 +16642,7 @@
       "type": "animation",
       "name": "fadeInBlack",
       "voice": "50114",
-      "bgr": "教室1",
+      "bgr": "补充28",
       "bgm": "结束",
       "rCharactor":"",
       "onNext": { "nextNode": true }
@@ -16810,7 +16805,7 @@
       "voice": "50132",
       "name": "narrator",
       "lCharactor": "",
-      "bgr": "公园4",
+      "bgr": "补充29",
       "bgm": "结束",
       "onNext": { "nextNode": true }
     },
@@ -16820,7 +16815,7 @@
       "name": "narrator",
       "lCharactor": "",
       "unlockAchievement":"爱意随风起",
-      "bgr": "公园4",
+      "bgr": "补充29",
       "bgm": "结束",
       "onNext": { "nextNode": true }
     },
@@ -16828,7 +16823,7 @@
       "type": "animation",
       "name": "fadeInBlack",
       "voice": "50134",
-      "bgr": "公园4",
+      "bgr": "补充29",
       "bgm": "结束",
       "rCharactor":"",
       "onNext": { "nextNode": true }
@@ -17252,7 +17247,7 @@
       "voice": "50181",
       "name": "narrator",
       "lCharactor": "",
-      "bgr": "雨夜城市1",
+      "bgr": "补充30",
       "bgm": "落樱谷",
       "onNext": { "nextNode": true }
     },
@@ -17260,8 +17255,7 @@
       "type": "text",
       "voice": "50182",
       "name": "aoi",
-      "lCharactor": "葵_梦境",
-      "bgr": "雨夜城市1",
+      "bgr": "补充30",
       "bgm": "落樱谷",
       "onNext": { "nextNode": true }
     },
@@ -17269,8 +17263,7 @@
       "type": "text",
       "voice": "50183",
       "name": "ryo",
-      "rCharactor": "凉_梦境",
-      "bgr": "雨夜城市1",
+      "bgr": "补充30",
       "bgm": "落樱谷",
       "onNext": { "nextNode": true }
     },
@@ -17278,8 +17271,7 @@
       "type": "text",
       "voice": "50184",
       "name": "aoi",
-      "lCharactor": "葵_梦境",
-      "bgr": "雨夜城市1",
+      "bgr": "补充30",
       "bgm": "落樱谷",
       "onNext": { "nextNode": true }
     },
@@ -17613,7 +17605,7 @@
       "voice": "50221",
       "name": "narrator",
       "rCharactor": "",
-      "bgr": "沙滩2",
+      "bgr": "补充31",
       "bgm": "海鸣",
       "onNext": { "nextNode": true }
     },
@@ -17621,7 +17613,7 @@
       "type": "animation",
       "name": "fadeInBlack",
       "voice": "50222",
-      "bgr": "沙滩2",
+      "bgr": "补充31",
       "bgm": "海鸣",
       "rCharactor":"",
       "onNext": { "nextNode": true }
@@ -17631,7 +17623,7 @@
       "voice": "50223",
       "name": "narrator",
       "lCharactor": "",
-      "bgr": "沙滩2",
+      "bgr": "补充31",
       "bgm": "海鸣",
       "onNext": { "nextNode": true }
     },
@@ -17640,7 +17632,7 @@
       "voice": "50224",
       "name": "narrator",
       "lCharactor": "",
-      "bgr": "沙滩2",
+      "bgr": "补充31",
       "bgm": "海鸣",
       "onNext": { "nextNode": true }
     },
@@ -17694,7 +17686,7 @@
       "voice": "50230",
       "name": "narrator",
       "rCharactor": "",
-      "bgr": "咖啡馆4",
+      "bgr": "补充32",
       "bgm": "寂静列车",
       "onNext": { "nextNode": true }
     },
@@ -17702,8 +17694,7 @@
       "type": "text",
       "voice": "50231",
       "name": "tomoya",
-      "rCharactor": "友也_梦境",
-      "bgr": "咖啡馆4",
+      "bgr": "补充32",
       "bgm": "寂静列车",
       "onNext": { "nextNode": true }
     },
@@ -17711,8 +17702,7 @@
       "type": "text",
       "voice": "50232",
       "name": "ayane",
-      "lCharactor": "绚音_梦境",
-      "bgr": "咖啡馆4",
+      "bgr": "补充32",
       "bgm": "寂静列车",
       "onNext": { "nextNode": true }
     },
@@ -17720,7 +17710,7 @@
       "type": "animation",
       "name": "fadeInBlack",
       "voice": "50233",
-      "bgr": "咖啡馆4",
+      "bgr": "补充32",
       "bgm": "寂静列车",
       "rCharactor":"",
       "onNext": { "nextNode": true }
@@ -17892,7 +17882,7 @@
       "type": "animation",
       "name": "fadeInBlack",
       "voice": "50252",
-      "bgr": "地铁",
+      "bgr": "补充33",
       "bgm": "寂静列车",
       "rCharactor":"",
       "onNext": { "nextNode": true }
@@ -17902,7 +17892,7 @@
       "voice": "50253",
       "name": "narrator",
       "lCharactor": "",
-      "bgr": "地铁",
+      "bgr": "补充33",
       "bgm": "寂静列车",
       "onNext": { "nextNode": true }
     },
@@ -17910,8 +17900,7 @@
       "type": "text",
       "voice": "50254",
       "name": "tomoya",
-      "lCharactor": "友也_梦境",
-      "bgr": "地铁",
+      "bgr": "补充33",
       "bgm": "寂静列车",
       "onNext": { "nextNode": true }
     },
@@ -17919,8 +17908,7 @@
       "type": "text",
       "voice": "50255",
       "name": "ayane",
-      "lCharactor": "绚音_梦境",
-      "bgr": "地铁",
+      "bgr": "补充33",
       "bgm": "寂静列车",
       "onNext": { "nextNode": true }
     },
@@ -18235,7 +18223,7 @@
       "voice": "50290",
       "name": "narrator",
       "rCharactor": "",
-      "bgr": "城市郊区2",
+      "bgr": "补充34",
       "bgm": "青石巷",
       "onNext": { "nextNode": true }
     },
@@ -18244,7 +18232,7 @@
       "voice": "50291",
       "name": "narrator",
       "rCharactor": "",
-      "bgr": "城市郊区2",
+      "bgr": "补充34",
       "bgm": "青石巷",
       "onNext": { "nextNode": true }
     },
@@ -18252,8 +18240,7 @@
       "type": "text",
       "voice": "50292",
       "name": "ayane",
-      "lCharactor": "绚音_梦境",
-      "bgr": "城市郊区2",
+      "bgr": "补充34",
       "bgm": "青石巷",
       "onNext": { "nextNode": true }
     },
@@ -18262,7 +18249,7 @@
       "voice": "50293",
       "name": "narrator",
       "rCharactor": "",
-      "bgr": "城市郊区2",
+      "bgr": "补充34",
       "bgm": "青石巷",
       "onNext": { "nextNode": true }
     },
@@ -18272,7 +18259,7 @@
       "name": "narrator",
       "rCharactor": "",
       "unlockAchievement":"社区装点家",
-      "bgr": "城市郊区2",
+      "bgr": "补充34",
       "bgm": "青石巷",
       "onNext": { "nextNode": true }
     },
@@ -18551,8 +18538,7 @@
       "type": "text",
       "voice": "50325",
       "name": "tomoya",
-      "lCharactor": "友也_梦境",
-      "bgr": "列车2",
+      "bgr": "补充35",
       "bgm": "回家",
       "onNext": { "nextNode": true }
     },
@@ -18560,8 +18546,7 @@
       "type": "text",
       "voice": "50326",
       "name": "ayane",
-      "lCharactor": "绚音_梦境",
-      "bgr": "列车2",
+      "bgr": "补充35",
       "bgm": "回家",
       "onNext": { "nextNode": true }
     },
@@ -18569,8 +18554,7 @@
       "type": "text",
       "voice": "50327",
       "name": "aoi",
-      "lCharactor": "葵_梦境",
-      "bgr": "列车2",
+      "bgr": "补充35",
       "bgm": "回家",
       "onNext": { "nextNode": true }
     },
@@ -18578,8 +18562,7 @@
       "type": "text",
       "voice": "50328",
       "name": "ryo",
-      "rCharactor": "凉_梦境",
-      "bgr": "列车2",
+      "bgr": "补充35",
       "bgm": "回家",
       "onNext": { "nextNode": true }
     },
@@ -18588,7 +18571,7 @@
       "voice": "50329",
       "name": "narrator",
       "rCharactor": "",
-      "bgr": "列车2",
+      "bgr": "补充35",
       "bgm": "回家",
       "onNext": { "nextNode": true }
     },
@@ -19229,8 +19212,7 @@
       "type": "text",
       "voice": "50400",
       "name": "ryo",
-      "rCharactor": "凉_梦境",
-      "bgr": "烟花12",
+      "bgr": "补充22",
       "bgm": "夏夜烟火",
       "onNext": { "nextNode": true }
     },
