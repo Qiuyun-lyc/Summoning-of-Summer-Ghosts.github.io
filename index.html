@@ -22,4 +22,26 @@
     <!-- 我们应用程序脚本的唯一入口点 -->
     <script type="module" src="./js/main.js"></script>
 </body>
+    <script>
+  // 按你的仓库名设置
+  const basePath = "/Summoning-of-Summer-Ghosts.github.io/";
+
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register(basePath + 'sw.js', { scope: basePath })
+        .then(reg => {
+          // 新 SW 准备就绪时，自动跳过等待并接管页面（可选）
+          if (navigator.serviceWorker.controller) {
+            navigator.serviceWorker.controller.postMessage({ type: 'SKIP_WAITING' });
+          } else {
+            // 首次安装没有 controller，等激活后再刷新一次
+            setTimeout(() => location.reload(), 800);
+          }
+          console.log('SW registered', reg.scope);
+        })
+        .catch(err => console.error('SW register failed:', err));
+    });
+  }
+</script>
+
 </html>
