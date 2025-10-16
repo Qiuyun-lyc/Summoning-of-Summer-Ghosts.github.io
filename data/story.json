@@ -1348,7 +1348,7 @@
       "lCharactor": "友也_平静",
       "bgr":"报纸",
       "voice": "1166",
-      "lockAchievement":"传说？",
+      "unlockAchievement":"传说？",
       "inherit": 1144,
       "onNext": { "nextNode": true }
     },
@@ -15616,7 +15616,7 @@
       "name": "fadeInBlack",
       "voice": "50000",
       "bgr": "原神",
-      "unlockAchievement":"世界线",
+      
       "bgm": "null",
       "lCharactor":"",
       "onNext": { "nextNode": true }
@@ -15627,6 +15627,7 @@
       "name": "narrator",
       "lCharactor": "",
       "bgr": "烟花1",
+      "unlockAchievement":"世界线",
       "bgm": "null",
       "onNext": { "nextNode": true }
     },
