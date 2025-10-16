@@ -1,47 +1,79 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>夏夜唤灵簿</title>
-    <link rel="stylesheet" href="./assets/css/style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>夏夜唤灵簿</title>
+
+  <!-- PWA: manifest & theme color（路径基于 GitHub Pages 项目页根） -->
+  <link rel="manifest" href="/Summoning-of-Summer-Ghosts.github.io/manifest.webmanifest" />
+  <meta name="theme-color" content="#111111" />
+
+  <!-- 基础图标（可保留你仓库中的 192/512 图标） -->
+  <link rel="icon" href="/Summoning-of-Summer-Ghosts.github.io/assets/icons/icon-192.png" />
+  <link rel="apple-touch-icon" href="/Summoning-of-Summer-Ghosts.github.io/assets/icons/icon-192.png" />
+
+  <!-- 你的样式表 -->
+  <link rel="stylesheet" href="./assets/css/style.css" />
 </head>
 <body>
-    <!-- 这是所有游戏视图将被渲染的主容器 -->
-    <div id="app-container"></div>
+  <!-- 这是所有游戏视图将被渲染的主容器 -->
+  <div id="app-container"></div>
 
-    <!-- 音频元素放在这里，以便AudioManager可以全局访问 -->
-    <audio id="bgm-player" loop></audio>
-    <audio id="sfx-hover-player"></audio>
-    <audio id="sfx-click-player"></audio>
-    <audio id="sfx-title-hover-player"></audio>
-    <audio id="sfx-title-click-player"></audio>
-    <audio id="sfx-sys-yes-player"></audio>
+  <!-- 音频元素放在这里，以便 AudioManager 可以全局访问 -->
+  <audio id="bgm-player" loop></audio>
+  <audio id="sfx-hover-player"></audio>
+  <audio id="sfx-click-player"></audio>
+  <audio id="sfx-title-hover-player"></audio>
+  <audio id="sfx-title-click-player"></audio>
+  <audio id="sfx-sys-yes-player"></audio>
 
+  <!-- 我们应用程序脚本的唯一入口点 -->
+  <script type="module" src="./js/main.js"></script>
 
-    <!-- 我们应用程序脚本的唯一入口点 -->
-    <script type="module" src="./js/main.js"></script>
+  <!-- Service Worker 注册（修正版 + 更安全的 skipWaiting 切换逻辑） -->
+  <script>
+    (function () {
+      const basePath = "/Summoning-of-Summer-Ghosts.github.io/";
+
+      if (!('serviceWorker' in navigator)) return;
+
+      window.addEventListener('load', () => {
+        navigator.serviceWorker
+          .register(basePath + "sw.js", { scope: basePath })
+          .then((reg) => {
+            // 如果已有等待中的 SW，要求其立刻接管
+            function requestSkipWaitingIfAny(r) {
+              if (r.waiting) {
+                try { r.waiting.postMessage({ type: "SKIP_WAITING" }); } catch (e) {}
+              }
+            }
+            requestSkipWaitingIfAny(reg);
+
+            // 监听新 SW 安装完成后进入 waiting 状态，立刻请求跳过等待
+            reg.addEventListener("updatefound", () => {
+              const sw = reg.installing;
+              if (!sw) return;
+              sw.addEventListener("statechange", () => {
+                if (sw.state === "installed" && navigator.serviceWorker.controller) {
+                  requestSkipWaitingIfAny(reg);
+                }
+              });
+            });
+
+            // 当控制权切换到新 SW，刷新一次页面以加载新资源
+            navigator.serviceWorker.addEventListener("controllerchange", () => {
+              // 避免无限刷新：只在本次会话内触发一次
+              if (window.__reloadedBySW__) return;
+              window.__reloadedBySW__ = true;
+              location.reload();
+            });
+
+            console.log("SW registered:", reg.scope);
+          })
+          .catch((err) => console.error("SW register failed:", err));
+      });
+    })();
+  </script>
 </body>
-    <script>
-  // 按你的仓库名设置
-  const basePath = "/Summoning-of-Summer-Ghosts.github.io/";
-
-  if ('serviceWorker' in navigator) {
-    window.addEventListener('load', () => {
-      navigator.serviceWorker.register(basePath + 'sw.js', { scope: basePath })
-        .then(reg => {
-          // 新 SW 准备就绪时，自动跳过等待并接管页面（可选）
-          if (navigator.serviceWorker.controller) {
-            navigator.serviceWorker.controller.postMessage({ type: 'SKIP_WAITING' });
-          } else {
-            // 首次安装没有 controller，等激活后再刷新一次
-            setTimeout(() => location.reload(), 800);
-          }
-          console.log('SW registered', reg.scope);
-        })
-        .catch(err => console.error('SW register failed:', err));
-    });
-  }
-</script>
-
 </html>
