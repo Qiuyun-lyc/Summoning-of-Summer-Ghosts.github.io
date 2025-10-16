@@ -2,19 +2,77 @@
 <html lang="zh-CN">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1, viewport-fit=cover"
+  />
   <title>夏夜唤灵簿</title>
 
   <!-- PWA: manifest & theme color（路径基于 GitHub Pages 项目页根） -->
-  <link rel="manifest" href="/Summoning-of-Summer-Ghosts.github.io/manifest.webmanifest" />
+  <link
+    rel="manifest"
+    href="/Summoning-of-Summer-Ghosts.github.io/manifest.webmanifest"
+  />
   <meta name="theme-color" content="#111111" />
+  <meta name="application-name" content="SummerGhosts" />
+  <!-- iOS PWA 样式与标题 -->
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-title" content="SummerGhosts" />
 
-  <!-- 基础图标（可保留你仓库中的 192/512 图标） -->
-  <link rel="icon" href="/Summoning-of-Summer-Ghosts.github.io/assets/icons/icon-192.png" />
-  <link rel="apple-touch-icon" href="/Summoning-of-Summer-Ghosts.github.io/assets/icons/icon-192.png" />
+  <!-- 图标：favicon（多尺寸 .ico）、Apple Touch（180x180），其余由 manifest 提供 -->
+  <link
+    rel="icon"
+    href="/Summoning-of-Summer-Ghosts.github.io/favicon.ico"
+    sizes="any"
+  />
+  <link
+    rel="apple-touch-icon"
+    href="/Summoning-of-Summer-Ghosts.github.io/assets/icons/apple-touch-icon-180x180.png"
+  />
 
   <!-- 你的样式表 -->
   <link rel="stylesheet" href="./assets/css/style.css" />
+
+  <!-- 轻量样式：安装按钮与 iOS 引导 -->
+  <style>
+    #pwa-install-btn {
+      position: fixed;
+      right: 16px;
+      bottom: 16px;
+      padding: 10px 14px;
+      border: 0;
+      border-radius: 12px;
+      font-size: 14px;
+      backdrop-filter: blur(8px);
+      background: rgba(17, 17, 17, 0.85);
+      color: #fff;
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25);
+      cursor: pointer;
+      z-index: 9999;
+      display: none;
+    }
+    #ios-install-tip {
+      position: fixed;
+      left: 50%;
+      bottom: 16px;
+      transform: translateX(-50%);
+      max-width: min(92vw, 520px);
+      color: #fff;
+      background: rgba(17, 17, 17, 0.92);
+      padding: 12px 14px;
+      border-radius: 12px;
+      font-size: 14px;
+      line-height: 1.45;
+      z-index: 9999;
+      display: none;
+    }
+    #ios-install-tip a {
+      color: #63b3ff;
+      text-decoration: underline;
+      cursor: pointer;
+    }
+  </style>
 </head>
 <body>
   <!-- 这是所有游戏视图将被渲染的主容器 -->
@@ -28,52 +86,90 @@
   <audio id="sfx-title-click-player"></audio>
   <audio id="sfx-sys-yes-player"></audio>
 
-  <!-- 我们应用程序脚本的唯一入口点 -->
+  <!-- 安装入口（Chromium 会显示安装，iOS 给出引导） -->
+  <button id="pwa-install-btn" aria-label="安装应用">安装应用</button>
+  <div id="ios-install-tip">
+    在 Safari 中，点右上角的<strong>分享</strong>，选择<strong>添加到主屏幕</strong>即可安装。
+    <a id="ios-tip-close">知道了</a>
+  </div>
+
+  <!-- 你的应用脚本入口 -->
   <script type="module" src="./js/main.js"></script>
 
-  <!-- Service Worker 注册（修正版 + 更安全的 skipWaiting 切换逻辑） -->
+  <!-- PWA：Service Worker 注册 + 更友好的安装逻辑 -->
   <script>
     (function () {
       const basePath = "/Summoning-of-Summer-Ghosts.github.io/";
+      const $btn = document.getElementById("pwa-install-btn");
+      const $iosTip = document.getElementById("ios-install-tip");
+      const $iosClose = document.getElementById("ios-tip-close");
 
-      if (!('serviceWorker' in navigator)) return;
+      let deferredPrompt = null;
 
-      window.addEventListener('load', () => {
-        navigator.serviceWorker
-          .register(basePath + "sw.js", { scope: basePath })
-          .then((reg) => {
-            // 如果已有等待中的 SW，要求其立刻接管
-            function requestSkipWaitingIfAny(r) {
-              if (r.waiting) {
-                try { r.waiting.postMessage({ type: "SKIP_WAITING" }); } catch (e) {}
-              }
-            }
-            requestSkipWaitingIfAny(reg);
+      const isStandalone =
+        window.matchMedia("(display-mode: standalone)").matches ||
+        window.navigator.standalone === true;
 
-            // 监听新 SW 安装完成后进入 waiting 状态，立刻请求跳过等待
-            reg.addEventListener("updatefound", () => {
-              const sw = reg.installing;
-              if (!sw) return;
-              sw.addEventListener("statechange", () => {
-                if (sw.state === "installed" && navigator.serviceWorker.controller) {
-                  requestSkipWaitingIfAny(reg);
-                }
-              });
-            });
+      const isIOS = /iphone|ipad|ipod/i.test(navigator.userAgent);
 
-            // 当控制权切换到新 SW，刷新一次页面以加载新资源
-            navigator.serviceWorker.addEventListener("controllerchange", () => {
-              // 避免无限刷新：只在本次会话内触发一次
-              if (window.__reloadedBySW__) return;
-              window.__reloadedBySW__ = true;
-              location.reload();
-            });
+      function showBtn() {
+        if ($btn) $btn.style.display = "inline-block";
+      }
+      function hideBtn() {
+        if ($btn) $btn.style.display = "none";
+      }
+      function showIOSTip() {
+        if ($iosTip) $iosTip.style.display = "block";
+      }
+      function hideIOSTip() {
+        if ($iosTip) $iosTip.style.display = "none";
+      }
 
-            console.log("SW registered:", reg.scope);
-          })
-          .catch((err) => console.error("SW register failed:", err));
+      // 1) 安装入口（Chromium 系）
+      window.addEventListener("beforeinstallprompt", (e) => {
+        // 阻止浏览器自动弹窗，改为自定义按钮
+        e.preventDefault();
+        deferredPrompt = e;
+        if (!isStandalone && !isIOS) showBtn();
       });
-    })();
-  </script>
-</body>
-</html>
+
+      $btn?.addEventListener("click", async () => {
+        try {
+          if (!deferredPrompt) return;
+          deferredPrompt.prompt();
+          const choice = await deferredPrompt.userChoice;
+          // 用户响应后，按钮隐藏并释放引用
+          deferredPrompt = null;
+          hideBtn();
+          console.log("PWA install choice:", choice);
+        } catch (err) {
+          console.warn("Install prompt failed:", err);
+        }
+      });
+
+      window.addEventListener("appinstalled", () => {
+        hideBtn();
+        hideIOSTip();
+        console.log("PWA installed");
+      });
+
+      // 2) iOS 提示（iOS 无 beforeinstallprompt）
+      if (!isStandalone && isIOS) {
+        // 等页面就绪后，给出一次轻提示
+        window.addEventListener("load", () => {
+          setTimeout(showIOSTip, 600);
+        });
+      }
+      $iosClose?.addEventListener("click", hideIOSTip);
+
+      // 3) Service Worker 注册
+      if ("serviceWorker" in navigator) {
+        window.addEventListener("load", () => {
+          navigator.serviceWorker
+            .register(basePath + "sw.js", { scope: basePath })
+            .then((reg) => {
+              // 若已有等待中的 SW，请求立刻接管
+              function requestSkipWaiting(r) {
+                if (r.waiting) {
+                  try {
+                    r.waiting.postMessage({ type: "SKIP_WAITING_
