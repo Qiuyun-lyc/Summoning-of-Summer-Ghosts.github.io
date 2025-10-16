@@ -31,6 +31,8 @@ const PRECACHE_URLS = [
   new URL('index.html', SCOPE_URL).toString(),
   new URL('manifest.webmanifest', SCOPE_URL).toString(),
   OFFLINE_URL,
+  new URL('assets/icons/icon-192.png', SCOPE_URL).toString(),
+  new URL('assets/icons/icon-512.png', SCOPE_URL).toString()
 ];
 
 // ---------- 小工具 ----------
@@ -83,16 +85,16 @@ const isUnderBasePath = (url) => {
 
 // ---------- 安装 ----------
 self.addEventListener('install', (event) => {
+  self.skipWaiting(); // ✅ 可选：安装后直接跳过 waiting
   event.waitUntil((async () => {
-    // 开启导航预加载（可加速首屏）
     if (self.registration.navigationPreload) {
-      try { await self.registration.navigationPreload.enable(); } catch (_) {}
+      try { await self.registration.navigationPreload.enable(); } catch {}
     }
     const cache = await caches.open(CACHES.STATIC);
     await cache.addAll(PRECACHE_URLS);
   })());
-  // 安装后立即进入 waiting（等客户端触发 skipWaiting）
 });
+
 
 // ---------- 激活 ----------
 self.addEventListener('activate', (event) => {
