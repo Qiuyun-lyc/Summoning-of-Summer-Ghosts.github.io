@@ -1,7 +1,9 @@
 {
+  "id": "/Summoning-of-Summer-Ghosts.github.io/",
   "name": "Summoning of Summer Ghosts",
   "short_name": "SummerGhosts",
-  "start_url": "/Summoning-of-Summer-Ghosts.github.io/",
+  "description": "Installable PWA version of the interactive story game.",
+  "start_url": "/Summoning-of-Summer-Ghosts.github.io/?source=pwa",
   "scope": "/Summoning-of-Summer-Ghosts.github.io/",
   "display": "standalone",
   "background_color": "#111111",
@@ -11,5 +13,3 @@
     { "src": "assets/icons/icon-512.png", "sizes": "512x512", "type": "image/png" }
   ]
 }
-<link rel="manifest" href="/Summoning-of-Summer-Ghosts.github.io/manifest.webmanifest">
-<meta name="theme-color" content="#111111">
