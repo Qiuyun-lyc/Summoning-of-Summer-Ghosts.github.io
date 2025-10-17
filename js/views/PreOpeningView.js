@@ -19,9 +19,9 @@ const PreOpeningView = {
                 }
             </style>
             <div class="view pre-opening-view">
-                <video id="pre-opening-video-1" src="./assets/video/intro_1.mp4" autoplay></video>
-                <video id="pre-opening-video-2" src="./assets/video/intro_2.mp4" loop style="display: none; cursor: pointer;"></video>
-                <video id="pre-opening-video-3" src="./assets/video/intro_3.mp4" style="display: none;"></video>
+                <video id="pre-opening-video-1" src="./assets/video/intro_1.mp4" autoplay playsinline preload="auto"></video>
+                <video id="pre-opening-video-2" src="./assets/video/intro_2.mp4" loop playsinline preload="auto" style="display: none; cursor: pointer;"></video>
+                <video id="pre-opening-video-3" src="./assets/video/intro_3.mp4" playsinline preload="auto" style="display: none;"></video>
             </div>
         `;
     },
@@ -44,19 +44,30 @@ const PreOpeningView = {
 
         // 监听视频1播放结束
         video1.addEventListener('ended', () => {
-            video1.style.display = 'none';
+            //  先让 video2 可见（覆盖在 video1 上）
             video2.style.display = 'block';
-            video2.play().catch(handleError); // 确保循环视频开始播放
+            video2.play().catch(handleError); // 2. 尝试播放 video2
 
-            // 只有在视频2开始显示后，才绑定用于跳转的点击事件
+            // 绑定点击事件以切换到 video3
             viewContainer.addEventListener('click', () => {
+                // 确保只在 video2 显示时触发
                 if (video2.style.display === 'block') {
-                    video2.style.display = 'none';
-                    video3.style.display = 'block';
-                    video3.play().catch(handleError); // 播放开门视频
+                    // 应用同样的无缝切换逻辑到 video3
+                    video3.style.display = 'block'; // 先显示 video3
+                    video3.play().catch(handleError); // 再播放
                 }
             }, { once: true });
             
+        }, { once: true });
+
+        // 监听 video2 是否真正开始播放，确认播放后再隐藏 video1，实现无缝切换
+        video2.addEventListener('playing', () => {
+            video1.style.display = 'none';
+        }, { once: true });
+
+        // 监听 video3 是否真正开始播放，确认播放后再隐藏 video2
+        video3.addEventListener('playing', () => {
+            video2.style.display = 'none';
         }, { once: true });
 
         // 监听视频3播放结束
@@ -84,7 +95,7 @@ const PreOpeningView = {
                 if (promptElement) {
                     promptElement.remove();
                 }
-                // 点击后允许播放声音
+                // 点击后允许播放
                 video1.play().catch(handleError);
                 viewContainer.removeEventListener('click', promptHandler);
             };
