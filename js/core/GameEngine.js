@@ -394,7 +394,7 @@ export default class GameEngine {
             switch (this.gameState.interactionCount) {
                 case 2:
                     this.uiManager.displayTooltip(
-                        `点击的 <kbd>自动播放</kbd> 按钮可自动播放剧情`,
+                        `点击的 <kbd>自动</kbd> 按钮可自动播放剧情`,
                         0
                     );
                     break;
