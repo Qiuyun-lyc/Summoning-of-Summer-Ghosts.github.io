@@ -90,23 +90,42 @@ export default class UIManager {
             choiceGroup.style.display = 'none';
         }
         
-        // 特殊图片仅在节点 30483-30486 时显示，否则隐藏
+        // 特殊图片仅在节点 30483-30486 时显示，否则从DOM中移除
         try {
-            const specialImg = document.getElementById('special-click-img');
-            if (specialImg) {
-                const currentNodeId = this.engine && this.engine.gameState && this.engine.gameState.currentSave
-                    ? this.engine.gameState.currentSave.nodeId
-                    : null;
-                const showNodes = ['30483','30484','30485','30486'];
-                if (showNodes.includes(String(currentNodeId))) {
+            const currentNodeId = this.engine && this.engine.gameState && this.engine.gameState.currentSave
+                ? this.engine.gameState.currentSave.nodeId
+                : null;
+            const showNodes = ['30483','30484','30485','30486'];
+            const shouldShow = showNodes.includes(String(currentNodeId));
+            
+            // 获取容器和特殊图片元素
+            const container = document.getElementById('special-image-container');
+            let specialImg = document.getElementById('special-click-img');
+            
+            if (shouldShow) {
+                // 如果应该显示但元素不存在，则创建
+                if (!specialImg && container) {
+                    specialImg = document.createElement('img');
+                    specialImg.id = 'special-click-img';
+                    specialImg.className = 'special-image';
+                    specialImg.src = './assets/img/1.png';
+                    specialImg.dataset.seq = '30483';
+                    specialImg.alt = 'special';
+                    specialImg.style.cssText = 'width:220px; height:123px; cursor:pointer; --pulse-duration:3s; --pulse-min:0.7; --glow-color: rgba(255,230,140,0.9); --glow-size: 24px; --hover-scale:1.08; --hover-glow-intensity:0.5;';
+                    container.appendChild(specialImg);
+                }
+                // 确保显示
+                if (specialImg) {
                     specialImg.style.display = 'inline-block';
-                } else {
-                    specialImg.style.display = 'none';
+                }
+            } else {
+                // 如果不应该显示且元素存在，则移除
+                if (specialImg) {
+                    specialImg.remove();
                 }
             }
         } catch (e) {
-            
-            console.warn('设置 special-click-img 可见性时出错:', e);
+            console.warn('处理special-click-img时出错:', e);
         }
     }
 
